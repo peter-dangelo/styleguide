@@ -4,7 +4,7 @@
   "description": "An app for documenting React components and styles for Namely",
   "main": " ",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp"
   },
   "author": "HipsterBrown",
   "license": "MIT",
