@@ -1,7 +1,3 @@
+@import './styleguide-base';
 @import 'bourbon';
-
-body {
-  background: red;
-  color: white;
-  font-family: $helvetica;
-}
+@import 'neat';

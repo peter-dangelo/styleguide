@@ -75,66 +75,50 @@ pre[class*="language-"] {
 
 .Styleguide {
   font-family: 'Open Sans', sans-serif; }
-
-.Styleguide-header {
-  height: 5rem;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
-  background-color: #272822;
-  color: white; }
-
-.Styleguide-header > h1 {
-  font-family: 'Open Sans', sans-serif;
-  padding-left: 2rem;
-  font-weight: 100;
-  margin: 0;
-  line-height: 5rem; }
-
-.Styleguide-sidebar {
-  position: fixed;
-  top: 5rem;
-  left: 0;
-  height: 100%;
-  width: 12.5rem;
-  border-right: solid 1px #eee; }
-
-.Styleguide-sidebar > ul {
-  list-style-type: none;
-  padding-left: 0; }
-
-.Styleguide-sidebar > ul li {
-  position: relative;
-  text-align: center;
-  transition: background-color 150ms linear; }
-
-.Styleguide-sidebar > ul li a {
-  text-decoration: none;
-  color: black;
-  width: 100%;
-  padding: 1rem 0;
-  display: block; }
-
-.Styleguide-sidebar > ul li:hover {
-  background-color: #eee;
-  transition: background-color 150ms linear; }
-
-.Styleguide-components {
-  position: relative;
-  margin-left: 12.5rem;
-  padding-top: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem; }
-
-.Styleguide-components-component {
-  padding-top: 4rem; }
-
-.Styleguide-components-component-example {
-  border: solid 1px #eeeeee;
-  padding: 1rem; }
-
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
+  .Styleguide-header {
+    height: 5rem;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: #272822;
+    color: white; }
+    .Styleguide-header > h1 {
+      font-family: 'Open Sans', sans-serif;
+      padding-left: 2rem;
+      font-weight: 100;
+      margin: 0;
+      line-height: 5rem; }
+  .Styleguide-sidebar {
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    height: 100%;
+    width: 12.5rem;
+    border-right: solid 1px #eee; }
+    .Styleguide-sidebar > ul {
+      list-style-type: none;
+      padding-left: 0; }
+      .Styleguide-sidebar > ul li {
+        position: relative;
+        text-align: center;
+        transition: background-color 150ms linear; }
+        .Styleguide-sidebar > ul li a {
+          text-decoration: none;
+          color: black;
+          width: 100%;
+          padding: 1rem 0;
+          display: block; }
+        .Styleguide-sidebar > ul li:hover {
+          background-color: #eee;
+          transition: background-color 150ms linear; }
+  .Styleguide-components {
+    position: relative;
+    margin-left: 12.5rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem; }
+    .Styleguide-components-component {
+      padding-top: 4rem; }
+      .Styleguide-components-component-example {
+        border: solid 1px #eeeeee;
+        padding: 1rem; }

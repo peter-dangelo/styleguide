@@ -1,5 +1,6 @@
 import Router from 'ampersand-router';
 import React from 'react';
+import HomePage from './pages/home';
 
 let appContainer = document.getElementById('app');
 
@@ -11,7 +12,7 @@ export default Router.extend({
   },
 
   home() {
-    React.render(React.DOM.h1({}, "Home"), appContainer);
+    React.render(HomePage(), appContainer);
   },
 
   nav() {
