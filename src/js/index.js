@@ -1,4 +1,5 @@
 import React from 'react';
+import AppRouter from './router';
 
 let D = React.DOM;
 let Type = React.PropTypes;
@@ -11,4 +12,7 @@ let App = React.createClass({
   }
 });
 
-React.render(App(), document.getElementById('app'));
+//React.render(App(), document.getElementById('app'));
+
+window.router = new AppRouter();
+window.router.history.start({ pushState: true });
