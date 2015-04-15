@@ -1,3 +1,11 @@
-@import './styleguide-base';
+// Dependencies
 @import 'bourbon';
 @import 'neat';
+
+// Namely Basics
+@import './colors';
+@import './base';
+@import './layout';
+
+// Namely Components
+@import './components/nav';

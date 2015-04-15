@@ -1,0 +1,11 @@
+html, body, #app, .main, .nav, .content-container {
+  height: 100%;
+}
+
+.main {
+  @include display(flex);
+}
+
+.content-container {
+  @include flex(1);
+}

@@ -1,26 +1,71 @@
 import Router from 'ampersand-router';
 import React from 'react';
+import NavContainer from './nav-container';
 import HomePage from './pages/home';
+import BasePage from './pages/base';
+import NavPage from './pages/nav';
+import TablesPage from './pages/tables';
+import FormsPage from './pages/forms';
+import ButtonsPage from './pages/buttons';
+import PopoversPage from './pages/popovers';
+import ModalsPage from './pages/modals';
+import CardsPage from './pages/cards';
 
 let appContainer = document.getElementById('app');
 
 export default Router.extend({
+  renderPage(Page) {
+    const main = React.createElement(NavContainer, {}, React.createElement(Page));
+
+    React.render(main, appContainer);
+  },
+
   routes: {
     '': 'home',
+    'base': 'base',
     'nav': 'nav',
-    'tables': 'tables'
+    'tables': 'tables',
+    'forms': 'forms',
+    'buttons': 'buttons',
+    'popovers': 'popovers',
+    'modals': 'modals',
+    'cards': 'cards'
   },
 
   home() {
-    React.render(HomePage(), appContainer);
+    this.renderPage(HomePage);
+  },
+
+  base() {
+    this.renderPage(BasePage);
   },
 
   nav() {
-    React.render(React.DOM.h1({}, "Nav Page"), appContainer);
+    this.renderPage(NavPage);
   },
 
   tables() {
-    React.render(React.DOM.h1({}, "Tables Page"), appContainer);
+    this.renderPage(TablesPage);
+  },
+
+  forms() {
+    this.renderPage(FormsPage);
+  },
+
+  buttons() {
+    this.renderPage(ButtonsPage);
+  },
+
+  popovers() {
+    this.renderPage(PopoversPage);
+  },
+
+  modals() {
+    this.renderPage(ModalsPage);
+  },
+  
+  cards() {
+    this.renderPage(CardsPage);
   }
 });
 

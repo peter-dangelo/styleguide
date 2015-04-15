@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "ampersand-router": "^3.0.2",
+    "local-links": "^1.3.0",
     "react": "^0.12.1",
     "react-styleguide": "0.0.4"
   },

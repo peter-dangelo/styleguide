@@ -1,0 +1,149 @@
+// Color style guide:
+//   * Never hard-code colors, always use a variable
+//   * Never use plain black, always a nearby color favoring blue
+//   * Colors without a suffix are base palette
+//   * All new colors should look good next to all base colors
+
+$black:          #151514;
+$white:          #ffffff;
+
+// blue
+$primary-blue:   #186bb7;
+$secondary-blue: #4c9be6;
+$tertiary-blue:  #0e3e6b;
+$baby-blue:      #a1d2ff;
+$light-blue:     #eaf5ff;
+
+// greys
+$grey-95:        #14212d;
+$grey-90:        #2b3742;
+$grey-75:        #4f5962;
+$grey-50:        #899096;
+$grey-25:        #c4c7ca;
+$grey-15:        #dcdee0;
+$grey-10:        #e7e8ea;
+$grey-5:         #f3f3f4;
+$grey-3:         #f9f9f9;
+
+// colors pastel
+$orange-pastel:  #f5c3aa;
+$yellow-pastel:  #fee5b7;
+$green-pastel:   #c0e1a3;
+$teal-pastel:    #a3e9ed;
+$purple-pastel:  #dec2e5;
+$blue-pastel:    #c9e1f7;
+
+// colors pure
+$orange:         #e05b18;
+$yellow:         #fdb836;
+$green:          #52ac00;
+$teal:           #00c2cb;
+$purple:         #9846af;
+
+// colors shades
+$orange-shade:   #b85828;
+$yellow-shade:   #d2a043;
+$green-shade:    #4a8b0f;
+$teal-shade:     #129ea5;
+$purple-shade:   #6f3b7e;
+
+// colors dark
+$dark-orange:    #87411d;
+$dark-yellow:    #9b7531;
+$dark-green:     #36660a;
+$dark-teal:      #0c7379;
+$dark-purple:    #582e63;
+
+// transparent colors
+$black-transparent-80: rgba(0, 0, 0, 0.8);
+$grey-90-transparent-85: rgba($grey-90, 0.85);
+$primary-blue-transparent-25: rgba($primary-blue, 0.25);
+$white-transparent-50: rgba($white, 0.5);
+$white-transparent-80: rgba($white, 0.8);
+
+
+// Utility classes for type
+.orange-text         { color: $orange !important }
+.dark-orange-text    { color: $dark-orange !important; }
+.green-text          { color: $green !important }
+.white-text          { color: $white !important; }
+.grey-25-text        { color: $grey-25 !important; }
+.grey-50-text        { color: $grey-50 !important; }
+.tertiary-blue-text  { color: $tertiary-blue !important; }
+.primary-blue-text   { color: $primary-blue !important; }
+.baby-blue-text      { color: $baby-blue !important; }
+.secondary-blue-text { color: $secondary-blue !important; }
+.dark-yellow-text    { color: $dark-yellow !important; }
+.yellow-text         { color: $yellow !important; }
+.dark-green-text     { color: $dark-green !important; }
+
+// _____________________________________________________________________________
+// Colors below here are waiting to be found and replaced with new ones from
+// the updated style guide.
+
+// greyscale
+$gray-lighter:   #F8F8F8;
+$gray-light:     #E6E9ED;
+$gray:           #CCCACB;
+$gray-med:       #979BA2;
+$gray-med-dark:  #CDD0D4;
+$gray-dark:      #5b5b5b;
+$gray-darker:    #232225;
+$gray-darkest:   #353535;
+$gray-blue:      #F2F4F6;
+$gray-nav:       #E6E9ED;
+$gray-chevron:   #9599A1;
+$gray-hover:     #424B53;
+
+// greens
+$green:          #6BBF19;
+$green-dark:     #3A7204;
+$green-light:    #9cbc59;
+
+// blues
+$blue:           #186AB7;
+$blue-light:     #91C4F5;
+$blue-med:       #4687C5;
+$blue-dark:      #073D6E;
+$blue-darker:    #162333; // new
+$blue-saturated: #31AEFF;
+$blue-navy:      #0d4477;
+$blue-sky:       #5b9fde;
+$blue-lighter:   #4c9be6;
+$blue-lightest:  #F7FBFF; //new
+$blue-barely:    #eaf1fb;
+$blue-content:   #ebf5ff;
+$blue-nav:       #1D446C;
+
+// warm
+$red:            #722209;
+$pink:           #FFE1E1;
+$orange:         #DF5B18;
+$yellow:         #FFB735;
+
+// pastels
+$orange-pastel: #f5c3aa;
+$green-pastel: #c0e1a3;
+
+// other
+$aqua:           #00C1CB;
+$brown:          #6A4200;
+
+$dark:           #151516;
+
+$blackbox-bg: #29292C;
+$blackbox-blue:#3B86CC;
+$blackbox-grey:#C9C7C7;
+$blackbox-contact-blue:#3B86CC;
+$blackbox-contact-grey:#8C8686;
+
+$show-profile-value:#080809;
+$show-profile-link:#1654A8;
+$show-profile-lightgrey:#8C8C8C;
+$show-profile-midgrey:#6D6D6D;
+$show-profile-grey:#505050;
+
+$show-profile-table-bg:#E0DFDF;
+$show-profile-table-hborder:#C3C3C3;
+$show-profile-table-vborder:#4A4A4A;
+
