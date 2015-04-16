@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 html {
   box-sizing: border-box; }
 
@@ -45,7 +46,7 @@ html {
 
 * {
   box-sizing: border-box;
-  font-family: Proxima, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1;
   margin: 0;
   padding: 0;
@@ -60,7 +61,10 @@ body {
   background: #ffffff;
   font-size: 16px; }
 
-html, body, #app, .main, .nav, .content-container {
+a {
+  color: inherit; }
+
+html, body, #app, .main, .nav, .content-container, .Styleguide, .Styleguide-sidebar {
   height: 100%; }
 
 .main {
@@ -106,10 +110,30 @@ html, body, #app, .main, .nav, .content-container {
   flex: 1; }
 
 .Styleguide-sidebar {
+  border-right: 1px solid #c4c7ca;
   padding: 3em 1em; }
+
+.Styleguide-sidebar-title {
+  color: #c4c7ca;
+  font-size: 0.75em;
+  font-weight: 400;
+  padding-bottom: 1em;
+  text-transform: uppercase; }
 
 .Styleguide-sidebar-list {
   list-style: none; }
+  .Styleguide-sidebar-list li {
+    color: #186bb7;
+    padding: 0.5em 0; }
+
+.Styleguide-components {
+  padding: 2em 3em; }
+
+.Styleguide-components-component {
+  margin-bottom: 2em; }
+
+.home-page {
+  padding: 3em; }
 
 .nav {
   background: #14212d;

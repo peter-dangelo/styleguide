@@ -6,6 +6,12 @@ export default React.createClass({
   displayName: "HomePage",
 
   render() {
-    return D.h1({}, "Namely Styleguide FTW");
+    return D.div({
+      className: 'home-page'
+    }, [
+      D.h1({
+        className: 'home-title'
+      }, "Namely Styleguide FTW")
+    ]);
   }
 });

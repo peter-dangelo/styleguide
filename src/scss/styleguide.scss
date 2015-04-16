@@ -3,13 +3,31 @@
 }
 
 .Styleguide-sidebar {
+  border-right: 1px solid $grey-25;
   padding: 3em 1em;
+}
+
+.Styleguide-sidebar-title {
+  color: $grey-25;
+  font-size: 0.75em;
+  font-weight: 400;
+  padding-bottom: 1em;
+  text-transform: uppercase;
 }
 
 .Styleguide-sidebar-list {
   list-style: none;
+
+  li {
+    color: $primary-blue;
+    padding: 0.5em 0;
+  }
 }
 
 .Styleguide-components {
+  padding: 2em 3em;
+}
 
+.Styleguide-components-component {
+  margin-bottom: 2em;
 }
