@@ -72,6 +72,9 @@ html, body, #app, .main, .nav, .content-container {
   display: -ms-flexbox;
   display: flex; }
 
+.nav-primary {
+  width: 15%; }
+
 .content-container {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -80,6 +83,33 @@ html, body, #app, .main, .nav, .content-container {
   -moz-flex: 1;
   -ms-flex: 1;
   flex: 1; }
+
+.Styleguide {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.Styleguide-sidebar {
+  width: 15%; }
+
+.Styleguide-components {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+.Styleguide-sidebar {
+  padding: 3em 1em; }
+
+.Styleguide-sidebar-list {
+  list-style: none; }
 
 .nav {
   background: #14212d;
