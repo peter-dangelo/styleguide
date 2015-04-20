@@ -30,7 +30,7 @@ gulp.task('styles', function(){
 gulp.task('server', ['styles', 'scripts'], function(){
   connect.server({
     root: ['public'],
-    liverelaod: true
+    livereload: true
   });
 });
 
