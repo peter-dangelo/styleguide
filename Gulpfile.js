@@ -20,6 +20,9 @@ gulp.task('scripts', function(){
 });
 
 gulp.task('styles', function(){
+  gulp.src('./bower_components/prism/themes/prism-twilight.css')
+  .pipe(gulp.dest('./public'));
+
   gulp.src('./src/scss/app.scss')
   .pipe(sass({
     includePaths: neat.includePaths
