@@ -19,10 +19,12 @@ gulp.task('scripts', function(){
   .pipe(connect.reload());
 });
 
-gulp.task('styles', function(){
+gulp.task('import-styles', function(){
   gulp.src('./bower_components/prism/themes/prism-twilight.css')
   .pipe(gulp.dest('./public'));
+});
 
+gulp.task('styles', function(){
   gulp.src('./src/scss/app.scss')
   .pipe(sass({
     includePaths: neat.includePaths
@@ -31,7 +33,7 @@ gulp.task('styles', function(){
   .pipe(connect.reload());
 });
 
-gulp.task('server', ['styles', 'scripts'], function(){
+gulp.task('server', ['import-styles', 'styles', 'scripts'], function(){
   connect.server({
     root: ['public'],
     livereload: true,
