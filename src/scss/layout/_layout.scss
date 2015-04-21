@@ -1,3 +1,12 @@
+/**
+
+  layout
+-----------------------------
+
+  A large portion of CSS is structural layout. You will use these helpers to crate the scaffolding that will support the elements and modules that make up your site.
+
+---------------------------*/
+
 html, body, #app, .main, .nav, .content-container, .Styleguide, .Styleguide-sidebar {
   height: 100%;
 }

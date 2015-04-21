@@ -1,0 +1,15 @@
+/** 
+
+  body
+-------------------------------------
+
+  Body should contain the document's default font and background color for the content, if that background color is different than the html.
+
+-----------------------------------*/
+
+body {
+  color: $black;
+  font-family: $sans-family;
+  line-height: 1;
+}
+

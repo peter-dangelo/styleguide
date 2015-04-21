@@ -1,16 +1,31 @@
-// Dependencies
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import 'bourbon';
-@import 'neat';
-@import './prism-twilight.css';
+/*****
 
-// Namely Basics
-@import './colors';
-@import './base';
-@import './code';
-@import './layout';
-@import './styleguide';
-@import './home';
+  MAIN STYLESHEET FOR NAMELY
 
-// Namely Components
-@import './components/nav';
+*****/
+
+// Vendor Dependencies
+@import "bourbon";
+@import "neat";
+@import "./prism-twilight.css";
+
+// Base
+@import "base/base";
+
+// Elements
+@import "elements/elements";
+
+// Layout
+@import "layout/layout";
+
+// Components
+@import "components/components";
+
+
+/*****************************
+ *
+ *  Shame
+ *  
+ *  Quick hacks that should only be temporary. Commit only in an emergency
+ ****************************/
+

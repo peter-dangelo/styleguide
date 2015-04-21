@@ -1,0 +1,45 @@
+/**
+
+  fonts
+-------------------------------------
+
+  Define the fonts used in this app and declare silent classes to be used in your CSS.
+
+-----------------------------------*/
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+/* sans
+------------------------------------
+
+  This is your basic sans font.
+
+---------------------------------*/
+
+$sans-family: 'Montserrat', sans-serif;
+
+
+
+
+/* serif
+-----------------------------------
+
+  This is your basic serif font.
+
+---------------------------------*/
+
+$serif-family: georgia, times, serif;
+
+
+
+/* weights
+----------------------------------
+
+  Various weights used with your fonts
+
+--------------------------------*/
+
+$font--light: 300;
+$font--regular: 400;
+$font--semibold: 600;
+$font--bold: 700;
