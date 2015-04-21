@@ -5,6 +5,7 @@ var babelify = require('babelify');
 var sass = require('gulp-sass');
 var neat = require('node-neat');
 var connect = require('gulp-connect');
+var history = require('connect-history-api-fallback');
 
 gulp.task('scripts', function(){
   browserify({
@@ -30,7 +31,12 @@ gulp.task('styles', function(){
 gulp.task('server', ['styles', 'scripts'], function(){
   connect.server({
     root: ['public'],
-    livereload: true
+    livereload: true,
+    middleware: function() {
+      return [
+        history()
+      ]
+    }
   });
 });
 
