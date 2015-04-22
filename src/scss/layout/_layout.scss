@@ -7,30 +7,9 @@
 
 ---------------------------*/
 
-html, body, #app, .main, .nav, .content-container, .Styleguide, .Styleguide-sidebar {
-  height: 100%;
-}
+// Grid
+//
+@import "grid";
 
-.main {
-  @include display(flex);
-}
-
-.nav-primary {
-  width: 15%;
-}
-
-.content-container {
-  @include flex(1);
-}
-
-.Styleguide {
-  @include display(flex);
-}
-
-.Styleguide-sidebar {
-  width: 15%;
-}
-
-.Styleguide-components {
-  @include flex(1);
-}
+// Flexbox
+@import "flexbox";

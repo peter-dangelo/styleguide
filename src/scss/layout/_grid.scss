@@ -1,0 +1,30 @@
+/**
+
+  grid
+--------------------------------
+
+  The grid is made up of utility classes that refer to the number of columns out of a 12 column system.
+
+------------------------------*/
+
+// Our base column classes
+@for $i from 1 through 12 {
+  // loops through these numbers and spits out the needed grid classes
+  .col-#{$i} {
+    // using Neat's span-columns mixin
+    @include span-columns($i of 12);
+  }
+}
+
+.last {
+  @include omega;
+}
+
+// Row class used to contain grid elements and clear floats.
+.row {
+  @include row;
+}
+
+.tall {
+  height: 100%;
+}

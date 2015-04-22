@@ -2,6 +2,7 @@ import Router from 'ampersand-router';
 import React from 'react';
 import NavContainer from './nav-container';
 import HomePage from './pages/home';
+import LayoutPage from './pages/layout';
 import BasePage from './pages/base';
 import NavPage from './pages/nav';
 import TablesPage from './pages/tables';
@@ -22,6 +23,7 @@ export default Router.extend({
 
   routes: {
     '': 'home',
+    'layout': 'layout',
     'base': 'base',
     'nav': 'nav',
     'tables': 'tables',
@@ -34,6 +36,10 @@ export default Router.extend({
 
   home() {
     this.renderPage(HomePage);
+  },
+
+  layout() {
+    this.renderPage(LayoutPage);
   },
 
   base() {

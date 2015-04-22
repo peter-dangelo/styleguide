@@ -45,11 +45,11 @@ export default React.createClass({
     let self = this;
 
     return D.div({
-      className: 'main',
+      className: 'main flex tall',
       onClick: self.handleClick
     }, [
       D.nav({
-        className: 'nav nav-primary',
+        className: 'nav nav-primary col-2 last tall',
         role: 'navigation'
       }, [
         D.ul({
@@ -57,6 +57,7 @@ export default React.createClass({
           ref: 'navList'
         }, [
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/' }, 'Home')),
+          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/layout' }, 'Layout')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/base' }, 'Base Styles')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/nav' }, 'Navigation')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/tables' }, 'Tables + Lists')),
@@ -68,7 +69,7 @@ export default React.createClass({
         ])
       ]),
       D.section({
-        className: 'content-container'
+        className: 'content-container flex-fill tall'
       }, self.props.children)
     ]);
   }

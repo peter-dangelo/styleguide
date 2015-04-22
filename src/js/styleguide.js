@@ -8,7 +8,7 @@ export default React.createClass({
 
     children = (React.Children.count(children) == 1) ? [children] : children;
 
-    return children.map(function (child) {
+    return React.Children.map(children, function (child) {
       let title = child.props.title.replace(" ", "-");
       return React.createElement("li", null, React.createElement("a", {
         href: `#${title}`
@@ -21,12 +21,10 @@ export default React.createClass({
     let self = this;
 
     children = (React.Children.count(children) == 1) ? [children] : children;
-    return children.map(function (child) {
-      console.log(child);
-
+    return React.Children.map(children, function (child) {
       let title = child.props.title.replace(" ", "-");
 
-      return (React.createElement("div", {
+      return React.createElement("div", {
         className: "Styleguide-components-component",
         id: title
       }, React.createElement("h2", {
@@ -35,11 +33,12 @@ export default React.createClass({
         className: "Styleguide-components-component-description"
       }, child.props.description), React.createElement("div", {
         className: "Styleguide-components-component-example"
-      }, child.props.children), React.createElement("div", {
+      }, child.props.children), self.props.example ? React.createElement("div", {
         className: "Styleguide-components-component-code"
       }, React.createElement("pre", null, React.createElement("code", {
         className: self.props.codeClassName ? self.props.codeClassName : "language-javascript"
-      }, self.props.highlight ? self.props.highlight(child.props.example) : child.props.example)))));
+      }, self.props.highlight ? self.props.highlight(child.props.example) : child.props.example))) : void 0
+      );
     });
   },
 
@@ -47,9 +46,9 @@ export default React.createClass({
 
   render: function () {
     return (React.createElement("div", {
-      className: "Styleguide"
+      className: "Styleguide flex tall"
     }, React.createElement("div", {
-      className: "Styleguide-sidebar"
+      className: "Styleguide-sidebar col-2 last tall"
     }, [
       React.createElement("h5", {
         className: "Styleguide-sidebar-title"
@@ -58,7 +57,7 @@ export default React.createClass({
         className: "Styleguide-sidebar-list"
       }, this.listComponentTitles())
     ]), React.createElement("div", {
-      className: "Styleguide-components"
+      className: "Styleguide-components flex-fill"
     }, this.listComponents())));
   }
 });

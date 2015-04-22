@@ -1,0 +1,16 @@
+/**
+
+  flexbox
+---------------------------
+
+  Flexbox is a modern layout tool we can take advantage of on occasion using the following utility classes.
+
+-------------------------*/
+
+.flex {
+  @include display(flex);
+};
+
+.flex-fill {
+  @include flex(1);
+}
