@@ -7,6 +7,11 @@
 
 ------------------------------*/
 
+// Container class
+.container {
+  @include outer-container(67.5em);
+}
+
 // Our base column classes
 @for $i from 1 through 12 {
   // loops through these numbers and spits out the needed grid classes
