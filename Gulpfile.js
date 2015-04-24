@@ -37,12 +37,12 @@ gulp.task('styles', function(){
 
 
 gulp.task('colors', function(){
-  var source = './src/lib/colors.json';
+  var source = './src/lib/_colors.json';
   var banner = "// generated from <%= source %> by gulp-json-sass\n\n";
   gulp.src(source)
   .pipe(jsonSass())
   .pipe(header(banner, {source: source}))
-  .pipe(gulp.dest('./src/scss/'));
+  .pipe(gulp.dest('./src/scss/base/'));
 });
 
 gulp.task('server', ['import-styles', 'colors', 'styles', 'scripts'], function(){
