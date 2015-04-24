@@ -18,7 +18,7 @@ export default React.createClass({
       }, React.createElement("p", {}, "Some sample text for this paragraph component")),
       React.createElement("div", {
         title: "Colors",
-        description: "Namely's colors",
+        description: "Namely's colors -- yeah this is ugly but it will be gridded out",
         example: 'D.p({}, "Some sample text for this paragraph component")'
       }, React.createElement(Colors))
     ]);

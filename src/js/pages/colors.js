@@ -12,7 +12,8 @@ export default React.createClass({
           D.li({
             style: {"background-color": ColorData[base_color][variant]}
           }, [
-            `.${base_color}-${variant} ${ColorData[base_color][variant]}`
+            `.${base_color}-${variant} ${ColorData[base_color][variant]}`,
+              D.code({className: 'language-css'},`.${base_color}-${variant}`)
           ])
         ))
     )))
