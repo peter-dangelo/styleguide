@@ -1,5 +1,5 @@
 import React from 'react';
-import ColorData from '../../lib/colors'
+import ColorData from '../../lib/_colors'
 
 let D = React.DOM;
 
