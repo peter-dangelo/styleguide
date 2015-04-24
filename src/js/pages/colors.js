@@ -9,7 +9,7 @@ export default React.createClass({
     return D.ul(null, Object.keys(ColorData).map((base_color, index) =>
       D.li(null, { base_color },
         D.ul(null, Object.keys(ColorData[base_color]).map((variant,index) =>
-          D.li(null, variant, D.span(null, {}, ColorData[base_color][variant]))
+          D.li({style: {"background-color": ColorData[base_color][variant]}}, variant, D.span(null, {}, ColorData[base_color][variant]))
         ))
     )))
   }
