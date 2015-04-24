@@ -10,11 +10,15 @@ export default React.createClass({
   //  colClass: Type.string.required
   //},
 
+  colContent() {
+    return this.props.colContent || this.props.colClass
+  },
+
   render() {
     return D.div({
       className: `grid-block ${this.props.colClass}`
     }, D.p({
       className: "col-class",
-    }, `.${this.props.colClass}` ));
+    }, `.${this.colContent()}` ));
   }
 });
