@@ -9,7 +9,6 @@ Getting Started
 2. Install dependencies
 ```shell
 $ npm install
-$ bower install
 ```
 3. Serve app
 ```shell
