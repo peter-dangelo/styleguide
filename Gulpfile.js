@@ -58,6 +58,7 @@ gulp.task('server', ['import-styles', 'colors', 'styles', 'scripts'], function()
 });
 
 gulp.task('watch', function(){
+  gulp.watch('src/lib/_colors.json', ['colors']);
   gulp.watch('src/scss/**', ['styles']);
   gulp.watch('src/js/**', ['scripts']);
 });
