@@ -6,6 +6,8 @@ var sass = require('gulp-sass');
 var neat = require('node-neat');
 var connect = require('gulp-connect');
 var history = require('connect-history-api-fallback');
+var jsonSass = require('gulp-json-sass');
+var header = require('gulp-header');
 
 gulp.task('scripts', function(){
   browserify({
@@ -33,7 +35,17 @@ gulp.task('styles', function(){
   .pipe(connect.reload());
 });
 
-gulp.task('server', ['import-styles', 'styles', 'scripts'], function(){
+
+gulp.task('colors', function(){
+  var source = './src/lib/_colors.json';
+  var banner = "// generated from <%= source %> by gulp-json-sass\n\n";
+  gulp.src(source)
+  .pipe(jsonSass())
+  .pipe(header(banner, {source: source}))
+  .pipe(gulp.dest('./src/scss/base/'));
+});
+
+gulp.task('server', ['import-styles', 'colors', 'styles', 'scripts'], function(){
   connect.server({
     root: ['public'],
     livereload: true,

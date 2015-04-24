@@ -1,46 +1,36 @@
-// blue
-$primary-blue: #186bb7;
-$secondary-blue: #4c9be6;
-$tertiary-blue: #0e3e6b;
-$baby-blue: #a1d2ff;
-$light-blue: #eaf5ff;
+// generated from ./src/lib/_colors.json by gulp-json-sass
 
-// greys
-$grey-95: #14212d;
-$grey-90: #2b3742;
-$grey-75: #4f5962;
-$grey-50: #899096;
-$grey-25: #c4c7ca;
-$grey-25: #dcdee0;
-$grey-10: #e7e8ea;
-$grey-5: #f3f3f4;
-$grey-3: #f9f9f9;
-
-// colors pastel
-$orange-pastel: #f5c3aa;
-$yellow-pastel: #fee5b7;
-$green-pastel: #c0e1a3;
-$teal-pastel: #a3e9ed;
-$purple-pastel: #dec2e5;
+$blue-primary: #186bb7;
+$blue-secondary: #4c9be6;
+$blue-tertiary: #0e3e6b;
+$blue-baby: #a1d2ff;
+$blue-light: #eaf5ff;
 $blue-pastel: #c9e1f7;
-
-// colors pure
-$orange: #e05b18;
-$yellow: #fdb836;
-$green: #52ac00;
-$teal: #00c2cb;
-$purple: #9846af;
-
-// colors shades
+$orange-pure: #e05b18;
+$orange-pastel: #f5c3aa;
 $orange-shade: #b85828;
-$yellow-shade: #d2a043;
-$green-shade: #4a8b0f;
-$teal-shade: #129ea5;
-$purple-shade: #6f3b7e;
-
-// colors dark
 $orange-dark: #87411d;
+$yellow-pure: #fdb836;
+$yellow-pastel: #fee5b7;
+$yellow-shade: #d2a043;
 $yellow-dark: #9b7531;
+$green-pure: #52ac00;
+$green-pastel: #c0e1a3;
+$green-shade: #4a8b0f;
 $green-dark: #36660a;
+$teal-pure: #00c2cb;
+$teal-pastel: #a3e9ed;
+$teal-shade: #129ea5;
 $teal-dark: #0c7379;
+$purple-pure: #9846af;
+$purple-pastel: #dec2e5;
+$purple-shade: #6f3b7e;
 $purple-dark: #582e63;
+$grey-3:  #f9f9f9;
+$grey-5:  #f3f3f4;
+$grey-10:  #e7e8ea;
+$grey-25:  #dcdee0;
+$grey-50:  #899096;
+$grey-75:  #4f5962;
+$grey-90:  #2b3742;
+$grey-95:  #14212d;
