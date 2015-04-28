@@ -1,0 +1,43 @@
+/**
+
+  typogrpahy
+--------------------------
+
+  We set default typographic styles for the body, headings, paragraphs, lists, and other elements.
+
+  Additionally, we add classnames so we can apply the styling of, for instance, an h1 to an h2.
+
+------------------------*/
+
+// Base typography styling
+h1, h2, h3, h4 {
+  line-height: $heading-line-height;
+  margin-bottom: 0.375rem;
+}
+
+h5, h6, p, small, .small {
+  line-height: $line-height;
+}
+
+h5, h6 {
+  margin-bottom: 1.5rem;
+}
+
+p, small, .small {
+  margin-bottom: 0.75rem;
+}
+
+p, dl, ol, ul {
+  font-size: $h5;
+}
+
+small, .small {
+  font-size: $h6;
+} 
+
+h1, .h1 { font-size: $h1; }
+h2, .h2 { font-size: $h2; }
+h3, .h3 { font-size: $h3; }
+h4, .h4 { font-size: $h4; }
+h5, .h5 { font-size: $h5; }
+h6, .h6 { font-size: $h6; }
