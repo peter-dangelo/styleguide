@@ -8,18 +8,20 @@
 -----------------------*/
 
 // Spacing variables for padding and margins
-$space-1: 0.5rem !default;
-$space-2: 1rem !default;
-$space-3: 2rem !default;
-$space-4: 4rem !default;
+$space-1: 0.3125rem !default;
+$space-2: 0.625rem !default;
+$space-3: 1.25rem !default;
+$space-4: 1.875rem !default;
+$space-5: 2.5rem !default;
 
 
 // Sizing variables for typography
-$h1: 2rem !default;
+$h1: 2.25rem !default;
 $h2: 1.5rem !default;
-$h3: 1.25rem !default;
-$h4: 1rem !default;
-$h5: 0.875rem !default;
-$h6: 0.75rem !default;
+$h3: 1.3rem !default;
+$h4: 1.125rem !default;
+$h5: 1rem !default;
+$h6: 0.875rem !default;
 
-$line-height: 1.5 !default;
+$line-height: 1.375;
+$heading-line-height: 1.1;
