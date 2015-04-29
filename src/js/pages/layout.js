@@ -108,14 +108,31 @@ export default React.createClass({
         }, [
           GridBlock({ colClass: "col-12" }),
         ]),
-        D.h2(null, "Example: Basic Layout", [
-          D.div({
-            className: "row"
-          }, GridBlock({ colClass: "col-12", colContent: "Header"})),
-          D.div({className: "row" }, [
-            GridBlock({ colClass: "col-3", colContent: "Sidebar" }),
-            GridBlock({ colClass: "col-9", colContent: "Content" }),
-          ])
+        D.h3({
+          className: "mt5"
+        }, "Example: Basic Layout", [
+        ]),
+        D.div({
+          className: "row"
+        }, 
+          GridBlock({ colClass: "col-12", colContent: "col-12 (Header)"})
+        ),
+        D.div({className: "row" }, [
+          GridBlock({ colClass: "col-3", colContent: "col-3 (Sidebar)" }),
+          GridBlock({ colClass: "col-9", colContent: "col-9 (Content)" }),
+        ])
+      ]),
+      D.div({
+        title: "Flexbox",
+        description: "The utility classes for using the flexbox layout system."
+      }, [
+        D.h3({className: "mt3"}, ".flex"),
+        D.p({}, "Example contains a parent container with a class of 'flex' and two child divs with no special classes"),
+        D.div({
+          className: "flex border p2"
+        }, [
+          D.div({className: "border p1 mr2"}, D.span({}, "A DIV of Content")),
+          D.div({className: "border p1 mr2"}, D.span({}, "A DIV of Content")),
         ])
       ])
     ]);

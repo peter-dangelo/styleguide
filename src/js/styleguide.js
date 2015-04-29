@@ -57,7 +57,7 @@ export default React.createClass({
         className: "Styleguide-sidebar-list"
       }, this.listComponentTitles())
     ]), React.createElement("div", {
-      className: "Styleguide-components flex-fill"
+      className: "Styleguide-components flex-fill overflow-scroll"
     }, this.listComponents())));
   }
 });

@@ -45,12 +45,12 @@ export default React.createClass({
     let self = this;
 
     return D.div({
-      className: 'main flex tall',
-      onClick: self.handleClick
+      className: 'main flex tall'
     }, [
       D.nav({
         className: 'nav nav-primary col-2 last tall',
-        role: 'navigation'
+        role: 'navigation',
+        onClick: self.handleClick
       }, [
         D.ul({
           className: 'nav-list',
