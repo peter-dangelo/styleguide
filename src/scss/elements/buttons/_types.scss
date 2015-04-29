@@ -1,0 +1,38 @@
+%button-types {
+
+  // Secondary Button
+  &.button-secondary {
+    background: $blue-secondary;
+
+    &:hover {
+      background: $blue-primary;
+    }
+
+    &:active {
+      background: $blue-tertiary;
+    }
+  }
+
+  // Danger Button
+  &.button-danger {
+    background: $orange-pure;
+
+    &:hover {
+      background: $orange-shade;
+    }
+
+    &:active {
+      background: $orange-dark;
+    }
+  }
+
+  // Disabled Button
+  &:disabled, &.button-disabled {
+    background: $grey-25;
+    cursor: not-allowed;
+
+    &:hover {
+      background: $grey-25;
+    }
+  }
+}
