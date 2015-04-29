@@ -6,10 +6,7 @@ export default createClass({
   displayName: "Flexbox",
 
   render() {
-    return D.div({
-      title: "Flexbox",
-      description: "The utility classes for using the flexbox layout system."
-    }, [
+    return D.section({}, [
       D.h3({className: "mt3"}, ".flex"),
       D.p({}, "Example contains a parent container with a class of 'flex' and two child divs with no special classes"),
       D.div({

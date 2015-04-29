@@ -123,7 +123,10 @@ export default createClass({
           GridBlock({ colClass: "col-9", colContent: "col-9 (Content)" }),
         ])
       ]),
-      Flexbox({title: "Flexbox"})
+      D.div({
+        title: "Flexbox",
+        description: "The utility classes for using the flexbox layout system."
+      }, Flexbox())
     ]);
   }
 });
