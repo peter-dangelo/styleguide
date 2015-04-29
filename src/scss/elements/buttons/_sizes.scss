@@ -1,0 +1,14 @@
+%button-sizes {
+
+  &.button-sm {
+    font-size: 14px;
+    line-height: 24px;
+    height: 24px;
+    font-weight: bold;
+
+    &:before {
+      line-height: 24px !important;
+      font-size: 10px;
+    }
+  }
+}
