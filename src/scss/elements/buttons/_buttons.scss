@@ -1,0 +1,57 @@
+/**
+
+  buttons
+-------------------------------------
+
+  Various button styles
+
+-----------------------------------*/
+
+@import "types";
+@import "sizes";
+
+$button-height: 32px;
+
+button,
+.button {
+  @include appearance(none);
+  @include border-right-radius($border-radius);
+  @include border-left-radius($border-radius);
+  @include transition(background 0s, color 0s);
+
+  text-rendering: optimizeLegibility;
+  font-size: 18px;
+  padding: 0 10px;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 0;
+  background: $blue-primary;
+  color: $white;
+  margin: 0;
+  height: $button-height;
+  vertical-align: middle;
+  line-height: $button-height;
+
+  &:before, &:after {
+    line-height: $button-height;
+    box-sizing: border-box;
+  }
+
+  &:hover, &:active {
+    @include transition(background $duration, color $duration);
+
+    text-decoration: none;
+    background: $blue-tertiary;
+  }
+
+  @extend %button-types;
+  @extend %button-sizes;
+}
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
