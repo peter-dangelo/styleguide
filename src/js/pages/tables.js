@@ -26,19 +26,19 @@ export default React.createClass({
             <h5>Lorem ipsum</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis dictum nulla, quis hendrerit felis. Suspendisse potenti</p></td>
           <td>here</td>
-          <td><span className='yellow-pure'>Pending</span></td>
+          <td><span className='yellow'>Pending</span></td>
           <td>here</td>
         </tr>
         <tr>
           <td>more</td>
           <td>stuff</td>
-          <td><span className='green-pure'>Approved</span></td>
+          <td><span className='green'>Approved</span></td>
           <td>here</td>
         </tr>
         <tr>
           <td>more</td>
           <td>stuff</td>
-          <td><span className='orange-pure'>Declined</span></td>
+          <td><span className='orange'>Declined</span></td>
           <td>here</td>
         </tr>
       </tbody>
@@ -74,7 +74,7 @@ export default React.createClass({
       <div title="Tables" description="The table styles for Namely">
         <h3>Basic Table</h3>
         { this.renderBasicTable() }
-        <p className="bg-orange-pure">
+        <p className="bg-orange">
           Todo: Utility to center in a td?
         </p>
         {/* temporary hr to be replaced by styleguid hr */}
@@ -85,7 +85,7 @@ export default React.createClass({
         <br/>
         <h3>Checkbox table</h3>
         { this.renderCheckboxTable() }
-        <p className="bg-orange-pure">
+        <p className="bg-orange">
           Todo: Checkbox styles
         </p>
       </div>
