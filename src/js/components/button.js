@@ -9,14 +9,16 @@ export default React.createClass({
    type: Type.oneOf([null, 'danger', 'secondary', 'previous', 'next']),
    label: Type.string,
    size: Type.oneOf([null, 'sm']),
-   disabled: Type.bool
+   disabled: Type.bool,
+   link: Type.bool
   },
 
   getDefaultProps: function() {
     return {
       type: null,
       size: null,
-      disabled: false
+      disabled: false,
+      link: false
     };
   },
 
@@ -25,17 +27,21 @@ export default React.createClass({
   },
 
   classes: function() {
-    var classes = []
+    var classes = [];
 
     if (this.props.type) {
-      classes.push(this.createClass(this.props.type))
+      classes.push(this.createClass(this.props.type));
     }
 
     if (this.props.size) {
-      classes.push(this.createClass(this.props.size))
+      classes.push(this.createClass(this.props.size));
     }
 
-    return classes.join(' ')
+    if (this.props.link === true) {
+      classes.push("button-link");
+    }
+
+    return classes.join(' ');
   },
 
   render() {
