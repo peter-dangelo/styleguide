@@ -1,0 +1,20 @@
+%button-disabled {
+
+  // Disabled Button
+  &:disabled, &.button-disabled {
+    background: $grey-25;
+    cursor: not-allowed;
+
+    &:before, &:after {
+      background: $grey-25;
+    }
+
+    &:hover {
+      background: $grey-25;
+
+      &:before, &:after {
+        background: $grey-25;
+      }
+    }
+  }
+}

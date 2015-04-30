@@ -25,14 +25,4 @@
       background: $orange-dark;
     }
   }
-
-  // Disabled Button
-  &:disabled, &.button-disabled {
-    background: $grey-25 !important;
-    cursor: not-allowed;
-
-    &:hover, &:before, &:after {
-      background: $grey-25 !important;
-    }
-  }
 }
