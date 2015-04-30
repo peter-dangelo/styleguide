@@ -6,15 +6,17 @@ export default React.createClass({
   displayName: "Button",
 
   propTypes: {
-   type: Type.oneOf([null, 'danger', 'secondary', 'disabled']),
+   type: Type.oneOf([null, 'danger', 'secondary']),
    label: Type.string,
-   size: Type.oneOf([null, 'sm'])
+   size: Type.oneOf([null, 'sm']),
+   disabled: Type.bool
   },
 
   getDefaultProps: function() {
     return {
       type: null,
-      size: null
+      size: null,
+      disabled: false
     };
   },
 
@@ -33,6 +35,6 @@ export default React.createClass({
   },
 
   render() {
-    return <button className={ this.classes() }>{ this.props.label }</button>;
+    return <button className={ this.classes() } disabled={ this.props.disabled }>{ this.props.label }</button>;
   }
 });
