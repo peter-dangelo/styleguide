@@ -34,6 +34,7 @@ button,
   height: $button-height;
   vertical-align: middle;
   line-height: $button-height;
+  outline: none;
 
   &:before, &:after {
     line-height: $button-height;
