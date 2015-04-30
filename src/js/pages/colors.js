@@ -14,10 +14,10 @@ export default React.createClass({
   render() {
     return D.section(null, Object.keys(ColorData).map((base_color, index) =>
       D.article({className: "mb3"}, null,
-        D.h3({}, base_color),
+        D.h3({ className: base_color}, base_color),
         Object.keys(ColorData[base_color]).map((variant,index) =>
           D.div({
-            className: 'row mb2'
+            className: 'flex flex-center'
           }, [
             D.div({className: `col-1 bg-${this.colorClass(base_color, variant)}`}, "\u00a0"),
             D.div({className: `col-1 ${this.colorClass(base_color, variant)}`}, `${ColorData[base_color][variant]}`),
