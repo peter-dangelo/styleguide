@@ -79,12 +79,23 @@ $arrow-top: ($base-button-height * 0.25)/2;
       &:before, &:after {
         transition: background $duration;
       }
+
+      &:disabled, &.button-disabled {
+        background: $grey-25;
+
+        &:before, &:after {
+          background: $grey-25;
+        }
+      }
     }
 
     &:active {
+
       &:before, &:after {
         background: $blue-tertiary;
       }
     }
+
+    @extend %button-disabled;
   }
 }
