@@ -41,3 +41,15 @@ h3, .h3 { font-size: $h3; }
 h4, .h4 { font-size: $h4; }
 h5, .h5 { font-size: $h5; }
 h6, .h6 { font-size: $h6; }
+
+.bold    { font-weight: bold }
+.regular { font-weight: normal }
+.italic  { font-style: italic }
+.caps    { text-transform: uppercase; letter-spacing: .2em; }
+
+.left-align   { text-align: left }
+.center       { text-align: center }
+.right-align  { text-align: right }
+.justify      { text-align: justify }
+
+.nowrap { white-space: nowrap }
