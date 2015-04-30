@@ -58,3 +58,25 @@ tbody tr:last-child td {
 tbody tr:hover {
   background: $grey-5;
 }
+
+.sortable {
+
+  .sortable-header {
+    cursor: pointer;
+    background: orange;
+  }
+
+  .sortable-header.sorted {
+    background: green;
+  }
+
+  .sortable-header.sorted.disabled {
+    cursor: default;
+    background: red;
+  }
+
+  .sortable-header:hover {
+    background: yellow;
+  }
+
+}
