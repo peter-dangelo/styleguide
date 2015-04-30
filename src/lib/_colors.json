@@ -8,31 +8,31 @@
     "pastel":"#c9e1f7"
   },
   "orange":{
-    "pure":"#e05b18",
+    "":"#e05b18",
     "pastel":"#f5c3aa",
     "shade":"#b85828",
     "dark":"#87411d"
   },
   "yellow":{
-    "pure":"#fdb836",
+    "":"#fdb836",
     "pastel":"#fee5b7",
     "shade":"#d2a043",
     "dark":"#9b7531"
   },
   "green":{
-    "pure":"#52ac00",
+    "":"#52ac00",
     "pastel":"#c0e1a3",
     "shade":"#4a8b0f",
     "dark":"#36660a"
   },
   "teal":{
-    "pure":"#00c2cb",
+    "":"#00c2cb",
     "pastel":"#a3e9ed",
     "shade":"#129ea5",
     "dark":"#0c7379"
   },
   "purple":{
-    "pure":"#9846af",
+    "":"#9846af",
     "pastel":"#dec2e5",
     "shade":"#6f3b7e",
     "dark":"#582e63"

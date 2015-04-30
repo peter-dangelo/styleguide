@@ -48,7 +48,7 @@ export default React.createClass({
     return (React.createElement("div", {
       className: "Styleguide flex tall"
     }, React.createElement("div", {
-      className: "Styleguide-sidebar col-2 last tall"
+      className: "Styleguide-sidebar col-2"
     }, [
       React.createElement("h5", {
         className: "Styleguide-sidebar-title"
@@ -57,7 +57,7 @@ export default React.createClass({
         className: "Styleguide-sidebar-list"
       }, this.listComponentTitles())
     ]), React.createElement("div", {
-      className: "Styleguide-components flex-fill"
+      className: "Styleguide-components flex-auto overflow-scroll"
     }, this.listComponents())));
   }
 });

@@ -4,7 +4,7 @@
   "description": "An app for documenting React components and styles for Namely",
   "main": " ",
   "scripts": {
-    "postinstall":"node_modules/.bin/bower install",
+    "postinstall": "node_modules/.bin/bower install",
     "start": "gulp"
   },
   "author": "HipsterBrown",
@@ -19,11 +19,11 @@
     "babelify": "^6.0.2",
     "browserify": "^9.0.8",
     "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.2.0",
     "gulp-connect": "^2.2.0",
     "gulp-header": "^1.2.2",
-    "gulp-json-sass": "0.0.2",
+    "gulp-json-sass": "hipsterbrown/gulp-json-sass",
     "gulp-sass": "^1.3.3",
-    "node-neat": "^1.7.1-beta1",
     "vinyl-source-stream": "^1.1.0"
   }
 }
