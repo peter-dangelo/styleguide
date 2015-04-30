@@ -48,7 +48,7 @@ export default React.createClass({
       className: 'main flex tall'
     }, [
       D.nav({
-        className: 'nav nav-primary col-2 last tall',
+        className: 'nav nav-primary col-2 tall',
         role: 'navigation',
         onClick: self.handleClick
       }, [
@@ -69,7 +69,7 @@ export default React.createClass({
         ])
       ]),
       D.section({
-        className: 'content-container flex-fill tall'
+        className: 'content-container flex-auto tall'
       }, self.props.children)
     ]);
   }
