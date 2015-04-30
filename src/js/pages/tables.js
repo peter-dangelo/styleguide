@@ -18,12 +18,9 @@ export default React.createClass({
         <p className="bg-orange">
           Todo: Utility to center in a td?
         </p>
-        {/* temporary hr to be replaced by styleguid hr */}
-        <br/>
-        <br/>
-        <hr/>
-        <br/>
-        <br/>
+
+        <hr />
+
         <h3>Checkbox table</h3>
 
         <TableCheckboxes />
