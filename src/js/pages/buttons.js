@@ -25,6 +25,12 @@ export default React.createClass({
         <Button label=".button-sm.button-danger" size="sm" type="danger" />
         <Button label=".button-sm:disabled" size="sm" disabled={ true } />
       </div>
+
+      <div title="Directions">
+        <Button label=".button-previous" type="previous" />
+        <Button label=".button-next" type="next" />
+      </div>
+
     </Styleguide>
   }
 });
