@@ -26,6 +26,15 @@ export default React.createClass({
         <Button label=".button-sm:disabled" size="sm" disabled={ true } />
       </div>
 
+      <div title="Links">
+        <Button label=".button-link" link={ true } />
+        <Button label=".button-link.button-secondary" type="secondary" link={ true } />
+        <Button label=".button-link.button-danger" type="danger" link={ true } />
+        <Button label=".button-link:disabled" link={ true } disabled={ true } />
+        <Button label=".button-link.button-sm" size="sm" link={ true } />
+        <Button label=".button-link.button-sm.button-secondary" size="sm" type="secondary" link={ true } />
+      </div>
+
       <div title="Directions">
         <Button label=".button-previous" type="previous" />
         <Button label=".button-next" type="next" />
