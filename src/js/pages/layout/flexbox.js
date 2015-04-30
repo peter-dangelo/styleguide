@@ -126,17 +126,6 @@ export default createClass({
       D.h2(null, "Child elements"),
       D.p(null, "To control the size and behavior of child elements, use these utilities."),
       D.article({className: "mt3 mb4"}, [
-        D.h3(null, ".flex-justify"),
-        D.p({}, "Example contains a parent container with classes 'flex' & 'flex-justify' and three child divs with no special classes"),
-        D.div({
-          className: "flex flex-justify b bw-1 p2",
-        }, [
-          D.div({className: "b bw-1 p1"}, D.span({}, "A DIV of Content")),
-          D.div({className: "b bw-1 p1"}, D.span({}, "A DIV of Content")),
-          D.div({className: "b bw-1 p1"}, D.span({}, "A DIV of Content")),
-        ])
-      ]),
-      D.article({className: "mt3 mb4"}, [
         D.h3(null, ".flex-auto"),
         D.p({}, "Example contains a parent container with a class of 'flex' with two child divs with no special classes and one child with a class of 'flex-auto'"),
         D.div({
