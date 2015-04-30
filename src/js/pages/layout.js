@@ -1,13 +1,14 @@
-import React from 'react';
+import { createFactory, createClass, DOM as D } from 'react';
 
 import StyleguideClass from '../styleguide';
 import GridBlockClass from '../components/grid-block';
+import FlexboxClass from './layout/flexbox';
 
-const D = React.DOM;
-const Styleguide = React.createFactory(StyleguideClass);
-const GridBlock = React.createFactory(GridBlockClass);
+const Styleguide = createFactory(StyleguideClass);
+const GridBlock = createFactory(GridBlockClass);
+const Flexbox = createFactory(FlexboxClass);
 
-export default React.createClass({
+export default createClass({
   displayName: "LayoutPage",
 
   render() {
@@ -125,16 +126,7 @@ export default React.createClass({
       D.div({
         title: "Flexbox",
         description: "The utility classes for using the flexbox layout system."
-      }, [
-        D.h3({className: "mt3"}, ".flex"),
-        D.p({}, "Example contains a parent container with a class of 'flex' and two child divs with no special classes"),
-        D.div({
-          className: "flex border p2"
-        }, [
-          D.div({className: "border p1 mr2"}, D.span({}, "A DIV of Content")),
-          D.div({className: "border p1 mr2"}, D.span({}, "A DIV of Content")),
-        ])
-      ])
+      }, Flexbox())
     ]);
   }
 });
