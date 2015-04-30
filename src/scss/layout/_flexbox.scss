@@ -8,49 +8,49 @@
 -------------------------*/
 
 .flex {
-  @include display(flex);
+  display: flex;
 };
 
 .flex-column {
-  @include flex-direction(column);
+  flex-direction: column;
 }
 
 .flex-wrap {
-  @include flex-wrap(wrap);
+  flex-wrap: wrap;
 }
 
 .flex-center {
-  @include align-items(center);
+  align-items: center;
 }
 
 .flex-baseline {
-  @include align-items(baseline);
+  align-items: baseline;
 }
 
 .flex-stretch {
-  @include align-items(stretch);
+  align-items: stretch;
 }
 
 .flex-start {
-  @include align-items(flex-start);
+  align-items: flex-start;
 }
 
 .flex-end {
-  @include align-items(flex-end);
+  align-items: flex-end;
 }
 
 .flex-justify {
-  @include justify-content(space-between);
+  justify-content: space-between;
 }
 
 .flex-auto {
-  @include flex(auto);
+  flex: 1 1 auto;
 }
 
-.flex-fill {
-  @include flex(1);
+.flex-grow {
+  flex: 1 0 auto;
 }
 
 .flex-none {
-  @include flex(none);
+  flex: none;
 }

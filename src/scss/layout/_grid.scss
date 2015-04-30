@@ -9,25 +9,21 @@
 
 // Container class
 .container {
-  @include outer-container(67.5em);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 67.5em;
 }
 
 // Our base column classes
 @for $i from 1 through 12 {
   // loops through these numbers and spits out the needed grid classes
   .col-#{$i} {
-    // using Neat's span-columns mixin
-    @include span-columns($i of 12);
+    width: calc(#{$i}/12 * 100%);
   }
 }
 
-.last {
-  @include omega;
-}
-
-// Row class used to contain grid elements and clear floats.
-.row {
-  @include row;
+.fit {
+  max-width: 100%;
 }
 
 .tall {

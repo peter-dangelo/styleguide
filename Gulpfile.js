@@ -3,7 +3,7 @@ var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var babelify = require('babelify');
 var sass = require('gulp-sass');
-var neat = require('node-neat');
+var autoprefix = require('gulp-autoprefixer');
 var connect = require('gulp-connect');
 var history = require('connect-history-api-fallback');
 var jsonSass = require('gulp-json-sass');
@@ -31,9 +31,8 @@ gulp.task('import-styles', function(){
 
 gulp.task('styles', function(){
   gulp.src('./src/scss/app.scss')
-  .pipe(sass({
-    includePaths: neat.includePaths
-  }))
+  .pipe(sass())
+  .pipe(autoprefix())
   .pipe(gulp.dest('./public'))
   .pipe(connect.reload());
 });
