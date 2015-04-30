@@ -29,6 +29,8 @@ export default React.createClass({
       <div title="Directions">
         <Button label=".button-previous" type="previous" />
         <Button label=".button-next" type="next" />
+        <Button label=".button-previous:disabled" type="previous" disabled={ true } />
+        <Button label=".button-next:disabled" type="next" disabled={ true } />
       </div>
 
     </Styleguide>
