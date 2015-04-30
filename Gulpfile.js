@@ -75,6 +75,7 @@ gulp.task('server', ['import-styles', 'colors', 'styles', 'scripts', 'icons'], f
 
 gulp.task('watch', function(){
   gulp.watch('src/lib/icons/**', ['icons']);
+  gulp.watch('src/lib/scss/_icons-template.scss', ['icons']);
   gulp.watch('src/lib/_colors.json', ['colors']);
   gulp.watch('src/scss/**', ['styles']);
   gulp.watch('src/js/**', ['scripts']);
