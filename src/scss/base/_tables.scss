@@ -5,10 +5,27 @@ table {
   width: 100%;
 }
 
+thead tr th {
+  border-bottom: 3px solid $grey-25;
+}
+
+thead tr.secondary {
+  th {
+    border-bottom: none;
+  }
+  th:last-child {
+    border-bottom: 1px solid $grey-25;
+    color: $grey-50;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+}
+
 th {
-  text-align: left;
-  font-weight: bold;
   font-size: 1rem;
+  font-weight: bold;
+  padding: $space-2;
+  text-align: left;
 }
 
 th,
@@ -17,5 +34,28 @@ td {
   line-height: inherit;
 }
 
-th { vertical-align: bottom }
-td { vertical-align: top }
+th {
+  vertical-align: bottom;
+}
+td {
+  vertical-align: top;
+  padding: $space-2 $space-2;
+}
+
+td h5 {
+  margin-bottom: 0rem;
+  color: $blue-primary;
+}
+
+tbody tr td {
+  margin-bottom: 0rem;
+  border-bottom: 1px solid $grey-5;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: $grey-5;
+}
