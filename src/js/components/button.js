@@ -20,15 +20,19 @@ export default React.createClass({
     };
   },
 
+  createClass: function(value) {
+    return "button-" + value;
+  },
+
   classes: function() {
     var classes = []
 
     if (this.props.type) {
-      classes.push("button-" + this.props.type)
+      classes.push(this.createClass(this.props.type))
     }
 
     if (this.props.size) {
-      classes.push("button-" + this.props.size)
+      classes.push(this.createClass(this.props.size))
     }
 
     return classes.join(' ')
