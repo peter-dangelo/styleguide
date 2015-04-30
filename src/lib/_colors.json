@@ -48,5 +48,7 @@
     "5":" #f3f3f4",
     "3":" #f9f9f9"
   },
-  "white": "white"
+  "white": {
+    "": "white"
+  }
 }
