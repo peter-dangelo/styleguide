@@ -46,7 +46,8 @@ gulp.task('icons', function(){
       fontPath: './src/lib/fonts/'
     }))
     .pipe(iconfont({
-      fontName: fontName
+      fontName: fontName,
+      normalize: true
      }))
     .pipe(gulp.dest('./src/lib/fonts/'));
 });
