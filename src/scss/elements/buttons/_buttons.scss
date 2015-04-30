@@ -9,6 +9,7 @@
 
 @import "types";
 @import "sizes";
+@import "directions";
 
 $button-height: 32px;
 
@@ -47,6 +48,7 @@ button,
 
   @extend %button-types;
   @extend %button-sizes;
+  @extend %button-directions;
 }
 
 ::-moz-focus-inner {
