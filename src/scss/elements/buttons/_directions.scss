@@ -1,7 +1,6 @@
-$base-button-height: 32px;
-$arrow-dimensions: $base-button-height * 0.75;
+$arrow-dimensions: $button-height * 0.75;
 $arrow-position: -($arrow-dimensions/2);
-$arrow-top: ($base-button-height * 0.25)/2;
+$arrow-top: ($button-height * 0.25)/2;
 
 %button-directions {
 
