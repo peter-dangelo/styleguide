@@ -25,14 +25,13 @@ input[type=tel],
 input[type=time],
 input[type=url],
 input[type=week] {
-  box-sizing: border-box;
   height: $form-field-height;
   padding: $form-field-padding-y $form-field-padding-x;
   vertical-align: middle;
   -webkit-appearance: none;
 }
 
-input[type=checkbox] {
+[type=checkbox] {
   width: $space-3;
   height: $space-3;
   -webkit-appearance: none;
@@ -40,14 +39,26 @@ input[type=checkbox] {
     cursor: pointer;
     border-radius: 3px;
     border: 1px solid $grey-50;
-    content: "";
     display: block;
     color: $grey-50;
     width: $space-3;
     height: $space-3;
+    content: "";
+    position: absolute;
   }
   &:checked:after {
     content: "*";
     color: $grey-50;
   }
+}
+
+select {
+  -webkit-appearance: none;
+  border-radius: 3px;
+  padding: $form-field-padding-y $form-field-padding-x;
+}
+
+select:not([multiple]) {
+  height: $form-field-height;
+  vertical-align: middle;
 }
