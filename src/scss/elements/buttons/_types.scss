@@ -1,6 +1,5 @@
 // Secondary Button
-button.button-secondary,
-.button.button-secondary {
+.button-secondary {
   background: $blue-secondary;
 
   &:hover {
@@ -26,8 +25,7 @@ button.button-secondary,
 }
 
 // Link Button
-button.button-link,
-.button.button-link {
+.button-link {
   background: none;
   color: $blue-primary;
   font-size: 16px;

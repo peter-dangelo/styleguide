@@ -2,8 +2,7 @@ $arrow-dimensions: $button-height * 0.75;
 $arrow-position: -($arrow-dimensions/2);
 $arrow-top: ($button-height * 0.25)/2;
 
-button.button-previous,
-.button.button-previous {
+.button-previous {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   margin-left: 16px;
@@ -36,8 +35,7 @@ button.button-previous,
   }
 }
 
-button.button-next,
-.button.button-next {
+.button-next {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   margin-right: 16px;
@@ -59,10 +57,8 @@ button.button-next,
   }
 }
 
-button.button-previous,
-button.button-next,
-.button.button-previous,
-.button.button-next {
+.button-previous,
+.button-next {
   position: relative;
   z-index: 20;
 

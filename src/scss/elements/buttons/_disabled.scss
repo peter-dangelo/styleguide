@@ -1,6 +1,5 @@
 // Disabled Button
-button:disabled, button.button-disabled,
-.button:disabled, .button.button-disabled {
+button:disabled, .button-disabled {
   background: $grey-25;
   cursor: not-allowed;
 
