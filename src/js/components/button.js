@@ -10,7 +10,8 @@ export default React.createClass({
    label: Type.string,
    size: Type.oneOf([null, 'sm']),
    disabled: Type.bool,
-   link: Type.bool
+   link: Type.bool,
+   extraClass: Type.string
   },
 
   getDefaultProps: function() {
@@ -35,6 +36,10 @@ export default React.createClass({
 
     if (this.props.size) {
       classes.push(this.createClass(this.props.size));
+    }
+
+    if (this.props.extraClass) {
+      classes.push(this.props.extraClass);
     }
 
     if (this.props.link === true) {
