@@ -9,10 +9,11 @@ thead tr th {
   border-bottom: 3px solid $grey-25;
 }
 
-thead tr.secondary {
+thead .secondary {
   th {
-    border-bottom: none;
+    border-bottom: 0;
   }
+
   th:last-child {
     border-bottom: 1px solid $grey-25;
     color: $grey-50;
@@ -26,6 +27,8 @@ th {
   font-weight: bold;
   padding: $space-2;
   text-align: left;
+  vertical-align: bottom;
+
 }
 
 th,
@@ -33,21 +36,18 @@ td {
   line-height: inherit;
 }
 
-th {
-  vertical-align: bottom;
-}
 td {
+  padding: $space-2;
   vertical-align: top;
-  padding: $space-2 $space-2;
 }
 
 tbody tr td {
-  margin-bottom: 0rem;
   border-bottom: 1px solid $grey-5;
+  margin-bottom: 0rem;
 }
 
 tbody tr:last-child td {
-  border-bottom: none;
+  border-bottom: 0;
 }
 
 tbody tr:hover {
