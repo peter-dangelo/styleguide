@@ -17,7 +17,7 @@ export default React.createClass({
         D.h3({ className: base_color}, base_color),
         Object.keys(ColorData[base_color]).map((variant,index) =>
           D.div({
-            className: 'flex flex-center'
+            className: 'flex flex-center flex-justify'
           }, [
             D.div({className: `col-1 bg-${this.colorClass(base_color, variant)}`}, "\u00a0"),
             D.div({className: `col-1 ${this.colorClass(base_color, variant)}`}, `${ColorData[base_color][variant]}`),
