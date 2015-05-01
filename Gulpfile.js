@@ -11,6 +11,12 @@ var connect = require('gulp-connect');
 var history = require('connect-history-api-fallback');
 var jsonSass = require('gulp-json-sass');
 var header = require('gulp-header');
+var fs = require('fs');
+var concat = require('gulp-concat');
+
+function addStyleDir(filename){
+  return './src/scss/' + filename;
+}
 
 gulp.task('scripts', function(){
   browserify({
@@ -75,6 +81,18 @@ gulp.task('watch', function(){
   gulp.watch('src/lib/_colors.json', ['colors']);
   gulp.watch('src/scss/**', ['scss-lint', 'styles']);
   gulp.watch('src/js/**', ['scripts']);
+});
+
+gulp.task('package:css', function(){
+  var rdyJSON = fs.readFileSync('./rdy.json');
+  rdyJSON = JSON.parse(rdyJSON);
+
+  gulp.src(rdyJSON.scss.map(addStyleDir))
+    .pipe(concat('rdy.scss'))
+    .pipe(sass())
+    .pipe(autoprefix())
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('./packaged'));
 });
 
 gulp.task('default', ['server', 'watch']);
