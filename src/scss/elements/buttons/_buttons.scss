@@ -9,11 +9,6 @@
 
 $button-height: 32px;
 
-@import "disabled";
-@import "types";
-@import "sizes";
-@import "directions";
-
 button,
 .button {
   appearance: none;
@@ -44,14 +39,14 @@ button,
     text-decoration: none;
     background: $blue-tertiary;
   }
-
-  @extend %button-directions;
-  @extend %button-types;
-  @extend %button-sizes;
-  @extend %button-disabled;
 }
 
 ::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
+
+@import "types";
+@import "sizes";
+@import "directions";
+@import "disabled";

@@ -2,99 +2,91 @@ $arrow-dimensions: $button-height * 0.75;
 $arrow-position: -($arrow-dimensions/2);
 $arrow-top: ($button-height * 0.25)/2;
 
-%button-directions {
+button.button-previous,
+.button.button-previous {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  margin-left: 16px;
+  padding-left: 5px;
+  background: $blue-secondary;
 
-  &.button-previous {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    margin-left: 16px;
-    padding-left: 5px;
+  &:before {
+    transition: background 0s;
+    content: '';
+    left: $arrow-position;
+    width: $arrow-dimensions;
+    height: $arrow-dimensions;
     background: $blue-secondary;
+  }
+
+  &:hover {
+    background: $blue-primary;
 
     &:before {
-      transition: background 0s;
-      content: '';
-      left: $arrow-position;
-      width: $arrow-dimensions;
-      height: $arrow-dimensions;
-      background: $blue-secondary;
-    }
-
-    &:hover {
       background: $blue-primary;
-
-      &:before {
-        background: $blue-primary;
-      }
-    }
-
-    &:active {
-      background: $blue-tertiary;
-
-      &:before {
-        background: $blue-tertiary;
-      }
     }
   }
 
-  &.button-next {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    margin-right: 16px;
-    padding-right: 5px;
+  &:active {
+    background: $blue-tertiary;
+
+    &:before {
+      background: $blue-tertiary;
+    }
+  }
+}
+
+button.button-next,
+.button.button-next {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-right: 16px;
+  padding-right: 5px;
+
+  &:after {
+    content: '';
+    right: $arrow-position;
+    width: $arrow-dimensions;
+    height: $arrow-dimensions;
+    background: $blue-primary;
+  }
+
+  &:hover {
 
     &:after {
-      content: '';
-      right: $arrow-position;
-      width: $arrow-dimensions;
-      height: $arrow-dimensions;
-      background: $blue-primary;
+      background: $blue-tertiary;
     }
+  }
+}
 
-    &:hover {
+button.button-previous,
+button.button-next,
+.button.button-previous,
+.button.button-next {
+  position: relative;
+  z-index: 20;
 
-      &:after {
-        background: $blue-tertiary;
-      }
+  &:after, &:before {
+    transform: rotate(45deg);
+
+    display: block;
+    position: absolute;
+    top: $arrow-top;
+    border-radius: $border-radius;
+    z-index: -1;
+  }
+
+  &:hover {
+
+    &:before, &:after {
+      transition: background $duration;
     }
   }
 
-  &.button-previous, &.button-next {
-    position: relative;
-    z-index: 20;
+  &:active {
 
-    &:after, &:before {
-      transform: rotate(45deg);
-
-      display: block;
-      position: absolute;
-      top: $arrow-top;
-      border-radius: $border-radius;
-      z-index: -1;
+    &:before, &:after {
+      background: $blue-tertiary;
     }
-
-    &:hover {
-
-      &:before, &:after {
-        transition: background $duration;
-      }
-
-      &:disabled, &.button-disabled {
-        background: $grey-25;
-
-        &:before, &:after {
-          background: $grey-25;
-        }
-      }
-    }
-
-    &:active {
-
-      &:before, &:after {
-        background: $blue-tertiary;
-      }
-    }
-
-    @extend %button-disabled;
   }
 }

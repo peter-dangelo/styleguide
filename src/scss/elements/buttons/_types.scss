@@ -1,70 +1,69 @@
-%button-types {
+// Secondary Button
+button.button-secondary,
+.button.button-secondary {
+  background: $blue-secondary;
 
-  // Secondary Button
-  &.button-secondary {
-    background: $blue-secondary;
-
-    &:hover {
-      background: $blue-primary;
-    }
-
-    &:active {
-      background: $blue-tertiary;
-    }
+  &:hover {
+    background: $blue-primary;
   }
 
-  // Danger Button
-  &.button-danger {
-    background: $orange;
+  &:active {
+    background: $blue-tertiary;
+  }
+}
 
-    &:hover {
-      background: $orange-shade;
-    }
+// Danger Button
+&.button-danger {
+  background: $orange;
 
-    &:active {
-      background: $orange-dark;
-    }
+  &:hover {
+    background: $orange-shade;
   }
 
-  // Link Button
-  &.button-link {
+  &:active {
+    background: $orange-dark;
+  }
+}
+
+// Link Button
+button.button-link,
+.button.button-link {
+  background: none;
+  color: $blue-primary;
+  font-size: 16px;
+  padding: 0;
+  font-weight: bold;
+
+  &:hover, &:active {
     background: none;
-    color: $blue-primary;
-    font-size: 16px;
-    padding: 0;
-    font-weight: bold;
+    color: $blue-tertiary;
+  }
 
-    &:hover, &:active {
-      background: none;
+  &.button-secondary {
+    color: $blue-secondary;
+
+    &:hover {
+      color: $blue-primary;
+    }
+
+    &:active {
       color: $blue-tertiary;
     }
+  }
 
-    &.button-secondary {
-      color: $blue-secondary;
+  &.button-danger {
+    color: $orange;
 
-      &:hover {
-        color: $blue-primary;
-      }
-
-      &:active {
-        color: $blue-tertiary;
-      }
+    &:hover {
+      color: $orange-shade;
     }
 
-    &.button-danger {
-      color: $orange;
-
-      &:hover {
-        color: $orange-shade;
-      }
-
-      &:active {
-        color: $orange-dark;
-      }
+    &:active {
+      color: $orange-dark;
     }
+  }
 
-    &:disabled, &.button-disabled {
-      color: $grey-25;
-    }
+  &:disabled, &.button-disabled {
+    color: $grey-25;
   }
 }
