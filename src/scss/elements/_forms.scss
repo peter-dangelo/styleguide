@@ -22,13 +22,21 @@ fieldset {
 [type=url],
 [type=week] {
   -webkit-appearance: none;
-  box-sizing: border-box;
+  background: $blue-light;
+  border: 1px solid $blue-light;
+  border-radius: 3px;
+  padding: $space-2;
   vertical-align: middle;
+
+  &:focus {
+    border: 1px solid $grey-25;
+  }
 }
 
 [type=checkbox] {
   -webkit-appearance: none;
   height: $space-3;
+  position: relative;
   width: $space-3;
 
   &:after {
@@ -44,7 +52,69 @@ fieldset {
   }
 
   &:checked:after {
-    color: $grey-50;
     content: '*';
   }
+
+  &[readonly]:checked:after {
+    border: 0;
+    margin-left: 1px;
+    margin-top: 1px;
+  }
+}
+
+[type=radio] {
+  -webkit-appearance: none;
+  height: 16px;
+  padding: 0;
+  position: relative;
+  width: 16px;
+
+  &:after {
+    border: 1px solid $grey-50;
+    border-radius: 8px;
+    color: $grey-50;
+    content: '';
+    cursor: pointer;
+    display: block;
+    height: 16px;
+    position: absolute;
+    width: 16px;
+  }
+
+  &:checked:after {
+    color: $grey-50;
+    content: '\2022';
+    font-size: 29px;
+    line-height: 0.42;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  border-radius: 3px;
+  height: $space-4;
+  padding: $space-1;
+}
+
+select:not([multiple]) {
+  vertical-align: middle;
+}
+
+textarea {
+  -webkit-appearance: none;
+  background: $blue-light;
+  border: 1px solid $blue-light;
+  border-radius: 3px;
+  padding: $space-2;
+  vertical-align: middle;
+
+  &:focus {
+    border: 1px solid $grey-25;
+  }
+}
+
+label {
+  color: $grey-50;
+  display: block;
+  font-size: $h6;
 }
