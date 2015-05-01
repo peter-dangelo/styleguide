@@ -30,7 +30,6 @@ button,
   border: 0;
   background: $blue-primary;
   color: $white;
-  margin: 0;
   height: $button-height;
   vertical-align: middle;
   line-height: $button-height;
@@ -38,7 +37,6 @@ button,
 
   &:before, &:after {
     line-height: $button-height;
-    box-sizing: border-box;
   }
 
   &:hover, &:active {
