@@ -3,19 +3,19 @@ $arrow-position: -($arrow-dimensions/2);
 $arrow-top: ($button-height * 0.25)/2;
 
 .button-previous {
-  border-top-left-radius: 0px;
+  background: $blue-secondary;
   border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
   margin-left: 1em;
   padding-left: $space-1;
-  background: $blue-secondary;
 
   &:before {
-    transition: background 0s;
-    content: '';
-    left: $arrow-position;
-    width: $arrow-dimensions;
-    height: $arrow-dimensions;
     background: $blue-secondary;
+    content: '';
+    height: $arrow-dimensions;
+    left: $arrow-position;
+    transition: background 0s;
+    width: $arrow-dimensions;
   }
 
   &:hover {
@@ -36,17 +36,17 @@ $arrow-top: ($button-height * 0.25)/2;
 }
 
 .button-next {
-  border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
   margin-right: 1em;
   padding-right: $space-1;
 
   &:after {
+    background: $blue-primary;
     content: '';
+    height: $arrow-dimensions;
     right: $arrow-position;
     width: $arrow-dimensions;
-    height: $arrow-dimensions;
-    background: $blue-primary;
   }
 
   &:hover {
@@ -63,12 +63,11 @@ $arrow-top: ($button-height * 0.25)/2;
   z-index: 20;
 
   &:after, &:before {
-    transform: rotate(45deg);
-
+    border-radius: $border-radius;
     display: block;
     position: absolute;
     top: $arrow-top;
-    border-radius: $border-radius;
+    transform: rotate(45deg);
     z-index: -1;
   }
 

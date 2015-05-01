@@ -12,26 +12,26 @@ $button-height: 2rem;
 button,
 .button {
   appearance: none;
+  background: $blue-primary;
+  border: 0;
   border-radius: $border-radius;
-  transition: background 0s, color 0s;
-  text-rendering: optimizeLegibility;
-  font-size: $h4;
-  padding: 0 $space-2;
-  font-weight: normal;
-  text-decoration: none;
+  color: $white;
   cursor: pointer;
   display: inline-block;
-  border: 0;
-  background: $blue-primary;
-  color: $white;
+  font-size: $h4;
+  font-weight: normal;
   height: $button-height;
-  vertical-align: middle;
   outline: none;
+  padding: 0 $space-2;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  transition: background 0s, color 0s;
+  vertical-align: middle;
 
   &:hover, &:active {
-    transition: background $duration, color $duration;
-    text-decoration: none;
     background: $blue-tertiary;
+    text-decoration: none;
+    transition: background $duration, color $duration;
   }
 }
 
