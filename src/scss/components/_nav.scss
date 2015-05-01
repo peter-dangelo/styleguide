@@ -1,6 +1,6 @@
 .nav {
   background: $grey-95;
-  color: white;
+  color: $grey-3;
 }
 
 .nav-item {
@@ -11,7 +11,7 @@
   }
 
   &.is-active {
-    background: white;
+    background: $grey-3;
     color: $blue-primary;
   }
 }
