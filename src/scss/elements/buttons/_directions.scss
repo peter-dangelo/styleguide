@@ -19,10 +19,10 @@ $arrow-top: ($button-height * 0.25)/2;
   }
 
   &:hover {
-    background: $blue-primary;
+    background: $blue;
 
     &:before {
-      background: $blue-primary;
+      background: $blue;
     }
   }
 
@@ -42,7 +42,7 @@ $arrow-top: ($button-height * 0.25)/2;
   padding-right: $space-1;
 
   &:after {
-    background: $blue-primary;
+    background: $blue;
     content: '';
     height: $arrow-dimensions;
     right: $arrow-position;

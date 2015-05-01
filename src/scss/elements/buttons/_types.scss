@@ -3,7 +3,7 @@
   background: $blue-secondary;
 
   &:hover {
-    background: $blue-primary;
+    background: $blue;
   }
 
   &:active {
@@ -27,7 +27,7 @@
 // Link Button
 .button-link {
   background: none;
-  color: $blue-primary;
+  color: $blue;
   font-size: $h5;
   font-weight: bold;
   padding: 0;
@@ -41,7 +41,7 @@
     color: $blue-secondary;
 
     &:hover {
-      color: $blue-primary;
+      color: $blue;
     }
 
     &:active {
