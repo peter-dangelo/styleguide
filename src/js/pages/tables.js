@@ -51,34 +51,6 @@ export default React.createClass({
 
         <hr />
 
-        <h3>Checkbox table</h3>
-
-        <table>
-          <thead>
-            <tr>
-              <th className="center"><input type="checkbox"></input></th>
-              <th className="center">Checkbox</th>
-              <th>Header</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="center"><input type="checkbox"></input></td>
-              <td className="center"><input type="checkbox"></input></td>
-              <td>Suspendisse quis dictum nulla, quis hendrerit felis</td>
-            </tr>
-            <tr>
-              <td className="center"><input type="checkbox"></input></td>
-              <td className="center"><input type="checkbox" readOnly="true" checked="true"></input></td>
-              <td>The second checkbox is checked and read-only.</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p className="orange">Todo: Checkbox styles</p>
-
-        <hr />
-
         <h3>Sortable Tables</h3>
 
         <p className="orange">Some temporary styles here.  Will change when arrows are available.</p>
