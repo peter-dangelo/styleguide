@@ -137,6 +137,7 @@ linters:
 
   VendorPrefix:
     enabled: true
+    excluded_identifiers: ['appearance']
 
   ZeroUnit:
     enabled: false
