@@ -1,12 +1,10 @@
 // Small Button
 .button-sm {
-  font-size: 14px;
-  line-height: 24px;
-  height: 24px;
+  font-size: $h6;
+  height: $h2;
   font-weight: bold;
 
   &:before {
-    line-height: 24px;
-    font-size: 10px;
+    font-size: $space-2;
   }
 }

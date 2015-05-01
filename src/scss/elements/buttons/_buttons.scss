@@ -7,7 +7,7 @@
 
 -----------------------------------*/
 
-$button-height: 32px;
+$button-height: 2rem;
 
 button,
 .button {
@@ -15,8 +15,8 @@ button,
   border-radius: $border-radius;
   transition: background 0s, color 0s;
   text-rendering: optimizeLegibility;
-  font-size: 18px;
-  padding: 0 10px;
+  font-size: $h4;
+  padding: 0 $space-2;
   font-weight: normal;
   text-decoration: none;
   cursor: pointer;
@@ -26,12 +26,7 @@ button,
   color: $white;
   height: $button-height;
   vertical-align: middle;
-  line-height: $button-height;
   outline: none;
-
-  &:before, &:after {
-    line-height: $button-height;
-  }
 
   &:hover, &:active {
     transition: background $duration, color $duration;
