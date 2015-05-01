@@ -42,6 +42,19 @@ export default React.createClass({
         <Button label=".button-next:disabled" type="next" disabled={ true } />
       </div>
 
+      <div title="Groups">
+        <div className="button-group-actions flex">
+          <div className="flex-auto button-group">
+            <Button label="Delete" type="danger" />
+          </div>
+          <div className="flex-auto button-group">
+            <Button label="Cancel" link={ true } />
+            <Button label="Save Progress" type="secondary" />
+            <Button label="Publish" />
+          </div>
+        </div>
+      </div>
+
     </Styleguide>
   }
 });
