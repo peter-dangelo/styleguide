@@ -10,9 +10,9 @@ export default React.createClass({
     return <Styleguide>
       <div title="Tables" description="The table styles for Namely">
 
-        <h3>Basic Table</h3>
+        <h3 className="mb0">Basic Tables</h3>
 
-        <table>
+        <table className="mb4">
           <thead>
             <tr className="secondary">
               <th></th>
@@ -28,7 +28,7 @@ export default React.createClass({
           <tbody>
             <tr>
               <td>
-                <h5>Lorem ipsum</h5>
+                <h5 className="mb0 blue">Lorem ipsum</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis dictum nulla, quis hendrerit felis. Suspendisse potenti</p></td>
               <td className="center">4</td>
               <td><span className='yellow'>Pending</span></td>
@@ -49,18 +49,13 @@ export default React.createClass({
           </tbody>
         </table>
 
-        <hr />
-
-        <h3>Sortable Tables</h3>
-
-        <p className="orange">Some temporary styles here.  Will change when arrows are available.</p>
-
+        <h3 className="mb0">Sortable Tables</h3>
         <table>
           <thead>
             <tr>
-              <th>First</th>
-              <th>Last</th>
-              <th>Star Date</th>
+              <th><a href="#" className="block">First</a></th>
+              <th><a href="#" className="block">Last</a></th>
+              <th><a href="#" className="block">Start Date</a></th>
             </tr>
           </thead>
           <tbody>
@@ -82,34 +77,7 @@ export default React.createClass({
           </tbody>
         </table>
 
-        <hr/>
-
-        <table>
-          <thead>
-            <tr>
-              <th>First</th>
-              <th>Last</th>
-              <th>Star Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>John</td>
-              <td>Smith</td>
-              <td>2014-01-01</td>
-            </tr>
-            <tr>
-              <td>Chuck</td>
-              <td>D</td>
-              <td>2013-03-15</td>
-            </tr>
-            <tr>
-              <td>Flava</td>
-              <td>Flav</td>
-              <td>2012-06-28</td>
-            </tr>
-          </tbody>
-        </table>
+        <p className="orange">Need to add in some arrows.</p>
 
       </div>
 
