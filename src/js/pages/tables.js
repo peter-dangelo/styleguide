@@ -55,12 +55,12 @@ export default React.createClass({
 
         <p className="orange">Some temporary styles here.  Will change when arrows are available.</p>
 
-        <table className="sortable">
+        <table>
           <thead>
             <tr>
-              <th className="sortable-header">First <code className="language-css">.sortable-header</code></th>
-              <th className="sortable-header">Last <code className="language-css">.sortable-header</code></th>
-              <th className="sortable-header sorted desc">Star Date <code className="language-css">.sortable-header.sorted.desc</code></th>
+              <th>First</th>
+              <th>Last</th>
+              <th>Star Date</th>
             </tr>
           </thead>
           <tbody>
@@ -84,12 +84,12 @@ export default React.createClass({
 
         <hr/>
 
-        <table className="sortable">
+        <table>
           <thead>
             <tr>
               <th>First</th>
               <th>Last</th>
-              <th className="sortable-header sorted desc disabled">Star Date <code className="language-css">.sortable-header.sorted.desc.disabled</code></th>
+              <th>Star Date</th>
             </tr>
           </thead>
           <tbody>
