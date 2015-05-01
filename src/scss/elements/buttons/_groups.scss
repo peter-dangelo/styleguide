@@ -1,0 +1,25 @@
+.button-group-actions {
+  border-top: 1px solid $grey-10;
+  padding: $space-3;
+
+  button, .button {
+    margin-left: $space-2;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .button-group:last-child {
+    text-align: right;
+
+    button, .button {
+      margin-left: 0;
+      margin-right: $space-2;
+    }
+
+    button:last-child, .button:last-child {
+      margin-right: 0;
+    }
+  }
+}
