@@ -1,9 +1,9 @@
 // generated from ./src/lib/_colors.json by gulp-json-sass
 
 $blue: #186bb7;
-.blue{ color: $blue; }
-.bg-blue{ background-color: $blue; }
-.bc-blue{ border-color: $blue; }
+.blue { color: $blue; }
+.bg-blue { background-color: $blue; }
+.bc-blue { border-color: $blue; }
 
 $blue-primary: #186bb7;
 .blue-primary { color: $blue-primary; }
@@ -150,7 +150,12 @@ $grey-10:  #e7e8ea;
 .bg-grey-10 { background-color: $grey-10; }
 .bc-grey-10 { border-color: $grey-10; }
 
-$grey-25:  #dcdee0;
+$grey-15:  #dcdee0;
+.grey-15 { color: $grey-15; }
+.bg-grey-15 { background-color: $grey-15; }
+.bc-grey-15 { border-color: $grey-15; }
+
+$grey-25:  #c4c7ca;
 .grey-25 { color: $grey-25; }
 .bg-grey-25 { background-color: $grey-25; }
 .bc-grey-25 { border-color: $grey-25; }
@@ -171,11 +176,11 @@ $grey-90:  #2b3742;
 .bc-grey-90 { border-color: $grey-90; }
 
 $grey-95:  #14212d;
-.grey-95{ color: $grey-95; }
-.bg-grey-95{ background-color: $grey-95; }
-.bc-grey-95{ border-color: $grey-95; }
+.grey-95 { color: $grey-95; }
+.bg-grey-95 { background-color: $grey-95; }
+.bc-grey-95 { border-color: $grey-95; }
 
 $white: white;
-.white{ color: $white; }
-.bg-white{ background-color: $white; }
-.bc-white{ border-color: $white; }
+.white { color: $white; }
+.bg-white { background-color: $white; }
+.bc-white { border-color: $white; }
