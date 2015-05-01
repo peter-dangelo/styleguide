@@ -22,13 +22,11 @@ fieldset {
 [type=time],
 [type=url],
 [type=week] {
-  appearance: none;
+  -webkit-appearance: none;
   background: $blue-light;
   border: 1px solid $blue-light;
   border-radius: 3px;
   padding: $space-2;
-  height: $form-field-height;
-  padding: $form-field-padding-y $form-field-padding-x;
   vertical-align: middle;
 
   &:focus {
@@ -37,7 +35,8 @@ fieldset {
 }
 
 [type=checkbox] {
-  appearance: none;
+
+  -webkit-appearance: none;
   height: $space-3;
   position: relative;
   width: $space-3;
@@ -66,7 +65,7 @@ fieldset {
 }
 
 [type=radio] {
-  appearance: none;
+  -webkit-appearance: none;
   height: 16px;
   padding: 0;
   position: relative;
@@ -93,7 +92,7 @@ fieldset {
 }
 
 select {
-  appearance: none;
+  -webkit-appearance: none;
   border-radius: 3px;
   height: $space-4;
   padding: $space-1;
@@ -104,7 +103,6 @@ select:not([multiple]) {
 }
 
 textarea {
-  appearance: none;
   background: $blue-light;
   border: 1px solid $blue-light;
   border-radius: 3px;
