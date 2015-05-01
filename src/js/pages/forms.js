@@ -13,31 +13,34 @@ export default React.createClass({
 
             <hr />
 
-            <h5>Text field</h5>
-            <label htmlFor="company_name" className="px2 mb1">Company Name</label>
-            <input id="company_name" type="text"></input>
+            <h3>Text inputs</h3>
+
+            <div className="flex flex-justify">
+              <div>
+                <label htmlFor="company_name" className="px2 mb1">Company Name</label>
+                <input id="company_name" type="text" placeholder="Company Name"></input>
+              </div>
+              <div>
+                <label htmlFor="number_field" className="px2 mb1">Number Field</label>
+                <input id="number_field" type="number"></input>
+              </div>
+              <div>
+                <label htmlFor="date_field" className="px2 mb1">Date Field</label>
+                <input id="date_field" type="text"></input>
+              </div>
+
+
+            </div>
 
             <hr />
 
-            <h5>Number field</h5>
-            <label htmlFor="number_field" className="px2 mb1">Number Field</label>
-            <input id="number_field" type="number"></input>
-
-            <hr />
-
-            <h5>Date field</h5>
-            <label htmlFor="date_field" className="px2 mb1">Date Field</label>
-            <input id="date_field" type="text"></input>
-
-            <hr />
-
-            <h5>Textarea</h5>
+            <h3>Textarea</h3>
             <label htmlFor="bio" className="px2 mb1">Bio</label>
             <textarea id="bio"></textarea>
 
             <hr />
 
-            <h5>Checkboxes</h5>
+            <h3>Checkboxes</h3>
             <div className="flex flex-justify">
               <div>
                 <p>Default</p>
@@ -51,12 +54,12 @@ export default React.createClass({
 
             <hr />
 
-            <h5>Radio buttons</h5>
+            <h3>Radio buttons</h3>
             <input type="radio" name="radio"></input>
 
             <hr />
 
-            <h5>Select</h5>
+            <h3>Select</h3>
             <select>
               <option>Option 1</option>
               <option>Option 2</option>
