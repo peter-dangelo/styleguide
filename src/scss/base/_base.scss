@@ -6,19 +6,22 @@
   Your CS begins with some global variables, a reset, some mixins, and a print stylesheet.
 
 ---------------------------------------*/
-  
-  // Variables
-  //
-  @import "colors";
-  @import "sizing";
 
-  // Reset
-  //
-  @import "reset";
+// Variables
+//
+@import 'colors';
+@import 'sizing';
 
-  // Global
-  //
-  @import "fonts";
+// Reset
+//
+@import 'reset';
 
-  // Borders
-  @import "borders";
+// Global
+//
+@import 'fonts';
+
+// Borders
+@import 'borders';
+
+// Tables
+@import 'tables';
