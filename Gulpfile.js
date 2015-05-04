@@ -11,6 +11,9 @@ var connect = require('gulp-connect');
 var history = require('connect-history-api-fallback');
 var jsonSass = require('gulp-json-sass');
 var header = require('gulp-header');
+var iconfont = require('gulp-iconfont');
+var iconfontCss = require('gulp-iconfont-css');
+var fontName = 'icons';
 
 gulp.task('scripts', function(){
   browserify({
@@ -49,6 +52,20 @@ gulp.task('scss-lint', function(){
     .pipe(scsslint.failReporter('E'));
 });
 
+gulp.task('icons', function(){
+  gulp.src(['./src/lib/icons/*.svg'])
+    .pipe(iconfontCss({
+      fontName: fontName,
+      path: './src/lib/scss/_icons-template.scss',
+      targetPath: '../../scss/base/_icons.scss',
+      fontPath: './src/lib/fonts/'
+    }))
+    .pipe(iconfont({
+      fontName: fontName,
+      normalize: true
+     }))
+    .pipe(gulp.dest('./src/lib/fonts/'));
+});
 
 gulp.task('colors', function(){
   var source = './src/lib/_colors.json';
@@ -59,7 +76,7 @@ gulp.task('colors', function(){
   .pipe(gulp.dest('./src/scss/base/'));
 });
 
-gulp.task('server', ['colors', 'import-styles', 'styles', 'scripts'], function(){
+gulp.task('server', ['import-styles', 'colors', 'styles', 'scripts', 'icons'], function(){
   connect.server({
     root: ['public'],
     livereload: true,
@@ -72,6 +89,8 @@ gulp.task('server', ['colors', 'import-styles', 'styles', 'scripts'], function()
 });
 
 gulp.task('watch', function(){
+  gulp.watch('src/lib/icons/**', ['icons']);
+  gulp.watch('src/lib/scss/_icons-template.scss', ['icons']);
   gulp.watch('src/lib/_colors.json', ['colors']);
   gulp.watch('src/scss/**', ['scss-lint', 'styles']);
   gulp.watch('src/js/**', ['scripts']);
