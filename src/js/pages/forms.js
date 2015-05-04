@@ -1,7 +1,20 @@
 import React from 'react';
 import Styleguide from '../styleguide';
+import Select from 'react-select';
 
 let D = React.DOM;
+
+
+var options = [
+    { value: 'london', label: 'London' },
+    { value: 'newyork', label: 'New York' },
+    { value: 'chicago', label: 'Chicago' },
+    { value: 'san_francisco', label: 'San Francisco' }
+];
+
+function logChange(val) {
+    console.log("Selected: " + val);
+}
 
 export default React.createClass({
   displayName: "FormsPage",
