@@ -48,16 +48,20 @@ export default React.createClass({
             <div className="flex flex-justify">
               <div>
                 <p>Default</p>
-                <div className="flex flex-wrap">
+                <div className="flex flex-wrap mb1">
                   <div><input type="checkbox" id="checkbox_1"></input></div>
-                  <div><label className="ml2" htmlFor="checkbox_1">Label</label></div>
+                  <div><label className="ml2" htmlFor="checkbox_1">Label 1</label></div>
+                </div>
+                <div className="flex flex-wrap">
+                  <div><input type="checkbox" id="checkbox_2"></input></div>
+                  <div><label className="ml2" htmlFor="checkbox_2">Label 2</label></div>
                 </div>
               </div>
               <div>
                 <p>Read-only, checked</p>
                 <div className="flex flex-wrap">
-                  <div><input type="checkbox" id="checkbox_2" readOnly="true" checked="true"></input></div>
-                  <div><label className="right ml2" htmlFor="checkbox_2">Label</label></div>
+                  <div><input type="checkbox" id="checkbox_3" readOnly="true" checked="true"></input></div>
+                  <div><label className="right ml2" htmlFor="checkbox_3">Label</label></div>
                 </div>
               </div>
             </div>
@@ -67,14 +71,22 @@ export default React.createClass({
             <h3>Radio buttons</h3>
             <p className="orange">Checked (bullet?) icon needed</p>
 
-            <input type="radio" name="radio"></input>
+            <div className="flex flex-wrap mb1">
+              <div><input type="radio" id="radio_1" name="radios"></input></div>
+              <div><label className="ml2" htmlFor="radio_1">Label 1</label></div>
+            </div>
+            <div className="flex flex-wrap">
+              <div><input type="radio" id="radio_2" name="radios"></input></div>
+              <div><label className="ml2" htmlFor="radio_2">Label 2</label></div>
+            </div>
 
             <hr />
 
             <h3>Select</h3>
             <p className="orange">Arrow icons needed</p>
             <div className="col-3">
-              <select>
+              <label htmlFor="select_1" className="px2 mb1">Select</label>
+              <select id="select_1" className="bc-grey-25">
                 <option>Option 1</option>
                 <option>Option 2</option>
               </select>
