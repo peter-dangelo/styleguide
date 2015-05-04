@@ -244,6 +244,154 @@
   @return $char;
 }
 
+
+$icon_alert: '\E001';
+
+$icon_api: '\E002';
+
+$icon_arrow_double: '\E003';
+
+$icon_arrow_down: '\E004';
+
+$icon_arrow_left: '\E005';
+
+$icon_arrow_right: '\E006';
+
+$icon_arrow_up: '\E007';
+
+$icon_asterisk: '\E008';
+
+$icon_bell: '\E009';
+
+$icon_cake: '\E00A';
+
+$icon_calendar: '\E00B';
+
+$icon_check: '\E00C';
+
+$icon_chevron_left: '\E00D';
+
+$icon_chevron_right: '\E00E';
+
+$icon_clipboard: '\E00F';
+
+$icon_clipboard_check: '\E010';
+
+$icon_clipboard_paste: '\E011';
+
+$icon_clock: '\E012';
+
+$icon_collapse: '\E013';
+
+$icon_copy: '\E014';
+
+$icon_delete: '\E015';
+
+$icon_delete_inverted: '\E016';
+
+$icon_denied: '\E017';
+
+$icon_disabled: '\E018';
+
+$icon_document: '\E019';
+
+$icon_document_blank: '\E01A';
+
+$icon_download: '\E01B';
+
+$icon_drag: '\E01C';
+
+$icon_email: '\E01D';
+
+$icon_exit: '\E01E';
+
+$icon_expand: '\E01F';
+
+$icon_export: '\E020';
+
+$icon_feed: '\E021';
+
+$icon_flag: '\E022';
+
+$icon_flagpole: '\E023';
+
+$icon_folder: '\E024';
+
+$icon_folder_open: '\E025';
+
+$icon_graph: '\E026';
+
+$icon_heart: '\E027';
+
+$icon_heart_outline: '\E028';
+
+$icon_help: '\E029';
+
+$icon_home: '\E02A';
+
+$icon_key: '\E02B';
+
+$icon_list: '\E02C';
+
+$icon_location: '\E02D';
+
+$icon_lock: '\E02E';
+
+$icon_mobile: '\E02F';
+
+$icon_namely: '\E030';
+
+$icon_namely_inverted: '\E031';
+
+$icon_paperclip: '\E032';
+
+$icon_pencil: '\E033';
+
+$icon_people: '\E034';
+
+$icon_person: '\E035';
+
+$icon_person_add: '\E036';
+
+$icon_phone: '\E037';
+
+$icon_pin: '\E038';
+
+$icon_plane: '\E039';
+
+$icon_print: '\E03A';
+
+$icon_search: '\E03B';
+
+$icon_settings: '\E03C';
+
+$icon_social_fb: '\E03D';
+
+$icon_social_google: '\E03E';
+
+$icon_social_googleplus: '\E03F';
+
+$icon_social_linkedin: '\E040';
+
+$icon_social_tumblr: '\E041';
+
+$icon_social_twitter: '\E042';
+
+$icon_star: '\E043';
+
+$icon_tag: '\E044';
+
+$icon_tags: '\E045';
+
+$icon_team: '\E046';
+
+$icon_upload: '\E047';
+
+$icon_view: '\E048';
+
+$icon_view_stop: '\E049';
+
+
 @mixin icon($filename, $insert: before) {
   &:#{$insert} {
     @extend %icon;
