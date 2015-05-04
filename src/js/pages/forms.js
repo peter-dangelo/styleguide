@@ -65,6 +65,7 @@ export default React.createClass({
             <hr />
 
             <h3>Radio buttons</h3>
+            <p className="orange">Checked (bullet?) icon needed</p>
 
             <input type="radio" name="radio"></input>
 
@@ -72,10 +73,12 @@ export default React.createClass({
 
             <h3>Select</h3>
             <p className="orange">Arrow icons needed</p>
-            <select>
-              <option>Option 1</option>
-              <option>Option 2</option>
-            </select>
+            <div className="col-3">
+              <select>
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </select>
+            </div>
 
           </form>
 
