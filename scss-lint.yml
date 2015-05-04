@@ -64,6 +64,8 @@ linters:
 
   NameFormat:
     enabled: true
+    exclude:
+      'src/scss/base/_icons.scss'
 
   NestingDepth:
     enabled: true
