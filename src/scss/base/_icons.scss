@@ -25,22 +25,22 @@
   @if $filename == alert {
     $char: '\E001';
   }
-  @if $filename == arrow_down {
+  @if $filename == api {
     $char: '\E002';
   }
-  @if $filename == arrow_left {
+  @if $filename == arrow_double {
     $char: '\E003';
   }
-  @if $filename == arrow_right {
+  @if $filename == arrow_down {
     $char: '\E004';
   }
-  @if $filename == arrow_spinner {
+  @if $filename == arrow_left {
     $char: '\E005';
   }
-  @if $filename == arrow_up {
+  @if $filename == arrow_right {
     $char: '\E006';
   }
-  @if $filename == arrowleft_outline {
+  @if $filename == arrow_up {
     $char: '\E007';
   }
   @if $filename == asterisk {
@@ -58,206 +58,188 @@
   @if $filename == check {
     $char: '\E00C';
   }
-  @if $filename == chevron_right {
+  @if $filename == chevron_left {
     $char: '\E00D';
   }
-  @if $filename == clipboard {
+  @if $filename == chevron_right {
     $char: '\E00E';
   }
-  @if $filename == clock {
+  @if $filename == clipboard {
     $char: '\E00F';
   }
-  @if $filename == collapse {
+  @if $filename == clipboard_check {
     $char: '\E010';
   }
-  @if $filename == copy {
+  @if $filename == clipboard_paste {
     $char: '\E011';
   }
-  @if $filename == delete {
+  @if $filename == clock {
     $char: '\E012';
   }
-  @if $filename == denied {
+  @if $filename == collapse {
     $char: '\E013';
   }
-  @if $filename == disabled {
+  @if $filename == copy {
     $char: '\E014';
   }
-  @if $filename == document {
+  @if $filename == delete {
     $char: '\E015';
   }
-  @if $filename == documents_blank {
+  @if $filename == delete_inverted {
     $char: '\E016';
   }
-  @if $filename == download {
+  @if $filename == denied {
     $char: '\E017';
   }
-  @if $filename == drag {
+  @if $filename == disabled {
     $char: '\E018';
   }
-  @if $filename == email {
+  @if $filename == document {
     $char: '\E019';
   }
-  @if $filename == exit {
+  @if $filename == document_blank {
     $char: '\E01A';
   }
-  @if $filename == expand {
+  @if $filename == download {
     $char: '\E01B';
   }
-  @if $filename == export {
+  @if $filename == drag {
     $char: '\E01C';
   }
-  @if $filename == feed {
+  @if $filename == email {
     $char: '\E01D';
   }
-  @if $filename == flag {
+  @if $filename == exit {
     $char: '\E01E';
   }
-  @if $filename == flagpole {
+  @if $filename == expand {
     $char: '\E01F';
   }
-  @if $filename == folder {
+  @if $filename == export {
     $char: '\E020';
   }
-  @if $filename == folder_open {
+  @if $filename == feed {
     $char: '\E021';
   }
-  @if $filename == google {
+  @if $filename == flag {
     $char: '\E022';
   }
-  @if $filename == graph {
+  @if $filename == flagpole {
     $char: '\E023';
   }
-  @if $filename == heart {
+  @if $filename == folder {
     $char: '\E024';
   }
-  @if $filename == heart_outline {
+  @if $filename == folder_open {
     $char: '\E025';
   }
-  @if $filename == help {
+  @if $filename == graph {
     $char: '\E026';
   }
-  @if $filename == help_outline {
+  @if $filename == heart {
     $char: '\E027';
   }
-  @if $filename == home {
+  @if $filename == heart_outline {
     $char: '\E028';
   }
-  @if $filename == key {
+  @if $filename == help {
     $char: '\E029';
   }
-  @if $filename == list {
+  @if $filename == home {
     $char: '\E02A';
   }
-  @if $filename == location {
+  @if $filename == key {
     $char: '\E02B';
   }
-  @if $filename == lock {
+  @if $filename == list {
     $char: '\E02C';
   }
-  @if $filename == mobile {
+  @if $filename == location {
     $char: '\E02D';
   }
-  @if $filename == namely {
+  @if $filename == lock {
     $char: '\E02E';
   }
-  @if $filename == namely_inverted {
+  @if $filename == mobile {
     $char: '\E02F';
   }
-  @if $filename == pagination_first {
+  @if $filename == namely {
     $char: '\E030';
   }
-  @if $filename == pagination_last {
+  @if $filename == namely_inverted {
     $char: '\E031';
   }
-  @if $filename == pagination_next {
+  @if $filename == paperclip {
     $char: '\E032';
   }
-  @if $filename == pagination_previous {
+  @if $filename == pencil {
     $char: '\E033';
   }
-  @if $filename == paperclip {
+  @if $filename == people {
     $char: '\E034';
   }
-  @if $filename == pencil {
+  @if $filename == person {
     $char: '\E035';
   }
-  @if $filename == people {
+  @if $filename == person_add {
     $char: '\E036';
   }
-  @if $filename == person {
+  @if $filename == phone {
     $char: '\E037';
   }
-  @if $filename == person_add {
+  @if $filename == pin {
     $char: '\E038';
   }
-  @if $filename == phone {
+  @if $filename == plane {
     $char: '\E039';
   }
-  @if $filename == pin {
+  @if $filename == print {
     $char: '\E03A';
   }
-  @if $filename == print {
+  @if $filename == search {
     $char: '\E03B';
   }
-  @if $filename == question {
+  @if $filename == settings {
     $char: '\E03C';
   }
-  @if $filename == reviews_create {
+  @if $filename == social_fb {
     $char: '\E03D';
   }
-  @if $filename == reviews_manage {
+  @if $filename == social_google {
     $char: '\E03E';
   }
-  @if $filename == search {
+  @if $filename == social_googleplus {
     $char: '\E03F';
   }
-  @if $filename == settings {
+  @if $filename == social_linkedin {
     $char: '\E040';
   }
-  @if $filename == social_fb {
+  @if $filename == social_tumblr {
     $char: '\E041';
   }
-  @if $filename == social_googleplus {
+  @if $filename == social_twitter {
     $char: '\E042';
   }
-  @if $filename == social_linkedin {
+  @if $filename == star {
     $char: '\E043';
   }
-  @if $filename == social_tumblr {
+  @if $filename == tag {
     $char: '\E044';
   }
-  @if $filename == social_twitter {
+  @if $filename == tags {
     $char: '\E045';
   }
-  @if $filename == star {
+  @if $filename == team {
     $char: '\E046';
   }
-  @if $filename == tag {
+  @if $filename == upload {
     $char: '\E047';
   }
-  @if $filename == tasks {
+  @if $filename == view {
     $char: '\E048';
   }
-  @if $filename == team {
-    $char: '\E049';
-  }
-  @if $filename == timeoff_my {
-    $char: '\E04A';
-  }
-  @if $filename == upload {
-    $char: '\E04B';
-  }
-  @if $filename == view {
-    $char: '\E04C';
-  }
   @if $filename == view_stop {
-    $char: '\E04D';
-  }
-  @if $filename == warning {
-    $char: '\E04E';
-  }
-  @if $filename == workflow {
-    $char: '\E04F';
+    $char: '\E049';
   }
   @return $char;
 }
@@ -273,6 +255,14 @@
   @include icon(alert);
 }
 
+.icon-api {
+  @include icon(api);
+}
+
+.icon-arrow_double {
+  @include icon(arrow_double);
+}
+
 .icon-arrow_down {
   @include icon(arrow_down);
 }
@@ -285,16 +275,8 @@
   @include icon(arrow_right);
 }
 
-.icon-arrow_spinner {
-  @include icon(arrow_spinner);
-}
-
 .icon-arrow_up {
   @include icon(arrow_up);
-}
-
-.icon-arrowleft_outline {
-  @include icon(arrowleft_outline);
 }
 
 .icon-asterisk {
@@ -317,12 +299,24 @@
   @include icon(check);
 }
 
+.icon-chevron_left {
+  @include icon(chevron_left);
+}
+
 .icon-chevron_right {
   @include icon(chevron_right);
 }
 
 .icon-clipboard {
   @include icon(clipboard);
+}
+
+.icon-clipboard_check {
+  @include icon(clipboard_check);
+}
+
+.icon-clipboard_paste {
+  @include icon(clipboard_paste);
 }
 
 .icon-clock {
@@ -341,6 +335,10 @@
   @include icon(delete);
 }
 
+.icon-delete_inverted {
+  @include icon(delete_inverted);
+}
+
 .icon-denied {
   @include icon(denied);
 }
@@ -353,8 +351,8 @@
   @include icon(document);
 }
 
-.icon-documents_blank {
-  @include icon(documents_blank);
+.icon-document_blank {
+  @include icon(document_blank);
 }
 
 .icon-download {
@@ -401,10 +399,6 @@
   @include icon(folder_open);
 }
 
-.icon-google {
-  @include icon(google);
-}
-
 .icon-graph {
   @include icon(graph);
 }
@@ -419,10 +413,6 @@
 
 .icon-help {
   @include icon(help);
-}
-
-.icon-help_outline {
-  @include icon(help_outline);
 }
 
 .icon-home {
@@ -457,22 +447,6 @@
   @include icon(namely_inverted);
 }
 
-.icon-pagination_first {
-  @include icon(pagination_first);
-}
-
-.icon-pagination_last {
-  @include icon(pagination_last);
-}
-
-.icon-pagination_next {
-  @include icon(pagination_next);
-}
-
-.icon-pagination_previous {
-  @include icon(pagination_previous);
-}
-
 .icon-paperclip {
   @include icon(paperclip);
 }
@@ -501,20 +475,12 @@
   @include icon(pin);
 }
 
+.icon-plane {
+  @include icon(plane);
+}
+
 .icon-print {
   @include icon(print);
-}
-
-.icon-question {
-  @include icon(question);
-}
-
-.icon-reviews_create {
-  @include icon(reviews_create);
-}
-
-.icon-reviews_manage {
-  @include icon(reviews_manage);
 }
 
 .icon-search {
@@ -527,6 +493,10 @@
 
 .icon-social_fb {
   @include icon(social_fb);
+}
+
+.icon-social_google {
+  @include icon(social_google);
 }
 
 .icon-social_googleplus {
@@ -553,16 +523,12 @@
   @include icon(tag);
 }
 
-.icon-tasks {
-  @include icon(tasks);
+.icon-tags {
+  @include icon(tags);
 }
 
 .icon-team {
   @include icon(team);
-}
-
-.icon-timeoff_my {
-  @include icon(timeoff_my);
 }
 
 .icon-upload {
@@ -575,13 +541,5 @@
 
 .icon-view_stop {
   @include icon(view_stop);
-}
-
-.icon-warning {
-  @include icon(warning);
-}
-
-.icon-workflow {
-  @include icon(workflow);
 }
 
