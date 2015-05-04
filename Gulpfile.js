@@ -78,7 +78,7 @@ gulp.task('colors', function(){
   .pipe(gulp.dest('./src/scss/base/'));
 });
 
-gulp.task('server', ['colors', 'icons', 'import-styles', 'styles', 'scripts'], function(){
+gulp.task('server', ['icons', 'colors', 'import-styles', 'styles', 'scripts'], function(){
   connect.server({
     root: ['public'],
     livereload: true,
