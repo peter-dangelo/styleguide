@@ -1,6 +1,7 @@
 import React from 'react';
 import Styleguide from '../styleguide';
 import Button from '../components/button';
+import ButtonGroup from '../components/button-group';
 
 export default React.createClass({
   displayName: "ButtonsPage",
@@ -43,16 +44,20 @@ export default React.createClass({
       </div>
 
       <div title="Groups">
-        <div className="button-group-actions flex">
-          <div className="flex-auto button-group">
+        <ButtonGroup>
+          <Button label="Cancel" link={ true } />
+          <Button label="Save" />
+        </ButtonGroup>
+
+        <ButtonGroup>
+          <div className="button-group-column flex-auto">
             <Button label="Delete" type="danger" />
           </div>
-          <div className="flex-auto button-group">
-            <Button label="Cancel" link={ true } />
-            <Button label="Save Progress" type="secondary" />
-            <Button label="Publish" />
-          </div>
-        </div>
+
+          <Button label="Cancel" link={ true } />
+          <Button label="Save Progress" type="secondary" />
+          <Button label="Publish" />
+        </ButtonGroup>
       </div>
 
     </Styleguide>
