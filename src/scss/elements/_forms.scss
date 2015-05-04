@@ -59,9 +59,9 @@ fieldset {
 
   &[readonly]:checked:after {
     border: 0;
+    cursor: default;
     margin-left: 1px;
     margin-top: 1px;
-    cursor: default;
   }
 }
 
@@ -93,11 +93,11 @@ fieldset {
 }
 
 select {
-  background: #ffffff;
   -webkit-appearance: none;
-  min-width: 100%; // fill the container, preferably a col-* class
+  background: $white;
   border-radius: 3px;
   height: $space-4;
+  min-width: 100%; // fill the container, preferably a col-* class
   padding: $space-1;
 }
 
