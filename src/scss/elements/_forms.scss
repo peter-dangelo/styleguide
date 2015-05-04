@@ -93,6 +93,7 @@ fieldset {
 
 select {
   -webkit-appearance: none;
+  min-width: 100%; // fill the container, preferably a col-* class
   border-radius: 3px;
   height: $space-4;
   padding: $space-1;
