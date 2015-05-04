@@ -4,7 +4,7 @@
   "description": "An app for documenting React components and styles for Namely",
   "main": " ",
   "scripts": {
-    "postinstall": "node_modules/.bin/bower install",
+    "postinstall": "node_modules/.bin/bower install && gem install scss-lint",
     "start": "gulp"
   },
   "author": "HipsterBrown",
@@ -25,7 +25,10 @@
     "gulp-iconfont": "^1.0.0",
     "gulp-iconfont-css": "0.0.9",
     "gulp-json-sass": "hipsterbrown/gulp-json-sass",
+    "gulp-minify-css": "^1.1.0",
     "gulp-sass": "^1.3.3",
+    "gulp-scss-lint": "^0.1.12",
+    "gulp-sourcemaps": "^1.5.2",
     "vinyl-source-stream": "^1.1.0"
   }
 }
