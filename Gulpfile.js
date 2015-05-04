@@ -27,6 +27,22 @@ gulp.task('scripts', function(){
   .pipe(connect.reload());
 });
 
+
+gulp.task('icons', function(){
+  gulp.src(['./src/lib/icons/*.svg'])
+    .pipe(iconfontCss({
+      fontName: fontName,
+      path: './src/lib/scss/_icons-template.scss',
+      targetPath: '../../scss/base/_icons.scss',
+      fontPath: './src/lib/fonts/'
+    }))
+    .pipe(iconfont({
+      fontName: fontName,
+      normalize: true
+    }))
+    .pipe(gulp.dest('./src/lib/fonts/'));
+});
+
 gulp.task('import-styles', function(){
   gulp.src('./bower_components/prism/themes/prism-twilight.css')
   .pipe(gulp.dest('./public'));
@@ -62,8 +78,7 @@ gulp.task('colors', function(){
   .pipe(gulp.dest('./src/scss/base/'));
 });
 
-gulp.task('server', ['import-styles', 'colors', 'styles', 'scripts', 'icons'], function(){
-gulp.task('server', ['colors', 'import-styles', 'styles', 'scripts'], function(){
+gulp.task('server', ['colors', 'icons', 'import-styles', 'styles', 'scripts'], function(){
   connect.server({
     root: ['public'],
     livereload: true,
