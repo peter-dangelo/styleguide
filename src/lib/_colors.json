@@ -1,4 +1,7 @@
 {
+  "white": {
+    "":"#ffffff"
+  },
   "blue": {
     "":"#186bb7",
     "secondary":"#4c9be6",
