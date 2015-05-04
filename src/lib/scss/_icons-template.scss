@@ -28,6 +28,10 @@
   @return $char;
 }
 
+<% _.each(glyphs, function(glyph) { %>
+$icon_<%= glyph.fileName %>: '\<%= glyph.codePoint %>';
+<% }); %>
+
 @mixin icon($filename, $insert: before) {
   &:#{$insert} {
     @extend %icon;
