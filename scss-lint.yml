@@ -94,6 +94,8 @@ linters:
 
   SelectorFormat:
     enabled: true
+    exclude:
+      'src/scss/base/_icons.scss'
 
   SingleLinePerProperty:
     enabled: true
