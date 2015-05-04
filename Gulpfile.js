@@ -14,9 +14,17 @@ var header = require('gulp-header');
 var fs = require('fs');
 var concat = require('gulp-concat');
 
+var commonConcat = require('commonjs-concat');
+
 function addStyleDir(filename){
   return './src/scss/' + filename;
 }
+
+function addComponentDir(filename){
+  return './src/js/components/' + filename;
+}
+
+var rdyJSON = JSON.parse(fs.readFileSync('./rdy.json'));
 
 gulp.task('scripts', function(){
   browserify({
@@ -84,15 +92,29 @@ gulp.task('watch', function(){
 });
 
 gulp.task('package:css', function(){
-  var rdyJSON = fs.readFileSync('./rdy.json');
-  rdyJSON = JSON.parse(rdyJSON);
-
   gulp.src(rdyJSON.scss.map(addStyleDir))
     .pipe(concat('rdy.scss'))
     .pipe(sass())
     .pipe(autoprefix())
     .pipe(minifyCSS())
     .pipe(gulp.dest('./packaged'));
+});
+
+gulp.task('package:js', function(){
+  commonConcat('./src/js/components', {
+    includeFile: rdyJSON.components,
+    relative: true
+  }, function(err, output) {
+    fs.writeFile('./packaged/rdy.js', output, 'utf8', function(){
+      console.log(output);
+      browserify()
+        .transform(babelify)
+        .require('./packaged/rdy.js', {entry: true})
+        .bundle()
+        .pipe(source('rdy.js'))
+        .pipe(gulp.dest('./packaged'));
+    });
+  });
 });
 
 gulp.task('default', ['server', 'watch']);
