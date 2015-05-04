@@ -5,6 +5,9 @@
  * https://twitter.com/jedwatson https://twitter.com/jossmackison https://twitter.com/keystonejs
  * MIT License: https://github.com/keystonejs/react-select
 */
+
+$select-height: 3.25rem;
+
 .Select {
   position: relative;
 }
@@ -12,16 +15,14 @@
   position: relative;
   overflow: hidden;
   background-color: white;
-  border: 1px solid #cccccc;
+  border: 1px solid $grey-10;
   border-radius: 3px;
-  color: #333333;
+  color: $grey-25;
   cursor: default;
   outline: none;
-  padding: 8px 52px 8px 10px;
-  transition: all 200ms ease;
+  padding: $space-2 $select-height $space-2 $space-2;
 }
 .Select-control:hover {
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }
 .is-searchable.is-open > .Select-control {
   cursor: text;
@@ -30,10 +31,10 @@
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   background: white;
-  border-color: #b3b3b3 #cccccc #d9d9d9;
+  border-color: $grey-25;
 }
 .is-open > .Select-control > .Select-arrow {
-  border-color: transparent transparent #999999;
+  border-color: transparent transparent $grey-25;
   border-width: 0 5px 5px;
 }
 .is-searchable.is-focused:not(.is-open) > .Select-control {
@@ -43,7 +44,7 @@
 }
 .Select-placeholder {
   color: #aaaaaa;
-  padding: 8px 52px 8px 10px;
+  padding: $space-2 $select-height $space-2 $space-2;
   position: absolute;
   top: 0;
   left: 0;
@@ -54,7 +55,7 @@
   white-space: nowrap;
 }
 .has-value > .Select-control > .Select-placeholder {
-  color: #333333;
+  color: $grey-75;
 }
 .Select-input > input {
   cursor: default;
@@ -95,7 +96,7 @@
   right: 46px;
 }
 .Select-clear {
-  color: #999999;
+  color: $grey-25;
   cursor: pointer;
   display: inline-block;
   font-size: 16px;
@@ -111,7 +112,7 @@
   font-size: 1.1em;
 }
 .Select-arrow {
-  border-color: #999999 transparent transparent;
+  border-color: $grey-25 transparent transparent;
   border-style: solid;
   border-width: 5px 5px 0;
   content: " ";
@@ -126,9 +127,8 @@
 .Select-menu-outer {
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-  background-color: white;
-  border: 1px solid #cccccc;
-  border-top-color: #e6e6e6;
+  background-color: $white;
+  border: 1px solid $grey-10;
   box-sizing: border-box;
   margin-top: -1px;
   max-height: 200px;
@@ -154,7 +154,7 @@
   border-bottom-left-radius: 4px;
 }
 .Select-option.is-focused {
-  background-color: $grey-5;
+  background-color: $grey-10;
 }
 .Select-noresults {
   box-sizing: border-box;
@@ -164,19 +164,15 @@
   padding: 8px 10px;
 }
 .Select.is-multi .Select-control {
-  padding: 2px 52px 2px 3px;
+  padding: $space-2 $select-height $space-2 $space-2;
 }
 .Select.is-multi .Select-input {
   vertical-align: middle;
-  border: 1px solid transparent;
-  margin: 2px;
-  padding: 3px 0;
 }
 .Select-item {
-  background-color: #f2f9fc;
+  background-color: $white;
   border-radius: 2px;
-  border: 1px solid #c9e6f2;
-  color: #0088cc;
+  border: 1px solid $grey-25;
   display: inline-block;
   font-size: 1em;
   margin: 2px;
@@ -188,36 +184,25 @@
 }
 .Select-item-label {
   cursor: default;
+  color: $grey-75;
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
   padding: 3px 5px;
 }
 .Select-item-label .Select-item-label__a {
-  color: #0088cc;
   cursor: pointer;
 }
 .Select-item-icon {
   cursor: pointer;
   border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
-  border-right: 1px solid #c9e6f2;
+  border-right: 1px solid $grey-25;
   padding: 2px 5px 4px;
 }
 .Select-item-icon:hover,
 .Select-item-icon:focus {
-  background-color: #ddeff7;
-  color: #0077b3;
+  background-color: $grey-5;
 }
 .Select-item-icon:active {
-  background-color: #c9e6f2;
-}
-@keyframes Select-animation-spin {
-  to {
-    transform: rotate(1turn);
-  }
-}
-@-webkit-keyframes Select-animation-spin {
-  to {
-    -webkit-transform: rotate(1turn);
-  }
+  background-color: $grey-5;
 }

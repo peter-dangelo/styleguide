@@ -12,8 +12,12 @@ var options = [
     { value: 'san_francisco', label: 'San Francisco' }
 ];
 
-function logChange(val) {
-    console.log("Selected: " + val);
+function _onChange(val) {
+  console.log("Selected: " + val);
+}
+
+function _onFocus() {
+  console.log("Focus");
 }
 
 export default React.createClass({
@@ -97,34 +101,35 @@ export default React.createClass({
             <div className="py3">
               <h4>React Select</h4>
               <p><a href="https://github.com/JedWatson/react-select">https://github.com/JedWatson/react-select</a></p>
-              <div className="col-3 left">
+              <div className="col-3 left mr2">
                 <label className="px2 mb1">Default</label>
                 <Select
                   searchable={false}
                   name="form-field-nameczXCzx"
                   options={options}
-                  onChange={logChange}
+                  onChange={_onChange}
                   placeholder="- Select Office -"
                 />
               </div>
-              <div className="col-3 left">
+              <div className="col-3 left mr2">
                 <label className="px2 mb1">Multi</label>
                 <Select
                   searchable={false}
                   multi={true}
                   name="form-field-nameczXCzx"
                   options={options}
-                  onChange={logChange}
+                  onChange={_onChange}
                   placeholder="- Select Office -"
                 />
               </div>
-              <div className="col-3 left">
+              <div className="col-3 left mr2">
                 <label className="px2 mb1">Searchable (like Chosen)</label>
                 <Select
                   name="form-field-nameczXCzx"
                   options={options}
-                  onChange={logChange}
+                  onChange={_onChange}
                   placeholder="- Select Office -"
+                  onFocus={_onFocus}
                 />
               </div>
             </div>
