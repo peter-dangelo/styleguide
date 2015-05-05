@@ -52,7 +52,6 @@ export default React.createClass({
             <textarea id="bio"></textarea>
             <hr />
             <h3>Checkboxes</h3>
-            <p className="orange">Check icon needed</p>
             <div className="flex flex-justify">
               <div>
                 <p>Default</p>

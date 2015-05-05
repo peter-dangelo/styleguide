@@ -53,8 +53,19 @@ fieldset {
     width: $space-3;
   }
 
+
+  &:checked {
+    @include icon(check);
+    &:before {
+      color: $grey-50;
+      left: 2px;
+      font-size: $h6;
+      position: absolute;
+      top: 3px;
+    }
+  }
+
   &:checked:after {
-    content: '*';
   }
 
   &[readonly]:checked:after {
