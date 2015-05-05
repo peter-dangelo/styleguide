@@ -106,7 +106,6 @@ gulp.task('package:js', function(){
     relative: true
   }, function(err, output) {
     fs.writeFile('./packaged/rdy.js', output, 'utf8', function(){
-      console.log(output);
       browserify()
         .transform(babelify)
         .require('./packaged/rdy.js', {entry: true})
