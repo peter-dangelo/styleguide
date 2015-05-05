@@ -49,7 +49,10 @@ gulp.task('icons', function(){
     }))
     .pipe(iconfont({
       fontName: fontName,
-      normalize: true
+      normalize: true,
+      fixedWidth: true,
+      centerHorizontally: true,
+      fontHeight: 1001
     }))
     .on('codepoints', function(codepoints, options) {
       string_src('_icons.json', codepoints).pipe(gulp.dest("./src/lib/"));
