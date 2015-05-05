@@ -34,6 +34,14 @@ fieldset {
   }
 }
 
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  // -webkit-appearance: none;
+  opacity: 0;
+}
+
+input:focus::placeholder { color: transparent; }
+
 [type=checkbox] {
 
   -webkit-appearance: none;
@@ -58,14 +66,11 @@ fieldset {
     @include icon(check);
     &:before {
       color: $grey-50;
-      left: 2px;
       font-size: $h6;
+      left: 2px;
       position: absolute;
       top: 3px;
     }
-  }
-
-  &:checked:after {
   }
 
   &[readonly]:checked:after {
@@ -139,4 +144,22 @@ label {
   cursor: pointer;
   display: block;
   font-size: $h6;
+}
+
+.number-field {
+  .icon {
+    height: 0;
+    margin-left: -23px;
+    pointer-events: none;
+    position: relative;
+    top: 3px;
+    width: 0;
+  }
+}
+
+.simple-select {
+  .icon {
+    pointer-events: none;
+    bottom: 2px;
+  }
 }
