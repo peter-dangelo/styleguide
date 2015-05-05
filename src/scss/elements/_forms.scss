@@ -95,12 +95,18 @@ fieldset {
     width: 16px;
   }
 
-  &:checked:after {
-    color: $grey-50;
-    content: '\2022';
-    font-size: 29px;
-    line-height: 0.42;
+  &:checked:before {
+    background: $grey-50;
+    border-radius: 5px;
+    content: '';
+    cursor: pointer;
+    height: 10px;
+    left: 4px;
+    position: absolute;
+    top: 4px;
+    width: 10px;
   }
+
 }
 
 select {

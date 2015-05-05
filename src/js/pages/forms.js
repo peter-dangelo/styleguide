@@ -74,7 +74,6 @@ export default React.createClass({
             </div>
             <hr />
             <h3>Radio buttons</h3>
-            <p className="orange">Checked (bullet?) icon needed</p>
             <div className="flex flex-wrap mb1">
               <div><input type="radio" id="radio_1" name="radios"></input></div>
               <div><label className="ml2" htmlFor="radio_1">Label 1</label></div>
