@@ -28,19 +28,19 @@
   @if $filename == api {
     $char: '\E002';
   }
-  @if $filename == arrow_double {
+  @if $filename == arrow-double {
     $char: '\E003';
   }
-  @if $filename == arrow_down {
+  @if $filename == arrow-down {
     $char: '\E004';
   }
-  @if $filename == arrow_left {
+  @if $filename == arrow-left {
     $char: '\E005';
   }
-  @if $filename == arrow_right {
+  @if $filename == arrow-right {
     $char: '\E006';
   }
-  @if $filename == arrow_up {
+  @if $filename == arrow-up {
     $char: '\E007';
   }
   @if $filename == asterisk {
@@ -58,19 +58,19 @@
   @if $filename == check {
     $char: '\E00C';
   }
-  @if $filename == chevron_left {
+  @if $filename == chevron-left {
     $char: '\E00D';
   }
-  @if $filename == chevron_right {
+  @if $filename == chevron-right {
     $char: '\E00E';
   }
-  @if $filename == clipboard {
+  @if $filename == clipboard-check {
     $char: '\E00F';
   }
-  @if $filename == clipboard_check {
+  @if $filename == clipboard-paste {
     $char: '\E010';
   }
-  @if $filename == clipboard_paste {
+  @if $filename == clipboard {
     $char: '\E011';
   }
   @if $filename == clock {
@@ -82,10 +82,10 @@
   @if $filename == copy {
     $char: '\E014';
   }
-  @if $filename == delete {
+  @if $filename == delete-inverted {
     $char: '\E015';
   }
-  @if $filename == delete_inverted {
+  @if $filename == delete {
     $char: '\E016';
   }
   @if $filename == denied {
@@ -94,10 +94,10 @@
   @if $filename == disabled {
     $char: '\E018';
   }
-  @if $filename == document {
+  @if $filename == document-blank {
     $char: '\E019';
   }
-  @if $filename == document_blank {
+  @if $filename == document {
     $char: '\E01A';
   }
   @if $filename == download {
@@ -127,19 +127,19 @@
   @if $filename == flagpole {
     $char: '\E023';
   }
-  @if $filename == folder {
+  @if $filename == folder-open {
     $char: '\E024';
   }
-  @if $filename == folder_open {
+  @if $filename == folder {
     $char: '\E025';
   }
   @if $filename == graph {
     $char: '\E026';
   }
-  @if $filename == heart {
+  @if $filename == heart-outline {
     $char: '\E027';
   }
-  @if $filename == heart_outline {
+  @if $filename == heart {
     $char: '\E028';
   }
   @if $filename == help {
@@ -163,10 +163,10 @@
   @if $filename == mobile {
     $char: '\E02F';
   }
-  @if $filename == namely {
+  @if $filename == namely-inverted {
     $char: '\E030';
   }
-  @if $filename == namely_inverted {
+  @if $filename == namely {
     $char: '\E031';
   }
   @if $filename == paperclip {
@@ -178,10 +178,10 @@
   @if $filename == people {
     $char: '\E034';
   }
-  @if $filename == person {
+  @if $filename == person-add {
     $char: '\E035';
   }
-  @if $filename == person_add {
+  @if $filename == person {
     $char: '\E036';
   }
   @if $filename == phone {
@@ -202,22 +202,22 @@
   @if $filename == settings {
     $char: '\E03C';
   }
-  @if $filename == social_fb {
+  @if $filename == social-fb {
     $char: '\E03D';
   }
-  @if $filename == social_google {
+  @if $filename == social-google {
     $char: '\E03E';
   }
-  @if $filename == social_googleplus {
+  @if $filename == social-googleplus {
     $char: '\E03F';
   }
-  @if $filename == social_linkedin {
+  @if $filename == social-linkedin {
     $char: '\E040';
   }
-  @if $filename == social_tumblr {
+  @if $filename == social-tumblr {
     $char: '\E041';
   }
-  @if $filename == social_twitter {
+  @if $filename == social-twitter {
     $char: '\E042';
   }
   @if $filename == star {
@@ -235,161 +235,88 @@
   @if $filename == upload {
     $char: '\E047';
   }
-  @if $filename == view {
+  @if $filename == view-stop {
     $char: '\E048';
   }
-  @if $filename == view_stop {
+  @if $filename == view {
     $char: '\E049';
   }
   @return $char;
 }
 
-
-$icon_alert: '\E001';
-
-$icon_api: '\E002';
-
-$icon_arrow_double: '\E003';
-
-$icon_arrow_down: '\E004';
-
-$icon_arrow_left: '\E005';
-
-$icon_arrow_right: '\E006';
-
-$icon_arrow_up: '\E007';
-
-$icon_asterisk: '\E008';
-
-$icon_bell: '\E009';
-
-$icon_cake: '\E00A';
-
-$icon_calendar: '\E00B';
-
-$icon_check: '\E00C';
-
-$icon_chevron_left: '\E00D';
-
-$icon_chevron_right: '\E00E';
-
-$icon_clipboard: '\E00F';
-
-$icon_clipboard_check: '\E010';
-
-$icon_clipboard_paste: '\E011';
-
-$icon_clock: '\E012';
-
-$icon_collapse: '\E013';
-
-$icon_copy: '\E014';
-
-$icon_delete: '\E015';
-
-$icon_delete_inverted: '\E016';
-
-$icon_denied: '\E017';
-
-$icon_disabled: '\E018';
-
-$icon_document: '\E019';
-
-$icon_document_blank: '\E01A';
-
-$icon_download: '\E01B';
-
-$icon_drag: '\E01C';
-
-$icon_email: '\E01D';
-
-$icon_exit: '\E01E';
-
-$icon_expand: '\E01F';
-
-$icon_export: '\E020';
-
-$icon_feed: '\E021';
-
-$icon_flag: '\E022';
-
-$icon_flagpole: '\E023';
-
-$icon_folder: '\E024';
-
-$icon_folder_open: '\E025';
-
-$icon_graph: '\E026';
-
-$icon_heart: '\E027';
-
-$icon_heart_outline: '\E028';
-
-$icon_help: '\E029';
-
-$icon_home: '\E02A';
-
-$icon_key: '\E02B';
-
-$icon_list: '\E02C';
-
-$icon_location: '\E02D';
-
-$icon_lock: '\E02E';
-
-$icon_mobile: '\E02F';
-
-$icon_namely: '\E030';
-
-$icon_namely_inverted: '\E031';
-
-$icon_paperclip: '\E032';
-
-$icon_pencil: '\E033';
-
-$icon_people: '\E034';
-
-$icon_person: '\E035';
-
-$icon_person_add: '\E036';
-
-$icon_phone: '\E037';
-
-$icon_pin: '\E038';
-
-$icon_plane: '\E039';
-
-$icon_print: '\E03A';
-
-$icon_search: '\E03B';
-
-$icon_settings: '\E03C';
-
-$icon_social_fb: '\E03D';
-
-$icon_social_google: '\E03E';
-
-$icon_social_googleplus: '\E03F';
-
-$icon_social_linkedin: '\E040';
-
-$icon_social_tumblr: '\E041';
-
-$icon_social_twitter: '\E042';
-
-$icon_star: '\E043';
-
-$icon_tag: '\E044';
-
-$icon_tags: '\E045';
-
-$icon_team: '\E046';
-
-$icon_upload: '\E047';
-
-$icon_view: '\E048';
-
-$icon_view_stop: '\E049';
+$icon-alert: '\E001';
+$icon-api: '\E002';
+$icon-arrow-double: '\E003';
+$icon-arrow-down: '\E004';
+$icon-arrow-left: '\E005';
+$icon-arrow-right: '\E006';
+$icon-arrow-up: '\E007';
+$icon-asterisk: '\E008';
+$icon-bell: '\E009';
+$icon-cake: '\E00A';
+$icon-calendar: '\E00B';
+$icon-check: '\E00C';
+$icon-chevron-left: '\E00D';
+$icon-chevron-right: '\E00E';
+$icon-clipboard-check: '\E00F';
+$icon-clipboard-paste: '\E010';
+$icon-clipboard: '\E011';
+$icon-clock: '\E012';
+$icon-collapse: '\E013';
+$icon-copy: '\E014';
+$icon-delete-inverted: '\E015';
+$icon-delete: '\E016';
+$icon-denied: '\E017';
+$icon-disabled: '\E018';
+$icon-document-blank: '\E019';
+$icon-document: '\E01A';
+$icon-download: '\E01B';
+$icon-drag: '\E01C';
+$icon-email: '\E01D';
+$icon-exit: '\E01E';
+$icon-expand: '\E01F';
+$icon-export: '\E020';
+$icon-feed: '\E021';
+$icon-flag: '\E022';
+$icon-flagpole: '\E023';
+$icon-folder-open: '\E024';
+$icon-folder: '\E025';
+$icon-graph: '\E026';
+$icon-heart-outline: '\E027';
+$icon-heart: '\E028';
+$icon-help: '\E029';
+$icon-home: '\E02A';
+$icon-key: '\E02B';
+$icon-list: '\E02C';
+$icon-location: '\E02D';
+$icon-lock: '\E02E';
+$icon-mobile: '\E02F';
+$icon-namely-inverted: '\E030';
+$icon-namely: '\E031';
+$icon-paperclip: '\E032';
+$icon-pencil: '\E033';
+$icon-people: '\E034';
+$icon-person-add: '\E035';
+$icon-person: '\E036';
+$icon-phone: '\E037';
+$icon-pin: '\E038';
+$icon-plane: '\E039';
+$icon-print: '\E03A';
+$icon-search: '\E03B';
+$icon-settings: '\E03C';
+$icon-social-fb: '\E03D';
+$icon-social-google: '\E03E';
+$icon-social-googleplus: '\E03F';
+$icon-social-linkedin: '\E040';
+$icon-social-tumblr: '\E041';
+$icon-social-twitter: '\E042';
+$icon-star: '\E043';
+$icon-tag: '\E044';
+$icon-tags: '\E045';
+$icon-team: '\E046';
+$icon-upload: '\E047';
+$icon-view-stop: '\E048';
+$icon-view: '\E049';
 
 
 @mixin icon($filename, $insert: before) {
@@ -407,24 +334,24 @@ $icon_view_stop: '\E049';
   @include icon(api);
 }
 
-.icon-arrow_double {
-  @include icon(arrow_double);
+.icon-arrow-double {
+  @include icon(arrow-double);
 }
 
-.icon-arrow_down {
-  @include icon(arrow_down);
+.icon-arrow-down {
+  @include icon(arrow-down);
 }
 
-.icon-arrow_left {
-  @include icon(arrow_left);
+.icon-arrow-left {
+  @include icon(arrow-left);
 }
 
-.icon-arrow_right {
-  @include icon(arrow_right);
+.icon-arrow-right {
+  @include icon(arrow-right);
 }
 
-.icon-arrow_up {
-  @include icon(arrow_up);
+.icon-arrow-up {
+  @include icon(arrow-up);
 }
 
 .icon-asterisk {
@@ -447,24 +374,24 @@ $icon_view_stop: '\E049';
   @include icon(check);
 }
 
-.icon-chevron_left {
-  @include icon(chevron_left);
+.icon-chevron-left {
+  @include icon(chevron-left);
 }
 
-.icon-chevron_right {
-  @include icon(chevron_right);
+.icon-chevron-right {
+  @include icon(chevron-right);
+}
+
+.icon-clipboard-check {
+  @include icon(clipboard-check);
+}
+
+.icon-clipboard-paste {
+  @include icon(clipboard-paste);
 }
 
 .icon-clipboard {
   @include icon(clipboard);
-}
-
-.icon-clipboard_check {
-  @include icon(clipboard_check);
-}
-
-.icon-clipboard_paste {
-  @include icon(clipboard_paste);
 }
 
 .icon-clock {
@@ -479,12 +406,12 @@ $icon_view_stop: '\E049';
   @include icon(copy);
 }
 
-.icon-delete {
-  @include icon(delete);
+.icon-delete-inverted {
+  @include icon(delete-inverted);
 }
 
-.icon-delete_inverted {
-  @include icon(delete_inverted);
+.icon-delete {
+  @include icon(delete);
 }
 
 .icon-denied {
@@ -495,12 +422,12 @@ $icon_view_stop: '\E049';
   @include icon(disabled);
 }
 
-.icon-document {
-  @include icon(document);
+.icon-document-blank {
+  @include icon(document-blank);
 }
 
-.icon-document_blank {
-  @include icon(document_blank);
+.icon-document {
+  @include icon(document);
 }
 
 .icon-download {
@@ -539,24 +466,24 @@ $icon_view_stop: '\E049';
   @include icon(flagpole);
 }
 
-.icon-folder {
-  @include icon(folder);
+.icon-folder-open {
+  @include icon(folder-open);
 }
 
-.icon-folder_open {
-  @include icon(folder_open);
+.icon-folder {
+  @include icon(folder);
 }
 
 .icon-graph {
   @include icon(graph);
 }
 
-.icon-heart {
-  @include icon(heart);
+.icon-heart-outline {
+  @include icon(heart-outline);
 }
 
-.icon-heart_outline {
-  @include icon(heart_outline);
+.icon-heart {
+  @include icon(heart);
 }
 
 .icon-help {
@@ -587,12 +514,12 @@ $icon_view_stop: '\E049';
   @include icon(mobile);
 }
 
-.icon-namely {
-  @include icon(namely);
+.icon-namely-inverted {
+  @include icon(namely-inverted);
 }
 
-.icon-namely_inverted {
-  @include icon(namely_inverted);
+.icon-namely {
+  @include icon(namely);
 }
 
 .icon-paperclip {
@@ -607,12 +534,12 @@ $icon_view_stop: '\E049';
   @include icon(people);
 }
 
-.icon-person {
-  @include icon(person);
+.icon-person-add {
+  @include icon(person-add);
 }
 
-.icon-person_add {
-  @include icon(person_add);
+.icon-person {
+  @include icon(person);
 }
 
 .icon-phone {
@@ -639,28 +566,28 @@ $icon_view_stop: '\E049';
   @include icon(settings);
 }
 
-.icon-social_fb {
-  @include icon(social_fb);
+.icon-social-fb {
+  @include icon(social-fb);
 }
 
-.icon-social_google {
-  @include icon(social_google);
+.icon-social-google {
+  @include icon(social-google);
 }
 
-.icon-social_googleplus {
-  @include icon(social_googleplus);
+.icon-social-googleplus {
+  @include icon(social-googleplus);
 }
 
-.icon-social_linkedin {
-  @include icon(social_linkedin);
+.icon-social-linkedin {
+  @include icon(social-linkedin);
 }
 
-.icon-social_tumblr {
-  @include icon(social_tumblr);
+.icon-social-tumblr {
+  @include icon(social-tumblr);
 }
 
-.icon-social_twitter {
-  @include icon(social_twitter);
+.icon-social-twitter {
+  @include icon(social-twitter);
 }
 
 .icon-star {
@@ -683,11 +610,11 @@ $icon_view_stop: '\E049';
   @include icon(upload);
 }
 
-.icon-view {
-  @include icon(view);
+.icon-view-stop {
+  @include icon(view-stop);
 }
 
-.icon-view_stop {
-  @include icon(view_stop);
+.icon-view {
+  @include icon(view);
 }
 
