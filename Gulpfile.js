@@ -33,14 +33,14 @@ gulp.task('icons', function(){
     .pipe(iconfontCss({
       fontName: fontName,
       path: './src/lib/scss/_icons-template.scss',
-      targetPath: '../../scss/base/_icons.scss',
-      fontPath: './src/lib/fonts/'
+      targetPath: '../../src/scss/base/_icons.scss',
+      fontPath: '././public/fonts/'
     }))
     .pipe(iconfont({
       fontName: fontName,
       normalize: true
     }))
-    .pipe(gulp.dest('./src/lib/fonts/'));
+    .pipe(gulp.dest('././public/fonts/'));
 });
 
 gulp.task('import-styles', function(){
