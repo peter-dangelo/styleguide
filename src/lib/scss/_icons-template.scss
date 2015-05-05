@@ -28,8 +28,7 @@
   @return $char;
 }
 
-<% _.each(glyphs, function(glyph) { %>
-$icon_<%= glyph.fileName %>: '\<%= glyph.codePoint %>';
+<% _.each(glyphs, function(glyph) { %>$icon-<%= glyph.fileName %>: '\<%= glyph.codePoint %>';
 <% }); %>
 
 @mixin icon($filename, $insert: before) {
