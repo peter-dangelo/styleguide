@@ -11,9 +11,21 @@ var connect = require('gulp-connect');
 var history = require('connect-history-api-fallback');
 var jsonSass = require('gulp-json-sass');
 var header = require('gulp-header');
+var stringifyObject = require('stringify-object');
+var gutil = require('gulp-util');
 var iconfont = require('gulp-iconfont');
 var iconfontCss = require('gulp-iconfont-css');
 var fontName = 'icons';
+
+function string_src(filename, string) {
+  var src = require('stream').Readable({ objectMode: true })
+  var prettyJSON = stringifyObject(string, {singleQuotes: false});
+  src._read = function () {
+    this.push(new gutil.File({ cwd: "", base: "", path: filename, contents: new Buffer(prettyJSON) }))
+    this.push(null)
+  }
+  return src
+}
 
 gulp.task('scripts', function(){
   browserify({
@@ -27,7 +39,6 @@ gulp.task('scripts', function(){
   .pipe(connect.reload());
 });
 
-
 gulp.task('icons', function(){
   gulp.src(['./src/lib/icons/*.svg'])
     .pipe(iconfontCss({
@@ -40,6 +51,9 @@ gulp.task('icons', function(){
       fontName: fontName,
       normalize: true
     }))
+    .on('codepoints', function(codepoints, options) {
+      string_src('_icons.json', codepoints).pipe(gulp.dest("./src/lib/"));
+    })
     .pipe(gulp.dest('././public/fonts/'));
 });
 
@@ -67,7 +81,6 @@ gulp.task('scss-lint', function(){
     }))
     .pipe(scsslint.failReporter('E'));
 });
-
 
 gulp.task('colors', function(){
   var source = './src/lib/_colors.json';
