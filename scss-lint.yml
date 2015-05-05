@@ -64,8 +64,6 @@ linters:
 
   NameFormat:
     enabled: true
-    exclude:
-      'src/scss/base/_icons.scss'
 
   NestingDepth:
     enabled: true
@@ -96,8 +94,6 @@ linters:
 
   SelectorFormat:
     enabled: true
-    exclude:
-      'src/scss/base/_icons.scss'
 
   SingleLinePerProperty:
     enabled: true
