@@ -1,6 +1,5 @@
 import React from 'react';
 
-const D = React.DOM;
 const Type = React.PropTypes;
 
 export default React.createClass({
