@@ -85,7 +85,6 @@ export default React.createClass({
             </div>
             <hr />
             <h3>Select</h3>
-            <p className="orange">Arrow icons needed</p>
             <div className="py3">
               <h4>Native</h4>
               <div className="col-3">
