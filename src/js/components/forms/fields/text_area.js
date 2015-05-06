@@ -6,14 +6,17 @@ export default React.createClass({
   displayName: "TextArea",
 
   propTypes: {
-    id: Type.string,
+    extraClasses: Type.arrayOf(Type.string),
     label: Type.string,
-    placeholder: Type.string
+    placeholder: Type.string,
+    readOnly: Type.bool,
+    inactive: Type.bool
   },
 
   getDefaultProps() {
     return {
-      id: ''
+      readOnly: false,
+      inactive: false
     }
   },
 
@@ -23,10 +26,26 @@ export default React.createClass({
     }
   },
 
+  classes() {
+    var classes = ['textarea'];
+    if(this.props.readOnly) {
+      classes.push('read-only');
+    }
+    if(this.props.inactive) {
+      classes.push('inactive');
+    }
+    classes.push(this.props.extraClasses);
+    return classes.join(' ');
+  },
+
   render() {
-    return  <div className="textarea">
+    return  <div className={this.classes()}>
         {this.label()}
-        <textarea className="" placeholder={this.props.placeholder}/>
+        <textarea
+          className=""
+          readOnly={this.props.readOnly || this.props.inactive}
+          placeholder={this.props.placeholder}
+        />
       </div>
   }
 });

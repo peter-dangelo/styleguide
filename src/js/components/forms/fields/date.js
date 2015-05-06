@@ -6,13 +6,12 @@ export default React.createClass({
   displayName: "DateField",
 
   propTypes: {
-    id: Type.string,
+    extraClasses: Type.arrayOf(Type.string),
     label: Type.string,
   },
 
   getDefaultProps() {
     return {
-      id: 'foo'
     }
   },
 
@@ -22,11 +21,26 @@ export default React.createClass({
     }
   },
 
+  classes() {
+    var classes = ['date-field'];
+    if(this.props.inactive) {
+      classes.push('inactive');
+    }
+    if(this.props.readOnly) {
+      classes.push('read-only');
+    }
+    classes.push(this.props.extraClasses);
+    return classes.join(' ');
+  },
+
   render() {
-    return  <div className="date-field">
+    return  <div className={this.classes()}>
         {this.label()}
-        <input id="" type="text"></input>
-        <span className="icon-calendar blue ml2"></span>
+        <input
+          readOnly={this.props.readOnly || this.props.inactive}
+          type="text">
+        </input>
+        <span className="icon icon-calendar"></span>
       </div>
   }
 });

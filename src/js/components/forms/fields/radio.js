@@ -6,7 +6,8 @@ export default React.createClass({
   displayName: "Radio",
 
   propTypes: {
-    id: Type.string,
+    disabled: Type.bool,
+    extraClasses: Type.arrayOf(Type.string),
     label: Type.string,
     readOnly: Type.bool,
     checked: Type.bool,
@@ -15,6 +16,7 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
+      disabled: false,
       readonly: false,
       checked: false
     }
@@ -30,38 +32,25 @@ export default React.createClass({
     }
   },
 
-  label() {
-    if(this.props.label) {
-      return <label className="ml2">{this.props.label}</label>;
+  classes() {
+    var classes = ['radio-field'];
+    if(this.props.inactive) {
+      classes.push('inactive');
     }
+    classes.push(this.props.extraClasses);
+    return classes.join(' ');
   },
 
   render() {
-    return <div className="flex flex-wrap mb1">
-        <div><input type="radio" name={this.props.name}></input></div>
-        <div>{this.label()}</div>
+    return <div className={this.classes()}>
+        <label>
+          <input
+            disabled={this.props.disabled}
+            type="radio"
+            name={this.props.name}>
+          </input>
+          <span className="right-label">{this.props.label}</span>
+        </label>
       </div>
-    // <div className="flex flex-wrap mb1">
-    //     <div>
-    //       <input
-    //         type="checkbox"
-    //         id=""
-    //         checked={this.state.isChecked}
-    //         onChange={this.onChange}
-    //         readOnly={this.props.readOnly}
-    //       >
-    //       </input>
-    //     </div>
-    //     <div>{this.label()}</div>
-    //   </div>
   }
 });
-
-
-
-
-
-            // <div className="flex flex-wrap mb1">
-            //   <div><input type="radio" id="radio_1" name="radios"></input></div>
-            //   <div><label className="ml2" htmlFor="radio_1">Label 1</label></div>
-            // </div>

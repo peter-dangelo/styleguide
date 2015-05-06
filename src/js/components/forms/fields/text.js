@@ -6,14 +6,16 @@ export default React.createClass({
   displayName: "TextField",
 
   propTypes: {
-    id: Type.string,
+    extraClasses: Type.arrayOf(Type.string),
     label: Type.string,
-    placeholder: Type.string
+    placeholder: Type.string,
+    inactive: Type.bool
   },
 
   getDefaultProps() {
     return {
-      id: ''
+      inactive: false,
+      readOnly: false
     }
   },
 
@@ -23,10 +25,24 @@ export default React.createClass({
     }
   },
 
+  classes() {
+    var classes = ['text-field'];
+    if(this.props.inactive) {
+      classes.push('inactive');
+    }
+    classes.push(this.props.extraClasses);
+    return classes.join(' ');
+  },
+
   render() {
-    return  <div className="text-field">
+    return  <div className={this.classes()}>
         {this.label()}
-        <input className="" id="" type="text" placeholder={this.props.placeholder}></input>
+        <input
+          className=""
+          type="text"
+          placeholder={this.props.placeholder}
+          readOnly={this.props.inactive || this.props.readOnly}
+        ></input>
       </div>
   }
 });

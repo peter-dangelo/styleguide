@@ -6,8 +6,9 @@ export default React.createClass({
   displayName: "Checkbox",
 
   propTypes: {
-    id: Type.string,
-    label: Type.string,
+    extraClasses: Type.arrayOf(Type.string),
+    inactive: Type.bool,
+    label: Type.string.isRequired,
     placeholder: Type.string,
     readOnly: Type.bool,
     checked: Type.bool
@@ -15,9 +16,9 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      readonly: false,
-      id: '',
-      checked: false
+      checked: false,
+      inactive: false,
+      readonly: false
     }
   },
 
@@ -31,25 +32,30 @@ export default React.createClass({
     }
   },
 
-  label() {
-    if(this.props.label) {
-      return <label className="ml2">{this.props.label}</label>;
+  classes() {
+    var classes = ['checkbox-field'];
+    if(this.props.readOnly) {
+      classes.push('read-only');
     }
+    if(this.props.inactive) {
+      classes.push('inactive');
+    }
+    classes.push(this.props.extraClasses);
+    return classes.join(' ');
   },
 
   render() {
-    return  <div className="flex flex-wrap mb1">
-        <div>
+    return <div className={this.classes()}>
+        <label>
           <input
             type="checkbox"
-            id=""
             checked={this.state.isChecked}
             onChange={this.onChange}
-            readOnly={this.props.readOnly}
-          >
+            disabled={this.props.readOnly || this.props.inactive}
+            readOnly={this.props.readOnly || this.props.inactive}>
           </input>
-        </div>
-        <div>{this.label()}</div>
+          <span className="right-label">{this.props.label}</span>
+        </label>
       </div>
   }
 });

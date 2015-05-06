@@ -6,13 +6,16 @@ export default React.createClass({
   displayName: "NumberField",
 
   propTypes: {
-    id: Type.string,
+    extraClasses: Type.arrayOf(Type.string),
     label: Type.string,
+    readOnly: Type.bool,
+    inactive: Type.bool
   },
 
   getDefaultProps() {
     return {
-      id: ''
+      readOnly: false,
+      inactive: false
     }
   },
 
@@ -22,10 +25,22 @@ export default React.createClass({
     }
   },
 
+  classes() {
+    var classes = ['number-field'];
+    if(this.props.inactive) {
+      classes.push('inactive');
+    }
+    classes.push(this.props.extraClasses)
+    return classes.join(' ');
+  },
+
   render() {
-    return  <div className="number-field">
+    return  <div className={this.classes()}>
         {this.label()}
-        <input className="" id="" type="number"></input>
+        <input
+          type="number"
+          readOnly={this.props.readOnly || this.props.inactive}
+        ></input>
         <span className="icon icon-arrow-double blue"></span>
       </div>
   }
