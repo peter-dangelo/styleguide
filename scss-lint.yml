@@ -69,7 +69,7 @@ linters:
     enabled: true
     
   PlaceholderInExtend:
-    enabled: true
+    enabled: false
 
   PropertySortOrder:
     enabled: true
