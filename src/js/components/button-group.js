@@ -6,7 +6,7 @@ export default React.createClass({
   displayName: "ButtonGroup",
 
   propTypes: {
-   type: Type.oneOf(['actions']).isRequired,
+   type: Type.oneOf(['actions']),
    children: Type.node.isRequired,
    extraClass: Type.string
   },
