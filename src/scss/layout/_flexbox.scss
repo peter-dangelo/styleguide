@@ -7,50 +7,50 @@
 
 -------------------------*/
 
-.flex {
+.flex, %flex {
   display: flex;
 };
 
-.flex-column {
+.flex-column, %flex-column {
   flex-direction: column;
 }
 
-.flex-wrap {
+.flex-wrap, %flex-wrap {
   flex-wrap: wrap;
 }
 
-.flex-center {
+.flex-center, %flex-center {
   align-items: center;
 }
 
-.flex-baseline {
+.flex-baseline, %flex-baseline {
   align-items: baseline;
 }
 
-.flex-stretch {
+.flex-stretch, %flex-stretch {
   align-items: stretch;
 }
 
-.flex-start {
+.flex-start, %flex-start {
   align-items: flex-start;
 }
 
-.flex-end {
+.flex-end, %flex-end {
   align-items: flex-end;
 }
 
-.flex-justify {
+.flex-justify, %flex-justify {
   justify-content: space-between;
 }
 
-.flex-auto {
+.flex-auto, %flex-auto {
   flex: 1 1 auto;
 }
 
-.flex-grow {
+.flex-grow, %flex-grow {
   flex: 1 0 auto;
 }
 
-.flex-none {
+.flex-none, %flex-none {
   flex: none;
 }
