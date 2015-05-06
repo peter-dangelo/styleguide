@@ -49,13 +49,26 @@ export default React.createClass({
           <Button label="Save" />
         </ButtonGroup>
 
-        <ButtonGroup>
-          <div className="button-group-column flex-auto">
+        <ButtonGroup type="actions">
+          <ButtonGroup>
             <Button label="Delete" type="danger" />
-          </div>
+          </ButtonGroup>
 
           <Button label="Cancel" link={ true } />
           <Button label="Save Progress" type="secondary" />
+          <Button label="Publish" />
+        </ButtonGroup>
+
+        <ButtonGroup type="actions">
+          <ButtonGroup>
+            <Button label="Previous" type="previous" />
+          </ButtonGroup>
+
+          <Button label="Next" type="next" />
+        </ButtonGroup>
+
+        <ButtonGroup type="actions">
+          <Button label="Cancel" link={ true } type="secondary" />
           <Button label="Publish" />
         </ButtonGroup>
       </div>
