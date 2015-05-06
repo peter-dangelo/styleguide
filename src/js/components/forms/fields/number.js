@@ -10,6 +10,7 @@ export default React.createClass({
     label: Type.string,
     readOnly: Type.bool,
     inactive: Type.bool
+    units: Type.string
   },
 
   getDefaultProps() {
@@ -22,6 +23,12 @@ export default React.createClass({
   label() {
     if(this.props.label) {
       return <label htmlFor={this.props.id} className="px2 mb1">{this.props.label}</label>;
+    }
+  },
+
+  units(){
+    if(this.props.units) {
+      return <span className="units">{this.props.units}</span>
     }
   },
 
@@ -43,6 +50,7 @@ export default React.createClass({
           readOnly={this.props.readOnly || this.props.inactive}
         ></input>
         <span className="icon icon-arrow-double blue"></span>
+        {this.units()}
       </div>
   }
 });
