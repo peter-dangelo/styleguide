@@ -2,11 +2,12 @@
   "name": "namely-ui",
   "version": "0.1.0",
   "description": "An app for documenting React components and styles for Namely",
-  "main": "./packaged/rdy.js",
+  "main": "./lib/namely-ui.build.js",
+  "styles": "./lib/namely-ui.build.css",
   "scripts": {
     "postinstall": "node_modules/.bin/bower install && gem install scss-lint",
     "start": "gulp",
-    "compile": "babel index.js --out-file packaged/rdy.js && gulp package:css"
+    "compile": "babel ./lib/namely-ui.js --out-file ./lib/namely-ui.build.js && gulp package:css"
   },
   "author": "HipsterBrown",
   "license": "MIT",

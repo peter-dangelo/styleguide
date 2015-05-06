@@ -14,12 +14,6 @@ var header = require('gulp-header');
 var fs = require('fs');
 var concat = require('gulp-concat');
 
-function addStyleDir(filename){
-  return './src/scss/' + filename;
-}
-
-var rdyJSON = JSON.parse(fs.readFileSync('./rdy.json'));
-
 gulp.task('scripts', function(){
   browserify({
     entries: './src/js/index.js',
@@ -86,12 +80,11 @@ gulp.task('watch', function(){
 });
 
 gulp.task('package:css', function(){
-  gulp.src(rdyJSON.scss.map(addStyleDir))
-    .pipe(concat('rdy.scss'))
+  gulp.src('./lib/namely-ui.scss')
     .pipe(sass())
     .pipe(autoprefix())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./packaged'));
+    .pipe(gulp.dest('./lib/namely-ui.build.css'));
 });
 
 gulp.task('default', ['server', 'watch']);
