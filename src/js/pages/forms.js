@@ -38,10 +38,10 @@ export default React.createClass({
 
             <p>Default states</p>
             <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} />
-            <NumberField label="Number" extraClasses={['py2']}/>
-            <DateField label="Date" extraClasses={['py2']}/>
+            <NumberField label="Number" extraClasses={['py2']} units="Units"  />
+            <DateField label="Date" extraClasses={['py2']} />
             <SimpleSelect label="Simple Select" options={options} promptText="- Select -" extraClasses={['py2']}/>
-            <TextArea label="Textarea" extraClasses={['py2']}/>
+            <TextArea label="Textarea" extraClasses={['py2']} />
             <Checkbox label="Checkbox" extraClasses={['py2']}/>
             <Radio name="radios1" label="Radio 1" extraClasses={['py2']}/>
             <Radio name="radios1" label="Radio 2" extraClasses={['py2']}/>
@@ -55,6 +55,29 @@ export default React.createClass({
             <Checkbox label="Checkbox" inactive={true} extraClasses={['py2']}/>
             <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
             <Radio name="radios2" label="Radio" inactive={true} disabled={true} extraClasses={['py2']} />
+
+
+            <p className="mt4">Form within grey block</p>
+            <div className="bg-grey-10 p3 rounded-3 grey-form">
+              <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']}/>
+              <NumberField label="Number" extraClasses={['py2']} units="Units" />
+              <DateField label="Date" extraClasses={['py2']}/>
+              <SimpleSelect label="Simple Select" options={options} promptText="- Select -" extraClasses={['py2']}/>
+              <TextArea label="Textarea" extraClasses={['py2']}/>
+              <Checkbox label="Checkbox" extraClasses={['py2']}/>
+              <Radio name="radios3" label="Radio 1" extraClasses={['py2']}/>
+              <Radio name="radios3" label="Radio 2" extraClasses={['py2']}/>
+              <hr/>
+              <p>Inactive states</p>
+              <TextField label="Text" placeholder="Placeholder" inactive={true} extraClasses={['py2']} />
+              <NumberField label="Number" inactive={true} extraClasses={['py2']} />
+              <DateField label="Date" inactive={true} />
+              <SimpleSelect label="Simple Select" options={options} inactive={true} extraClasses={['py2']}/>
+              <TextArea label="Textarea" inactive={true} extraClasses={['py2']} />
+              <Checkbox label="Checkbox" inactive={true} extraClasses={['py2']}/>
+              <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+              <Radio name="radios2" label="Radio" inactive={true} disabled={true} extraClasses={['py2']} />
+            </div>
 
             <hr />
 
