@@ -7,9 +7,9 @@ export default React.createClass({
 
   propTypes: {
     extraClasses: Type.arrayOf(Type.string),
+    inactive: Type.bool,
     label: Type.string,
     readOnly: Type.bool,
-    inactive: Type.bool
     units: Type.string
   },
 
