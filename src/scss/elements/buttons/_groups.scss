@@ -12,12 +12,12 @@
 }
 
 .button-group-actions {
-  @extend .flex;
+  @extend %flex;
   border-top: 1px solid $grey-10;
   justify-content: flex-end;
 
   .button-group {
-    @extend .flex-auto;
+    @extend %flex-auto;
     padding: 0;
   }
 
