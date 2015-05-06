@@ -11,6 +11,7 @@ import ButtonsPage from './pages/buttons';
 import PopoversPage from './pages/popovers';
 import ModalsPage from './pages/modals';
 import CardsPage from './pages/cards';
+import IconsPage from './pages/icons';
 
 let appContainer = document.getElementById('app');
 
@@ -31,7 +32,8 @@ export default Router.extend({
     'buttons': 'buttons',
     'popovers': 'popovers',
     'modals': 'modals',
-    'cards': 'cards'
+    'cards': 'cards',
+    'icons': 'icons',
   },
 
   home() {
@@ -69,11 +71,12 @@ export default Router.extend({
   modals() {
     this.renderPage(ModalsPage);
   },
-  
+
   cards() {
     this.renderPage(CardsPage);
+  },
+
+  icons() {
+    this.renderPage(IconsPage);
   }
 });
-
-
-

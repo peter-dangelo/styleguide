@@ -63,6 +63,7 @@ export default React.createClass({
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/tables' }, 'Tables + Lists')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/forms' }, 'Forms')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/buttons' }, 'Buttons')),
+          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/icons' }, 'Icons')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/popovers' }, 'Popovers')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/modals' }, 'Modals')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/cards' }, 'Cards'))
