@@ -37,6 +37,7 @@ export default React.createClass({
   render() {
     return  <div className={this.classes()}>
         {this.label()}
+        <br/>
         <input
           className=""
           type="text"

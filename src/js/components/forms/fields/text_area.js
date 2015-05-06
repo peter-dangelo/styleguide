@@ -41,6 +41,7 @@ export default React.createClass({
   render() {
     return  <div className={this.classes()}>
         {this.label()}
+        <br/>
         <textarea
           className=""
           readOnly={this.props.readOnly || this.props.inactive}

@@ -36,6 +36,7 @@ export default React.createClass({
   render() {
     return  <div className={this.classes()}>
         {this.label()}
+        <br/>
         <input
           readOnly={this.props.readOnly || this.props.inactive}
           type="text">
