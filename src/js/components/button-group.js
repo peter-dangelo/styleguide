@@ -11,18 +11,12 @@ export default React.createClass({
    extraClass: Type.string
   },
 
-  getDefaultProps: function() {
-    return {
-      type: "actions"
-    };
-  },
-
   createClass: function(value) {
     return "button-group-" + value;
   },
 
   classes: function() {
-    var classes = ["flex"];
+    var classes = ["button-group"];
 
     if (this.props.type) {
       classes.push(this.createClass(this.props.type));
