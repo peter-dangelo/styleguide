@@ -31,79 +31,65 @@ export default React.createClass({
 
   render() {
     return <Styleguide title="Forms Styles">
-        <div title="Form" description="The form and input styles for Namely">
+        <div title="Forms">
           <form>
             <hr />
-            <h3>Text inputs</h3>
-            <p>Set their widths with col classes.</p>
-            <div className="flex flex-justify">
-              <TextField label="Text" placeholder="Placeholder" />
-              <NumberField label="Number"/>
-              <DateField label="Date"/>
-            </div>
-            <hr />
-            <h3>Textarea</h3>
-            <TextArea label="Bio" />
-            <hr />
-            <h3>Checkboxes</h3>
-            <div className="flex flex-justify">
-              <div>
-                <p>Default</p>
-                <Checkbox label="Checkbox 1" />
-                <Checkbox label="Checkbox 2" />
-              </div>
-              <div>
-                <p>Read-only, checked</p>
-                <Checkbox label="Checkbox 3" readOnly={true} checked={true} />
-              </div>
-            </div>
-            <hr />
-            <h3>Radio buttons</h3>
+            <h3>Fields</h3>
 
-            <Radio name="radios" label="Radio 1"/>
-            <Radio name="radios" label="Radio 2"/>
+            <p>Default states</p>
+            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} />
+            <NumberField label="Number" extraClasses={['py2']}/>
+            <DateField label="Date" extraClasses={['py2']}/>
+            <SimpleSelect label="Simple Select" options={options} promptText="- Select -" extraClasses={['py2']}/>
+            <TextArea label="Textarea" extraClasses={['py2']}/>
+            <Checkbox label="Checkbox" extraClasses={['py2']}/>
+            <Radio name="radios1" label="Radio 1" extraClasses={['py2']}/>
+            <Radio name="radios1" label="Radio 2" extraClasses={['py2']}/>
+
+            <p className="mt4">Inactive states</p>
+            <TextField label="Text" placeholder="Placeholder" inactive={true} extraClasses={['py2']} />
+            <NumberField label="Number" inactive={true} extraClasses={['py2']} />
+            <DateField label="Date" inactive={true} />
+            <SimpleSelect label="Simple Select" options={options} inactive={true} extraClasses={['py2']}/>
+            <TextArea label="Textarea" inactive={true} extraClasses={['py2']} />
+            <Checkbox label="Checkbox" inactive={true} extraClasses={['py2']}/>
+            <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+            <Radio name="radios2" label="Radio" inactive={true} disabled={true} extraClasses={['py2']} />
 
             <hr />
 
-            <h3>Select</h3>
-            <div className="py3">
-              <h4>Native</h4>
-              <SimpleSelect label="Simple Select" options={options} />
+            <h3>React Select</h3>
+            <p><a href="https://github.com/JedWatson/react-select">https://github.com/JedWatson/react-select</a></p>
+            <div className="col-3 left mr2">
+              <label className="px2 mb1">Default</label>
+              <Select
+                searchable={false}
+                name="form-field-nameczXCzx"
+                options={options}
+                onChange={_onChange}
+                placeholder="- Select Office -"
+              />
             </div>
-            <div className="py3">
-              <h4>React Select</h4>
-              <p><a href="https://github.com/JedWatson/react-select">https://github.com/JedWatson/react-select</a></p>
-              <div className="col-3 left mr2">
-                <label className="px2 mb1">Default</label>
-                <Select
-                  searchable={false}
-                  name="form-field-nameczXCzx"
-                  options={options}
-                  onChange={_onChange}
-                  placeholder="- Select Office -"
-                />
-              </div>
-              <div className="col-3 left mr2">
-                <label className="px2 mb1">Multi</label>
-                <Select
-                  searchable={false}
-                  multi={true}
-                  name="form-field-nameczXCzx"
-                  options={options}
-                  onChange={_onChange}
-                  placeholder="- Select Office -"
-                />
-              </div>
-              <div className="col-3 left mr2">
-                <label className="px2 mb1">Searchable (like Chosen)</label>
-                <Select
-                  name="form-field-nameczXCzx"
-                  options={options}
-                  onChange={_onChange}
-                  placeholder="- Select Office -"
-                  onFocus={_onFocus}
-                />
-              </div>
+            <div className="col-3 left mr2">
+              <label className="px2 mb1">Multi</label>
+              <Select
+                searchable={false}
+                multi={true}
+                name="form-field-nameczXCzx"
+                options={options}
+                onChange={_onChange}
+                placeholder="- Select Office -"
+              />
+            </div>
+            <div className="col-3 left mr2">
+              <label className="px2 mb1">Searchable (like Chosen)</label>
+              <Select
+                name="form-field-nameczXCzx"
+                options={options}
+                onChange={_onChange}
+                placeholder="- Select Office -"
+                onFocus={_onFocus}
+              />
             </div>
           </form>
         </div>
