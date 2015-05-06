@@ -11,7 +11,7 @@ export default React.createClass({
    size: Type.oneOf([null, 'sm']),
    disabled: Type.bool,
    link: Type.bool,
-   extraClass: Type.string
+   extraClasses: Type.arrayOf(Type.string)
   },
 
   getDefaultProps: function() {
@@ -29,20 +29,21 @@ export default React.createClass({
 
   classes: function() {
     var classes = [];
+    var props = this.props;
 
-    if (this.props.type) {
-      classes.push(this.createClass(this.props.type));
+    if (props.type) {
+      classes.push(this.createClass(props.type));
     }
 
-    if (this.props.size) {
-      classes.push(this.createClass(this.props.size));
+    if (props.size) {
+      classes.push(this.createClass(props.size));
     }
 
-    if (this.props.extraClass) {
-      classes.push(this.props.extraClass);
+    if (props.extraClasses) {
+      classes.push(props.extraClasses.join(' '));
     }
 
-    if (this.props.link === true) {
+    if (props.link === true) {
       classes.push("button-link");
     }
 

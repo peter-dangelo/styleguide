@@ -8,7 +8,7 @@ export default React.createClass({
   propTypes: {
    type: Type.oneOf(['actions']),
    children: Type.node.isRequired,
-   extraClass: Type.string
+   extraClasses: Type.arrayOf(Type.string)
   },
 
   createClass: function(value) {
@@ -17,13 +17,14 @@ export default React.createClass({
 
   classes: function() {
     var classes = ["button-group"];
+    var props = this.props;
 
-    if (this.props.type) {
-      classes.push(this.createClass(this.props.type));
+    if (props.type) {
+      classes.push(this.createClass(props.type));
     }
 
-    if (this.props.extraClass) {
-      classes.push(this.props.extraClass);
+    if (props.extraClasses) {
+      classes.push(props.extraClasses.join(' '));
     }
 
     return classes.join(' ');
