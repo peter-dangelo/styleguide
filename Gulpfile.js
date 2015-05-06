@@ -34,7 +34,7 @@ gulp.task('styles', function(){
   .pipe(sourcemaps.init())
   .pipe(sass())
   .pipe(sourcemaps.write('.'))
-  .pipe(minifyCSS())
+  .pipe(minifyCSS({processImport: false}))
   .pipe(autoprefix())
   .pipe(gulp.dest('./public'))
   .pipe(connect.reload());
