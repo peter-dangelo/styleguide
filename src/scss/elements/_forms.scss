@@ -26,21 +26,28 @@ fieldset {
   background: $blue-light;
   border: 1px solid $blue-light;
   border-radius: 3px;
+  box-sizing: border-box;
+  color: $grey-75;
   padding: $space-2;
   vertical-align: middle;
+  width: 100%;
 
-  &:focus {
+  &:focus:not([readonly]) {
     border: 1px solid $grey-25;
   }
 }
 
 [type=number]::-webkit-inner-spin-button,
 [type=number]::-webkit-outer-spin-button {
-  // -webkit-appearance: none;
   opacity: 0;
 }
 
-input:focus::placeholder { color: transparent; }
+input::placeholder {
+  color: $grey-50;
+}
+input:not([readonly]):focus::placeholder {
+  color: transparent;
+}
 
 [type=checkbox] {
 
@@ -131,10 +138,12 @@ textarea {
   background: $blue-light;
   border: 1px solid $blue-light;
   border-radius: 3px;
+  box-sizing: border-box;
   padding: $space-2;
   vertical-align: middle;
+  width: 100%;
 
-  &:focus {
+  &:not([readonly]):focus {
     border: 1px solid $grey-25;
   }
 }
@@ -146,6 +155,23 @@ label {
   font-size: $h6;
 }
 
+
+// note: there are some very pixel-specific styles here,
+// but I thought that might be ok since these are UI elements
+
+
+.inactive {
+  .icon {
+    color: $grey-25;
+  }
+  input {
+    background: $grey-10;
+  }
+  textarea {
+    background: $grey-10;
+  }
+}
+
 .number-field {
   .icon {
     height: 0;
@@ -155,9 +181,68 @@ label {
     top: 3px;
     width: 0;
   }
+  // we don't want full widths for number fields
+  input {
+    width: auto;
+  }
+}
+
+.checkbox-field, .radio-field {
+  &.read-only, &.inactive {
+    label {
+      cursor: default;
+    }
+  }
+  .right-label {
+    position: relative;
+    top: -3px;
+    margin-left: 10px;
+  }
+
+  &.inactive input {
+    background: none;
+  }
+}
+.checkbox-field {
+  &.inactive input:after {
+    background: $grey-10;
+    border: 1px solid $grey-10;
+    border-radius: 3px;
+    content: '';
+    cursor: default;
+  }
+}
+
+.radio-field {
+  &.inactive input:after {
+    cursor: default;
+  }
+  [disabled]:after {
+    border: 1px solid $grey-10;
+    background: $grey-10;
+  }
+}
+
+
+.date-field {
+  .icon {
+    color: $blue;
+    margin-left: 5px;
+  }
+  &.inactive .icon {
+    color: $grey-25;
+  }
+  // we don't want full widths for date fields
+  input {
+    width: auto;
+  }
 }
 
 .simple-select {
+  position: relative;
+  select {
+    border: 1px solid $grey-10;
+  }
   .icon {
     pointer-events: none;
     bottom: 2px;
