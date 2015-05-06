@@ -43,7 +43,6 @@ export default React.createClass({
         {this.label()}
         <br/>
         <textarea
-          className=""
           readOnly={this.props.readOnly || this.props.inactive}
           placeholder={this.props.placeholder}
         />

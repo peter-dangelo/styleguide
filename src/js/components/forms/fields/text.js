@@ -39,7 +39,6 @@ export default React.createClass({
         {this.label()}
         <br/>
         <input
-          className=""
           type="text"
           placeholder={this.props.placeholder}
           readOnly={this.props.inactive || this.props.readOnly}
