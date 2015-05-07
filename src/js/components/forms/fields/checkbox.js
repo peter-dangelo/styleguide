@@ -54,7 +54,7 @@ export default React.createClass({
             disabled={this.props.readOnly || this.props.inactive}
             readOnly={this.props.readOnly || this.props.inactive}>
           </input>
-          <span className="right-label">{this.props.label}</span>
+          <span className="label-right">{this.props.label}</span>
         </label>
       </div>
   }

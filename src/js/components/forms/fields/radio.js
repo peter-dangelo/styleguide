@@ -49,7 +49,7 @@ export default React.createClass({
             type="radio"
             name={this.props.name}>
           </input>
-          <span className="right-label">{this.props.label}</span>
+          <span className="label-right">{this.props.label}</span>
         </label>
       </div>
   }
