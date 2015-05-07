@@ -84,7 +84,7 @@ gulp.task('package:css', function(){
     .pipe(sass())
     .pipe(autoprefix())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./dist/namely-ui.css'));
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('default', ['server', 'watch']);
