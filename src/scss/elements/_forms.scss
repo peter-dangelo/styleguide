@@ -250,14 +250,6 @@ label {
 }
 
 .date-field {
-  .icon {
-    color: $blue;
-    margin-left: 5px;
-  }
-
-  &.inactive .icon {
-    color: $grey-25;
-  }
   // we don't want full widths for date fields
   input {
     width: auto;

@@ -7,11 +7,13 @@ export default React.createClass({
 
   propTypes: {
     extraClasses: Type.arrayOf(Type.string),
+    inactive: Type.bool,
     label: Type.string,
   },
 
   getDefaultProps() {
     return {
+      inactive: false
     }
   },
 
@@ -19,6 +21,12 @@ export default React.createClass({
     if(this.props.label) {
       return <label htmlFor={this.props.id} className="px2 mb1">{this.props.label}</label>;
     }
+  },
+
+  iconClasses() {
+    var classes = ['icon', 'icon-calendar', 'ml1'];
+    this.props.inactive ? classes.push('grey-25') : classes.push('blue');
+    return classes.join(' ');
   },
 
   classes() {
@@ -41,7 +49,7 @@ export default React.createClass({
           readOnly={this.props.readOnly || this.props.inactive}
           type="text">
         </input>
-        <span className="icon icon-calendar"></span>
+        <span className={this.iconClasses()}></span>
       </div>
   }
 });
