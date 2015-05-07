@@ -7,6 +7,7 @@ export default React.createClass({
 
   propTypes: {
     extraClasses: Type.arrayOf(Type.string),
+    fieldColor: Type.oneOf(['light', 'dark']),
     inactive: Type.bool,
     label: Type.string,
   },
@@ -21,6 +22,12 @@ export default React.createClass({
     if(this.props.label) {
       return <label htmlFor={this.props.id} className="px2 mb1">{this.props.label}</label>;
     }
+  },
+
+  fieldClasses() {
+    var classes = [];
+    classes.push('field-'+this.props.fieldColor);
+    return classes.join(' ');
   },
 
   iconClasses() {
@@ -46,6 +53,7 @@ export default React.createClass({
         {this.label()}
         <br/>
         <input
+          className={this.fieldClasses(' ')}
           readOnly={this.props.readOnly || this.props.inactive}
           type="text">
         </input>

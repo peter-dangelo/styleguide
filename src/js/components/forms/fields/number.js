@@ -7,6 +7,7 @@ export default React.createClass({
 
   propTypes: {
     extraClasses: Type.arrayOf(Type.string),
+    fieldColor: Type.oneOf(['light', 'dark']),
     inactive: Type.bool,
     label: Type.string,
     readOnly: Type.bool,
@@ -32,6 +33,12 @@ export default React.createClass({
     }
   },
 
+  fieldClasses() {
+    var classes = [];
+    classes.push('field-'+this.props.fieldColor);
+    return classes.join(' ');
+  },
+
   classes() {
     var classes = ['number-field'];
     if(this.props.inactive) {
@@ -46,6 +53,7 @@ export default React.createClass({
         {this.label()}
         <br/>
         <input
+          className={this.fieldClasses()}
           type="number"
           readOnly={this.props.readOnly || this.props.inactive}
         ></input>

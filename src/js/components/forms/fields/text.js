@@ -7,6 +7,7 @@ export default React.createClass({
 
   propTypes: {
     extraClasses: Type.arrayOf(Type.string),
+    fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
     placeholder: Type.string,
     inactive: Type.bool
@@ -25,6 +26,12 @@ export default React.createClass({
     }
   },
 
+  fieldClasses() {
+    var classes = [];
+    classes.push('field-'+this.props.fieldColor);
+    return classes.join(' ');
+  },
+
   classes() {
     var classes = ['text-field'];
     if(this.props.inactive) {
@@ -39,6 +46,7 @@ export default React.createClass({
         {this.label()}
         <br/>
         <input
+          className={this.fieldClasses()}
           type="text"
           placeholder={this.props.placeholder}
           readOnly={this.props.inactive || this.props.readOnly}
