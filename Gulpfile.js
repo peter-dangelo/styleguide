@@ -11,8 +11,6 @@ var connect = require('gulp-connect');
 var history = require('connect-history-api-fallback');
 var jsonSass = require('gulp-json-sass');
 var header = require('gulp-header');
-var fs = require('fs');
-var concat = require('gulp-concat');
 
 gulp.task('scripts', function(){
   browserify({
