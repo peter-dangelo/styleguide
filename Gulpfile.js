@@ -45,8 +45,7 @@ gulp.task('styles', function(){
 gulp.task('scss-lint', function(){
   gulp.src('./src/scss/**/*.scss')
     .pipe(scsslint({
-      'config': __dirname + '/scss-lint.yml',
-      'verbose': true
+      'config': __dirname + '/scss-lint.yml'
     }))
     .pipe(scsslint.failReporter('E'));
 });
