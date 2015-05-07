@@ -34,9 +34,8 @@ export default React.createClass({
         <div title="Forms">
           <form>
             <hr />
-            <h3>Fields</h3>
 
-            <p>Default states</p>
+            <p>Default fields</p>
             <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" extraClasses={['py2']} units="Units"  />
             <DateField label="Date" extraClasses={['py2']} />
@@ -46,7 +45,7 @@ export default React.createClass({
             <Radio name="radios1" label="Radio 1" extraClasses={['py2']}/>
             <Radio name="radios1" label="Radio 2" extraClasses={['py2']}/>
 
-            <p className="mt4">Inactive states</p>
+            <p className="mt4">Inactive fields</p>
             <TextField label="Text" placeholder="Placeholder" inactive={true} extraClasses={['py2']} />
             <NumberField label="Number" inactive={true} extraClasses={['py2']} />
             <DateField label="Date" inactive={true} />
@@ -57,8 +56,9 @@ export default React.createClass({
             <Radio name="radios2" label="Radio" inactive={true} disabled={true} extraClasses={['py2']} />
 
 
-            <p className="mt4">Form within grey block</p>
+            <p className="mt4">Fields within grey block</p>
             <div className="bg-grey-10 p3 rounded-3 grey-form">
+              <p>Default fields</p>
               <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']}/>
               <NumberField label="Number" extraClasses={['py2']} units="Units" />
               <DateField label="Date" extraClasses={['py2']}/>
@@ -68,7 +68,7 @@ export default React.createClass({
               <Radio name="radios3" label="Radio 1" extraClasses={['py2']}/>
               <Radio name="radios3" label="Radio 2" extraClasses={['py2']}/>
               <hr/>
-              <p>Inactive states</p>
+              <p>Inactive fields</p>
               <TextField label="Text" placeholder="Placeholder" inactive={true} extraClasses={['py2']} />
               <NumberField label="Number" inactive={true} extraClasses={['py2']} />
               <DateField label="Date" inactive={true} />
