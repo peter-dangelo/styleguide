@@ -25,16 +25,16 @@ export default React.createClass({
       let title = child.props.title.replace(" ", "-");
 
       return React.createElement("div", {
-        className: "Styleguide-components-component",
+        className: "styleguide-components-component",
         id: title
       }, React.createElement("h2", {
-        className: "Styleguide-components-component-title"
+        className: "styleguide-components-component-title"
       }, child.props.title), React.createElement("p", {
-        className: "Styleguide-components-component-description"
+        className: "styleguide-components-component-description"
       }, child.props.description), React.createElement("div", {
-        className: "Styleguide-components-component-example"
+        className: "styleguide-components-component-example"
       }, child.props.children), self.props.example ? React.createElement("div", {
-        className: "Styleguide-components-component-code"
+        className: "styleguide-components-component-code"
       }, React.createElement("pre", null, React.createElement("code", {
         className: self.props.codeClassName ? self.props.codeClassName : "language-javascript"
       }, self.props.highlight ? self.props.highlight(child.props.example) : child.props.example))) : void 0
@@ -46,18 +46,18 @@ export default React.createClass({
 
   render: function () {
     return (React.createElement("div", {
-      className: "Styleguide flex tall"
+      className: "styleguide flex tall"
     }, React.createElement("div", {
-      className: "Styleguide-sidebar col-2 last tall"
+      className: "styleguide-sidebar col-2"
     }, [
       React.createElement("h5", {
-        className: "Styleguide-sidebar-title"
+        className: "styleguide-sidebar-title"
       }, this.props.title),
       React.createElement("ul", {
-        className: "Styleguide-sidebar-list"
+        className: "styleguide-sidebar-list"
       }, this.listComponentTitles())
     ]), React.createElement("div", {
-      className: "Styleguide-components flex-fill overflow-scroll"
+      className: "styleguide-components flex-auto overflow-scroll"
     }, this.listComponents())));
   }
 });

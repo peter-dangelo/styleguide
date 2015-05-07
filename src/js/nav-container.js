@@ -48,7 +48,7 @@ export default React.createClass({
       className: 'main flex tall'
     }, [
       D.nav({
-        className: 'nav nav-primary col-2 last tall',
+        className: 'nav nav-primary col-2 tall',
         role: 'navigation',
         onClick: self.handleClick
       }, [
@@ -63,13 +63,14 @@ export default React.createClass({
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/tables' }, 'Tables + Lists')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/forms' }, 'Forms')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/buttons' }, 'Buttons')),
+          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/icons' }, 'Icons')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/popovers' }, 'Popovers')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/modals' }, 'Modals')),
           D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/cards' }, 'Cards'))
         ])
       ]),
       D.section({
-        className: 'content-container flex-fill tall'
+        className: 'content-container flex-auto tall'
       }, self.props.children)
     ]);
   }

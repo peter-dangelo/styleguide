@@ -1,0 +1,55 @@
+$form-field-font-size: 1rem;
+$form-field-padding-y: 0.5rem;
+$form-field-padding-x: 0.5rem;
+$form-field-height: 2.25rem;
+
+input,
+select,
+textarea,
+fieldset {
+  font-size: $form-field-font-size;
+  margin-bottom: 0;
+  margin-top: 0;
+
+  &:focus { outline: 0;}
+}
+
+[type=text],
+[type=datetime],
+[type=datetime-local],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week] {
+  appearance: none;
+  height: $form-field-height;
+  padding: $form-field-padding-y $form-field-padding-x;
+  vertical-align: middle;
+}
+
+[type=checkbox] {
+  appearance: none;
+  height: $space-3;
+  width: $space-3;
+
+  &:after {
+    border: 1px solid $grey-50;
+    border-radius: 3px;
+    color: $grey-50;
+    content: '';
+    cursor: pointer;
+    display: block;
+    height: $space-3;
+    width: $space-3;
+  }
+
+  &:checked:after {
+    color: $grey-50;
+    content: '*';
+  }
+}

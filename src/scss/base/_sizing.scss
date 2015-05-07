@@ -8,6 +8,15 @@
 -----------------------*/
 
 // Spacing variables for padding and margins
+/** pixels here for reference
+-------------------------------
+  $space-1  =   .3125rem  = 5px
+  $space-2  =   .625rem   = 10px
+  $space-3  =   1.25rem   = 20px
+  $space-4  =   1.875rem  = 30px
+  $space-5  =   2.5rem    = 40px
+-------------------------------*/
+
 $space-1: 0.3125rem !default;
 $space-2: 0.625rem !default;
 $space-3: 1.25rem !default;
@@ -25,3 +34,6 @@ $h6: 0.875rem !default;
 
 $line-height: 1.375;
 $heading-line-height: 1.1;
+$border-radius: 3px;
+
+$duration: 0.1s;
