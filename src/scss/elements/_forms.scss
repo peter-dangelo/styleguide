@@ -208,13 +208,24 @@ label {
   .label-right {
     margin-left: 10px;
     position: relative;
-    top: -3px;
   }
 
   &.inactive input {
     background: none;
   }
 
+}
+
+.checkbox-field {
+  .label-right {
+    top: -4px
+  }
+}
+
+.radio-field {
+  .label-right {
+    top: -1px;
+  }
 }
 
 .checkbox-field {
@@ -237,7 +248,6 @@ label {
     border: 1px solid $grey-10;
   }
 }
-
 
 .date-field {
   .icon {
@@ -263,7 +273,8 @@ label {
   }
 
   .icon {
-    bottom: 2px;
+    bottom: 0.3125rem;
+    font-size: 0.75rem;
     pointer-events: none;
   }
 }
@@ -292,6 +303,7 @@ label {
 
   textarea {
     background: $white;
+    border-color: $white;
   }
 
   [type=radio]:checked:before {
@@ -342,6 +354,3 @@ label {
   }
 
 }
-
-
-
