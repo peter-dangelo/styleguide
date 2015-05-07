@@ -4,7 +4,7 @@
   "description": "An app for documenting React components and styles for Namely",
   "main": " ",
   "scripts": {
-    "postinstall": "node_modules/.bin/bower install && gem install scss-lint",
+    "postinstall": "node_modules/.bin/bower install && gem install scss_lint",
     "start": "gulp"
   },
   "author": "HipsterBrown",
