@@ -76,7 +76,7 @@ input:not([readonly]):focus::placeholder {
     &:before {
       color: $grey-50;
       font-size: $h6;
-      left: 4px;
+      left: 3px;
       position: absolute;
       top: 4px;
       z-index: 2;
@@ -93,21 +93,21 @@ input:not([readonly]):focus::placeholder {
 
 [type=radio] {
   -webkit-appearance: none;
-  height: 16px;
+  height: 14px;
   padding: 0;
   position: relative;
-  width: 16px;
+  width: 14px;
 
   &:after {
     border: 1px solid $grey-50;
-    border-radius: 8px;
+    border-radius: 7px;
     color: $grey-50;
     content: '';
     cursor: pointer;
     display: block;
-    height: 16px;
+    height: 14px;
     position: absolute;
-    width: 16px;
+    width: 14px;
   }
 
   &:checked:before {
@@ -115,11 +115,11 @@ input:not([readonly]):focus::placeholder {
     border-radius: 5px;
     content: '';
     cursor: pointer;
-    height: 10px;
+    height: 8px;
     left: 4px;
     position: absolute;
     top: 4px;
-    width: 10px;
+    width: 8px;
     z-index: 1;
   }
 
