@@ -61,7 +61,7 @@ export default React.createClass({
               return <option value={option.value}>{option.label}</option>;
             })}
           </select>
-          <span className="icon icon-arrow-double absolute right blue mxn3"></span>
+          <span className="icon icon-arrow-down absolute right blue mxn3"></span>
 
         </div>
       </div>
