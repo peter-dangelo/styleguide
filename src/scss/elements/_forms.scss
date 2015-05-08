@@ -219,7 +219,7 @@ label {
 // select field on white background
 .select-light {
   background: $white;
-  border-color: $grey-15;
+  border-color: $grey-10;
 
   &:disabled {
     background: $grey-10;
@@ -273,8 +273,14 @@ label {
   border: 1px solid $grey-15;
 }
 
+.select-dark {
+  background: $white;
+  border: 1px solid $white;
+}
+
 .select-dark:disabled {
   background: $grey-15;
+  border: 1px solid $grey-10;
 }
 
 // note: there are some very pixel-specific styles here,
