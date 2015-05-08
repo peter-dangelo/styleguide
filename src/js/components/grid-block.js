@@ -1,3 +1,4 @@
+import 'core-js/shim';
 import React from 'react';
 
 const D = React.DOM;

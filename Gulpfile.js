@@ -113,4 +113,12 @@ gulp.task('watch', function(){
   gulp.watch('src/js/**', ['scripts']);
 });
 
+gulp.task('package:css', function(){
+  gulp.src('./lib/namely-ui.scss')
+    .pipe(sass())
+    .pipe(autoprefix())
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('default', ['server', 'watch']);
