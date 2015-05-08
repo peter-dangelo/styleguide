@@ -14,7 +14,8 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      disabled: false
+      disabled: false,
+      fieldColor: 'light'
     }
   },
 

@@ -17,6 +17,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       readOnly: false,
+      fieldColor: 'light',
       inactive: false
     }
   },

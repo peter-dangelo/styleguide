@@ -19,6 +19,7 @@ export default React.createClass({
     return {
       checked: false,
       disabled: false,
+      fieldColor: 'light',
       readonly: false
     }
   },
