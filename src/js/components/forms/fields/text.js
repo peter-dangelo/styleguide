@@ -6,15 +6,16 @@ export default React.createClass({
   displayName: "TextField",
 
   propTypes: {
+    disabled: Type.bool,
     extraClasses: Type.arrayOf(Type.string),
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
-    placeholder: Type.string,
-    inactive: Type.bool
+    placeholder: Type.string
   },
 
   getDefaultProps() {
     return {
+      disabled: false,
       inactive: false,
       readOnly: false
     }
@@ -34,8 +35,8 @@ export default React.createClass({
 
   classes() {
     var classes = ['text-field'];
-    if(this.props.inactive) {
-      classes.push('inactive');
+    if(this.props.disabled) {
+      classes.push('disabled');
     }
     classes.push(this.props.extraClasses);
     return classes.join(' ');
@@ -47,6 +48,7 @@ export default React.createClass({
         <br/>
         <input
           className={this.fieldClasses()}
+          disabled={this.props.disabled}
           type="text"
           placeholder={this.props.placeholder}
           readOnly={this.props.inactive || this.props.readOnly}

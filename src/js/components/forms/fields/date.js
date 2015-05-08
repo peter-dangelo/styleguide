@@ -6,15 +6,15 @@ export default React.createClass({
   displayName: "DateField",
 
   propTypes: {
+    disabled: Type.bool,
     extraClasses: Type.arrayOf(Type.string),
     fieldColor: Type.oneOf(['light', 'dark']),
-    inactive: Type.bool,
     label: Type.string,
   },
 
   getDefaultProps() {
     return {
-      inactive: false
+      disabled: false
     }
   },
 
@@ -32,14 +32,14 @@ export default React.createClass({
 
   iconClasses() {
     var classes = ['icon', 'icon-calendar', 'ml1'];
-    this.props.inactive ? classes.push('grey-25') : classes.push('blue');
+    this.props.disabled ? classes.push('grey-25') : classes.push('blue');
     return classes.join(' ');
   },
 
   classes() {
     var classes = ['date-field'];
-    if(this.props.inactive) {
-      classes.push('inactive');
+    if(this.props.disabled) {
+      classes.push('disabled');
     }
     if(this.props.readOnly) {
       classes.push('read-only');
@@ -54,7 +54,8 @@ export default React.createClass({
         <br/>
         <input
           className={this.fieldClasses(' ')}
-          readOnly={this.props.readOnly || this.props.inactive}
+          disabled={this.props.disabled}
+          readOnly={this.props.readOnly}
           type="text">
         </input>
         <span className={this.iconClasses()}></span>

@@ -8,7 +8,7 @@ export default React.createClass({
   propTypes: {
     extraClasses: Type.arrayOf(Type.string),
     disabled: Type.bool,
-    inactive: Type.bool,
+    fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
     multiple: Type.bool,
     options: Type.object,
@@ -39,10 +39,22 @@ export default React.createClass({
     return options;
   },
 
+  iconClasses() {
+    var classes = ['icon', 'icon-arrow-down', 'absolute', 'right', 'mxn3'];
+    this.props.disabled ? classes.push('grey-25') : classes.push('blue');
+    return classes.join(' ');
+  },
+
+  fieldClasses() {
+    var classes = [];
+    classes.push('select-'+this.props.fieldColor);
+    return classes.join(' ');
+  },
+
   classes() {
     var classes = ['simple-select'];
-    if(this.props.inactive) {
-      classes.push('inactive');
+    if(this.props.disabled) {
+      classes.push('disabled');
     }
     classes.push(this.props.extraClasses);
     return classes.join(' ');
@@ -53,7 +65,7 @@ export default React.createClass({
         {this.label()}
         <div className="relative">
           <select
-            placeholder="Hi"
+            className={this.fieldClasses()}
             multiple={this.props.multiple}
             disabled={this.props.disabled || this.props.inactive || this.props.readOnly}
           >
@@ -61,7 +73,7 @@ export default React.createClass({
               return <option value={option.value}>{option.label}</option>;
             })}
           </select>
-          <span className="icon icon-arrow-down absolute right blue mxn3"></span>
+          <span className={this.iconClasses()}></span>
 
         </div>
       </div>

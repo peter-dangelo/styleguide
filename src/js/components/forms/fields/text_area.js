@@ -6,12 +6,12 @@ export default React.createClass({
   displayName: "TextArea",
 
   propTypes: {
+    disabled: Type.bool,
     extraClasses: Type.arrayOf(Type.string),
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
     placeholder: Type.string,
     readOnly: Type.bool,
-    inactive: Type.bool
   },
 
   getDefaultProps() {
@@ -39,8 +39,8 @@ export default React.createClass({
     if(this.props.readOnly) {
       classes.push('read-only');
     }
-    if(this.props.inactive) {
-      classes.push('inactive');
+    if(this.props.disabled) {
+      classes.push('disabled');
     }
     classes.push(this.props.extraClasses);
     return classes.join(' ');
@@ -52,7 +52,8 @@ export default React.createClass({
         <br/>
         <textarea
           className={this.fieldClasses()}
-          readOnly={this.props.readOnly || this.props.inactive}
+          disabled={this.props.disabled}
+          readOnly={this.props.readOnly}
           placeholder={this.props.placeholder}
         />
       </div>

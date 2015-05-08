@@ -6,40 +6,7 @@ fieldset {
   font-size: $h5;
   margin-bottom: 0;
   margin-top: 0;
-
   &:focus { outline: 0;}
-}
-
-[type=text],
-[type=datetime],
-[type=datetime-local],
-[type=email],
-[type=month],
-[type=number],
-[type=password],
-[type=search],
-[type=tel],
-[type=time],
-[type=url],
-[type=week] {
-  -webkit-appearance: none;
-  background: $blue-light;
-  border: 1px solid $blue-light;
-  border-radius: 3px;
-  box-sizing: border-box;
-  color: $grey-75;
-  padding: $space-2;
-  vertical-align: middle;
-  width: 100%;
-
-  &:focus:not([readonly]) {
-    border: 1px solid $grey-25;
-  }
-}
-
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
-  opacity: 0;
 }
 
 input::placeholder {
@@ -50,84 +17,8 @@ input:not([readonly]):focus::placeholder {
   color: transparent;
 }
 
-[type=checkbox] {
-
-  -webkit-appearance: none;
-  height: $space-3;
-  position: relative;
-  width: $space-3;
-
-  &:after {
-    border: 1px solid $grey-50;
-    border-radius: 3px;
-    color: $grey-50;
-    content: '';
-    cursor: pointer;
-    display: block;
-    height: $space-3;
-    position: absolute;
-    width: $space-3;
-    z-index: 1;
-  }
-
-
-  &:checked {
-    @include icon(check);
-    &:before {
-      color: $grey-50;
-      font-size: $h6;
-      left: 3px;
-      position: absolute;
-      top: 4px;
-      z-index: 2;
-    }
-  }
-
-  &[readonly]:checked:after {
-    border: 0;
-    cursor: default;
-    margin-left: 1px;
-    margin-top: 1px;
-  }
-}
-
-[type=radio] {
-  -webkit-appearance: none;
-  height: 14px;
-  padding: 0;
-  position: relative;
-  width: 14px;
-
-  &:after {
-    border: 1px solid $grey-50;
-    border-radius: 7px;
-    color: $grey-50;
-    content: '';
-    cursor: pointer;
-    display: block;
-    height: 14px;
-    position: absolute;
-    width: 14px;
-  }
-
-  &:checked:before {
-    background: $grey-50;
-    border-radius: 5px;
-    content: '';
-    cursor: pointer;
-    height: 8px;
-    left: 4px;
-    position: absolute;
-    top: 4px;
-    width: 8px;
-    z-index: 1;
-  }
-
-}
-
 select {
   -webkit-appearance: none;
-  background: $white;
   border-radius: 3px;
   height: $space-4;
   min-width: 100%; // fill the container, preferably a col-* class
@@ -139,8 +30,6 @@ select:not([multiple]) {
 }
 
 textarea {
-  background: $blue-light;
-  border: 1px solid $blue-light;
   border-radius: 3px;
   box-sizing: border-box;
   padding: $space-2;
@@ -159,24 +48,237 @@ label {
   font-size: $h6;
 }
 
+[type=text],
+[type=datetime],
+[type=datetime-local],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=time],
+[type=url],
+[type=week] {
+  -webkit-appearance: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: $grey-75;
+  padding: $space-2;
+  vertical-align: middle;
+  width: 100%;
+
+  &:focus:not([readonly]) {
+    border: 1px solid $grey-25;
+  }
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  opacity: 0;
+}
+
+[type=checkbox] {
+  -webkit-appearance: none;
+  background: none;
+  height: $space-3;
+  position: relative;
+  width: $space-3;
+
+  &:disabled:after {
+    cursor: default;
+  }
+
+  &[readonly]:after {
+    cursor: default;
+  }
+
+  &:after {
+    border-radius: 3px;
+    color: $grey-50;
+    content: '';
+    cursor: pointer;
+    display: block;
+    height: $space-3;
+    position: absolute;
+    width: $space-3;
+    z-index: 1;
+  }
+
+  &:checked {
+    @include icon(check);
+    &:before {
+      color: $grey-50;
+      font-size: $h6;
+      left: 3px;
+      position: absolute;
+      top: 4px;
+      z-index: 2;
+    }
+  }
+
+  &:disabled:checked:after {
+    border: 0;
+    cursor: default;
+    margin-left: 1px;
+    margin-top: 1px;
+  }
+}
+
+[type=checkbox]:disabled:after {
+  border-radius: 3px;
+  content: '';
+  cursor: default;
+}
+
+[type=radio] {
+  -webkit-appearance: none;
+  height: 14px;
+  padding: 0;
+  position: relative;
+  width: 14px;
+
+  &:disabled:after {
+    cursor: default;
+  }
+
+  &:after {
+    border-radius: 7px;
+    color: $grey-50;
+    content: '';
+    cursor: pointer;
+    display: block;
+    height: 14px;
+    position: absolute;
+    width: 14px;
+  }
+
+  &:checked:before {
+    background: $grey-50;
+    border-radius: 5px;
+    content: '';
+    cursor: pointer;
+    height: 8px;
+    left: 4px;
+    position: absolute;
+    top: 4px; 
+    width: 8px;
+    z-index: 1;
+  }
+
+}
+
+.disabled label {
+  cursor: default;
+}
+
+// fields on white background
+.field-light {
+  background: $blue-light;
+  border: 1px solid $blue-light;
+}
+
+.field-light:disabled {
+  background: $grey-10;
+  border: 1px solid $grey-10;
+}
+
+.field-light[type=checkbox] {
+  background: none;
+  border: 0;
+}
+
+.field-light[type=checkbox]:after {
+  border: 1px solid $grey-15;
+}
+
+.field-light[type=checkbox]:disabled:after {
+  background: $grey-10;
+  border: 1px solid $grey-10;
+}
+
+.field-light[type=checkbox][readonly]:after {
+  background: none;
+  border: 0;
+}
+
+.field-light[type=radio] {
+  background: none;
+  border: 0;
+}
+
+.field-light[type=radio]:after {
+  border: 1px solid $grey-15;
+}
+
+.field-light[type=radio]:disabled:after {
+  background: $grey-10;
+  border: 1px solid $grey-10;
+}
+
+// select field on white background
+.select-light {
+  background: $white;
+  border-color: $grey-15;
+
+  &:disabled {
+    background: $grey-10;
+  }
+}
+
+// fields on dark background (grey form)
+
+.field-dark {
+  background: $white;
+  border: 1px solid $white;
+}
+
+.field-dark:disabled {
+  background: $grey-15;
+  border: 1px solid $grey-15;
+}
+
+.field-dark[type=checkbox] {
+  background: none;
+  border: 0;
+}
+
+.field-dark[type=checkbox]:after {
+  background: $white;
+  border: 1px solid $white;
+}
+
+.field-dark[type=checkbox]:disabled:after {
+  background: $grey-15;
+  border: 1px solid $grey-15;
+}
+
+.field-dark[type=checkbox][readonly]:after {
+  background: none;
+  border: 0;
+}
+
+.field-dark[type=radio] {
+  background: none;
+  border: 0;
+}
+
+.field-dark[type=radio]:after {
+  background: $white;
+  border: 1px solid $white;
+}
+
+.field-dark[type=radio]:disabled:after {
+  background: $grey-15;
+  border: 1px solid $grey-15;
+}
+
+.select-dark:disabled {
+  background: $grey-15;
+}
 
 // note: there are some very pixel-specific styles here,
 // but I thought that might be ok since these are UI elements
-.inactive {
-  .icon {
-    color: $grey-25;
-  }
-
-  input {
-    background: $grey-10;
-    border-color: $grey-10;
-  }
-
-  textarea {
-    background: $grey-10;
-    border-color: $grey-10;
-  }
-}
 
 .number-field {
   .icon {
@@ -193,7 +295,6 @@ label {
   }
 
   .units {
-    color: $grey-50;
     margin-left: 15px;
   }
 }
@@ -218,7 +319,7 @@ label {
 
 .checkbox-field {
   .label-right {
-    top: -4px
+    top: -4px;
   }
 }
 
@@ -228,29 +329,7 @@ label {
   }
 }
 
-.checkbox-field {
-  &.inactive input:after {
-    background: $grey-10;
-    border: 1px solid $grey-10;
-    border-radius: 3px;
-    content: '';
-    cursor: default;
-  }
-}
-
-.radio-field {
-  &.inactive input:after {
-    cursor: default;
-  }
-
-  [disabled]:after {
-    background: $grey-10;
-    border: 1px solid $grey-10;
-  }
-}
-
 .date-field {
-  // we don't want full widths for date fields
   input {
     width: auto;
   }
@@ -259,90 +338,9 @@ label {
 .simple-select {
   position: relative;
 
-  select {
-    border: 1px solid $grey-10;
-    color: $grey-50;
-  }
-
   .icon {
     bottom: 0.3125rem;
     font-size: 0.75rem;
     pointer-events: none;
   }
-}
-
-.grey-form {
-
-  [type=text],
-  [type=datetime],
-  [type=datetime-local],
-  [type=email],
-  [type=month],
-  [type=number],
-  [type=password],
-  [type=search],
-  [type=tel],
-  [type=time],
-  [type=url],
-  [type=week] {
-    background: $white;
-    border: 1px solid $white;
-
-    &:focus:not([readonly]) {
-      border: 1px solid $grey-25;
-    }
-  }
-
-  textarea {
-    background: $white;
-    border-color: $white;
-  }
-
-  [type=radio]:checked:before {
-    background: $grey-50;
-  }
-
-  [type=radio]:after {
-    background: $white;
-  }
-
-  [type=checkbox]:after {
-    background: $white;
-  }
-
-  .inactive {
-    input, textarea {
-      background: $grey-15;
-      border-color: $grey-15;
-    }
-
-    [type=radio] {
-      background: none;
-    }
-
-    [type=radio]:after {
-      background: $grey-15;
-    }
-
-    [type=checkbox] {
-      background: none;
-    }
-
-    [type=checkbox]:after {
-      background: $grey-15;
-      border-color: $grey-15;
-    }
-
-    select {
-      background: $grey-15;
-    }
-
-  }
-
-  .read-only {
-    [type=checkbox][readonly]:checked:after {
-      background: none;
-    }
-  }
-
 }

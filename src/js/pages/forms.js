@@ -36,47 +36,47 @@ export default React.createClass({
             <hr />
 
             <p>Default fields</p>
-            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} />
-            <NumberField label="Number" extraClasses={['py2']} units="Units"  />
-            <DateField label="Date" extraClasses={['py2']} />
-            <SimpleSelect label="Simple Select" options={options} promptText="- Select -" extraClasses={['py2']}/>
-            <TextArea label="Textarea" extraClasses={['py2']} />
-            <Checkbox label="Checkbox" extraClasses={['py2']}/>
-            <Radio name="radios1" label="Radio 1" extraClasses={['py2']}/>
-            <Radio name="radios1" label="Radio 2" extraClasses={['py2']}/>
+            <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
+            <NumberField label="Number" fieldColor='light' extraClasses={['py2']} units="Units"  />
+            <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
+            <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
+            <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
+            <Checkbox label="Checkbox" fieldColor='light' extraClasses={['py2']}/>
+            <Checkbox label="Checked read-only" fieldColor='light' readOnly={true} checked={true} extraClasses={['py2']}/>
+            <Radio name="radios1" fieldColor='light' label="Radio 1" extraClasses={['py2']}/>
+            <Radio name="radios1" fieldColor='light' label="Radio 2" extraClasses={['py2']}/>
 
-            <p className="mt4">Inactive fields</p>
-            <TextField label="Text" placeholder="Placeholder" inactive={true} extraClasses={['py2']} />
-            <NumberField label="Number" inactive={true} extraClasses={['py2']} />
-            <DateField label="Date" inactive={true} />
-            <SimpleSelect label="Simple Select" options={options} inactive={true} extraClasses={['py2']}/>
-            <TextArea label="Textarea" inactive={true} extraClasses={['py2']} />
-            <Checkbox label="Checkbox" inactive={true} extraClasses={['py2']}/>
-            <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-            <Radio name="radios2" label="Radio" inactive={true} disabled={true} extraClasses={['py2']} />
-
+            <p className="mt4">Disabled fields</p>
+            <TextField label="Text" fieldColor='light' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
+            <NumberField label="Number" fieldColor='light' disabled={true} extraClasses={['py2']} />
+            <DateField label="Date" fieldColor='light' disabled={true} />
+            <SimpleSelect label="Simple Select" fieldColor='light' options={options} disabled={true} extraClasses={['py2']}/>
+            <TextArea label="Textarea" fieldColor='light'  disabled={true} extraClasses={['py2']} />
+            <Checkbox label="Checkbox" fieldColor='light' disabled={true} extraClasses={['py2']}/>
+            <Radio name="radios2" fieldColor='light' label="Radio" disabled={true} extraClasses={['py2']} />
 
             <p className="mt4">Fields within grey block</p>
-            <div className="bg-grey-10 p3 rounded-3 grey-form">
+            <div className="bg-grey-10 p3 rounded-3">
               <p>Default fields</p>
-              <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']}/>
-              <NumberField label="Number" extraClasses={['py2']} units="Units" />
-              <DateField label="Date" extraClasses={['py2']}/>
-              <SimpleSelect label="Simple Select" options={options} promptText="- Select -" extraClasses={['py2']}/>
-              <TextArea label="Textarea" extraClasses={['py2']}/>
-              <Checkbox label="Checkbox" extraClasses={['py2']}/>
-              <Radio name="radios3" label="Radio 1" extraClasses={['py2']}/>
-              <Radio name="radios3" label="Radio 2" extraClasses={['py2']}/>
-              <hr/>
-              <p>Inactive fields</p>
-              <TextField label="Text" placeholder="Placeholder" inactive={true} extraClasses={['py2']} />
-              <NumberField label="Number" inactive={true} extraClasses={['py2']} />
-              <DateField label="Date" inactive={true} />
-              <SimpleSelect label="Simple Select" options={options} inactive={true} extraClasses={['py2']}/>
-              <TextArea label="Textarea" inactive={true} extraClasses={['py2']} />
-              <Checkbox label="Checkbox" inactive={true} extraClasses={['py2']}/>
-              <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-              <Radio name="radios2" label="Radio" inactive={true} disabled={true} extraClasses={['py2']} />
+              <TextField label="Text" fieldColor='dark' placeholder="Placeholder" extraClasses={['py2']}/>
+              <NumberField label="Number" fieldColor='dark' extraClasses={['py2']} units="Units" />
+              <DateField label="Date" fieldColor='dark' extraClasses={['py2']}/>
+              <SimpleSelect label="Simple Select" fieldColor='dark' options={options} promptText="- Select -" extraClasses={['py2']}/>
+              <TextArea label="Textarea" fieldColor='dark' extraClasses={['py2']}/>
+              <Checkbox label="Checkbox" fieldColor='dark' extraClasses={['py2']}/>
+              <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
+              <Radio name="radios3" fieldColor='dark' label="Radio 1" extraClasses={['py2']}/>
+              <Radio name="radios3" fieldColor='dark' label="Radio 2" extraClasses={['py2']}/>
+              <hr className="bc-white"/>
+              <p>Disabled fields</p>
+              <TextField label="Text" fieldColor='dark' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
+              <NumberField label="Number" fieldColor='dark' disabled={true} extraClasses={['py2']} />
+              <DateField label="Date" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
+              <SimpleSelect label="Simple Select" fieldColor='dark' options={options} disabled={true} extraClasses={['py2']}/>
+              <TextArea label="Textarea" fieldColor='dark' disabled={true} extraClasses={['py2']} />
+              <Checkbox label="Checkbox" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
+              <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
+              <Radio name="radios2" fieldColor='dark' label="Radio" disabled={true} extraClasses={['py2']} />
             </div>
 
             <hr />

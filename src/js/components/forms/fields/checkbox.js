@@ -6,8 +6,9 @@ export default React.createClass({
   displayName: "Checkbox",
 
   propTypes: {
+    disabled: Type.bool,
     extraClasses: Type.arrayOf(Type.string),
-    inactive: Type.bool,
+    fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string.isRequired,
     placeholder: Type.string,
     readOnly: Type.bool,
@@ -17,7 +18,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       checked: false,
-      inactive: false,
+      disabled: false,
       readonly: false
     }
   },
@@ -32,13 +33,19 @@ export default React.createClass({
     }
   },
 
+  fieldClasses() {
+    var classes = [];
+    classes.push('field-'+this.props.fieldColor);
+    return classes.join(' ');
+  },
+
   classes() {
     var classes = ['checkbox-field'];
     if(this.props.readOnly) {
       classes.push('read-only');
     }
-    if(this.props.inactive) {
-      classes.push('inactive');
+    if(this.props.disabled) {
+      classes.push('disabled');
     }
     classes.push(this.props.extraClasses);
     return classes.join(' ');
@@ -48,11 +55,13 @@ export default React.createClass({
     return <div className={this.classes()}>
         <label>
           <input
-            type="checkbox"
             checked={this.state.isChecked}
+            className={this.fieldClasses()}
+            disabled={this.props.disabled}
             onChange={this.onChange}
-            disabled={this.props.readOnly || this.props.inactive}
-            readOnly={this.props.readOnly || this.props.inactive}>
+            readOnly={this.props.readOnly}
+            type="checkbox"
+          >
           </input>
           <span className="label-right">{this.props.label}</span>
         </label>
