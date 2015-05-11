@@ -4,10 +4,10 @@ import Select from 'react-select';
 import DateField from '../components/forms/fields/date';
 import NumberField from '../components/forms/fields/number';
 import TextField from '../components/forms/fields/text';
-import TextArea from '../components/forms/fields/text_area';
+import TextArea from '../components/forms/fields/textarea';
 import Checkbox from '../components/forms/fields/checkbox';
 import Radio from '../components/forms/fields/radio';
-import SimpleSelect from '../components/forms/fields/simple_select';
+import SimpleSelect from '../components/forms/fields/simple-select';
 
 let D = React.DOM;
 

@@ -12,19 +12,24 @@ var _packageJson = require('../package.json');
 
 var _packageJson2 = _interopRequireDefault(_packageJson);
 
-var _gridBlock = require('./grid-block');
+var _buttonsBase = require('./buttons/base');
 
-var _gridBlock2 = _interopRequireDefault(_gridBlock);
+var _buttonsBase2 = _interopRequireDefault(_buttonsBase);
 
-var _buttonsButton = require('./buttons/button');
+var _formsBase = require('./forms/base');
 
-var _buttonsButton2 = _interopRequireDefault(_buttonsButton);
+var _formsBase2 = _interopRequireDefault(_formsBase);
+
+var _icon = require('./icon');
+
+var _icon2 = _interopRequireDefault(_icon);
 
 exports['default'] = {
 
   // list of export-ready components
-  GridBlock: _gridBlock2['default'],
-  Button: _buttonsButton2['default'],
+  Buttons: _buttonsBase2['default'],
+  Forms: _formsBase2['default'],
+  Icons: _icon2['default'],
 
   version: function version() {
     return _packageJson2['default'].version;

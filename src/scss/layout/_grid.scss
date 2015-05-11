@@ -18,6 +18,7 @@
 @for $i from 1 through 12 {
   // loops through these numbers and spits out the needed grid classes
   .col-#{$i} {
+    float: left;
     width: calc(#{$i}/12 * 100%);
   }
 }

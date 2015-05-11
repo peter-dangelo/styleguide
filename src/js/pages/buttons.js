@@ -1,7 +1,7 @@
 import React from 'react';
 import Styleguide from '../styleguide';
-import Button from '../components/button';
-import ButtonGroup from '../components/button-group';
+import Button from '../components/buttons/button';
+import ButtonGroup from '../components/buttons/button-group';
 
 export default React.createClass({
   displayName: "ButtonsPage",
