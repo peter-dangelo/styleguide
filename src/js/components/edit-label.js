@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from './forms/fields/text';
 import Icon from './icon';
+import Popover from './popover';
 
 const {
   createClass,
@@ -51,18 +52,27 @@ export default createClass({
             extraClasses={["blue", "px2", "small", "m0"]}
             onClick={this._handleSave}
            />
-          <Icon 
-            name="delete" 
-            extraClasses={["blue", "px2", "small", "m0"]} 
-            onClick={this._handleDelete}
-          />
+          <Popover>
+            <Icon 
+              name="delete" 
+              extraClasses={["blue", "px2", "small", "m0"]} 
+            />
+            <div className="white">
+              <h4>Are you sure?</h4>
+              <p className="clearfix small">Do you want to delete "{this.props.label}"?</p>
+              <div className="right-align">
+                <button className="button-link button-sm button-secondary mr2">Cancel</button>
+                <button className="button-danger button-sm">Cancel</button>
+              </div>
+            </div>
+          </Popover>
         </div>
       );
     } else {
       return (
         <div className="flex flex-center" >
-          <h3 className="blue">{this.props.label}</h3>
-          <Icon name="pencil" extraClasses={["blue", "ml1", "small", "m0"]} onClick={this._triggerEdit} />
+          <h3 className="blue py1 m0">{this.props.label}</h3>
+          <Icon name="pencil" extraClasses={["blue", "py1", "ml1", "small", "m0"]} onClick={this._triggerEdit} />
         </div>
       );
     }
