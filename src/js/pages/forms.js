@@ -8,6 +8,7 @@ import TextArea from '../components/forms/fields/textarea';
 import Checkbox from '../components/forms/fields/checkbox';
 import Radio from '../components/forms/fields/radio';
 import SimpleSelect from '../components/forms/fields/simple-select';
+import EditLabel from '../components/edit-label';
 
 let D = React.DOM;
 
@@ -29,10 +30,20 @@ function _onFocus() {
 export default React.createClass({
   displayName: "FormsPage",
 
+  getInitialState() {
+    return {
+      editLabel: "Label"
+    };
+  },
+
+  _onSave(value) {
+    this.setState({ editLabel: value });
+  },
+
   render() {
     return <Styleguide title="Forms Styles">
         <div title="Forms">
-          <form>
+          <form className="clearfix">
             <hr />
 
             <p>Default fields</p>
@@ -115,6 +126,14 @@ export default React.createClass({
               />
             </div>
           </form>
+          <hr />
+        </div>
+        <div title="Actionable Forms">
+          <hr />
+          <EditLabel 
+            label={this.state.editLabel}
+            onSave={this._onSave}
+          />
         </div>
       </Styleguide>
   }
