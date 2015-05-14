@@ -34,7 +34,7 @@ export default createClass({
   },
 
   _handleDelete(e) {
-    this.setState({ isEditing: false });
+    this.props.onDelete();
   },
 
   render() {
@@ -62,7 +62,7 @@ export default createClass({
               <p className="clearfix small">Do you want to delete "{this.props.label}"?</p>
               <div className="right-align">
                 <button className="button-link button-sm button-secondary mr2">Cancel</button>
-                <button className="button-danger button-sm">Cancel</button>
+                <button className="button-danger button-sm" onClick={this._handleDelete} >Delete</button>
               </div>
             </div>
           </Popover>

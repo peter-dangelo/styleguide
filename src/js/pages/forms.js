@@ -40,6 +40,10 @@ export default React.createClass({
     this.setState({ editLabel: value });
   },
 
+  _onDelete() {
+    console.log("Not able to delete right now.");
+  },
+
   render() {
     return <Styleguide title="Forms Styles">
         <div title="Forms">
@@ -133,6 +137,7 @@ export default React.createClass({
           <EditLabel 
             label={this.state.editLabel}
             onSave={this._onSave}
+            onDelete={this._onDelete}
           />
         </div>
       </Styleguide>
