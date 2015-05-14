@@ -7,7 +7,7 @@ export default React.createClass({
 
   propTypes: {
    type: Type.oneOf([null, 'danger', 'secondary', 'previous', 'next']),
-   label: Type.string.isRequired,
+   label: Type.string,
    size: Type.oneOf([null, 'sm']),
    disabled: Type.bool,
    link: Type.bool,
