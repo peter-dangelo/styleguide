@@ -27,14 +27,22 @@ export default createClass({
     this.setState({ isEditing: true });
   },
 
-  _handleSave(e) {
+  _handleSave() {
     const val = this.refs.labelInput.getDOMNode().value;
     this.setState({ isEditing: false });
     this.props.onSave(val);
   },
 
-  _handleDelete(e) {
+  _handleDelete() {
     this.props.onDelete();
+  },
+
+  _handleKey(e) {
+    // Need to find out real keyCode for Enter
+    if (e.keyCode === 43) {
+      e.preventDefault();
+      this._handleSave();
+    }
   },
 
   render() {
@@ -46,6 +54,7 @@ export default createClass({
             defaultValue={this.props.label}
             ref="labelInput"
             type="text"
+            onKeyDown={this._handleKey}
           />
           <Icon 
             name="check" 
@@ -59,7 +68,7 @@ export default createClass({
             />
             <div className="white">
               <h4>Are you sure?</h4>
-              <p className="clearfix small">Do you want to delete "{this.props.label}"?</p>
+              {this.props.children}
               <div className="right-align">
                 <button className="button-link button-sm button-secondary mr2">Cancel</button>
                 <button className="button-danger button-sm" onClick={this._handleDelete} >Delete</button>

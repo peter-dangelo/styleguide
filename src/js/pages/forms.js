@@ -138,7 +138,9 @@ export default React.createClass({
             label={this.state.editLabel}
             onSave={this._onSave}
             onDelete={this._onDelete}
-          />
+          >
+            <p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>
+          </EditLabel>
         </div>
       </Styleguide>
   }

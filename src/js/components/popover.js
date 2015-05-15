@@ -1,9 +1,12 @@
-import React from 'react';
+import React from 'react/addons';
 
 const {
   createClass,
-  PropTypes : Type
+  PropTypes : Type,
+  Children
 } = React;
+
+const { cloneWithProps } = React.addons;
 
 export default createClass({
   displayName: 'Popover',
@@ -28,11 +31,14 @@ export default createClass({
 
   _showPop() {
     const { posX, posY } = this.state;
+    const baseNode = this.refs.child0.getDOMNode().getBoundingClientRect();
+    const baseWidth = baseNode.width;
+    const posXLen = (baseWidth / 2) + 5;
 
     let popStyle = {
       width: `${this.props.width}px`
     };
-    popStyle[posX] = "-25px";
+    popStyle[posX] = `-${posXLen}px`;
     popStyle[posY] = "140%";
 
     let triStyle = {};
@@ -41,7 +47,7 @@ export default createClass({
 
     return (
       <div className="bg-grey-90 bc-grey-90 p3 rounded-3 absolute" style={popStyle} >
-        {this.props.children[1]}
+        {this._children[".1"]}
         <span className={`triangle-${posY} absolute`} style={triStyle} ></span>
       </div>
     );
@@ -70,9 +76,18 @@ export default createClass({
   },
 
   render() {
+    let index = 0;
+    const children = Children.map(this.props.children, (child) => {
+      return cloneWithProps(child, {
+       ref: `child${index++}`
+      });
+    });
+
+    this._children = children;
+
     return (
       <div className="relative" ref="popContainer" onClick={this._togglePop}>
-        {this.props.children[0]}
+        {this._children[".0"]}
         {this.state.open ? this._showPop() : void 0}
       </div>
     );
