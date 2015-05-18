@@ -136,6 +136,7 @@ export default React.createClass({
           <hr />
           <EditLabel 
             label={this.state.editLabel}
+            placeholder="Folder Name"
             onSave={this._onSave}
             onDelete={this._onDelete}
           >

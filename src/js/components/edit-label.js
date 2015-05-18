@@ -13,13 +13,16 @@ export default createClass({
 
   propTypes: {
     label: Type.string.isRequired,
+    placeholder: Type.string,
     onSave: Type.func.isRequired,
     onDelete: Type.func.isRequired
   },
 
   getInitialState() {
     return {
-      isEditing: false
+      isEditing: false,
+      saveDisabled: true,
+      textHeight: 32
     };
   },
 
@@ -38,28 +41,60 @@ export default createClass({
   },
 
   _handleKey(e) {
-    // Need to find out real keyCode for Enter
-    if (e.keyCode === 43) {
+    if (e.keyCode === 13) {
       e.preventDefault();
       this._handleSave();
     }
+
+    const target = e.target;
+    const height = target.scrollHeight;
+
+    this.setState({ textHeight: height });
+  },
+
+  _checkContent(e) {
+    const val = e.target.value.trim();
+
+    if (val.length === 0) {
+      this.setState({ saveDisabled: true });
+    } else if ( this.state.saveDisabled ) {
+      this.setState({ saveDisabled: false });
+    }
+  },
+
+  _getSaveClasses() {
+    let classes = ['px2', 'small', 'm0'];
+    const { saveDisabled } = this.state;
+
+    if (saveDisabled) {
+      classes.push('grey-25');
+    } else {
+      classes.push('blue');
+    }
+
+    return classes;
   },
 
   render() {
     if(this.state.isEditing) {
+      const textStyle = { height: this.state.textHeight };
+
       return (
-        <div className="flex flex-center" >
-          <input
-            className="field-light mr2 py1 h3 bold"
+        <div className="flex flex-center">
+          <textarea
+            className="field-light mr2 py1 h3 bold no-resize"
             defaultValue={this.props.label}
+            onKeyDown={this.state.saveDisabled ? void 0 : this._handleKey}
+            onKeyUp={this._checkContent}
+            placeholder={this.props.placeholder}
             ref="labelInput"
+            style={textStyle}
             type="text"
-            onKeyDown={this._handleKey}
-          />
+          ></textarea>
           <Icon 
             name="check" 
-            extraClasses={["blue", "px2", "small", "m0"]}
-            onClick={this._handleSave}
+            extraClasses={this._getSaveClasses()}
+            onClick={this.state.saveDisabled ? void 0 : this._handleSave}
            />
           <Popover>
             <Icon 
@@ -79,9 +114,9 @@ export default createClass({
       );
     } else {
       return (
-        <div className="flex flex-center" >
+        <div className="flex flex-center hover-container" >
           <h3 className="blue py1 m0">{this.props.label}</h3>
-          <Icon name="pencil" extraClasses={["blue", "py1", "ml1", "small", "m0"]} onClick={this._triggerEdit} />
+          <Icon name="pencil" extraClasses={["blue", "py1", "ml1", "small", "m0", "hover-show"]} onClick={this._triggerEdit} />
         </div>
       );
     }
