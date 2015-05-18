@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from './icon';
 import Popover from './popover';
 import FieldError from './forms/field-error';
+import Colors from '../../lib/_colors.json';
 
 const {
   createClass,
@@ -90,6 +91,16 @@ export default createClass({
     return classes;
   },
 
+  _getTextClasses() {
+    var classes = ["field-light", "mr2", "py1", "h3", "bold", "no-resize", "flex-grow"];
+
+    if (this.state.hasErrors) {
+      classes.push("bc-orange");
+    }
+
+    return classes.join(" ");
+  },
+
   _showError() {
     return (
       <div className="fill px2">
@@ -101,6 +112,7 @@ export default createClass({
   render() {
     if(this.state.isEditing) {
       const textStyle = { 
+        borderColor: this.state.hasErrors ? Colors["orange"][""] : void 0,
         height: this.state.textHeight,
         width: "auto"
       };
@@ -109,7 +121,7 @@ export default createClass({
         <div className="flex flex-center flex-wrap">
           {this.state.hasErrors ? this._showError() : void 0}
           <textarea
-            className="field-light mr2 py1 h3 bold no-resize flex-grow"
+            className={this._getTextClasses()}
             defaultValue={this.props.label}
             onKeyDown={this.state.saveDisabled ? void 0 : this._handleKey}
             onKeyUp={this._checkContent}
