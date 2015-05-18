@@ -44,6 +44,10 @@ export default React.createClass({
     console.log("Not able to delete right now.");
   },
 
+  _validate(val) {
+    return val.length;
+  },
+
   render() {
     return <Styleguide title="Forms Styles">
         <div title="Forms">
@@ -139,6 +143,8 @@ export default React.createClass({
             placeholder="Folder Name"
             onSave={this._onSave}
             onDelete={this._onDelete}
+            isValid={this._validate}
+            errorMessage="Folder Name Already In Use"
           >
             <p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>
           </EditLabel>

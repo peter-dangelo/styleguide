@@ -1,7 +1,7 @@
 import React from 'react';
-import TextField from './forms/fields/text';
 import Icon from './icon';
 import Popover from './popover';
+import FieldError from './forms/field-error';
 
 const {
   createClass,
@@ -14,6 +14,8 @@ export default createClass({
   propTypes: {
     label: Type.string.isRequired,
     placeholder: Type.string,
+    isValid: Type.func,
+    errorMessage: Type.string,
     onSave: Type.func.isRequired,
     onDelete: Type.func.isRequired
   },
@@ -22,7 +24,8 @@ export default createClass({
     return {
       isEditing: false,
       saveDisabled: true,
-      textHeight: 32
+      hasErrors: false,
+      textHeight: 34
     };
   },
 
@@ -32,8 +35,20 @@ export default createClass({
 
   _handleSave() {
     const val = this.refs.labelInput.getDOMNode().value;
-    this.setState({ isEditing: false });
-    this.props.onSave(val);
+
+    if ( this.props.isValid ) {
+
+      if ( this.props.isValid(val) ) {
+        this.setState({ isEditing: false });
+        this.props.onSave(val);
+      } else {
+        this.setState({ hasErrors: true });
+      }
+
+    } else {
+      this.setState({ isEditing: false });
+      this.props.onSave(val);
+    }
   },
 
   _handleDelete() {
@@ -75,21 +90,32 @@ export default createClass({
     return classes;
   },
 
+  _showError() {
+    return (
+      <div className="fill px2">
+        <FieldError message={this.props.errorMessage} />
+      </div>
+    );
+  },
+
   render() {
     if(this.state.isEditing) {
-      const textStyle = { height: this.state.textHeight };
+      const textStyle = { 
+        height: this.state.textHeight,
+        width: "auto"
+      };
 
       return (
-        <div className="flex flex-center">
+        <div className="flex flex-center flex-wrap">
+          {this.state.hasErrors ? this._showError() : void 0}
           <textarea
-            className="field-light mr2 py1 h3 bold no-resize"
+            className="field-light mr2 py1 h3 bold no-resize flex-grow"
             defaultValue={this.props.label}
             onKeyDown={this.state.saveDisabled ? void 0 : this._handleKey}
             onKeyUp={this._checkContent}
             placeholder={this.props.placeholder}
             ref="labelInput"
             style={textStyle}
-            type="text"
           ></textarea>
           <Icon 
             name="check" 
