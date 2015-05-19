@@ -12,7 +12,6 @@ export default React.createClass({
    disabled: Type.bool,
    link: Type.bool,
    extraClasses: Type.arrayOf(Type.string),
-   onClick: Type.func
   },
 
   getDefaultProps: function() {
@@ -52,6 +51,6 @@ export default React.createClass({
   },
 
   render() {
-    return <button onClick={ this.props.onClick } className={ this.classes() } disabled={ this.props.disabled }>{ this.props.label }</button>;
+    return <button {...this.props} className={ this.classes() } disabled={ this.props.disabled }>{ this.props.label }</button>;
   }
 });

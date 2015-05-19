@@ -6,11 +6,15 @@ import ButtonGroup from '../components/buttons/button-group';
 export default React.createClass({
   displayName: "ButtonsPage",
 
+  _logClick(e) {
+    console.log("Button clicked!");
+  },
+
   render() {
     return <Styleguide title="Button Styles">
 
       <div title="Base" description="The button styles for Namely app">
-        <Button label="Base" />
+        <Button label="Base" onClick={this._logClick} />
       </div>
 
       <div title="Types">
