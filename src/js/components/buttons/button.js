@@ -7,11 +7,12 @@ export default React.createClass({
 
   propTypes: {
    type: Type.oneOf([null, 'danger', 'secondary', 'previous', 'next']),
-   label: Type.string.isRequired,
+   label: Type.string,
    size: Type.oneOf([null, 'sm']),
    disabled: Type.bool,
    link: Type.bool,
    extraClasses: Type.arrayOf(Type.string),
+   icon: Type.string
   },
 
   getDefaultProps: function() {
@@ -19,7 +20,8 @@ export default React.createClass({
       type: null,
       size: null,
       disabled: false,
-      link: false
+      link: false,
+      icon: null
     };
   },
 
@@ -45,6 +47,10 @@ export default React.createClass({
 
     if (props.link === true) {
       classes.push("button-link");
+    }
+
+    if (props.icon) {
+      classes.push("icon-"+this.props.icon)
     }
 
     return classes.join(' ');
