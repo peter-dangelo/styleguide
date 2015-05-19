@@ -67,7 +67,7 @@ $arrow-top: ($button-height * 0.25)/2;
     display: block;
     position: absolute;
     top: $arrow-top;
-    transform: rotate(45deg);
+    transform: rotate(45deg) translateZ(0px);
     z-index: -1;
   }
 

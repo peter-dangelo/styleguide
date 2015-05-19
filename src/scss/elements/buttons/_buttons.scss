@@ -33,6 +33,11 @@ button,
     text-decoration: none;
     transition: background $duration, color $duration;
   }
+
+  &:before {
+    font-size: $h5;
+    margin-right: $space-1;
+  }
 }
 
 ::-moz-focus-inner {

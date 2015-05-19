@@ -36,6 +36,13 @@ export default React.createClass({
         <Button label=".button-link.button-sm.button-secondary" size="sm" type="secondary" link={ true } />
       </div>
 
+      <div title="Icons">
+        <Button label="Edit" extraClasses={ ["mr3"] } icon="pencil" />
+        <Button label="Edit .button-sm" size="sm" extraClasses={ ["mr3"] } icon="pencil" />
+        <Button label="view-stop .button-link.button-danger" type="danger" extraClasses={ ["mr3"] } icon="view-stop" link={ true } />
+        <Button label="paperclip .button-sm:disabled" size="sm" icon="paperclip" disabled={ true } />
+      </div>
+
       <div title="Directions">
         <Button label=".button-previous" type="previous" extraClasses={ ["mr3"] } />
         <Button label=".button-next" type="next" extraClasses={ ["mr3"] } />
