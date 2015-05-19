@@ -13,8 +13,8 @@
 .hover-show {
   opacity: 0;
   transition: opacity $duration-2 ease-in-out;
+}
 
-  .hover-container:hover & {
-    opacity: 1;
-  }
+.hover-container:hover .hover-show {
+  opacity: 1;
 }

@@ -9,7 +9,7 @@ const {
 const { cloneWithProps } = React.addons;
 
 export default createClass({
-  displayName: 'Popover',
+  displayName: 'Popup',
 
   propTypes: {
     width: Type.oneOf([200, 300, 400])
@@ -75,6 +75,10 @@ export default createClass({
     }
   },
 
+  close() {
+    this.setState({ open: false });
+  },
+
   render() {
     let index = 0;
     const children = Children.map(this.props.children, (child) => {
@@ -86,8 +90,8 @@ export default createClass({
     this._children = children;
 
     return (
-      <div className="relative" ref="popContainer" onClick={this._togglePop}>
-        {this._children[".0"]}
+      <div className="relative" ref="popContainer" >
+        <div onClick={this._togglePop} >{this._children[".0"]}</div>
         {this.state.open ? this._showPop() : void 0}
       </div>
     );

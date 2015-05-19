@@ -1,8 +1,9 @@
 import React from 'react';
 import Icon from './icon';
-import Popover from './popover';
+import Popup from './popup';
 import FieldError from './forms/field-error';
 import Colors from '../../lib/_colors.json';
+import OutsideClick from './mixins/outside-click';
 
 const {
   createClass,
@@ -11,6 +12,8 @@ const {
 
 export default createClass({
   displayName: 'EditLabel',
+
+  mixins: [OutsideClick],
 
   propTypes: {
     label: Type.string.isRequired,
@@ -30,7 +33,8 @@ export default createClass({
     };
   },
 
-  _triggerEdit() {
+  _triggerEdit(e) {
+    e.stopPropagation();
     this.setState({ isEditing: true });
   },
 
@@ -50,6 +54,11 @@ export default createClass({
       this.setState({ isEditing: false });
       this.props.onSave(val);
     }
+  },
+
+  _handleClose(e) {
+    e.stopPropagation();
+    this.refs.pop.close();
   },
 
   _handleDelete() {
@@ -109,6 +118,11 @@ export default createClass({
     );
   },
 
+  handleOutsideClick(e) {
+    this._handleClose(e);
+    this.setState({ isEditing: false });
+  },
+
   render() {
     if(this.state.isEditing) {
       const textStyle = { 
@@ -118,7 +132,7 @@ export default createClass({
       };
 
       return (
-        <div className="flex flex-center flex-wrap">
+        <div className="flex flex-center flex-wrap" ref="wrapper">
           {this.state.hasErrors ? this._showError() : void 0}
           <textarea
             className={this._getTextClasses()}
@@ -134,7 +148,7 @@ export default createClass({
             extraClasses={this._getSaveClasses()}
             onClick={this.state.saveDisabled ? void 0 : this._handleSave}
            />
-          <Popover>
+          <Popup ref="pop">
             <Icon 
               name="delete" 
               extraClasses={["blue", "px2", "small", "m0"]} 
@@ -143,18 +157,18 @@ export default createClass({
               <h4>Are you sure?</h4>
               {this.props.children}
               <div className="right-align">
-                <button className="button-link button-sm button-secondary mr2">Cancel</button>
+                <button className="button-link button-sm button-secondary mr2" onClick={this._handleClose} >Cancel</button>
                 <button className="button-danger button-sm" onClick={this._handleDelete} >Delete</button>
               </div>
             </div>
-          </Popover>
+          </Popup>
         </div>
       );
     } else {
       return (
-        <div className="flex flex-center hover-container" >
+        <div ref="wrapper" className="flex flex-center hover-container" >
           <h3 className="blue py1 m0">{this.props.label}</h3>
-          <Icon name="pencil" extraClasses={["blue", "py1", "ml1", "small", "m0", "hover-show"]} onClick={this._triggerEdit} />
+          <Icon name="pencil" ref="pencil" extraClasses={["blue", "py1", "ml1", "small", "m0", "hover-show"]} onClick={this._triggerEdit} />
         </div>
       );
     }

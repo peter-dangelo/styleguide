@@ -138,6 +138,8 @@ export default React.createClass({
         </div>
         <div title="Actionable Forms">
           <hr />
+          <h3>EditLabel</h3>
+          <p>An interactive component for changing the text of a label, i.e. Folder Names.</p>
           <EditLabel 
             label={this.state.editLabel}
             placeholder="Folder Name"
@@ -148,6 +150,12 @@ export default React.createClass({
           >
             <p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>
           </EditLabel>
+          
+          <pre><code className="language-javascript mt3">
+          {'<EditLabel label={this.state.editLabel} placeholder="Folder Name" onSave={this._onSave} onDelete={this._onDelete} isValid={this._validate} errorMessage="Folder Name Already In Use" >\n'}
+          {'\t<p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>\n'}
+          {'</EditLabel>'}
+          </code></pre>
         </div>
       </Styleguide>
   }
