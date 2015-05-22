@@ -23,9 +23,11 @@ export default React.createClass({
       let link = navItems.item(i).children.item(0);
 
       if(localLinks.active(link, pathname)) {
-        navItems.item(i).classList.add('is-active');
+        navItems.item(i).classList.add('bg-white');
+        navItems.item(i).classList.add('blue');
       } else {
-        navItems.item(i).classList.remove('is-active');
+        navItems.item(i).classList.remove('bg-white');
+        navItems.item(i).classList.remove('blue');
       }
     }
   },
@@ -48,7 +50,7 @@ export default React.createClass({
       className: 'main flex tall'
     }, [
       D.nav({
-        className: 'nav nav-primary col-2 tall',
+        className: 'nav nav-primary col-2 tall bg-grey-95 white',
         role: 'navigation',
         onClick: self.handleClick
       }, [
@@ -56,17 +58,17 @@ export default React.createClass({
           className: 'nav-list',
           ref: 'navList'
         }, [
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/' }, 'Home')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/layout' }, 'Layout')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/base' }, 'Base Styles')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/nav' }, 'Navigation')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/tables' }, 'Tables + Lists')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/forms' }, 'Forms')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/buttons' }, 'Buttons')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/icons' }, 'Icons')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/popovers' }, 'Popovers')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/modals' }, 'Modals')),
-          D.li({className: "nav-item"}, D.a({ className: "nav-link", href: '/cards' }, 'Cards'))
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/' }, 'Home')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/layout' }, 'Layout')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/base' }, 'Base Styles')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/nav' }, 'Navigation')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/tables' }, 'Tables + Lists')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/forms' }, 'Forms')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/buttons' }, 'Buttons')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/icons' }, 'Icons')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/popovers' }, 'Popovers')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/modals' }, 'Modals')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/cards' }, 'Cards'))
         ])
       ]),
       D.section({

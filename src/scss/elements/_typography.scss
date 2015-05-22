@@ -60,3 +60,8 @@ h6, .h6 { font-size: $h6; }
 .justify      { text-align: justify; }
 
 .nowrap { white-space: nowrap; }
+
+.list-reset { 
+  list-style: none;
+  padding-left: 0px;
+}

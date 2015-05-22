@@ -10,7 +10,7 @@ export default React.createClass({
 
     return React.Children.map(children, function (child) {
       let title = child.props.title.replace(" ", "-");
-      return React.createElement("li", null, React.createElement("a", {
+      return React.createElement("li", {className: "py1 blue"}, React.createElement("a", {
         href: `#${title}`
       }, child.props.title));
     });
@@ -25,7 +25,7 @@ export default React.createClass({
       let title = child.props.title.replace(" ", "-");
 
       return React.createElement("div", {
-        className: "styleguide-components-component",
+        className: "styleguide-components-component py3",
         id: title
       }, React.createElement("h2", {
         className: "styleguide-components-component-title"
@@ -42,22 +42,20 @@ export default React.createClass({
     });
   },
 
-  componentDidMount: function () {},
-
   render: function () {
     return (React.createElement("div", {
       className: "styleguide flex tall"
     }, React.createElement("div", {
-      className: "styleguide-sidebar col-2"
+      className: "styleguide-sidebar col-2 py5 px3 br bw-1 bc-grey-15"
     }, [
       React.createElement("h5", {
-        className: "styleguide-sidebar-title"
+        className: "styleguide-sidebar-title grey-15 py2"
       }, this.props.title),
       React.createElement("ul", {
-        className: "styleguide-sidebar-list"
+        className: "styleguide-sidebar-list list-reset"
       }, this.listComponentTitles())
     ]), React.createElement("div", {
-      className: "styleguide-components flex-auto overflow-scroll"
+      className: "styleguide-components flex-auto overflow-scroll p4"
     }, this.listComponents())));
   }
 });
