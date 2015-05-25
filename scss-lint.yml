@@ -20,7 +20,7 @@ linters:
 
   DeclarationOrder:
     enabled: true
-    
+
   DuplicateProperty:
     enabled: true
 
@@ -51,7 +51,7 @@ linters:
 
   ImportPath:
     enabled: true
-    
+
   Indentation:
     enabled: true
 
@@ -67,7 +67,7 @@ linters:
 
   NestingDepth:
     enabled: true
-    
+
   PlaceholderInExtend:
     enabled: true
 
@@ -77,7 +77,7 @@ linters:
 
   PropertySpelling:
     enabled: true
-    
+
   PropertyUnits:
     enabled: true
     global: ['em', 'rem', '%', 'px']
