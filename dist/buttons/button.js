@@ -4,6 +4,8 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
@@ -17,11 +19,12 @@ exports['default'] = _react2['default'].createClass({
 
   propTypes: {
     type: Type.oneOf([null, 'danger', 'secondary', 'previous', 'next']),
-    label: Type.string.isRequired,
+    label: Type.string,
     size: Type.oneOf([null, 'sm']),
     disabled: Type.bool,
     link: Type.bool,
-    extraClasses: Type.arrayOf(Type.string)
+    extraClasses: Type.arrayOf(Type.string),
+    icon: Type.string
   },
 
   getDefaultProps: function getDefaultProps() {
@@ -29,7 +32,8 @@ exports['default'] = _react2['default'].createClass({
       type: null,
       size: null,
       disabled: false,
-      link: false
+      link: false,
+      icon: null
     };
   },
 
@@ -57,13 +61,17 @@ exports['default'] = _react2['default'].createClass({
       classes.push('button-link');
     }
 
+    if (props.icon) {
+      classes.push('icon-' + this.props.icon);
+    }
+
     return classes.join(' ');
   },
 
   render: function render() {
     return _react2['default'].createElement(
       'button',
-      { className: this.classes(), disabled: this.props.disabled },
+      _extends({}, this.props, { className: this.classes(), disabled: this.props.disabled }),
       this.props.label
     );
   }
