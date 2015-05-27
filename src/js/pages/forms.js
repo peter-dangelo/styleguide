@@ -8,6 +8,7 @@ import TextArea from '../components/forms/fields/textarea';
 import Checkbox from '../components/forms/fields/checkbox';
 import Radio from '../components/forms/fields/radio';
 import SimpleSelect from '../components/forms/fields/simple-select';
+import EditLabel from '../components/edit-label';
 
 let D = React.DOM;
 
@@ -29,10 +30,28 @@ function _onFocus() {
 export default React.createClass({
   displayName: "FormsPage",
 
+  getInitialState() {
+    return {
+      editLabel: "Label"
+    };
+  },
+
+  _onSave(value) {
+    this.setState({ editLabel: value });
+  },
+
+  _onDelete() {
+    console.log("Not able to delete right now.");
+  },
+
+  _validate(val) {
+    return val.length;
+  },
+
   render() {
     return <Styleguide title="Forms Styles">
         <div title="Forms">
-          <form>
+          <form className="clearfix">
             <hr />
 
             <p>Default fields</p>
@@ -115,6 +134,28 @@ export default React.createClass({
               />
             </div>
           </form>
+          <hr />
+        </div>
+        <div title="Actionable Forms">
+          <hr />
+          <h3>EditLabel</h3>
+          <p>An interactive component for changing the text of a label, i.e. Folder Names.</p>
+          <EditLabel 
+            label={this.state.editLabel}
+            placeholder="Folder Name"
+            onSave={this._onSave}
+            onDelete={this._onDelete}
+            isValid={this._validate}
+            errorMessage="Folder Name Already In Use"
+          >
+            <p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>
+          </EditLabel>
+          
+          <pre><code className="language-javascript mt3">
+          {'<EditLabel label={this.state.editLabel} placeholder="Folder Name" onSave={this._onSave} onDelete={this._onDelete} isValid={this._validate} errorMessage="Folder Name Already In Use" >\n'}
+          {'\t<p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>\n'}
+          {'</EditLabel>'}
+          </code></pre>
         </div>
       </Styleguide>
   }
