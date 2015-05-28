@@ -62,6 +62,7 @@ export default React.createClass({
           disabled={this.props.disabled}
           readOnly={this.props.readOnly}
           placeholder={this.props.placeholder}
+          onChange={this.props.expandable ? this.expand : null}
         />
       </div>
   }
