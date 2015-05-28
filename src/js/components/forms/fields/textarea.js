@@ -29,6 +29,11 @@ export default React.createClass({
     }
   },
 
+  expand(e) {
+    e.target.style.height = "auto";
+    e.target.style.height = e.target.scrollHeight + "px";
+  },
+
   fieldClasses() {
     var classes = [];
     classes.push('field-' + this.props.fieldColor);
