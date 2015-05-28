@@ -60,6 +60,7 @@ export default React.createClass({
             <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
+            <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' extraClasses={['py2']}/>
             <Checkbox label="Checked read-only" fieldColor='light' readOnly={true} checked={true} extraClasses={['py2']}/>
             <Radio name="radios1" fieldColor='light' label="Radio 1" extraClasses={['py2']}/>
