@@ -12,12 +12,14 @@ export default React.createClass({
     label: Type.string,
     placeholder: Type.string,
     readOnly: Type.bool,
+    expandable: Type.bool
   },
 
   getDefaultProps() {
     return {
       fieldColor: 'light',
-      readOnly: false
+      readOnly: false,
+      expandable: false
     }
   },
 
