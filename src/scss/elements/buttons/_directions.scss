@@ -61,6 +61,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
 .button-previous,
 .button-next {
   position: relative;
+  transform: translateZ(0px);
   z-index: 20;
 
   &:after, &:before {
