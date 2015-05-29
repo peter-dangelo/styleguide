@@ -15,8 +15,31 @@ var Type = _react2['default'].PropTypes;
 exports['default'] = _react2['default'].createClass({
   displayName: 'Icon',
 
+  propTypes: {
+    name: Type.string.isRequired,
+    extraClasses: Type.arrayOf(Type.string)
+  },
+
+  getDefaultProps: function getDefaultProps() {
+    return {
+      extraClasses: []
+    };
+  },
+
+  classes: function classes() {
+    var classes = ['icon-' + this.props.name];
+
+    if (this.props.extraClasses) {
+      classes = classes.concat(this.props.extraClasses);
+    }
+
+    return classes.join(' ');
+  },
+
   render: function render() {
-    return _react2['default'].createElement('i', { className: 'icon-' + this.props.name });
+    var name = this.props.name;
+
+    return _react2['default'].createElement('i', { className: this.classes(), onClick: this.props.onClick });
   }
 });
 module.exports = exports['default'];

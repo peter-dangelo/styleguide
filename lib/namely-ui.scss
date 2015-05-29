@@ -1,14 +1,16 @@
 // Include all scss partials that are ready for production
 
-// Base Styles
-@import '../src/scss/base/base';
+.namely-ui {
+  // Base Styles
+  @import '../src/scss/base/base';
 
-// Button Styles
-@import '../src/scss/elements/buttons/buttons';
+  // Button Styles
+  @import '../src/scss/elements/buttons/buttons';
 
-// Form Styles
-@import '../src/scss/elements/forms';
-@import '../src/scss/elements/select';
+  // Form Styles
+  @import '../src/scss/elements/forms';
+  @import '../src/scss/elements/select';
 
-// Layout Styles
-@import '../src/scss/layout/layout';
+  // Layout Styles
+  @import '../src/scss/layout/layout';
+}
