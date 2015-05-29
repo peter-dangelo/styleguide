@@ -7,8 +7,6 @@
 
 -----------------------------------*/
 
-$button-height: 2rem;
-
 button,
 .button {
   appearance: none;
@@ -23,7 +21,7 @@ button,
   height: auto;
   line-height: $h4;
   outline: none;
-  padding: 0 $space-2;
+  padding: $space-1*1.5 $space-2;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   transition: background 0s, color 0s;
