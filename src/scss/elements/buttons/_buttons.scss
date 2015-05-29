@@ -21,6 +21,7 @@ button,
   font-size: $h4;
   font-weight: normal;
   height: auto;
+  line-height: $h4;
   outline: none;
   padding: 0 $space-2;
   text-decoration: none;
@@ -36,6 +37,7 @@ button,
 
   &:before {
     font-size: $h5;
+    line-height: $h4;
     margin-right: $space-1;
   }
 }

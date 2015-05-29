@@ -65,6 +65,7 @@ $arrow-top: ($button-height * 0.25)/2;
   &:after, &:before {
     border-radius: $border-radius;
     display: block;
+    line-height: $h4;
     position: absolute;
     top: $arrow-top;
     transform: rotate(45deg) translateZ(0px);
