@@ -7,6 +7,8 @@
 
 -----------------------------------*/
 
+$base-button-font-size: $h4;
+
 button,
 .button {
   appearance: none;
@@ -16,10 +18,10 @@ button,
   color: $white;
   cursor: pointer;
   display: inline-block;
-  font-size: $h4;
+  font-size: $base-button-font-size;
   font-weight: normal;
   height: auto;
-  line-height: $h4;
+  line-height: $base-button-font-size;
   outline: none;
   padding: $space-1*1.5 $space-2;
   text-decoration: none;
@@ -35,7 +37,7 @@ button,
 
   &:before {
     font-size: $h5;
-    line-height: $h4;
+    line-height: $base-button-font-size;
     margin-right: $space-1;
   }
 }

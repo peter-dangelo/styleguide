@@ -1,4 +1,4 @@
-$directional-button-height: (($space-1 * 1.5) * 2) + $h4;
+$directional-button-height: (($space-1 * 1.5) * 2) + $base-button-font-size;
 $arrow-dimensions: $directional-button-height * 0.75;
 $arrow-position: -($h2/2);
 $arrow-top: ($directional-button-height * 0.25)/2;
@@ -67,7 +67,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   &:after, &:before {
     border-radius: $border-radius;
     display: block;
-    line-height: $h4;
+    line-height: $base-button-font-size;
     position: absolute;
     top: $arrow-top;
     transform: rotate(45deg) translateZ(0px);
