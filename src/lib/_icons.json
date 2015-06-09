@@ -172,123 +172,127 @@
 		codepoint: 57387
 	},
 	{
-		name: "list",
+		name: "link",
 		codepoint: 57388
 	},
 	{
-		name: "location",
+		name: "list",
 		codepoint: 57389
 	},
 	{
-		name: "lock",
+		name: "location",
 		codepoint: 57390
 	},
 	{
-		name: "mobile",
+		name: "lock",
 		codepoint: 57391
 	},
 	{
-		name: "namely-inverted",
+		name: "mobile",
 		codepoint: 57392
 	},
 	{
-		name: "namely",
+		name: "namely-inverted",
 		codepoint: 57393
 	},
 	{
-		name: "paperclip",
+		name: "namely",
 		codepoint: 57394
 	},
 	{
-		name: "pencil",
+		name: "paperclip",
 		codepoint: 57395
 	},
 	{
-		name: "people",
+		name: "pencil",
 		codepoint: 57396
 	},
 	{
-		name: "person-add",
+		name: "people",
 		codepoint: 57397
 	},
 	{
-		name: "person",
+		name: "person-add",
 		codepoint: 57398
 	},
 	{
-		name: "phone",
+		name: "person",
 		codepoint: 57399
 	},
 	{
-		name: "pin",
+		name: "phone",
 		codepoint: 57400
 	},
 	{
-		name: "plane",
+		name: "pin",
 		codepoint: 57401
 	},
 	{
-		name: "print",
+		name: "plane",
 		codepoint: 57402
 	},
 	{
-		name: "search",
+		name: "print",
 		codepoint: 57403
 	},
 	{
-		name: "settings",
+		name: "search",
 		codepoint: 57404
 	},
 	{
-		name: "social-fb",
+		name: "settings",
 		codepoint: 57405
 	},
 	{
-		name: "social-google",
+		name: "social-fb",
 		codepoint: 57406
 	},
 	{
-		name: "social-googleplus",
+		name: "social-google",
 		codepoint: 57407
 	},
 	{
-		name: "social-linkedin",
+		name: "social-googleplus",
 		codepoint: 57408
 	},
 	{
-		name: "social-tumblr",
+		name: "social-linkedin",
 		codepoint: 57409
 	},
 	{
-		name: "social-twitter",
+		name: "social-tumblr",
 		codepoint: 57410
 	},
 	{
-		name: "star",
+		name: "social-twitter",
 		codepoint: 57411
 	},
 	{
-		name: "tag",
+		name: "star",
 		codepoint: 57412
 	},
 	{
-		name: "tags",
+		name: "tag",
 		codepoint: 57413
 	},
 	{
-		name: "team",
+		name: "tags",
 		codepoint: 57414
 	},
 	{
-		name: "upload",
+		name: "team",
 		codepoint: 57415
 	},
 	{
-		name: "view-stop",
+		name: "upload",
 		codepoint: 57416
 	},
 	{
-		name: "view",
+		name: "view-stop",
 		codepoint: 57417
+	},
+	{
+		name: "view",
+		codepoint: 57418
 	}
 ]

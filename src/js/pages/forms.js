@@ -9,6 +9,7 @@ import Checkbox from '../components/forms/fields/checkbox';
 import Radio from '../components/forms/fields/radio';
 import SimpleSelect from '../components/forms/fields/simple-select';
 import EditLabel from '../components/edit-label';
+import FileInput from '../components/forms/file-input';
 
 let D = React.DOM;
 
@@ -156,6 +157,10 @@ export default React.createClass({
           {'\t<p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>\n'}
           {'</EditLabel>'}
           </code></pre>
+          
+          <h3 className="mt4">File Input</h3>
+          <p className="small">An interactive file component with file name preview.</p>
+          <FileInput labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
         </div>
       </Styleguide>
   }

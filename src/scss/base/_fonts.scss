@@ -7,7 +7,27 @@
 
 -----------------------------------*/
 
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@font-face {
+  font-family: 'Proxima';
+  src: url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima.eot');
+  src: url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima.eot?#iefix') format('embedded-opentype'),
+       url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima.woff') format('woff'),
+       url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima.ttf') format('truetype'),
+       url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima.svg#ProximaCondensedRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima';
+  src: url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima-bold.eot');
+  src: url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima-bold.eot?#iefix') format('embedded-opentype'),
+       url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima-bold.woff') format('woff'),
+       url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima-bold.ttf') format('truetype'),
+       url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima-bold.svg#ProximaCondensedSemibold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
 
 /* sans
 ------------------------------------
@@ -16,7 +36,7 @@
 
 ---------------------------------*/
 
-$sans-family: 'Montserrat', sans-serif;
+$sans-family: 'Proxima', sans-serif;
 
 
 

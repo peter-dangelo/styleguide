@@ -133,6 +133,9 @@ linters:
   UnnecessaryParentReference:
     enabled: true
 
+  UrlFormat:
+    enabled: false
+
   UrlQuotes:
     enabled: true
 

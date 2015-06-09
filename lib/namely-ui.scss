@@ -4,6 +4,9 @@
   // Base Styles
   @import '../src/scss/base/base';
 
+  // Typography Styles
+  @import '../src/scss/elements/typography';
+
   // Button Styles
   @import '../src/scss/elements/buttons/buttons';
 
@@ -13,4 +16,7 @@
 
   // Layout Styles
   @import '../src/scss/layout/layout';
+
+  // Shape Component Styles
+  @import '../src/scss/components/triangle';
 }
