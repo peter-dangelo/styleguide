@@ -12,12 +12,14 @@ export default React.createClass({
     label: Type.string,
     placeholder: Type.string,
     readOnly: Type.bool,
+    expandable: Type.bool
   },
 
   getDefaultProps() {
     return {
       fieldColor: 'light',
-      readOnly: false
+      readOnly: false,
+      expandable: false
     }
   },
 
@@ -25,6 +27,11 @@ export default React.createClass({
     if(this.props.label) {
       return <label htmlFor={this.props.id} className="px2 mb1">{this.props.label}</label>;
     }
+  },
+
+  expand(e) {
+    e.target.style.height = "auto";
+    e.target.style.height = e.target.scrollHeight + "px";
   },
 
   fieldClasses() {
@@ -55,6 +62,7 @@ export default React.createClass({
           disabled={this.props.disabled}
           readOnly={this.props.readOnly}
           placeholder={this.props.placeholder}
+          onChange={this.props.expandable ? this.expand : null}
         />
       </div>
   }
