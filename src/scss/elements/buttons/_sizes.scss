@@ -2,9 +2,11 @@
 .button-sm {
   font-size: $h6;
   font-weight: bold;
-  height: auto;
+  line-height: $h5;
+  padding: $space-1/1.25 $space-2;
 
   &:before {
     font-size: $space-2;
+    line-height: $h6;
   }
 }
