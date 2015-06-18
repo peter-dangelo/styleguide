@@ -51,6 +51,10 @@
   flex: 1 0 auto;
 }
 
+.flex-equal, %flex-equal {
+  flex: 1 0 0;
+}
+
 .flex-none, %flex-none {
   flex: none;
 }

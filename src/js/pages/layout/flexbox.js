@@ -148,6 +148,16 @@ export default createClass({
         ])
       ]),
       D.article({className: "mt3 mb4"}, [
+        D.h3(null, ".flex-equal"),
+        D.p({}, "Example contains a parent container with a class of 'flex' with two child divs with a class of 'flex-equal'"),
+        D.div({
+          className: "flex b bw-1 p2",
+        }, [
+          D.div({className: "flex-equal b bw-1 p1"}, D.span({}, "A DIV of Content")),
+          D.div({className: "flex-equal b bw-1 p1"}, D.span({}, "A DIV of Content that wraps.  The column widths remain equal regardless of content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium nulla vitae dolor consectetur tristique. Nam et velit suscipit orci imperdiet tristique in a risus.")),
+        ])
+      ]),
+      D.article({className: "mt3 mb4"}, [
         D.h3(null, ".flex-none"),
         D.p({}, "Example contains a parent container with a class of 'flex' with two child divs with a class of 'flex-auto' and one child with a class of 'flex-none'"),
         D.div({
