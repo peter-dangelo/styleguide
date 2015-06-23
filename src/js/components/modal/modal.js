@@ -11,45 +11,10 @@ export default React.createClass({
     }
   },
 
-
-  componentWillUpdate() {
-    console.log('componentWillUpdate');
-
-  },
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate');
-
-  },
-
-  componentWillMount() {
-    console.log('componentWillMount');
-
-  },
-
-
-  componentDidMount() {
-    console.log('componentDidMount');
-
-  },
-
-  componentWillReceiveProps() {
-    console.log('componentWillReceiveProps');
-
-  },
-
-  componentWillUnmount(){
-    console.log('componentWillUnmount');
-
-  },
-
   removeModal() {
-    // remove the component
-    // remove the node
     var node = document.getElementById('react-modal');
     var parentNode = node.parentNode;
     parentNode.removeChild(node);
-    // document.getElementById('react-modal');
   },
 
   open() {
