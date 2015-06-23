@@ -60,11 +60,14 @@ export default React.createClass({
     containerElement.setAttribute("id",DomId);
     containerElement.className = containerElement.className + " ";
     document.body.appendChild(containerElement);
+
+    // not sure about this... Is JSX usable here?
     React.render(ModalBackground( {
       showCloseButton: this.props.showCloseButton,
       styles: this.props.styles,
       innerContent: this.props.children,
-      removeModal: this.removeModal
+      removeModal: this.removeModal,
+      contentColumnWidth: this.props.contentColumnWidth
     } ), document.getElementById(DomId));
   },
 

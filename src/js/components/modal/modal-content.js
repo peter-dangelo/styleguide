@@ -7,6 +7,7 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
+      contentColumnWidth: "6",
       showCloseButton: true
     };
   },
@@ -24,15 +25,22 @@ export default React.createClass({
     e.stopPropagation()
   },
 
-  classes: [
-    'modal-content',
-    'style-guide-request',
-    'mx-auto',
-    'bg-white',
-    'p4',
-    'rounded-3',
-    'relative'
-  ],
+
+  classes() {
+    var classes = [
+      'modal-content',
+      'mx-auto',
+      'bg-white',
+      'p4',
+      'rounded-3',
+      'relative'
+    ];
+
+    classes.push('col-'+this.props.contentColumnWidth);
+
+    return classes.join(' ');
+
+  },
 
   renderCloseButton() {
     // the close button is the top-right X
@@ -42,7 +50,7 @@ export default React.createClass({
   },
 
   render() {
-    return <div className={this.classes.join(' ')} onClick={this.handleClick}>
+    return <div className={this.classes()} onClick={this.handleClick}>
         {this.renderChildren()}
         {this.renderCloseButton()}
       </div>
