@@ -10,6 +10,7 @@ export default React.createClass({
   render() {
     return <Styleguide title="Modals">
       <div title="Modals" description="The modal styles for Namely">
+
         <p>Wrap a component inside the modal component:</p>
 
         <Modal prompt="Launch default modal">

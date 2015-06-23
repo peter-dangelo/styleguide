@@ -63,7 +63,7 @@ export default React.createClass({
     // not sure about this... Is JSX usable here?
     React.render(ModalBackground( {
       showCloseButton: this.props.showCloseButton,
-      styles: this.props.styles,
+      zIndex: this.props.zIndex,
       innerContent: this.props.children,
       removeModal: this.removeModal,
       contentColumnWidth: this.props.contentColumnWidth
