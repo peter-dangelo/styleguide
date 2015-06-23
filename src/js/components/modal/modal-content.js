@@ -7,7 +7,7 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      contentColumnWidth: "6",
+      contentColumnWidth: "9",
       showCloseButton: true
     };
   },
