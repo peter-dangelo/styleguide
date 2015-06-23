@@ -33,7 +33,8 @@ export default React.createClass({
       'bg-white',
       'p4',
       'rounded-3',
-      'relative'
+      'relative',
+      'float-none'
     ];
 
     classes.push('col-'+this.props.contentColumnWidth);
