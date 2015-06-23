@@ -11,9 +11,6 @@ export default React.createClass({
     }
   },
 
-  shouldComponentUpdate() {
-    // console.log('shouldComponentUpdate');
-  },
 
   componentWillUpdate() {
     console.log('componentWillUpdate');
@@ -48,9 +45,11 @@ export default React.createClass({
 
   removeModal() {
     // remove the component
-    React.unmountComponentAtNode(document.getElementById('react-modal'));
     // remove the node
-    document.getElementById('react-modal').remove();
+    var node = document.getElementById('react-modal');
+    var parentNode = node.parentNode;
+    parentNode.removeChild(node);
+    // document.getElementById('react-modal');
   },
 
   open() {
