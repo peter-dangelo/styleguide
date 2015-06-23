@@ -51,9 +51,11 @@ export default React.createClass({
   },
 
   render() {
-    return <div className={this.classes()} onClick={this.handleClick}>
-        {this.renderChildren()}
-        {this.renderCloseButton()}
+    return <div className="container">
+        <div className={this.classes()} onClick={this.handleClick}>
+          {this.renderChildren()}
+          {this.renderCloseButton()}
+        </div>
       </div>
   }
 
