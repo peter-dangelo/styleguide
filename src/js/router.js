@@ -12,6 +12,7 @@ import PopoversPage from './pages/popovers';
 import ModalsPage from './pages/modals';
 import CardsPage from './pages/cards';
 import IconsPage from './pages/icons';
+import AnimationsPage from './pages/animations';
 
 let appContainer = document.getElementById('app');
 
@@ -34,6 +35,7 @@ export default Router.extend({
     'modals': 'modals',
     'cards': 'cards',
     'icons': 'icons',
+    'animations': 'animations',
   },
 
   home() {
@@ -78,5 +80,10 @@ export default Router.extend({
 
   icons() {
     this.renderPage(IconsPage);
+  },
+
+  animations() {
+    this.renderPage(AnimationsPage);
   }
+
 });
