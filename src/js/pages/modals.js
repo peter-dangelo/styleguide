@@ -11,7 +11,13 @@ export default React.createClass({
     return <Styleguide title="Modals">
       <div title="Modals" description="The modal styles for Namely">
 
-        <p>Wrap a component inside the modal component:</p>
+        <p>Wrap a component inside the modal component. Props:<br/>
+        <code className="language-javascript">prompt="Click me"</code>for the button text<br/>
+        <code className="language-javascript">contentColumnWidth="3"</code> to override the default 9-col width<br/>
+        <code className="language-javascript">isOpen=true</code> to automatically open the modal when the modal button renders<br/>
+        </p>
+
+        <hr />
 
         <Modal prompt="Launch default modal">
           <h3 className="mb2">I&apos;m a modal!</h3>
