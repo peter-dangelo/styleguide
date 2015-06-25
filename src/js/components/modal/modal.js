@@ -7,18 +7,36 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      isOpen: false
+      isOpen: this.props.isOpen || false
     }
   },
 
+
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.state.isOpen == true && nextState.isOpen == false) {
+      this.close();
+    }
+    if(this.state.isOpen == false && nextState.isOpen == true) {
+      this.open();
+    }
+  },
+
+  componentWillMount() {
+    if(this.state.isOpen == true) {
+      this.open();
+    }
+  },
+
+  handleClick() {
+    this.setState({isOpen: true})
+  },
+
   removeModal() {
-    var node = document.getElementById('react-modal');
-    var parentNode = node.parentNode;
-    parentNode.removeChild(node);
+    this.setState({isOpen: false});
   },
 
   open() {
-    this.setState({isOpen: true})
     var DomId = "react-modal";
     var containerElement = document.createElement("div");
     containerElement.setAttribute("id",DomId);
@@ -35,8 +53,14 @@ export default React.createClass({
     } ), document.getElementById(DomId));
   },
 
+  close() {
+    var node = document.getElementById('react-modal');
+    var parentNode = node.parentNode;
+    parentNode.removeChild(node);
+  },
+
   render(){
-    return <button onClick={this.open}>{this.props.prompt}</button>
+    return <button onClick={this.handleClick}>{this.props.prompt}</button>
   }
 
 });
