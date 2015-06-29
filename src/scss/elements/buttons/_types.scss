@@ -61,6 +61,10 @@
     }
   }
 
+  &.button-sm {
+    padding: 0;
+  }
+
   &:disabled, &.button-disabled {
     color: $grey-25;
   }

@@ -62,7 +62,6 @@ exports['default'] = _react2['default'].createClass({
       'div',
       { className: this.classes() },
       this.label(),
-      _react2['default'].createElement('br', null),
       _react2['default'].createElement('input', {
         className: this.fieldClasses(),
         disabled: this.props.disabled,

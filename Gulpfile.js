@@ -113,7 +113,7 @@ gulp.task('watch', function(){
   gulp.watch('src/js/**', ['scripts']);
 });
 
-gulp.task('package:css', function(){
+gulp.task('package:css', ['icons', 'colors'], function(){
   gulp.src('./lib/namely-ui.scss')
     .pipe(sass())
     .pipe(autoprefix())

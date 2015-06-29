@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icons';
-  src: url('/fonts/icons.eot');
-  src: url('/fonts/icons.eot?#iefix') format('eot'),
-    url('/fonts/icons.woff') format('woff'),
-    url('/fonts/icons.ttf') format('truetype'),
-    url('/fonts/icons.svg#icons') format('svg');
+  src: url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.eot');
+  src: url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.eot?#iefix') format('eot'),
+    url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.woff') format('woff'),
+    url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.ttf') format('truetype'),
+    url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.svg#icons') format('svg');
 }
 
 %icon {
@@ -151,95 +151,98 @@
   @if $filename == key {
     $char: '\E02B';
   }
-  @if $filename == list {
+  @if $filename == link {
     $char: '\E02C';
   }
-  @if $filename == location {
+  @if $filename == list {
     $char: '\E02D';
   }
-  @if $filename == lock {
+  @if $filename == location {
     $char: '\E02E';
   }
-  @if $filename == mobile {
+  @if $filename == lock {
     $char: '\E02F';
   }
-  @if $filename == namely-inverted {
+  @if $filename == mobile {
     $char: '\E030';
   }
-  @if $filename == namely {
+  @if $filename == namely-inverted {
     $char: '\E031';
   }
-  @if $filename == paperclip {
+  @if $filename == namely {
     $char: '\E032';
   }
-  @if $filename == pencil {
+  @if $filename == paperclip {
     $char: '\E033';
   }
-  @if $filename == people {
+  @if $filename == pencil {
     $char: '\E034';
   }
-  @if $filename == person-add {
+  @if $filename == people {
     $char: '\E035';
   }
-  @if $filename == person {
+  @if $filename == person-add {
     $char: '\E036';
   }
-  @if $filename == phone {
+  @if $filename == person {
     $char: '\E037';
   }
-  @if $filename == pin {
+  @if $filename == phone {
     $char: '\E038';
   }
-  @if $filename == plane {
+  @if $filename == pin {
     $char: '\E039';
   }
-  @if $filename == print {
+  @if $filename == plane {
     $char: '\E03A';
   }
-  @if $filename == search {
+  @if $filename == print {
     $char: '\E03B';
   }
-  @if $filename == settings {
+  @if $filename == search {
     $char: '\E03C';
   }
-  @if $filename == social-fb {
+  @if $filename == settings {
     $char: '\E03D';
   }
-  @if $filename == social-google {
+  @if $filename == social-fb {
     $char: '\E03E';
   }
-  @if $filename == social-googleplus {
+  @if $filename == social-google {
     $char: '\E03F';
   }
-  @if $filename == social-linkedin {
+  @if $filename == social-googleplus {
     $char: '\E040';
   }
-  @if $filename == social-tumblr {
+  @if $filename == social-linkedin {
     $char: '\E041';
   }
-  @if $filename == social-twitter {
+  @if $filename == social-tumblr {
     $char: '\E042';
   }
-  @if $filename == star {
+  @if $filename == social-twitter {
     $char: '\E043';
   }
-  @if $filename == tag {
+  @if $filename == star {
     $char: '\E044';
   }
-  @if $filename == tags {
+  @if $filename == tag {
     $char: '\E045';
   }
-  @if $filename == team {
+  @if $filename == tags {
     $char: '\E046';
   }
-  @if $filename == upload {
+  @if $filename == team {
     $char: '\E047';
   }
-  @if $filename == view-stop {
+  @if $filename == upload {
     $char: '\E048';
   }
-  @if $filename == view {
+  @if $filename == view-stop {
     $char: '\E049';
+  }
+  @if $filename == view {
+    $char: '\E04A';
   }
   @return $char;
 }
@@ -287,36 +290,37 @@ $icon-heart: '\E028';
 $icon-help: '\E029';
 $icon-home: '\E02A';
 $icon-key: '\E02B';
-$icon-list: '\E02C';
-$icon-location: '\E02D';
-$icon-lock: '\E02E';
-$icon-mobile: '\E02F';
-$icon-namely-inverted: '\E030';
-$icon-namely: '\E031';
-$icon-paperclip: '\E032';
-$icon-pencil: '\E033';
-$icon-people: '\E034';
-$icon-person-add: '\E035';
-$icon-person: '\E036';
-$icon-phone: '\E037';
-$icon-pin: '\E038';
-$icon-plane: '\E039';
-$icon-print: '\E03A';
-$icon-search: '\E03B';
-$icon-settings: '\E03C';
-$icon-social-fb: '\E03D';
-$icon-social-google: '\E03E';
-$icon-social-googleplus: '\E03F';
-$icon-social-linkedin: '\E040';
-$icon-social-tumblr: '\E041';
-$icon-social-twitter: '\E042';
-$icon-star: '\E043';
-$icon-tag: '\E044';
-$icon-tags: '\E045';
-$icon-team: '\E046';
-$icon-upload: '\E047';
-$icon-view-stop: '\E048';
-$icon-view: '\E049';
+$icon-link: '\E02C';
+$icon-list: '\E02D';
+$icon-location: '\E02E';
+$icon-lock: '\E02F';
+$icon-mobile: '\E030';
+$icon-namely-inverted: '\E031';
+$icon-namely: '\E032';
+$icon-paperclip: '\E033';
+$icon-pencil: '\E034';
+$icon-people: '\E035';
+$icon-person-add: '\E036';
+$icon-person: '\E037';
+$icon-phone: '\E038';
+$icon-pin: '\E039';
+$icon-plane: '\E03A';
+$icon-print: '\E03B';
+$icon-search: '\E03C';
+$icon-settings: '\E03D';
+$icon-social-fb: '\E03E';
+$icon-social-google: '\E03F';
+$icon-social-googleplus: '\E040';
+$icon-social-linkedin: '\E041';
+$icon-social-tumblr: '\E042';
+$icon-social-twitter: '\E043';
+$icon-star: '\E044';
+$icon-tag: '\E045';
+$icon-tags: '\E046';
+$icon-team: '\E047';
+$icon-upload: '\E048';
+$icon-view-stop: '\E049';
+$icon-view: '\E04A';
 
 
 @mixin icon($filename, $insert: before) {
@@ -496,6 +500,10 @@ $icon-view: '\E049';
 
 .icon-key {
   @include icon(key);
+}
+
+.icon-link {
+  @include icon(link);
 }
 
 .icon-list {

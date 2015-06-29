@@ -68,7 +68,8 @@ export default React.createClass({
           D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/icons' }, 'Icons')),
           D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/popovers' }, 'Popovers')),
           D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/modals' }, 'Modals')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/cards' }, 'Cards'))
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/cards' }, 'Cards')),
+          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/animations' }, 'Animations'))
         ])
       ]),
       D.section({

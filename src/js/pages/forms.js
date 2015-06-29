@@ -8,6 +8,8 @@ import TextArea from '../components/forms/fields/textarea';
 import Checkbox from '../components/forms/fields/checkbox';
 import Radio from '../components/forms/fields/radio';
 import SimpleSelect from '../components/forms/fields/simple-select';
+import EditLabel from '../components/edit-label';
+import FileInput from '../components/forms/file-input';
 
 let D = React.DOM;
 
@@ -29,10 +31,28 @@ function _onFocus() {
 export default React.createClass({
   displayName: "FormsPage",
 
+  getInitialState() {
+    return {
+      editLabel: "Label"
+    };
+  },
+
+  _onSave(value) {
+    this.setState({ editLabel: value });
+  },
+
+  _onDelete() {
+    console.log("Not able to delete right now.");
+  },
+
+  _validate(val) {
+    return val.length;
+  },
+
   render() {
     return <Styleguide title="Forms Styles">
         <div title="Forms">
-          <form>
+          <form className="clearfix">
             <hr />
 
             <p>Default fields</p>
@@ -41,6 +61,7 @@ export default React.createClass({
             <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
+            <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' extraClasses={['py2']}/>
             <Checkbox label="Checked read-only" fieldColor='light' readOnly={true} checked={true} extraClasses={['py2']}/>
             <Radio name="radios1" fieldColor='light' label="Radio 1" extraClasses={['py2']}/>
@@ -115,6 +136,32 @@ export default React.createClass({
               />
             </div>
           </form>
+          <hr />
+        </div>
+        <div title="Actionable Forms">
+          <hr />
+          <h3>EditLabel</h3>
+          <p>An interactive component for changing the text of a label, i.e. Folder Names.</p>
+          <EditLabel 
+            label={this.state.editLabel}
+            placeholder="Folder Name"
+            onSave={this._onSave}
+            onDelete={this._onDelete}
+            isValid={this._validate}
+            errorMessage="Folder Name Already In Use"
+          >
+            <p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>
+          </EditLabel>
+          
+          <pre><code className="language-javascript mt3">
+          {'<EditLabel label={this.state.editLabel} placeholder="Folder Name" onSave={this._onSave} onDelete={this._onDelete} isValid={this._validate} errorMessage="Folder Name Already In Use" >\n'}
+          {'\t<p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>\n'}
+          {'</EditLabel>'}
+          </code></pre>
+          
+          <h3 className="mt4">File Input</h3>
+          <p className="small">An interactive file component with file name preview.</p>
+          <FileInput labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
         </div>
       </Styleguide>
   }
