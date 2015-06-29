@@ -7,8 +7,7 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      contentColumnWidth: "9",
-      showCloseButton: true
+      contentColumnWidth: "9"
     };
   },
 
@@ -43,18 +42,10 @@ export default React.createClass({
 
   },
 
-  renderCloseButton() {
-    // the close button is the top-right X
-    if(this.props.showCloseButton) {
-      return <ModalClose removeModal={this.props.removeModal} />
-    }
-  },
-
   render() {
     return <div className="container">
         <div className={this.classes()} onClick={this.handleClick}>
           {this.renderChildren()}
-          {this.renderCloseButton()}
         </div>
       </div>
   }
