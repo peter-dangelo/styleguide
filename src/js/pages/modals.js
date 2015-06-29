@@ -23,7 +23,23 @@ export default React.createClass({
   },
 
 
+
+  getInitialState() {
+    return {
+      modalIsOpen: false
+    }
+  },
+
+  openModal(){
+    this.setState({modalIsOpen: true});
+  },
+
+  closeModal(){
+    this.setState({modalIsOpen: false});
+  },
+
   render() {
+
 
 
     return <Styleguide title="Modals">
@@ -34,11 +50,7 @@ export default React.createClass({
         <PropsTable rows={
           [
             {
-              'prop':'prompt',
-              'description':'sets the button prompt'
-            },
-            {
-              'prop':'contentColumnWidth',
+              'prop':'contentColumns',
               'description':'sets the width of the content container with columns. Default: 9'
             },
             {
@@ -50,18 +62,13 @@ export default React.createClass({
 
         <hr />
 
-        <Modal prompt={this.promptContentExample1()}>
-          <h3 className="mb2">{"I'm a modal!"}</h3>
-          <hr className="mt0" />
-          <p>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id ante ut erat vulputate ultricies ac in turpis. Curabitur mollis quis erat ut sodales. Sed ut pellentesque mauris. Donec lectus augue, sodales ut diam et, consequat condimentum metus. Sed faucibus congue mi. Pellentesque eu pharetra est."}</p>
-        </Modal>
+        <button onClick={this.openModal}>Just a button</button>
 
-        <hr />
-
-        <Modal prompt={this.promptContentExample2()} contentColumnWidth="3">
-          <div>{"I'm a 3-column modal!"}</div>
+        <Modal isOpen={this.state.modalIsOpen} closeModal={this.closeModal} contentColumns={6}>
+          <h4>This is a modal</h4>
+          <p>{"You can pass in some JSX, component, etc."}</p>
           <hr />
-          <p>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id ante ut erat vulputate ultricies ac in turpis. Curabitur mollis quis erat ut sodales. Sed ut pellentesque mauris. Donec lectus augue, sodales ut diam et, consequat condimentum metus. Sed faucibus congue mi. Pellentesque eu pharetra est."}</p>
+          <button onClick={this.closeModal}>{"Close"}</button>
         </Modal>
 
       </div>
