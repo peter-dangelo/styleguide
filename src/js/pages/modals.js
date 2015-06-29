@@ -38,15 +38,21 @@ export default React.createClass({
     this.setState({modalIsOpen: false});
   },
 
+  renderModal() {
+    if(this.state.modalIsOpen){
+      return <Modal isOpen={this.state.modalIsOpen} closeModal={this.closeModal} contentColumns={6}>
+        <h4>This is a modal</h4>
+        <p>{"You can pass in some JSX, component, etc."}</p>
+        <hr />
+        <button onClick={this.closeModal}>{"Close"}</button>
+      </Modal>
+    }
+  },
+
   render() {
-
-
-
     return <Styleguide title="Modals">
       <div title="Modals" description="The modal styles for Namely">
-
         <p>Wrap a component inside the modal component.</p>
-
         <PropsTable rows={
           [
             {
@@ -59,18 +65,9 @@ export default React.createClass({
             }
           ]
         }/>
-
         <hr />
-
         <button onClick={this.openModal}>Just a button</button>
-
-        <Modal isOpen={this.state.modalIsOpen} closeModal={this.closeModal} contentColumns={6}>
-          <h4>This is a modal</h4>
-          <p>{"You can pass in some JSX, component, etc."}</p>
-          <hr />
-          <button onClick={this.closeModal}>{"Close"}</button>
-        </Modal>
-
+        {this.renderModal()}
       </div>
     </Styleguide>
   }
