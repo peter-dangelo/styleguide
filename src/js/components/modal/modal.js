@@ -44,10 +44,10 @@ export default React.createClass({
       'modal-content',
       'mx-auto',
       'bg-white',
-      'p4',
-      'rounded-3',
       'relative',
-      'float-none'
+      'float-none',
+      'rounded-3',
+      'overflow-hidden'
     ];
 
     classes.push('col-'+this.props.contentColumns);
