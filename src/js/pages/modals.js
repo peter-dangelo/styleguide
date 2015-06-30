@@ -9,21 +9,6 @@ export default React.createClass({
 
   displayName: "ModalsPage",
 
-  // set a prompt component to nest within the button.  This is very flexible. Maybe too flexible?
-  promptContentExample1() {
-    return <span className="flex flex-center">
-        <span className="icon-plane mr1" />
-        <span>{"Go for a plane ride"}</span>
-      </span>
-  },
-
-  // or just pass in some text
-  promptContentExample2() {
-    return 'Click me!'
-  },
-
-
-
   getInitialState() {
     return {
       modalIsOpen: false
@@ -41,10 +26,12 @@ export default React.createClass({
   renderModal() {
     if(this.state.modalIsOpen){
       return <Modal isOpen={this.state.modalIsOpen} closeModal={this.closeModal} contentColumns={6}>
-        <h4>This is a modal</h4>
-        <p>{"You can pass in some JSX, component, etc."}</p>
-        <hr />
-        <button onClick={this.closeModal}>{"Close"}</button>
+        <div className="p3">
+          <h4>This is a modal</h4>
+          <p>{"You can pass in some JSX, component, etc."}</p>
+          <hr />
+          <button onClick={this.closeModal}>{"Close"}</button>
+        </div>
       </Modal>
     }
   },
@@ -61,7 +48,21 @@ export default React.createClass({
             },
             {
               'prop':'isOpen',
-              'description':'automatically opens the modal when the modal button renders. Sets modal-background\'s inital state to isOpen:true. Default: false'
+              'description':'automatically opens the modal when the parent component renders. Sets modal-background\'s inital state to isOpen:true. Default: false'
+            },
+            {
+              'prop':'disableClickBackground',
+              'description':'will not call closeModal() on background click if this prop is set to true. Default: false'
+            },
+
+            {
+              'prop':'zIndex',
+              'description':'sets the zIndex of the modal. Default: 1000'
+            },
+
+            {
+              'prop':'closeModal',
+              'description':'closes the modal'
             }
           ]
         }/>
