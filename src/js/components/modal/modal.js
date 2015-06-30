@@ -21,6 +21,11 @@ export default React.createClass({
     this.props.closeModal()
   },
 
+  clickContent(e) {
+    // keeps the content click from bubbling up to outside click
+    e.stopPropagation()
+  },
+
   modalContentClasses() {
     var classes = [
       'modal-content',
@@ -41,7 +46,7 @@ export default React.createClass({
   render() {
     return <div ref="modal" style={{zIndex: this.props.zIndex}} className="anim-fade ease-out modal-background top-0 bottom-0 left-0 right-0 fixed flex flex-center" onClick={this.clickBackground}>
         <div className="container fill">
-          <div className={this.modalContentClasses()}>
+          <div onClick={this.clickContent} className={this.modalContentClasses()}>
             {this.props.children}
           </div>
         </div>
