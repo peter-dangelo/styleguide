@@ -2,6 +2,7 @@ node_modules/
 bower_components/
 .DS_Store
 npm-debug.log*
+dist/namely-ui.css
 public/app.js
 public/app.css
 public/app.css.map
