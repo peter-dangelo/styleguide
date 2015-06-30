@@ -23,12 +23,15 @@ export default React.createClass({
   getDefaultProps() {
     return {
       zIndex: 1000,
-      contentColumns: 9
+      contentColumns: 9,
+      disableClickBackground: false
     }
   },
 
   clickBackground() {
-    this.props.closeModal()
+    if(!this.props.disableClickBackground) {
+      this.props.closeModal()
+    }
   },
 
   clickContent(e) {
