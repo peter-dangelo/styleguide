@@ -21,12 +21,15 @@ exports['default'] = _react2['default'].createClass({
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
     placeholder: Type.string,
-    readOnly: Type.bool },
+    readOnly: Type.bool,
+    expandable: Type.bool
+  },
 
   getDefaultProps: function getDefaultProps() {
     return {
       fieldColor: 'light',
-      readOnly: false
+      readOnly: false,
+      expandable: false
     };
   },
 
@@ -38,6 +41,11 @@ exports['default'] = _react2['default'].createClass({
         this.props.label
       );
     }
+  },
+
+  expand: function expand(e) {
+    e.target.style.height = 'auto';
+    e.target.style.height = e.target.scrollHeight + 'px';
   },
 
   fieldClasses: function fieldClasses() {
@@ -68,7 +76,8 @@ exports['default'] = _react2['default'].createClass({
         className: this.fieldClasses(),
         disabled: this.props.disabled,
         readOnly: this.props.readOnly,
-        placeholder: this.props.placeholder
+        placeholder: this.props.placeholder,
+        onChange: this.props.expandable ? this.expand : null
       })
     );
   }
