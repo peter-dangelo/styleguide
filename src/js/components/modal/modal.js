@@ -1,8 +1,18 @@
 import React from 'react';
 
+const Type = React.PropTypes;
+
 export default React.createClass({
 
   displayName: "Modal",
+
+  propTypes: {
+    zIndex: Type.number,
+    contentColumns: Type.number,
+    disableClickBackground: Type.bool,
+    closeModal: Type.func,
+    isOpen: Type.bool
+  },
 
   getInitialState() {
     return {
