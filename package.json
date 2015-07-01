@@ -4,7 +4,6 @@
   "description": "An app for documenting React components and styles for Namely",
   "styles": "./dist/namely-ui.css",
   "scripts": {
-    "postinstall": "gulp package:css",
     "prepublish": "npm run compile",
     "start": "gulp",
     "compile": "babel -d dist/ src/js/components/"
