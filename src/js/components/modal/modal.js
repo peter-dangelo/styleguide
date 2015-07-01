@@ -39,6 +39,24 @@ export default React.createClass({
     e.stopPropagation()
   },
 
+  modalBackgroundClasses() {
+    var classes = [
+      'anim-fade',
+      'ease-out',
+      'modal-background',
+      'top-0',
+      'bottom-0',
+      'left-0',
+      'right-0',
+      'fixed',
+      'flex',
+      'flex-center'
+    ];
+
+    return classes.join(' ')
+
+  },
+
   modalContentClasses() {
     var classes = [
       'modal-content',
@@ -57,7 +75,7 @@ export default React.createClass({
   },
 
   render() {
-    return <div ref="modal" style={{zIndex: this.props.zIndex}} className="anim-fade ease-out modal-background top-0 bottom-0 left-0 right-0 fixed flex flex-center" onClick={this.clickBackground}>
+    return <div ref="modal" style={{zIndex: this.props.zIndex}} className={this.modalBackgroundClasses()} onClick={this.clickBackground}>
         <div className="container fill">
           <div onClick={this.clickContent} className={this.modalContentClasses()}>
             {this.props.children}
