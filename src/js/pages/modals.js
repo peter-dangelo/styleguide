@@ -28,7 +28,7 @@ export default React.createClass({
       return <Modal isOpen={this.state.modalIsOpen} closeModal={this.closeModal} contentColumns={6}>
         <div className="p3">
           <h4>This is a modal</h4>
-          <p>{"You can pass in some JSX, component, etc."}</p>
+          <p>{"You can pass in some JSX, a component, etc."}</p>
           <hr />
           <button onClick={this.closeModal}>{"Close"}</button>
         </div>
