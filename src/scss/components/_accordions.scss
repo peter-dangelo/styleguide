@@ -1,0 +1,9 @@
+.accordion-item-content {
+  &.close {
+    height: 0;
+    overflow: hidden;
+  }
+  &.open {
+    height: auto;
+  }
+}
