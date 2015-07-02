@@ -7,7 +7,9 @@ export default React.createClass({
   displayName: "AccordionItem",
 
   propTypes: {
-    isOpen: Type.bool
+    isOpen: Type.bool,
+    title: Type.node.isRequired,
+    isLast: Type.bool
   },
 
   getDefaultProps() {
