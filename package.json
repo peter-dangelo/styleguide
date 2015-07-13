@@ -12,7 +12,7 @@
   "author": "HipsterBrown",
   "license": "MIT",
   "dependencies": {
-    "alt": "^0.16.10",
+    "alt": "^0.17.1",
     "core-js": "^0.9.6",
     "react": "^0.12.1",
     "react-select": "^0.4.9"
