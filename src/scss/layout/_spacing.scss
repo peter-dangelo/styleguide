@@ -63,6 +63,9 @@
 .mx-auto { margin-left: auto; margin-right: auto; }
 
 .p0 { padding: 0; }
+.py0 { padding-bottom: 0; padding-top: 0; }
+.px0 { padding-left: 0; padding-right: 0; }
+
 .p1 { padding: $space-1; }
 .py1 { padding-bottom: $space-1; padding-top: $space-1; }
 .px1 { padding-left: $space-1; padding-right: $space-1; }
