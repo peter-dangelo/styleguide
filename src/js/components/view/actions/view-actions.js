@@ -1,4 +1,4 @@
-var alt = require('lib/alt');
+var alt = require('../../../alt');
 
 class ViewActions {
 
