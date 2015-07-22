@@ -9,6 +9,8 @@ Getting Started
 2. Install dependencies
 ```shell
 $ npm install
+$ bower install
+$ gem install scss-lint
 ```
 3. Serve app
 ```shell
