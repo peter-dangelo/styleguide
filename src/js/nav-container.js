@@ -42,7 +42,6 @@ export default React.createClass({
   },
 
   render() {
-    let self = this;
 
     return (
       <div className="main flex tall">
