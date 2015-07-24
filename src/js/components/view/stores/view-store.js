@@ -4,6 +4,20 @@ var ViewActions = require('../actions/view-actions');
 
 class ViewStore {
   constructor() {
+    this.bars = {
+      action: {
+        use: false,
+        title: null,
+        description: null,
+        actions: [],
+        visible: false,
+        scroll: {
+          elem: document.body,
+          height: 0,
+          top: 0,
+        },
+      },
+    };
     this.actionBar = false;
     this.actionBarTitle = null;
     this.actionBarDescription = null;
