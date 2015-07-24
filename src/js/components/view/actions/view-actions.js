@@ -6,6 +6,10 @@ class ViewActions {
     this.dispatch(bool);
   }
 
+  scrolling() {
+    this.dispatch();
+  }
+
   updateActionBarTitle(string) {
     this.dispatch(string);
   }
