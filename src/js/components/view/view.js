@@ -22,44 +22,24 @@ var View = createClass({
 
   componentDidMount() {
     ViewStore.listen(this.onChange);
-    this.initScrollWatch();
   },
 
 
   componentWillUnmount() {
+    ViewActions.scrollWatch(false);
     ViewStore.unlisten(this.onChange);
-
-    if (this.state.actionBar == true) {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
   },
 
 
   onChange(state) {
     this.setState(state);
-    this.initScrollWatch();
   },
 
 
   initScrollWatch() {
-    if (this.state.actionBar == true) {
-      window.addEventListener('scroll', this.handleScroll);
-    }
+    ViewActions.scrollWatch(true);
   },
-
-
-  handleScroll() {
-    const {
-      scrollTop,
-    } = document.body;
-
-    if (scrollTop > 500 && !this.actionBarOut()) {
-      ViewActions.showActionBar(true);
-    } else {
-      ViewActions.showActionBar(false);
-    }
-  },
-
+  
 
   actionBarOut() {
     const actionBarOut = document.getElementById("action-bar-out");
@@ -71,7 +51,7 @@ var View = createClass({
     const {
       scrollHeight,
       scrollTop,
-    } = document.body;
+    } = this.state.actionBarScollListenElem;
 
     if (actionBarOut) {
       return innerHeight > actionBarOut.getBoundingClientRect().top;
@@ -82,8 +62,12 @@ var View = createClass({
 
 
   actionBar() {
-    if (this.state.actionBar === true && this.state.actionBarShow === true) {
-      return <ActionBar title={this.state.actionBarTitle} description={this.state.actionBarDescription} actions={this.state.actionBarActions} />
+    const {
+      action,
+    } = this.state.bars;
+
+    if (action.use === true && action.visible === true) {
+      return <ActionBar {...action} />
     } else {
       return null
     }
