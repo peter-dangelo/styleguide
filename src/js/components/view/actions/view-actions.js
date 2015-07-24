@@ -26,6 +26,10 @@ class ViewActions {
     this.dispatch(bool);
   }
 
+  scrollListenTo(elem) {
+    this.dispatch(elem)
+  }
+
 }
 
 module.exports = alt.createActions(ViewActions);
