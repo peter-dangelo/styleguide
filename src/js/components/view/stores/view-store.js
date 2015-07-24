@@ -88,9 +88,11 @@ class ViewStore {
   }
 
   handleShowActionBar(bool) {
-    if (this.actionBarShow !== bool) {
-      this.actionBarShow = bool;
-    }
+    this.bars.action.visible = bool;
+  }
+
+  handleScrollListenTo(elem) {
+    this.bars.action.scroll.elem = elem;
   }
 }
 
