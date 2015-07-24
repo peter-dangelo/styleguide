@@ -2,6 +2,10 @@ var alt = require('../../../alt');
 
 class ViewActions {
 
+  scrollWatch(bool) {
+    this.dispatch(bool);
+  }
+
   updateActionBarTitle(string) {
     this.dispatch(string);
   }
