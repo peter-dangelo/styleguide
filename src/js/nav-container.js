@@ -1,6 +1,8 @@
 import React from 'react';
 import localLinks from 'local-links';
 
+import View from './components/view/view';
+
 export default React.createClass({
   displayName: 'NavContainer',
 
@@ -45,6 +47,7 @@ export default React.createClass({
 
     return (
       <div className="main flex tall">
+        <View />
         <nav className="nav nav-primary col-2 tall bg-grey-95 white" role="navigation" onClick={this.handleClick}>
           <ul className="nav-list" ref="navList">
             <li className="nav-item py2 px3"><a className="nav-link" href="/">Home</a></li>
