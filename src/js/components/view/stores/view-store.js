@@ -23,20 +23,58 @@ class ViewStore {
     this.actionBarDescription = null;
     this.actionBarActions = [];
     this.actionBarShow = false;
+    this.actionBarScollListenElem = document.body;
 
     // refactor with alt helper
     this.bindListeners({
+      handleScrollWatch: ViewActions.SCROLL_WATCH,
+      handleScrolling: ViewActions.SCROLLING,
       handleUpdateActionBarTitle: ViewActions.UPDATE_ACTION_BAR_TITLE,
       handleUpdateActionBarDescription: ViewActions.UPDATE_ACTION_BAR_DESCRIPTION,
       handleUpdateActionBarActions: ViewActions.UPDATE_ACTION_BAR_ACTIONS,
       handleShowActionBar: ViewActions.SHOW_ACTION_BAR,
+      handleScrollListenTo: ViewActions.SCROLL_LISTEN_TO,
     });
   }
 
 
+  handleScrollWatch(bool) {
+    const {
+      use,
+      scroll,
+    } = this.bars.action;
+
+
+    if (this.bars.action.use) {
+
+      if (bool === true) {
+        console.log('adding even listener')
+        scroll.elem.addEventListener('scroll', ViewActions.scrolling);
+      } else {
+        scroll.elem.removeEventListener('scroll', ViewActions.scrolling);
+      }
+
+    }
+  }
+
+  handleScrolling() {
+    const {
+      scrollTop,
+    } = this.bars.action.scroll.elem;
+
+    console.log('scrolling')
+
+    if (scrollTop > 500) {
+      ViewActions.showActionBar.defer(true);
+    } else {
+      ViewActions.showActionBar.defer(false);
+    }
+  }
+
   handleUpdateActionBarTitle(string) {
-    this.actionBarTitle = string;
-    this.actionBar = true;
+    this.bars.action.title = string;
+    this.bars.action.use = true;
+    ViewActions.scrollWatch.defer(true);
   }
 
   handleUpdateActionBarDescription(obj) {
