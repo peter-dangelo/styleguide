@@ -107,6 +107,13 @@ class ViewStore {
   onScrollListenTo(elem) {
     this.bars.action.scroll.elem = elem;
   }
+
+
+  onToggleActionBar() {
+    this.bars.action.use = !this.bars.action.use;
+    ViewActions.scrollWatch.defer(this.bars.action.use);
+  }
+
 }
 
 module.exports = alt.createStore(ViewStore, 'ViewStore');

@@ -40,26 +40,6 @@ var View = createClass({
   },
 
 
-  actionBarOut() {
-    const actionBarOut = document.getElementById("action-bar-out");
-
-    const {
-      innerHeight,
-    } = window;
-
-    const {
-      scrollHeight,
-      scrollTop,
-    } = this.state.actionBarScollListenElem;
-
-    if (actionBarOut) {
-      return innerHeight > actionBarOut.getBoundingClientRect().top;
-    } else {
-      return scrollHeight - innerHeight - 250 < scrollTop
-    }
-  },
-
-
   actionBar() {
     const {
       action,
