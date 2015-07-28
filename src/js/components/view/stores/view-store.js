@@ -31,7 +31,8 @@ class ViewStore {
   }
 
 
-  handleScrollWatch(bool) {
+
+  onScrollWatch(bool) {
     const {
       use,
       scroll,
@@ -50,7 +51,8 @@ class ViewStore {
     }
   }
 
-  handleScrolling() {
+
+  onScrolling() {
     const {
       scrollTop,
     } = this.bars.action.scroll.elem;
@@ -75,16 +77,16 @@ class ViewStore {
     this.actionBar = true;
   }
 
-  handleUpdateActionBarActions(array) {
-    this.actionBarActions = array;
-    this.actionBar = true;
+  onCreateActionBar(obj) {
   }
 
-  handleShowActionBar(bool) {
+
+  onShowActionBar(bool) {
     this.bars.action.visible = bool;
   }
 
-  handleScrollListenTo(elem) {
+
+  onScrollListenTo(elem) {
     this.bars.action.scroll.elem = elem;
   }
 }
