@@ -11,9 +11,6 @@ const {
   render,
 } = React;
 
-const {
-  CSSTransitionGroup,
-} = React.addons;
 
 var View = createClass({
 
@@ -54,9 +51,7 @@ var View = createClass({
 
 
   render() {
-    const content = this.actionBar()
-
-    return <CSSTransitionGroup transitionName="action-bar" >{content}</CSSTransitionGroup>;
+    return this.actionBar();
   }
 
 });
