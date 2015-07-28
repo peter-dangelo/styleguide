@@ -26,16 +26,8 @@ class ViewStore {
     this.actionBarShow = false;
     this.actionBarScollListenElem = document.body;
 
-    // refactor with alt helper
-    this.bindListeners({
-      handleScrollWatch: ViewActions.SCROLL_WATCH,
-      handleScrolling: ViewActions.SCROLLING,
-      handleUpdateActionBarTitle: ViewActions.UPDATE_ACTION_BAR_TITLE,
-      handleUpdateActionBarDescription: ViewActions.UPDATE_ACTION_BAR_DESCRIPTION,
-      handleUpdateActionBarActions: ViewActions.UPDATE_ACTION_BAR_ACTIONS,
-      handleShowActionBar: ViewActions.SHOW_ACTION_BAR,
-      handleScrollListenTo: ViewActions.SCROLL_LISTEN_TO,
-    });
+
+    this.bindActions(ViewActions);
   }
 
 
