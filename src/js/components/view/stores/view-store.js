@@ -124,6 +124,10 @@ class ViewStore {
     this.loading = bool;
   }
 
+  onFlush() {
+    alt.flush();
+  }
+
 }
 
 
