@@ -11,6 +11,10 @@ const {
   render,
 } = React;
 
+const {
+  CSSTransitionGroup,
+} = React.addons;
+
 var View = createClass({
 
   displayName: "View",
@@ -67,7 +71,7 @@ var View = createClass({
     } = this.state.bars;
 
     if (action.use === true && action.visible === true) {
-      return <ActionBar {...action} />
+      return <ActionBar key="action-bar" {...action} />
     } else {
       return null
     }
@@ -75,8 +79,9 @@ var View = createClass({
 
 
   render() {
+    const content = this.actionBar()
 
-    return this.actionBar();
+    return <CSSTransitionGroup transitionName="action-bar" >{content}</CSSTransitionGroup>;
   }
 
 });
