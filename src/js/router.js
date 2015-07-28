@@ -13,11 +13,13 @@ import ModalsPage from './pages/modals';
 import CardsPage from './pages/cards';
 import IconsPage from './pages/icons';
 import AnimationsPage from './pages/animations';
+import ViewActions from './components/view/actions/view-actions';
 
 let appContainer = document.getElementById('app');
 
 export default Router.extend({
   renderPage(Page) {
+    ViewActions.flush();
     const main = React.createElement(NavContainer, {}, React.createElement(Page));
 
     React.render(main, appContainer);
