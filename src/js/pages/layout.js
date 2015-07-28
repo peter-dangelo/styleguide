@@ -39,11 +39,7 @@ export default createClass({
   displayName: "LayoutPage",
 
   componentDidMount() {
-    ViewActions.scrollListenTo(document.getElementById('styleguide-components'));
-  },
-
-  enableActionBar() {
-    ViewActions.updateActionBarTitle("lorem");
+    scrollListenTo(document.getElementById('styleguide-components'));
   },
 
   render() {
