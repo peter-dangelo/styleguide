@@ -41,7 +41,7 @@ const ActionBar = createClass({
   render() {
 
     return (
-      <div className="fixed top-0 fill anim-fade" style={{background: 'rgba(255,255,255,0.95)', zIndex: 99, boxShadow: '0 2px 5px rgba(20,33,45, 0.1)'}}>
+      <div className="fixed top-0 fill anim-move" style={{background: 'rgba(255,255,255,0.95)', zIndex: 99, boxShadow: '0 2px 5px rgba(20,33,45, 0.1)'}}>
         <div className="flex flex-center p2 mt0 mb0 mx-auto" style={{width: 944}}>
           {this.title()}
           {this.description()}
