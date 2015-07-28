@@ -30,8 +30,8 @@ const ActionBar = createClass({
 
       var actions = this.props.actions;
 
-      actions = actions.map( (action) => {
-        return cloneWithProps(action, {className: "button-sm"})
+      actions = actions.map( (action, i) => {
+        return cloneWithProps(action, {key: "action-"+i, size: "sm"})
       });
 
       return actions;
