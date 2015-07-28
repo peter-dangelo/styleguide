@@ -8,6 +8,7 @@ class ViewStore {
       action: {
         use: false,
         title: null,
+        subtitle: null,
         description: null,
         actions: [],
         visible: false,

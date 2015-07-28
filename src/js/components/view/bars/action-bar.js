@@ -14,7 +14,7 @@ const ActionBar = createClass({
 
   title() {
     if (this.props.title) {
-      return <div className="flex-auto"><h3 className="m0">{this.props.title}</h3></div>;
+      return <div className="flex-auto"><h3 className="m0 inline">{this.props.title}</h3><span className="ml2">{this.props.subtitle}</span></div>;
     }
   },
 
