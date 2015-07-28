@@ -8,7 +8,7 @@ export default React.createClass({
     return (
       <Styleguide title="Base Styles">
         <div title="Animations" description="Animations">
-          <div calssName="container">
+          <div className="container">
             <div className="col-2">
               <code className="language-css">.admim-fade</code>
             </div>
