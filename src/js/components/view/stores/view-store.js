@@ -14,6 +14,8 @@ class ViewStore {
         visible: false,
         scroll: {
           elem: document.body,
+          enter: 500,
+          exit: 250,
           height: 0,
           top: 0,
         },
