@@ -60,6 +60,7 @@ export default React.createClass({
             <li className="nav-item py2 px3"><a className="nav-link" href="/icons">Icons</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/popovers">Popovers</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/modals">Modals</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/view">View</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/cards">Cards</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/animations">Animations</a></li>
           </ul>
