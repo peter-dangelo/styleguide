@@ -13,6 +13,10 @@ export default React.createClass({
               <code className="language-css">.admim-fade</code>
             </div>
             <div className="col-2"><p className="anim-fade">Fade</p></div>
+            <div className="col-2">
+              <code className="language-css">.admim-move</code>
+            </div>
+            <div className="col-2"><p className="anim-move">Move</p></div>
           </div>
         </div>
       </Styleguide>
