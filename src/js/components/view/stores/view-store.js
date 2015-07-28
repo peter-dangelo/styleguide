@@ -38,31 +38,49 @@ class ViewStore {
       scroll,
     } = this.bars.action;
 
-
-    if (this.bars.action.use) {
+    if (use) {
 
       if (bool === true) {
-        console.log('adding even listener')
+
         scroll.elem.addEventListener('scroll', ViewActions.scrolling);
+        window.addEventListener('resize', ViewActions.setDimensions);
+        ViewActions.setDimensions.defer();
+        ViewActions.scrolling.defer();
+
       } else {
+
         scroll.elem.removeEventListener('scroll', ViewActions.scrolling);
+        window.removeEventListener('resize', ViewActions.setDimensions);
       }
 
+    } else {
+      scroll.elem.removeEventListener('scroll', ViewActions.scrolling);
     }
+
   }
 
 
   onScrolling() {
     const {
+      elem,
+      enter,
+      exit,
+      height,
+    } = this.bars.action.scroll;
+
+    const {
+      scrollHeight,
       scrollTop,
-    } = this.bars.action.scroll.elem;
+    } = elem;
 
-    console.log('scrolling')
+    if ( (scrollTop > enter) && !(scrollHeight - height - exit < scrollTop) ) {
 
-    if (scrollTop > 500) {
       ViewActions.showActionBar.defer(true);
+
     } else {
+
       ViewActions.showActionBar.defer(false);
+
     }
   }
 

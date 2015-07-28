@@ -40,11 +40,6 @@ var View = createClass({
   },
 
 
-  initScrollWatch() {
-    ViewActions.scrollWatch(true);
-  },
-  
-
   actionBarOut() {
     const actionBarOut = document.getElementById("action-bar-out");
 
