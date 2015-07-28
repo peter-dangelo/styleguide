@@ -96,6 +96,17 @@ class ViewStore {
   }
 
   onCreateActionBar(obj) {
+
+    for (var key in obj) {
+
+      if (obj.hasOwnProperty(key)) {
+        this.bars.action[key] = obj[key];
+        this.bars.action.use = true;
+      }
+
+    }
+
+    ViewActions.scrollWatch.defer(true);
   }
 
 
