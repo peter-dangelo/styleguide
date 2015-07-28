@@ -9,5 +9,7 @@ export default alt.generateActions(
   'scrollListenTo',
   'toggleActionBar',
   'loading',
-  'flush'
+  'flush',
+  'actionBarEnter',
+  'actionBarExit'
 );

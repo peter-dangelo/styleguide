@@ -128,6 +128,14 @@ class ViewStore {
     alt.flush();
   }
 
+  onActionBarEnter(int) {
+    this.bars.action.scroll.enter = int;
+  }
+
+  onActionBarExit(int) {
+    this.bars.action.scroll.exit = int;
+  }
+
 }
 
 
