@@ -22,13 +22,6 @@ class ViewStore {
         },
       },
     };
-    this.actionBar = false;
-    this.actionBarTitle = null;
-    this.actionBarDescription = null;
-    this.actionBarActions = [];
-    this.actionBarShow = false;
-    this.actionBarScollListenElem = document.body;
-
 
     this.bindActions(ViewActions);
   }
@@ -92,18 +85,9 @@ class ViewStore {
       ViewActions.showActionBar.defer(false);
 
     }
+
   }
 
-  handleUpdateActionBarTitle(string) {
-    this.bars.action.title = string;
-    this.bars.action.use = true;
-    ViewActions.scrollWatch.defer(true);
-  }
-
-  handleUpdateActionBarDescription(obj) {
-    this.actionBarDescription = obj;
-    this.actionBar = true;
-  }
 
   onCreateActionBar(obj) {
 
