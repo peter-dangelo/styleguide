@@ -2,45 +2,16 @@ import React from 'react';
 
 import Styleguide from '../styleguide';
 import GridBlock from '../components/grid-block';
-import Button from '../components/buttons/button';
 import Flexbox from './layout/flexbox';
 import Spacing from './layout/spacing';
-
-import ViewActions from '../components/view/actions/view-actions';
 
 const {
   createClass
 } = React;
 
 
-const {
-  createActionBar,
-  scrollListenTo,
-  toggleActionBar,
-} = ViewActions;
-
-
-const actionBar = () => createActionBar({
-
-  title: "Lorem Ipsum",
-
-  subtitle: "A subtitle",
-
-  description: "Lorem Ipsum Description",
-
-  actions: [
-    <Button label="Disappear" onClick={toggleActionBar} />,
-  ],
-
-});
-
-
 export default createClass({
   displayName: "LayoutPage",
-
-  componentDidMount() {
-    scrollListenTo(document.getElementById('styleguide-components'));
-  },
 
   render() {
     return (
@@ -120,9 +91,6 @@ export default createClass({
               <GridBlock colClass="col-9" colContent="col-9 (Content)" />
             </div>
           </article>
-        </div>
-        <div title="View Component" description="Higher order component to control a global loading state and ActionBar component">
-          <Button label="Show Action Bar" onClick={actionBar} />
         </div>
         <div title="Flexbox" description="The utility classes for using the flexbox layout system" >
           <Flexbox />
