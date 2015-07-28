@@ -1,0 +1,12 @@
+.anim-move {
+  margin-top: -$space-3;
+  opacity: 0;
+  animation-name: move;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move {
+    0% { margin-top: -20px; opacity: 0; }
+  100% { margin-top: 0px; opacity: 1; }
+}
