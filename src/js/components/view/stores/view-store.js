@@ -4,6 +4,7 @@ var ViewActions = require('../actions/view-actions');
 
 class ViewStore {
   constructor() {
+    this.loading = false;
     this.bars = {
       action: {
         use: false,
