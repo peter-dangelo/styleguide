@@ -62,6 +62,4 @@ var View = createClass({
 });
 
 
-View.ActionBar = ActionBar;
-
 module.exports = View;

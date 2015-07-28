@@ -3,6 +3,7 @@ var alt = require('../../../alt');
 var ViewActions = require('../actions/view-actions');
 
 class ViewStore {
+
   constructor() {
     this.loading = false;
     this.bars = {
@@ -120,5 +121,6 @@ class ViewStore {
   }
 
 }
+
 
 module.exports = alt.createStore(ViewStore, 'ViewStore');
