@@ -32,6 +32,13 @@ class ViewStore {
     this.bindActions(ViewActions);
   }
 
+  onSetDimensions() {
+    const {
+      innerHeight,
+    } = window;
+
+    this.bars.action.scroll.height = innerHeight;
+  }
 
 
   onScrollWatch(bool) {
