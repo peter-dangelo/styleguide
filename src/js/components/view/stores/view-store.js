@@ -120,6 +120,10 @@ class ViewStore {
     ViewActions.scrollWatch.defer(this.bars.action.use);
   }
 
+  onLoading(bool) {
+    this.loading = bool;
+  }
+
 }
 
 

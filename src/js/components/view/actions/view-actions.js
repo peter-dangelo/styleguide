@@ -7,5 +7,6 @@ export default alt.generateActions(
   'setDimensions',
   'showActionBar',
   'scrollListenTo',
-  'toggleActionBar'
+  'toggleActionBar',
+  'loading'
 );
