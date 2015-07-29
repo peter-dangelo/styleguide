@@ -20,8 +20,7 @@ const ActionBar = createClass({
 
   description() {
     if (this.props.description) {
-      return <div className="flex-auto" style={{textAlign: 'right'}} dangerouslySetInnerHTML={{__html: this.props.description}}></div>;
-
+      return <div className="flex-auto right-align" dangerouslySetInnerHTML={{__html: this.props.description}}></div>;
     }
   },
 
@@ -31,7 +30,7 @@ const ActionBar = createClass({
       var actions = this.props.actions;
 
       actions = actions.map( (action, i) => {
-        return cloneWithProps(action, {key: "action-"+i, size: "sm"})
+        return cloneWithProps(action, {key: `action-${i}`, size: "sm"})
       });
 
       return actions;
