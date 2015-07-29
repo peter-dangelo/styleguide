@@ -1,0 +1,12 @@
+.anim-drop {
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+  animation-name: drop;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+@keyframes drop {
+    0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}

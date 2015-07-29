@@ -14,9 +14,9 @@ export default React.createClass({
             </div>
             <div className="col-2"><p className="anim-fade">Fade</p></div>
             <div className="col-2">
-              <code className="language-css">.anim-move</code>
+              <code className="language-css">.anim-drop</code>
             </div>
-            <div className="col-2"><p className="anim-move">Move</p></div>
+            <div className="col-2"><p className="anim-drop">Drop</p></div>
           </div>
         </div>
       </Styleguide>
