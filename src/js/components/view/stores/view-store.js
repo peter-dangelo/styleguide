@@ -44,7 +44,7 @@ class ViewStore {
 
     if (use) {
 
-      if (bool === true) {
+      if (bool) {
 
         scroll.elem.addEventListener('scroll', ViewActions.scrolling);
         window.addEventListener('resize', ViewActions.setDimensions);
