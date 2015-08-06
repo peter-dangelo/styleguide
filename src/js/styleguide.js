@@ -55,7 +55,7 @@ export default React.createClass({
         className: "styleguide-sidebar-list list-reset"
       }, this.listComponentTitles())
     ]), React.createElement("div", {
-      className: "styleguide-components flex-auto overflow-scroll p4"
+      className: "styleguide-components col-10 flex-auto overflow-scroll p4"
     }, this.listComponents())));
   }
 });
