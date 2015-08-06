@@ -6,12 +6,10 @@ import Colors from '../../../lib/_colors.json';
 import ClickOutside from '../overlays/click-outside';
 
 const {
-  createClass,
   PropTypes: Type
 } = React;
 
-export default createClass({
-
+export default React.createClass({
   displayName: 'EditLabel',
 
   propTypes: {
