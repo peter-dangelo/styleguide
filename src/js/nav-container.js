@@ -1,8 +1,6 @@
 import React from 'react';
 import localLinks from 'local-links';
 
-let D = React.DOM;
-
 export default React.createClass({
   displayName: 'NavContainer',
 
@@ -44,38 +42,26 @@ export default React.createClass({
   },
 
   render() {
-    let self = this;
-
-    return D.div({
-      className: 'main flex tall'
-    }, [
-      D.nav({
-        className: 'nav nav-primary col-2 tall bg-grey-95 white',
-        role: 'navigation',
-        onClick: self.handleClick
-      }, [
-        D.ul({
-          className: 'nav-list',
-          ref: 'navList'
-        }, [
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/' }, 'Home')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/layout' }, 'Layout')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/base' }, 'Base Styles')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/nav' }, 'Navigation')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/tables' }, 'Tables + Lists')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/forms' }, 'Forms')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/buttons' }, 'Buttons')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/icons' }, 'Icons')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/popovers' }, 'Popovers')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/modals' }, 'Modals')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/cards' }, 'Cards')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/animations' }, 'Animations')),
-          D.li({className: "nav-item py2 px3"}, D.a({ className: "nav-link", href: '/accordions' }, 'Accordions'))
-        ])
-      ]),
-      D.section({
-        className: 'content-container flex-auto tall'
-      }, self.props.children)
-    ]);
+    return (
+      <div className="main flex tall">
+        <nav className="nav nav-primary col-2 tall bg-grey-95 white" role="navigation" onClick={this.handleClick}>
+          <ul className="nav-list" ref="navList">
+            <li className="nav-item py2 px3"><a className="nav-link" href="/">Home</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/layout">Layout</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/base">Base Styles</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/nav">Navigation</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/tables">Tables + Lists</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/forms">Forms</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/buttons">Buttons</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/icons">Icons</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/popovers">Popovers</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/modals">Modals</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/cards">Cards</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/animations">Animations</a></li>
+          </ul>
+        </nav>
+        <section className="content-container flex-auto tall">{this.props.children}</section>
+      </div>
+    );
   }
 });
