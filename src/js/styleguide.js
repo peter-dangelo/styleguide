@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createClass({
   displayName: "Styleguide",
 
-  listComponentTitles: function () {
+  listComponentTitles() {
     let children = this.props.children;
 
     children = (React.Children.count(children) == 1) ? [children] : children;
@@ -35,7 +35,7 @@ export default React.createClass({
 
   },
 
-  listComponents: function () {
+  listComponents() {
     let children = this.props.children;
 
     children = (React.Children.count(children) == 1) ? [children] : children;
