@@ -10,10 +10,14 @@ export default React.createClass({
 
     return React.Children.map(children, function (child) {
       let title = child.props.title.replace(" ", "-");
-      return React.createElement("li", {className: "py1 blue"}, React.createElement("a", {
-        href: `#${title}`
-      }, child.props.title));
+
+      return (
+        <li className="py1 blue">
+          <a href={"#" + title}>{child.props.title}</a>
+        </li>
+        )
     });
+
   },
 
   listComponents: function () {
