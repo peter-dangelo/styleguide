@@ -30,3 +30,11 @@
 .pointer {
   cursor: pointer;
 }
+
+.is_open {
+  height: auto;
+}
+
+.is_closed {
+  height: 0;
+}
