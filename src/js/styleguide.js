@@ -42,21 +42,17 @@ export default React.createClass({
     });
   },
 
-  render: function () {
-    return (React.createElement("div", {
-      className: "styleguide flex tall"
-    }, React.createElement("div", {
-      className: "styleguide-sidebar col-2 py5 px3 br bw-1 bc-grey-15"
-    }, [
-      React.createElement("h5", {
-        className: "styleguide-sidebar-title grey-15 py2"
-      }, this.props.title),
-      React.createElement("ul", {
-        className: "styleguide-sidebar-list list-reset"
-      }, this.listComponentTitles())
-    ]), React.createElement("div", {
-      className: "styleguide-components flex-auto overflow-scroll p4"
-    }, this.listComponents())));
+  render() {
+
+    return (
+      <div className="styleguide flex tall">
+        <div className="styleguide-sidebar col-2 py5 px3 br bw-1 bc-grey-15">
+          <div className="styleguide-sidebar-title grey-15 py2">{this.props.title}</div>
+          <div className="styleguide-sidebar-list list-reset">{this.listComponentTitles()}</div>
+        </div>
+        <div className="styleguide-components flex-auto overflow-scroll p4">{this.listComponents()}</div>
+      </div>
+      )
   }
 });
 
