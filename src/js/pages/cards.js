@@ -8,7 +8,8 @@ export default React.createClass({
 
   render() {
     return React.createElement(Styleguide, {
-      title: "Card Styles"
+      title: "Card Styles",
+      example: 'EXAMPLE PROPS HERE'
     }, React.createElement("div", {
       title: "Paragraph",
       description: "The paragraph styles for Namely app",
