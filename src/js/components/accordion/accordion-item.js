@@ -45,7 +45,6 @@ export default React.createClass({
 
   headerClasses() {
     var classes = [
-      'accordion-item-head',
       'pointer',
       'flex',
       'flex-center',
@@ -57,9 +56,7 @@ export default React.createClass({
   },
 
   contentClasses() {
-    var classes = [
-      'accordion-item-content'
-    ]
+    var classes = [];
     this.state.isOpen ? classes.push('is_open') : classes.push('is_closed', 'overflow-hidden');
     return classes.join(' ');
   },
