@@ -3,8 +3,6 @@ import Styleguide from '../styleguide';
 import PropsTable from '../style_guide_components/props-table';
 import Modal from '../components/modal/modal';
 
-let D = React.DOM;
-
 export default React.createClass({
 
   displayName: "ModalsPage",

@@ -1,7 +1,5 @@
 import React from 'react';
 
-let D = React.DOM;
-
 export default React.createClass({
   displayName: "HomePage",
 

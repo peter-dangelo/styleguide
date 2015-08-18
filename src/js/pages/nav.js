@@ -1,8 +1,6 @@
 import React from 'react';
 import Styleguide from '../styleguide';
 
-let D = React.DOM;
-
 export default React.createClass({
   displayName: "NavPage",
 

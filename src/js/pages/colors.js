@@ -1,8 +1,6 @@
 import React from 'react';
 import ColorData from '../../lib/_colors'
 
-let D = React.DOM;
-
 export default React.createClass({
   displayName: "Colors",
 
