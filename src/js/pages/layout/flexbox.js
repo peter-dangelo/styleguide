@@ -1,11 +1,108 @@
 // The Flexbox Documentation for the layout page
-
+import React from 'react';
 import { createClass, DOM as D, PropTypes } from 'react';
 
 export default createClass({
   displayName: "Flexbox",
 
   render() {
+    return this.returnJSX();
+  },
+
+  returnJSX() {
+
+    return (
+      <section>
+
+        <article className="mt3">
+          <h3>{".flex"}</h3>
+          <p>{"Example contains a parent container with a class of 'flex' and two child divs with no special classes."}</p>
+          <div className="flex b bw-1 p2">
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+          </div>
+        </article>
+
+        <article className="mt3">
+          <h3>{".flex-wrap"}</h3>
+          <p>{"Example contains a parent container with classes 'flex' & 'flex-wrap' and twelve child divs with no special classes."}</p>
+          <div className="flex flex-wrap b bw-1 p2">
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+          </div>
+        </article>
+
+        <article className="mt3 mb4">
+          <h3>{".flex-column"}</h3>
+          <p>{"Example contains a parent container with classes 'flex' & 'flex-column' and three child divs with no special classes."}</p>
+          <div className="flex flex-column b bw-1 p2">
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+            <div className="b bw-1 p1">{"A DIV of content"}</div>
+          </div>
+        </article>
+
+        <h2>Alignment</h2>
+
+        <p>{"Use these utilities to control vertical alignment of child elements."}</p>
+
+        <article className="mt3 mb4">
+          <h3>{".flex-center"}</h3>
+          <p>{"Example contains a parent container with classes 'flex' & 'flex-center' and two child divs with no special classes."}</p>
+          <div className="flex flex-center b bw-1 p2" style={{height: "5em"}}>
+            <div className="b bw-1 p1">{"A DIV of Content"}</div>
+            <div className="b bw-1 p1">{"A DIV of Content"}</div>
+          </div>
+        </article>
+
+        <article>
+          <h3>{".flex-stretch"}</h3>
+          <p>{"Example contains a parent container with classes 'flex' & 'flex-stretch' and two child divs with no special classes."}</p>
+          <div className="flex flex-stretch b bw-1 p2" style={{height: "5em"}}>
+            <div className="b bw-1 p1">{"A DIV of Content"}</div>
+            <div className="b bw-1 p1">{"A DIV of Content"}</div>
+          </div>
+        </article>
+
+        <article></article>
+
+        <article></article>
+
+        <article></article>
+
+        <article></article>
+
+        <h2></h2>
+
+        <p></p>
+
+        <article></article>
+
+        <article></article>
+
+        <article></article>
+
+        <article></article>
+
+      </section>
+
+      );
+
+  },
+
+  returnJS() {
+
     return D.section({}, [
       D.article({className: "mt3"}, [
         D.h3(null, ".flex"),
