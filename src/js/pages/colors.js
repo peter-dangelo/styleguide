@@ -12,22 +12,41 @@ export default React.createClass({
   },
 
   render() {
-    return D.section(null, Object.keys(ColorData).map((base_color, index) =>
-      D.article({className: "mb3"}, null,
-        D.h3({ className: base_color}, base_color),
-        Object.keys(ColorData[base_color]).map((variant,index) =>
-          D.div({
-            className: 'flex flex-center flex-justify mb2'
-          }, [
-            D.div({className: `col-1 bg-${this.colorClass(base_color, variant)}`}, "\u00a0"),
-            D.div({className: `col-1 ${this.colorClass(base_color, variant)}`}, `${ColorData[base_color][variant]}`),
-            D.div({className: `col-1 b bw-1 bc-${this.colorClass(base_color, variant)}`}, "\u00a0"),
-            D.div({className: 'col-2'}, D.code({className: 'language-css'},`.bg-${this.colorClass(base_color, variant)}`)),
-            D.div({className: 'col-2'}, D.code({className: 'language-css'},`.${this.colorClass(base_color, variant)}`)),
-            D.div({className: 'col-2'}, D.code({className: 'language-css'},`.bc-${this.colorClass(base_color, variant)}`))
-          ])
-        )
-    )))
+    return (
+      <section>
+        {Object.keys(ColorData).map((base_color, index) => {
+          return (
+            <article className="mb3">
+              <h3 className={base_color}>{base_color}</h3>
+              {Object.keys(ColorData[base_color]).map((variant, index) => {
+                return (
+                  <div className="flex flex-center flex-justify mb2">
+                    <div className={"col-1 bg-" + this.colorClass(base_color, variant)}>{"\u00a0"}</div>
+                    <div className={"col-1 " + this.colorClass(base_color, variant)}>{ColorData[base_color][variant]}</div>
+                    <div className={"col-1 b bw-1 bc-" + this.colorClass(base_color, variant)}>{"\u00a0"}</div>
+                    <div className="col-2">
+                      <code className="language-css">
+                        {".bg-" + this.colorClass(base_color, variant)}
+                      </code>
+                    </div>
+                    <div className="col-2">
+                      <code className="language-css">
+                        {"." + this.colorClass(base_color, variant)}
+                      </code>
+                    </div>
+                    <div className="col-2">
+                      <code className="language-css">
+                        {".bc-" + this.colorClass(base_color, variant)}
+                      </code>
+                    </div>
+                  </div>
+                  )
+              })}
+            </article>
+            );
+        })}
+      </section>
+      );
   }
 });
 
