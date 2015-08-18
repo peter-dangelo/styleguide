@@ -20,29 +20,40 @@ export default React.createClass({
 
   },
 
+  renderExample() {
+    if(this.props.example) {
+      return (
+        <div className="styleguide-components-component-code">
+          <pre>
+            <code className={this.props.codeClassName ? this.props.codeClassName : "language-javascript"}>
+              {this.props.example}
+            </code>
+          </pre>
+        </div>
+        );    
+    }
+
+  },
+
   listComponents: function () {
     let children = this.props.children;
-    let self = this;
 
     children = (React.Children.count(children) == 1) ? [children] : children;
-    return React.Children.map(children, function (child) {
+
+    return React.Children.map(children, (child) => {
       let title = child.props.title.replace(" ", "-");
 
-      return React.createElement("div", {
-        className: "styleguide-components-component py3",
-        id: title
-      }, React.createElement("h2", {
-        className: "styleguide-components-component-title"
-      }, child.props.title), React.createElement("p", {
-        className: "styleguide-components-component-description"
-      }, child.props.description), React.createElement("div", {
-        className: "styleguide-components-component-example"
-      }, child.props.children), self.props.example ? React.createElement("div", {
-        className: "styleguide-components-component-code"
-      }, React.createElement("pre", null, React.createElement("code", {
-        className: self.props.codeClassName ? self.props.codeClassName : "language-javascript"
-      }, self.props.highlight ? self.props.highlight(child.props.example) : child.props.example))) : void 0
-      );
+      return (
+        <div className="styleguide-components-component py3" id={title}>
+          <h2 className="styleguide-components-component-title">{child.props.title}</h2>
+          <p className="styleguide-components-component-description">{child.props.description}</p>
+          <div className="styleguide-components-component-example">
+            {child.props.children}
+            {this.renderExample()}
+          </div>
+        </div>
+        );
+
     });
   },
 
