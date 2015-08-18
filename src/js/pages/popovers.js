@@ -7,14 +7,11 @@ export default React.createClass({
   displayName: "PopoversPage",
 
   render() {
-    return React.createElement(Styleguide, {
-      title: "Popover Styles"
-    }, React.createElement("div", {
-      title: "Paragraph",
-      description: "The paragraph styles for Namely app",
-      example: 'D.p({}, "Some sample text for this paragraph component")'
-    }, React.createElement("p", {}, "Some sample text for this paragraph component"))
-    );
+    return (
+      <Styleguide title="Popover Styles">
+        <div title="Popover Styles" description="The popover styles..."></div>
+      </Styleguide>
+      );
   }
 });
 

@@ -7,19 +7,15 @@ const Type = React.PropTypes;
 export default React.createClass({
   displayName: "GridBlock",
 
-  //propTypes: {
-  //  colClass: Type.string.required
-  //},
-
   colContent() {
     return this.props.colContent || this.props.colClass
   },
 
   render() {
-    return D.div({
-      className: `grid-block ${this.props.colClass}`
-    }, D.p({
-      className: "col-class",
-    }, `.${this.colContent()}` ));
+    return (
+      <div className={"grid-block " + this.props.colClass}>
+        <p className="col-class">{this.colContent()}</p>
+      </div>
+      );
   }
 });
