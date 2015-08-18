@@ -42,7 +42,6 @@ export default React.createClass({
   },
 
   render() {
-
     return (
       <div className="main flex tall">
         <nav className="nav nav-primary col-2 tall bg-grey-95 white" role="navigation" onClick={this.handleClick}>
@@ -59,6 +58,7 @@ export default React.createClass({
             <li className="nav-item py2 px3"><a className="nav-link" href="/modals">Modals</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/cards">Cards</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/animations">Animations</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/accordions">Accordions</a></li>
           </ul>
         </nav>
         <section className="content-container flex-auto tall">{this.props.children}</section>
