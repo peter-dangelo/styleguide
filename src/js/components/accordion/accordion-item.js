@@ -60,7 +60,7 @@ export default React.createClass({
     var classes = [
       'accordion-item-content'
     ]
-    this.state.isOpen ? classes.push('open') : classes.push('close overflow-hidden');
+    this.state.isOpen ? classes.push('open') : classes.push('close', 'overflow-hidden');
     return classes.join(' ');
   },
 
