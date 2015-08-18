@@ -7,8 +7,7 @@ export default React.createClass({
   displayName: "Colors",
 
   colorClass(color, variant){
-    var klass = variant ? `${color}-${variant}` : `${color}`
-    return klass
+    return variant ? `${color}-${variant}` : `${color}`
   },
 
   render() {
