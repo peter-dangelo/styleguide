@@ -16,7 +16,7 @@ var D = _react2['default'].DOM;
 var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
-  displayName: 'GridBlock',
+  displayName: "GridBlock",
 
   //propTypes: {
   //  colClass: Type.string.required
@@ -30,7 +30,8 @@ exports['default'] = _react2['default'].createClass({
     return D.div({
       className: 'grid-block ' + this.props.colClass
     }, D.p({
-      className: 'col-class' }, '.' + this.colContent()));
+      className: "col-class"
+    }, '.' + this.colContent()));
   }
 });
 module.exports = exports['default'];

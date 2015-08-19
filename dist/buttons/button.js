@@ -15,7 +15,7 @@ var _react2 = _interopRequireDefault(_react);
 var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
-  displayName: 'Button',
+  displayName: "Button",
 
   propTypes: {
     type: Type.oneOf([null, 'danger', 'secondary', 'baby', 'previous', 'next']),
@@ -38,7 +38,7 @@ exports['default'] = _react2['default'].createClass({
   },
 
   createClass: function createClass(value) {
-    return 'button-' + value;
+    return "button-" + value;
   },
 
   classes: function classes() {
@@ -58,11 +58,11 @@ exports['default'] = _react2['default'].createClass({
     }
 
     if (props.link === true) {
-      classes.push('button-link');
+      classes.push("button-link");
     }
 
     if (props.icon) {
-      classes.push('icon-' + this.props.icon);
+      classes.push("icon-" + this.props.icon);
     }
 
     return classes.join(' ');

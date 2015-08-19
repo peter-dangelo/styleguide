@@ -14,7 +14,7 @@ var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
 
-  displayName: 'Modal',
+  displayName: "Modal",
 
   propTypes: {
     zIndex: Type.number,
