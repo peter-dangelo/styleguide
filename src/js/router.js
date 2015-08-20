@@ -13,6 +13,7 @@ import ModalsPage from './pages/modals';
 import CardsPage from './pages/cards';
 import IconsPage from './pages/icons';
 import AnimationsPage from './pages/animations';
+import AccordionsPage from './pages/accordions';
 import ViewPage from './pages/view';
 import ViewActions from './components/view/actions/view-actions';
 
@@ -40,6 +41,7 @@ export default Router.extend({
     'cards': 'cards',
     'icons': 'icons',
     'animations': 'animations',
+    'accordions': 'accordions'
   },
 
   home() {
@@ -92,6 +94,10 @@ export default Router.extend({
 
   animations() {
     this.renderPage(AnimationsPage);
+  },
+  accordions() {
+    this.renderPage(AccordionsPage);
   }
+
 
 });

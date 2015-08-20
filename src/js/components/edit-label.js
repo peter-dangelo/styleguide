@@ -58,7 +58,9 @@ export default createClass({
 
   _handleClose(e) {
     e.stopPropagation();
-    this.refs.pop.close();
+    if (this.refs.pop) {
+      this.refs.pop.close();
+    }
   },
 
   _handleDelete() {

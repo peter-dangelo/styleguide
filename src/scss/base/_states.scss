@@ -23,6 +23,18 @@
   color: $orange;
 }
 
+.hover-row:hover {
+  background: $grey-5;
+}
+
 .pointer {
   cursor: pointer;
+}
+
+.is_open {
+  height: auto;
+}
+
+.is_closed {
+  height: 0;
 }

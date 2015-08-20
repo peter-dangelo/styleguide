@@ -57,6 +57,7 @@ export default React.createClass({
     ]), React.createElement("div", {
       id: "styleguide-components",
       className: "styleguide-components flex-auto overflow-scroll p4"
+      className: "styleguide-components col-10 flex-auto overflow-scroll p4"
     }, this.listComponents())));
   }
 });

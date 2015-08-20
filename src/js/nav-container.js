@@ -44,7 +44,6 @@ export default React.createClass({
   },
 
   render() {
-
     return (
       <div className="main flex tall">
         <View />
@@ -63,9 +62,10 @@ export default React.createClass({
             <li className="nav-item py2 px3"><a className="nav-link" href="/view">View</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/cards">Cards</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/animations">Animations</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/accordions">Accordions</a></li>
           </ul>
         </nav>
-        <section className="content-container flex-auto tall">{this.props.children}</section>
+        <section className="content-container col-10 flex-auto tall">{this.props.children}</section>
       </div>
     );
   }
