@@ -57,7 +57,7 @@ export default React.createClass({
 
   contentClasses() {
     var classes = [];
-    this.state.isOpen ? classes.push('is_open') : classes.push('is_closed', 'overflow-hidden');
+    this.state.isOpen ? classes.push('is-open') : classes.push('is-closed', 'overflow-hidden');
     return classes.join(' ');
   },
 
