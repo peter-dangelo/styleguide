@@ -1,6 +1,6 @@
-var alt = require('../../../alt');
+import alt from '../../../alt';
 
-var ViewActions = require('../actions/view-actions');
+import ViewActions from '../actions/view-actions';
 
 class ViewStore {
 
