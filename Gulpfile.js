@@ -34,6 +34,7 @@ gulp.task('scripts', function(){
   })
   .transform(babelify)
   .bundle()
+  .on('error', gutil.log)
   .pipe(source('app.js'))
   .pipe(gulp.dest('./public'))
   .pipe(connect.reload());
