@@ -3,8 +3,6 @@ import Styleguide from '../styleguide';
 import Colors from './colors';
 import Typography from './base/typography';
 
-let D = React.DOM;
-
 export default React.createClass({
   displayName: "BasePage",
 
