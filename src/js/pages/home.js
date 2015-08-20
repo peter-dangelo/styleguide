@@ -1,17 +1,13 @@
 import React from 'react';
 
-let D = React.DOM;
-
 export default React.createClass({
   displayName: "HomePage",
 
   render() {
-    return D.div({
-      className: 'home-page'
-    }, [
-      D.h1({
-        className: 'home-title'
-      }, "Namely Styleguide FTW")
-    ]);
+    return (
+      <div className="home-page">
+        <h1 className="home-title">Namely Styleguide FTW</h1>
+      </div>
+      );
   }
 });

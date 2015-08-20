@@ -13,7 +13,7 @@ var _react2 = _interopRequireDefault(_react);
 var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
-  displayName: 'Icon',
+  displayName: "Icon",
 
   propTypes: {
     name: Type.string.isRequired,

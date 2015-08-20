@@ -11,8 +11,6 @@ import SimpleSelect from '../components/forms/fields/simple-select';
 import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
 
-let D = React.DOM;
-
 var options = [
     { value: 'london', label: 'London' },
     { value: 'newyork', label: 'New York' },
