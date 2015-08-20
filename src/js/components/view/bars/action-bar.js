@@ -2,6 +2,7 @@ import React from 'react/addons';
 
 const {
   createClass,
+  PropTypes,
 } = React;
 
 const {
@@ -11,6 +12,13 @@ const {
 const ActionBar = createClass({
 
   displayName: "ActionBar",
+
+  propTypes: {
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    description: PropTypes.string,
+    actions: PropTypes.node
+  },
 
   title() {
     if (this.props.title) {
