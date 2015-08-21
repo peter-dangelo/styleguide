@@ -30,7 +30,7 @@ export default React.createClass({
             </code>
           </pre>
         </div>
-        );    
+        );
     }
 
   },
@@ -65,9 +65,8 @@ export default React.createClass({
           <div className="styleguide-sidebar-title grey-15 py2">{this.props.title}</div>
           <div className="styleguide-sidebar-list list-reset">{this.listComponentTitles()}</div>
         </div>
-        <div className="styleguide-components flex-auto overflow-scroll p4">{this.listComponents()}</div>
+        <div id="styleguide-components" className="styleguide-components col-10 flex-auto overflow-scroll p4">{this.listComponents()}</div>
       </div>
       )
   }
 });
-

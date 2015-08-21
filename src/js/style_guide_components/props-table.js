@@ -7,7 +7,7 @@ export default React.createClass({
   render() {
 
     return  <table>
-        <thead><tr><th>{"prop"}</th><th>{"what it does"}</th></tr></thead>
+        <thead><tr><th>{this.props.keyLabel || "prop"}</th><th>{"what it does"}</th></tr></thead>
         <tbody>
           {this.props.rows.map(row =>
             <tr>

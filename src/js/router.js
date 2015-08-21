@@ -14,11 +14,14 @@ import CardsPage from './pages/cards';
 import IconsPage from './pages/icons';
 import AnimationsPage from './pages/animations';
 import AccordionsPage from './pages/accordions';
+import ViewPage from './pages/view';
+import ViewActions from './components/view/actions/view-actions';
 
 let appContainer = document.getElementById('app');
 
 export default Router.extend({
   renderPage(Page) {
+    ViewActions.flush();
     const main = React.createElement(NavContainer, {}, React.createElement(Page));
 
     React.render(main, appContainer);
@@ -34,6 +37,7 @@ export default Router.extend({
     'buttons': 'buttons',
     'popovers': 'popovers',
     'modals': 'modals',
+    'view': 'view',
     'cards': 'cards',
     'icons': 'icons',
     'animations': 'animations',
@@ -74,6 +78,10 @@ export default Router.extend({
 
   modals() {
     this.renderPage(ModalsPage);
+  },
+
+  view() {
+    this.renderPage(ViewPage);
   },
 
   cards() {

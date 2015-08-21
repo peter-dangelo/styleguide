@@ -9,6 +9,7 @@ const {
   createClass
 } = React;
 
+
 export default createClass({
   displayName: "LayoutPage",
 
