@@ -7,6 +7,9 @@ const {
   PropTypes : Type
 } = React;
 
+/**
+ * Listens for 'click' events outside of a component and fires a defined 'handleOutsideClick' method from the component
+ */
 var OutsideClickMixin = {
 
   componentDidMount() {
