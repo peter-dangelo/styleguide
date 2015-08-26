@@ -34,6 +34,7 @@ gulp.task('scripts', function(){
   })
   .transform(babelify)
   .bundle()
+  .on('error', gutil.log)
   .pipe(source('app.js'))
   .pipe(gulp.dest('./public'))
   .pipe(connect.reload());
@@ -68,7 +69,7 @@ gulp.task('import-styles', function(){
 gulp.task('styles', function(){
   gulp.src('./src/scss/app.scss')
   .pipe(sourcemaps.init())
-  .pipe(sass())
+  .pipe(sass({errLogToConsole: true}))
   .pipe(sourcemaps.write('.'))
   .pipe(minifyCSS({processImport: false}))
   .pipe(autoprefix())

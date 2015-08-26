@@ -1,3 +1,6 @@
+// This mixin requires a handleOutsideClick method to be defined within the component using it.
+// Also, any other click handlers in the component should use event.stopPropagation to prevent the event from bubbling to the window
+
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -5,9 +8,6 @@ Object.defineProperty(exports, '__esModule', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-// This mixin requires a handleOutsideClick method to be defined within the component using it.
-// Also, any other click handlers in the component should use event.stopPropagation to prevent the event from bubbling to the window
 
 var _react = require('react');
 
@@ -34,7 +34,7 @@ exports['default'] = {
       if (this.handleOutsideClick) {
         this.handleOutsideClick(e);
       } else {
-        throw new Error('handleOutsideClick is not a defined method in this component.');
+        throw new Error("handleOutsideClick is not a defined method in this component.");
       }
     }
   }
