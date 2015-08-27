@@ -45,8 +45,8 @@ export default React.createClass({
               'description': 'The node or string that will be used to toggle the item.  Required.'
             },
             {
-              'prop': 'isLast',
-              'description': 'Set this to true on the last item to give it a bottom border.'
+              'prop': 'containerClasses',
+              'description': 'An array of css utility classes to style the container of the component'
             }
           ]
         }/>
@@ -55,13 +55,15 @@ export default React.createClass({
         { this.renderToggleAccordion() }
         <AccordionItem
           title={<h3 className="mb0 blue">{"Accordion Item 1"}</h3>}
-          isOpen={this.state.accordionOpen}>
+          isOpen={this.state.accordionOpen}
+          containerClasses={['bt', 'bw-1', 'bc-blue-baby', 'px2']} >
           <p>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum sapien, vitae posuere sapien consectetur sed. Suspendisse non lorem quis quam mollis vestibulum blandit sit amet lectus. Quisque sagittis sapien enim, quis maximus mauris fermentum non."}</p>
         </AccordionItem>
 
         <AccordionItem
           title={<h3 className="mb0 blue">{"Accordion Item 2"}</h3>}
-          isOpen={this.state.accordionOpen}>
+          isOpen={this.state.accordionOpen}
+          containerClasses={['bt', 'bw-1', 'bc-blue-baby', 'px2']} >
           <p>{"Morbi elit dui, pellentesque a malesuada et, lobortis sit amet nisl. Integer purus lorem, sodales aliquam facilisis non, iaculis id nisl. Nam fringilla elementum turpis, a venenatis risus luctus ac. Ut rhoncus viverra mi, ut sodales nibh sollicitudin ut. Ut ut elit sit amet magna semper blandit. "}</p>
         </AccordionItem>
 
