@@ -124,13 +124,13 @@ exports['default'] = createClass({
   },
 
   _getTextClasses: function _getTextClasses() {
-    var classes = ["field-light", "mr2", "py1", "h3", "bold", "no-resize", "flex-grow"];
+    var classes = ['field-light', 'mr2', 'py1', 'h3', 'bold', 'no-resize', 'flex-grow'];
 
     if (this.state.hasErrors) {
-      classes.push("bc-orange");
+      classes.push('bc-orange');
     }
 
-    return classes.join(" ");
+    return classes.join(' ');
   },
 
   _showError: function _showError() {
@@ -149,9 +149,9 @@ exports['default'] = createClass({
   render: function render() {
     if (this.state.isEditing) {
       var textStyle = {
-        borderColor: this.state.hasErrors ? _lib_colorsJson2['default']["orange"][""] : void 0,
+        borderColor: this.state.hasErrors ? _lib_colorsJson2['default']['orange'][''] : void 0,
         height: this.state.textHeight,
-        width: "auto"
+        width: 'auto'
       };
 
       return _react2['default'].createElement(
@@ -177,7 +177,7 @@ exports['default'] = createClass({
           { ref: 'pop' },
           _react2['default'].createElement(_icon2['default'], {
             name: 'delete',
-            extraClasses: ["blue", "px2", "small", "m0"]
+            extraClasses: ['blue', 'px2', 'small', 'm0']
           }),
           _react2['default'].createElement(
             'div',
@@ -214,7 +214,7 @@ exports['default'] = createClass({
           { className: 'blue py1 m0' },
           this.props.label
         ),
-        _react2['default'].createElement(_icon2['default'], { name: 'pencil', ref: 'pencil', extraClasses: ["blue", "py1", "ml1", "small", "m0", "hover-show"], onClick: this._triggerEdit })
+        _react2['default'].createElement(_icon2['default'], { name: 'pencil', ref: 'pencil', extraClasses: ['blue', 'py1', 'ml1', 'small', 'm0', 'hover-show'], onClick: this._triggerEdit })
       );
     }
   }

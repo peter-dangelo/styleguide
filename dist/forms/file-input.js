@@ -8,7 +8,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _reactAddons = require('react/addons');
+var _reactAddons = require("react/addons");
 
 var _reactAddons2 = _interopRequireDefault(_reactAddons);
 
@@ -79,7 +79,7 @@ exports["default"] = createClass({
         null,
         _reactAddons2["default"].createElement(
           "label",
-          { htmlFor: "fileInput", className: this.props.labelStyles.join(' ') },
+          { htmlFor: "fileInput", className: this.props.labelStyles.join(" ") },
           this.props.icon ? _reactAddons2["default"].createElement("span", { className: "icon-" + this.props.icon + " mr1" }) : void 0,
           this.props.labelTitle
         ),

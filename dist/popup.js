@@ -45,19 +45,19 @@ exports['default'] = createClass({
     var posXLen = baseWidth / 2 + 5;
 
     var popStyle = {
-      width: this.props.width + 'px'
+      width: '' + this.props.width + 'px'
     };
     popStyle[posX] = '-' + posXLen + 'px';
-    popStyle[posY] = "140%";
+    popStyle[posY] = '140%';
 
     var triStyle = {};
-    triStyle[posX] = "30px";
-    triStyle[posY] = "-10px";
+    triStyle[posX] = '30px';
+    triStyle[posY] = '-10px';
 
     return _reactAddons2['default'].createElement(
       'div',
       { className: 'bg-grey-90 bc-grey-90 p3 rounded-3 absolute', style: popStyle },
-      this._children[".1"],
+      this._children['.1'],
       _reactAddons2['default'].createElement('span', { className: 'triangle-' + posY + ' absolute', style: triStyle })
     );
   },
@@ -104,7 +104,7 @@ exports['default'] = createClass({
       _reactAddons2['default'].createElement(
         'div',
         { onClick: this._togglePop },
-        this._children[".0"]
+        this._children['.0']
       ),
       this.state.open ? this._showPop() : void 0
     );

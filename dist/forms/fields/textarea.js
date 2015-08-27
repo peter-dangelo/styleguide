@@ -13,7 +13,7 @@ var _react2 = _interopRequireDefault(_react);
 var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
-  displayName: "TextArea",
+  displayName: 'TextArea',
 
   propTypes: {
     disabled: Type.bool,
@@ -44,8 +44,8 @@ exports['default'] = _react2['default'].createClass({
   },
 
   expand: function expand(e) {
-    e.target.style.height = "auto";
-    e.target.style.height = e.target.scrollHeight + "px";
+    e.target.style.height = 'auto';
+    e.target.style.height = e.target.scrollHeight + 'px';
   },
 
   fieldClasses: function fieldClasses() {

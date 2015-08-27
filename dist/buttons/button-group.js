@@ -13,7 +13,7 @@ var _react2 = _interopRequireDefault(_react);
 var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
-  displayName: "ButtonGroup",
+  displayName: 'ButtonGroup',
 
   propTypes: {
     type: Type.oneOf(['actions']),
@@ -22,11 +22,11 @@ exports['default'] = _react2['default'].createClass({
   },
 
   createClass: function createClass(value) {
-    return "button-group-" + value;
+    return 'button-group-' + value;
   },
 
   classes: function classes() {
-    var classes = ["button-group"];
+    var classes = ['button-group'];
     var props = this.props;
 
     if (props.type) {
