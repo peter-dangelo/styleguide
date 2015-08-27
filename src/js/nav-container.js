@@ -1,6 +1,8 @@
 import React from 'react';
 import localLinks from 'local-links';
 
+import View from './components/view/view';
+
 export default React.createClass({
   displayName: 'NavContainer',
 
@@ -42,9 +44,9 @@ export default React.createClass({
   },
 
   render() {
-
     return (
       <div className="main flex tall">
+        <View />
         <nav className="nav nav-primary col-2 tall bg-grey-95 white" role="navigation" onClick={this.handleClick}>
           <ul className="nav-list" ref="navList">
             <li className="nav-item py2 px3"><a className="nav-link" href="/">Home</a></li>
@@ -57,11 +59,13 @@ export default React.createClass({
             <li className="nav-item py2 px3"><a className="nav-link" href="/icons">Icons</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/popovers">Popovers</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/modals">Modals</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/view">View</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/cards">Cards</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/animations">Animations</a></li>
+            <li className="nav-item py2 px3"><a className="nav-link" href="/accordions">Accordions</a></li>
           </ul>
         </nav>
-        <section className="content-container flex-auto tall">{this.props.children}</section>
+        <section className="content-container col-10 flex-auto tall">{this.props.children}</section>
       </div>
     );
   }

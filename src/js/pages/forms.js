@@ -11,8 +11,6 @@ import SimpleSelect from '../components/forms/fields/simple-select';
 import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
 
-let D = React.DOM;
-
 var options = [
     { value: 'london', label: 'London' },
     { value: 'newyork', label: 'New York' },
@@ -153,7 +151,7 @@ export default React.createClass({
             <p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>
           </EditLabel>
           
-          <pre><code className="language-javascript mt3">
+          <pre><code className="language-javascript overflow-scroll mt3">
           {'<EditLabel label={this.state.editLabel} placeholder="Folder Name" onSave={this._onSave} onDelete={this._onDelete} isValid={this._validate} errorMessage="Folder Name Already In Use" >\n'}
           {'\t<p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>\n'}
           {'</EditLabel>'}
