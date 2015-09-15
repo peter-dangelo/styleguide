@@ -16,6 +16,10 @@ $ gem install scss-lint
 ```shell
 $ npm start
 ```
+To serve on a port other than 8080:
+```shell
+$ gulp --port 8081
+```
 
 
 Packaging Files for Production
