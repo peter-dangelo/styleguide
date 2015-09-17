@@ -8,8 +8,6 @@ import ViewActions from '../components/view/actions/view-actions';
 import Button from '../components/buttons/button';
 import ButtonGroup from '../components/buttons/button-group';
 
-// test
-
 const {
   actionBarEnter,
   actionBarExit,
