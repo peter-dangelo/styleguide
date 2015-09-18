@@ -1,0 +1,223 @@
+.datepicker-dates {
+  height: 100%;
+  margin-top: 0.5em;
+  position: relative;
+  width: 156px;
+}
+
+.datepicker {
+  height: 220px;
+  position: relative;
+  width: 170px;
+  z-index: 10;
+
+  $day-width: 22px;
+
+  .day {
+    position: absolute;
+
+    a {
+      color: #222;
+      display: block;
+      padding: 2px;
+      text-align: center;
+      text-decoration: none;
+      width: $day-width;
+
+      &:hover {
+        background-color: #eaeaea;
+      }
+    }
+  }
+
+  .out .day a {
+    color: #bcbcbc;
+  }
+
+  .monthpicker {
+    margin: 0.2em;
+    text-align: center;
+  }
+
+  .day.selected {
+    background-color: #c9c9c9;
+  }
+
+  .day-in-week-1 {
+    left: 0;
+  }
+
+  .day-in-week-2 {
+    left: $day-width * 1;
+  }
+
+  .day-in-week-3 {
+    left: $day-width * 2;
+  }
+
+  .day-in-week-4 {
+    left: $day-width * 3;
+  }
+
+  .day-in-week-5 {
+    left: $day-width * 4;
+  }
+
+  .day-in-week-6 {
+    left: $day-width * 5;
+  }
+
+  .day-in-week-0 {
+    left: $day-width * 6;
+  }
+
+  .week-1 {
+    top: 0;
+  }
+
+  .week-2 {
+    top: 24px;
+  }
+
+  .week-3 {
+    top: 48px;
+  }
+
+  .week-4 {
+    top: 72px;
+  }
+
+  .week-5 {
+    top: 96px;
+  }
+
+  .week-6 {
+    top: 120px;
+  }
+}
+
+.datepicker-container {
+  background-color: #fff;
+  border: 1px solid #979797;
+  height: 220px;
+  padding: 0.5em;
+  position: relative;
+}
+
+.datepicker-wrapper {
+  position: absolute;
+}
+
+//Wide datepicker to demonstrate the use of classNamePrefix
+
+.wide-datepicker-dates {
+  height: 100%;
+  margin-top: 0.5em;
+  position: relative;
+  width: 186px;
+}
+
+
+.wide-datepicker {
+  height: 220px;
+  position: relative;
+  width: 200px;
+  z-index: 10;
+
+  $day-width: 26px;
+
+  .day {
+
+    position: absolute;
+
+    a {
+      color: #222;
+      display: block;
+      padding: 2px;
+      text-align: center;
+      text-decoration: none;
+      width: $day-width;
+
+      &:hover {
+        background-color: #eaeaea;
+      }
+    }
+  }
+
+  .out .day a {
+    color: #bcbcbc;
+  }
+
+  .monthpicker {
+    margin: 0.2em;
+    text-align: center;
+  }
+
+  .day.selected {
+    background-color: #c9c9c9;
+  }
+
+  .day-in-week-1 {
+    left: 0;
+  }
+
+  .day-in-week-2 {
+    left: $day-width * 1;
+  }
+
+  .day-in-week-3 {
+    left: $day-width * 2;
+  }
+
+  .day-in-week-4 {
+    left: $day-width * 3;
+  }
+
+  .day-in-week-5 {
+    left: $day-width * 4;
+  }
+
+  .day-in-week-6 {
+    left: $day-width * 5;
+  }
+
+  .day-in-week-0 {
+    left: $day-width * 6;
+  }
+
+  .week-1 {
+    top: 0;
+  }
+
+  .week-2 {
+    top: 24px;
+  }
+
+  .week-3 {
+    top: 48px;
+  }
+
+  .week-4 {
+    top: 72px;
+  }
+
+  .week-5 {
+    top: 96px;
+  }
+
+  .week-6 {
+    top: 120px;
+  }
+}
+
+.wide-datepicker-container {
+  background-color: #fff;
+  border: 1px solid #979797;
+  height: 220px;
+  padding: 0.5em;
+  position: relative;
+}
+
+.wide-datepicker-wrapper {
+  position: absolute;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import Styleguide from '../styleguide';
 import Select from 'react-select';
 import DateField from '../components/forms/fields/date';
+import ReactDateField from '../components/forms/fields/date/date_picker_input';
 import NumberField from '../components/forms/fields/number';
 import TextField from '../components/forms/fields/text';
 import TextArea from '../components/forms/fields/textarea';
@@ -12,10 +13,10 @@ import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
 
 var options = [
-    { value: 'london', label: 'London' },
-    { value: 'newyork', label: 'New York' },
-    { value: 'chicago', label: 'Chicago' },
-    { value: 'san_francisco', label: 'San Francisco' }
+  { value: 'london', label: 'London' },
+  { value: 'newyork', label: 'New York' },
+  { value: 'chicago', label: 'Chicago' },
+  { value: 'san_francisco', label: 'San Francisco' }
 ];
 
 function _onChange(val) {
@@ -57,6 +58,7 @@ export default React.createClass({
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' extraClasses={['py2']} units="Units"  />
             <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
+            <ReactDateField label="Date" fieldColor='light' extraClasses={['py2']}/>
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
             <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
@@ -69,6 +71,7 @@ export default React.createClass({
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' disabled={true} extraClasses={['py2']} />
             <DateField label="Date" fieldColor='light' disabled={true} />
+            <ReactDateField label="ReactDate" fieldColor='light' disabled={true} extraClasses={['py2']}/>
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} disabled={true} extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  disabled={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' disabled={true} extraClasses={['py2']}/>
@@ -80,6 +83,7 @@ export default React.createClass({
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" extraClasses={['py2']}/>
               <NumberField label="Number" fieldColor='dark' extraClasses={['py2']} units="Units" />
               <DateField label="Date" fieldColor='dark' extraClasses={['py2']}/>
+              <ReactDateField label="Date" fieldColor='dark' extraClasses={['py2']}/>
               <SimpleSelect label="Simple Select" fieldColor='dark' options={options} promptText="- Select -" extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' extraClasses={['py2']}/>
               <Checkbox label="Checkbox" fieldColor='dark' extraClasses={['py2']}/>
@@ -91,6 +95,7 @@ export default React.createClass({
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
               <NumberField label="Number" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <DateField label="Date" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
+              <ReactDateField label="ReactDate" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
               <SimpleSelect label="Simple Select" fieldColor='dark' options={options} disabled={true} extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <Checkbox label="Checkbox" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
@@ -140,7 +145,7 @@ export default React.createClass({
           <hr />
           <h3>EditLabel</h3>
           <p>An interactive component for changing the text of a label, i.e. Folder Names.</p>
-          <EditLabel 
+          <EditLabel
             label={this.state.editLabel}
             placeholder="Folder Name"
             onSave={this._onSave}
@@ -150,13 +155,13 @@ export default React.createClass({
           >
             <p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>
           </EditLabel>
-          
+
           <pre><code className="language-javascript overflow-scroll mt3">
           {'<EditLabel label={this.state.editLabel} placeholder="Folder Name" onSave={this._onSave} onDelete={this._onDelete} isValid={this._validate} errorMessage="Folder Name Already In Use" >\n'}
           {'\t<p className="clearfix small">Do you want to delete "{this.state.editLabel}"?</p>\n'}
           {'</EditLabel>'}
           </code></pre>
-          
+
           <h3 className="mt4">File Input</h3>
           <p className="small">An interactive file component with file name preview.</p>
           <FileInput labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
@@ -164,6 +169,3 @@ export default React.createClass({
       </Styleguide>
   }
 });
-
-
-
