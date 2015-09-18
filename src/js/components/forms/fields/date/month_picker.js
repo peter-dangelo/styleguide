@@ -1,6 +1,7 @@
 import React from 'react';
 
-var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var daysOfWeek = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa",]
 
 var MonthPicker = React.createClass({
   getDefaultProps: function() {
@@ -16,9 +17,9 @@ var MonthPicker = React.createClass({
 
   render: function() {
     return (
-      <div className={"monthpicker"}>
+      <div className="month-picker">
         <a onClick={this.changeMonth.bind(this, this.props.date.getMonth()-1)} className={this.props.buttonClassNames}>&lt;&lt;</a>
-        <span className={this.props.textClassNames}>{monthNames[this.props.date.getMonth()] + ", " + this.props.date.getFullYear()}</span>
+        <span className={this.props.textClassNames}>{months[this.props.date.getMonth()] + ", " + this.props.date.getFullYear()}</span>
         <a onClick={this.changeMonth.bind(this, this.props.date.getMonth()+1)} className={this.props.buttonClassNames}>&gt;&gt;</a>
       </div>
     );
