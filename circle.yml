@@ -1,0 +1,21 @@
+machine:
+  node:
+    version: '0.12.0'
+dependencies:
+  override:
+    - npm install
+    - bower install
+    - gem install scss-lint
+
+test:
+  override:
+    - echo "TODO"
+    
+deployment:
+  production:
+    branch: master
+    commands:
+      - npm run compile
+      - aws s3 sync ./dist s3://namely-styleguide/`echo $CIRCLE_SHA1 | cut -c1-8`/ --acl public-read
+      - npm install node-slack-cli -g
+      - slack -c namely-ui -m "Deployed styleguide to https://d1pol32eeyc3ek.cloudfront.net/`echo $CIRCLE_SHA1 | cut -c1-8`"

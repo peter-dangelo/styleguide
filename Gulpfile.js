@@ -97,6 +97,7 @@ gulp.task('colors', function(){
 gulp.task('server', ['icons', 'colors', 'import-styles', 'styles', 'scripts'], function(){
   connect.server({
     root: ['public'],
+    port: gutil.env.port || 8080,
     livereload: true,
     middleware: function() {
       return [

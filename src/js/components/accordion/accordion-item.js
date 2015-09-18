@@ -9,7 +9,7 @@ export default React.createClass({
   propTypes: {
     isOpen: Type.bool,
     title: Type.node.isRequired,
-    isLast: Type.bool
+    containerClasses: Type.arrayOf(Type.string)
   },
 
   getDefaultProps() {
@@ -61,25 +61,9 @@ export default React.createClass({
     return classes.join(' ');
   },
 
-  containerClasses() {
-    var classes = [
-      'bt',
-      'bw-1',
-      'bc-blue-baby',
-      'px2'
-    ];
-
-    if(this.props.isLast) {
-      classes.push('bb');
-    }
-
-    return classes.join(' ');
-
-  },
-
   render() {
     return (
-      <div className={this.containerClasses()}>
+      <div className={this.props.containerClasses.join(' ')}>
         <div className={this.headerClasses()} onClick={this.handleClick}>
           <span className={this.iconClasses()}/>
           {this.props.title}
