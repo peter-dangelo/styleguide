@@ -12,7 +12,8 @@ var Day = React.createClass({
   },
 
   render: function() {
-    var className = "day week-" + this.props.week + " day-in-week-" + this.props.date.getDay();
+    var className = "date-field-react-day week-" + this.props.week + " day-in-week-" + this.props.date.getDay();
+    className += " grey-25 "
     className += (this.props.selected ? 'bc-blue-secondary bg-grey-95 white' : '');
 
     return (

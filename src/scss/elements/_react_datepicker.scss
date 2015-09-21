@@ -1,8 +1,21 @@
 $day-width: 22px;
 
+.date-field-react-container {
+  position: relative;
+}
+
+.date-field-react-wrapper {
+  position: absolute;
+  z-index: 102;
+
+  input {
+    position: relative;
+    z-index: 103;
+  }
+}
+
 .date-field-react-dates {
   height: 100%;
-  margin-top: 0.5em;
   position: relative;
   width: 156px;
 }
@@ -13,24 +26,7 @@ $day-width: 22px;
   width: $day-width * 7;
   z-index: 10;
 
-  .day {
-    position: absolute;
-
-    a {
-      display: block;
-      padding: 2px;
-      text-align: center;
-      text-decoration: none;
-      width: $day-width;
-
-      &:hover {
-        background-color: #eaeaea;
-      }
-    }
-  }
-
   .month-picker {
-    margin: 0.2em;
     text-align: center;
   }
 
@@ -87,10 +83,17 @@ $day-width: 22px;
   }
 }
 
-.date-field-react-container {
-  position: relative;
-}
-
-.date-field-react-wrapper {
+.date-field-react-day {
   position: absolute;
+
+  a {
+    display: block;
+    padding: 2px;
+    text-align: center;
+    text-decoration: none;
+    width: $day-width;
+
+    &:hover {
+    }
+  }
 }
