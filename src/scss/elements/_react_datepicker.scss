@@ -1,33 +1,43 @@
-$day-width: 22px;
+$day-width: $space-4;
 
 .date-field-react-container {
-  position: relative;
-}
-
-.date-field-react-wrapper {
-  position: absolute;
-  z-index: 102;
 
   input {
-    position: relative;
     z-index: 103;
+  }
+
+  .icon {
+    position: absolute;
+    right: $space-3*2;
+    top: $space-3*2;
   }
 }
 
+.date-field-react-wrapper {
+  left: -$space-3;
+  position: absolute;
+  z-index: 102;
+}
+
 .date-field-react-dates {
-  height: 100%;
+  height: $day-width * 4;
   position: relative;
-  width: 156px;
+  width: $day-width * 7;
+
+  &.extra-week {
+    height: $day-width * 5;
+  }
 }
 
 .date-field-react {
-  height: 220px;
+  // height: $day-width * 8;
   position: relative;
-  width: $day-width * 7;
-  z-index: 10;
+  // width: $day-width * 7;
+  z-index: 105;
 
   .month-picker {
     text-align: center;
+    margin-top: $space-4 * 2;
   }
 
   .day-in-week-1 {
@@ -63,23 +73,23 @@ $day-width: 22px;
   }
 
   .week-2 {
-    top: $day-width * 2;
+    top: $day-width * 1;
   }
 
   .week-3 {
-    top: $day-width * 3;
+    top: $day-width * 2;
   }
 
   .week-4 {
-    top: $day-width * 4;
+    top: $day-width * 3;
   }
 
   .week-5 {
-    top: $day-width * 5;
+    top: $day-width * 4;
   }
 
   .week-6 {
-    top: $day-width * 6;
+    top: $day-width * 5;
   }
 }
 
@@ -88,12 +98,22 @@ $day-width: 22px;
 
   a {
     display: block;
-    padding: 2px;
+    height: $day-width - $space-1;
+    padding-top: $space-1;
     text-align: center;
     text-decoration: none;
+    transition: color $duration;
     width: $day-width;
 
     &:hover {
+      color: $white;
     }
+  }
+}
+
+.week-labels {
+
+  span {
+    width: $day-width;
   }
 }

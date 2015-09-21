@@ -2,57 +2,54 @@ import React from 'react';
 import Day from './day';
 import DateUtils from './date_utils';
 
-var DayPicker = React.createClass({
+const Type = React.PropTypes;
 
-  selectDay: function(date) {
+export default React.createClass({
+
+  displayName: "DayPicker",
+
+  selectDay(date) {
     this.props.selectDate(date);
   },
 
-  render: function (){
+  sizeClass() {
+    console.log(this.weekCount());
+    return this.weekCount() > 5 ? '' : 'extra-week';
+  },
+
+  mappedMonth() {
     var date=this.props.date,
-      beforeDaysCount = DateUtils.daysInMonthCount((date.getMonth()-1), date.getFullYear()),
       firstDay = DateUtils.createNewDay(1, date.getTime()),
-      offset = (firstDay.getDay()===0?7:firstDay.getDay())- 1,
-      daysArray = DateUtils.getArrayByBoundary(beforeDaysCount-offset+1, beforeDaysCount);
+      offset = (firstDay.getDay()===0 ? 7 : firstDay.getDay())-1,
+      daysArray = DateUtils.getArrayByBoundary(1, DateUtils.daysInMonthCount(date.getMonth(), date.getFullYear())),
+      selectedDate = this.props.selectedDate,
+      reactObject = this;
 
-    var previousMonthDays = daysArray.map(function(day){
-      var thisDate = DateUtils.createNewDayMonth(day, date.getMonth()-1, date.getTime());
-      return <Day key={'day-prev-mo-' + day} date={thisDate} week={1} changeDate={this.selectDay} />
-    }.bind(this));
-
-    daysArray = DateUtils.getArrayByBoundary(1, DateUtils.daysInMonthCount(date.getMonth(), date.getFullYear()));
-    var actualMonthDays = daysArray.map(function(day) {
+    return daysArray.map(function(day) {
       var thisDate = DateUtils.createNewDay(day, date.getTime()),
         weekNumber = Math.ceil((day+offset) / 7),
         selected = false;
 
-      if(date.getMonth()==this.props.selectedDate.getMonth() && date.getFullYear()==this.props.selectedDate.getFullYear()) {
-        selected = (day==this.props.selectedDate.getDate());
+      if (date.getMonth()==selectedDate.getMonth() && date.getFullYear()==selectedDate.getFullYear()) {
+        selected = (day==selectedDate.getDate());
       }
-      return <Day key={'day-mo-' + day} selected={selected} date={thisDate} week={weekNumber} changeDate={this.selectDay} />
-    }.bind(this));
 
-    daysArray = DateUtils.getArrayByBoundary(1, 42- previousMonthDays.length - actualMonthDays.length);
-    var nextMonthDays = daysArray.map(function(day){
-      var thisDate = DateUtils.createNewDayMonth(day, date.getMonth()+1, date.getTime()),
-        weekNumber = Math.ceil((previousMonthDays.length + actualMonthDays.length + day) / 7);
-      return <Day key={'day-next-mo-' + day} date={thisDate} week={weekNumber} changeDate={this.selectDay} />
-    }.bind(this));
+      return <Day key={'day-mo-' + day} selected={selected} date={thisDate} week={weekNumber} changeDate={reactObject.selectDay} />
+    });
+  },
 
+  weekCount() {
+    return DateUtils.weeksInMonthCount(this.props.date.getMonth(), this.props.date.getFullYear());
+  },
+
+  render() {
     return (
-      <div className="date-field-react-dates">
-        <div className="out">
-          {previousMonthDays}
-        </div>
+      <div className={"date-field-react-dates " + this.sizeClass()}>
         <div>
-          {actualMonthDays}
+          {this.mappedMonth()}
         </div>
-        <div className="out">
-          {nextMonthDays}
-        </div>
+        <div className="clearfix"></div>
       </div>
     );
   }
 });
-
-module.exports = DayPicker;

@@ -4,7 +4,7 @@ import DayPicker from './day_picker'
 
 const Type = React.PropTypes;
 
-var DatePicker = React.createClass({
+export default React.createClass({
 
   onChangeVisibleDate: function(date) {
     this.setState({visibleDate:date});
@@ -68,5 +68,3 @@ var DatePicker = React.createClass({
     );
   }
 });
-
-module.exports = DatePicker;

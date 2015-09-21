@@ -26,6 +26,13 @@ var DateUtils = {
     newDate.setDate(date);
     newDate.setMonth(month);
     return newDate;
+  },
+
+  weeksInMonthCount: function(month, year) {
+    var firstOfMonth = new Date(year, month-1, 1);
+    var lastOfMonth = new Date(year, month, 0);
+    var used = firstOfMonth.getDay() + lastOfMonth.getDate();
+    return Math.ceil(used / 7);
   }
 }
 
