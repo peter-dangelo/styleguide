@@ -40,7 +40,7 @@ var DayPicker = React.createClass({
     }.bind(this));
 
     return (
-      <div className={this.props.classNamePrefix + "-dates"}>
+      <div className="date-field-react-dates">
         <div className="out">
           {previousMonthDays}
         </div>

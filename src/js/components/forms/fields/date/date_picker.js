@@ -22,8 +22,7 @@ var DatePicker = React.createClass({
       onChangeDate :
         function(date) {
           console.log('You have selected new date' + date);
-        },
-      classNamePrefix : "datepicker"
+        }
     });
   },
 
@@ -54,18 +53,16 @@ var DatePicker = React.createClass({
     };
 
     return (
-      <div className={this.props.classNamePrefix} style={style}>
-        <div className={this.props.classNamePrefix + "-container"}>
+      <div className="date-field-react" style={style}>
+        <div className={"date-field-react-container"}>
           <MonthPicker
             date={this.state.visibleDate}
-            onChangeMonth={this.changeMonth}
-            classNamePrefix={this.props.classNamePrefix} />
+            onChangeMonth={this.changeMonth} />
           <DayPicker
             date={this.state.visibleDate}
             selectedDate={this.props.date}
             changeDate={this.onChangeVisibleDate}
-            selectDate={this.onChangeSelectedDate}
-            classNamePrefix={this.props.classNamePrefix} />
+            selectDate={this.onChangeSelectedDate} />
         </div>
       </div>
     );

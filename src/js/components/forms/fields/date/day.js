@@ -13,7 +13,7 @@ var Day = React.createClass({
 
   render: function() {
     var className = "day week-" + this.props.week + " day-in-week-" + this.props.date.getDay();
-    className += (this.props.selected ? ' selected' : '');
+    className += (this.props.selected ? 'bc-blue-secondary bg-grey-95 white' : '');
 
     return (
       <div className={className}>
