@@ -79,7 +79,7 @@ export default React.createClass({
     return (
       <div className="date-field date-field-react-container relative">
         <div style={style} onClick={this.hideDatePicker}></div>
-        <div className={"date-field-react-wrapper bg-grey-90 rounded-3 p3"}>
+        <div className={"date-field-react-wrapper"}>
           {this.transferPropsTo(<DatePicker date={this.props.date} show={this.state.show} onChangeDate={this.onChangeDate} />)}
         </div>
         {this.label()}

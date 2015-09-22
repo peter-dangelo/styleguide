@@ -53,7 +53,7 @@ export default React.createClass({
     };
 
     return (
-      <div className="date-field-react" style={style}>
+      <div className="date-field-react bg-grey-90 rounded-3 p3" style={style}>
         <div className={"date-field-react-container"}>
           <MonthPicker
             date={this.state.visibleDate}
