@@ -23,7 +23,9 @@ export default React.createClass({
     return (
       <div className="month-picker">
         <a onClick={this.changeMonth.bind(this, this.props.date.getMonth()-1)} className="icon-chevron-left prev mr2 blue-secondary"></a>
-        <span className={"white semibold " + this.props.textClassNames}>{months[this.props.date.getMonth()] + ", " + this.props.date.getFullYear()}</span>
+        <div className={"month-name inline-block white semibold " + this.props.textClassNames}>
+          {months[this.props.date.getMonth()] + " " + this.props.date.getFullYear()}
+        </div>
         <a onClick={this.changeMonth.bind(this, this.props.date.getMonth()+1)} className="icon-chevron-right next ml2 blue-secondary"></a>
         <div className="mt1 mb1 week-labels relative">
           <span className='day-in-week-0 grey-50 inline-block' key='week-label-0'>SU</span>

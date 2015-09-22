@@ -13,14 +13,16 @@ export default React.createClass({
   },
 
   sizeClass() {
+    console.log("-------");
     console.log(this.weekCount());
-    return this.weekCount() > 5 ? '' : 'extra-week';
+    console.log((this.weekCount() > 5).toString());
+    return (this.weekCount() > 5 ? 'extra-week' : '');
   },
 
   mappedMonth() {
     var date=this.props.date,
       firstDay = DateUtils.createNewDay(1, date.getTime()),
-      offset = (firstDay.getDay()===0 ? 7 : firstDay.getDay())-1,
+      offset = (DateUtils.offsetDayOfWeek(firstDay.getDay()) === 0 ? 7 : firstDay.getDay()),
       daysArray = DateUtils.getArrayByBoundary(1, DateUtils.daysInMonthCount(date.getMonth(), date.getFullYear())),
       selectedDate = this.props.selectedDate,
       reactObject = this;

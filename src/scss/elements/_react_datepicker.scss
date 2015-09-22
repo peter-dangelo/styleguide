@@ -20,12 +20,12 @@ $day-width: $space-4;
 }
 
 .date-field-react-dates {
-  height: $day-width * 4;
+  height: $day-width * 5;
   position: relative;
   width: $day-width * 7;
 
   &.extra-week {
-    height: $day-width * 5;
+    height: $day-width * 6;
   }
 }
 
@@ -38,6 +38,10 @@ $day-width: $space-4;
   .month-picker {
     text-align: center;
     margin-top: $space-4 * 2;
+
+    .month-name {
+      width: 50%;
+    }
   }
 
   .day-in-week-1 {
