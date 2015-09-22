@@ -30,14 +30,12 @@ $day-width: $space-4;
 }
 
 .date-field-react {
-  // height: $day-width * 8;
   position: relative;
-  // width: $day-width * 7;
   z-index: 105;
 
   .month-picker {
-    text-align: center;
     margin-top: $space-4 * 2;
+    text-align: center;
 
     .month-name {
       width: 50%;

@@ -36,6 +36,12 @@ export default  {
     var firstOfMonth = new Date(year, month, 1);
     var lastOfMonth = new Date(year, month+1, 0);
     var used = this.offsetDayOfWeek(firstOfMonth.getDay()) - 1 + lastOfMonth.getDate();
+    console.log("-------");
+    console.log('firstOfMonth: ' + firstOfMonth.getDay());
+    console.log('offsetDayOfWeek: ' + this.offsetDayOfWeek(firstOfMonth.getDay()));
+    console.log('lastOfMonth: ' + lastOfMonth.getDate());
+    console.log('used: ' + used.toString());
+    console.log(Math.ceil(used / 7));
     return Math.ceil(used / 7);
   }
 }

@@ -54,7 +54,7 @@ export default React.createClass({
 
   onChangeDate(date) {
     this.props.date = date;
-    this.setState({show:false});
+    this.hideDatePicker();
     this.props.onChangeDate(date);
   },
 
@@ -79,7 +79,7 @@ export default React.createClass({
     return (
       <div className="date-field date-field-react-container relative">
         <div style={style} onClick={this.hideDatePicker}></div>
-        <div className={"date-field-react-wrapper"}>
+        <div className={"date-field-react-wrapper no-select"}>
           {this.transferPropsTo(<DatePicker date={this.props.date} show={this.state.show} onChangeDate={this.onChangeDate} />)}
         </div>
         {this.label()}

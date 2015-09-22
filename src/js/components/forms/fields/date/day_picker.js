@@ -13,9 +13,6 @@ export default React.createClass({
   },
 
   sizeClass() {
-    console.log("-------");
-    console.log(this.weekCount());
-    console.log((this.weekCount() > 5).toString());
     return (this.weekCount() > 5 ? 'extra-week' : '');
   },
 

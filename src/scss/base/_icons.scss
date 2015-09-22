@@ -380,18 +380,18 @@ $icon-view: '\E04A';
 
 .icon-chevron-left {
   @include icon(chevron-left);
-  position: relative;
-  top: $h4 / 6;
   font-size: $h4;
   height: $h4;
+  position: relative;
+  top: $h4 / 6;
 }
 
 .icon-chevron-right {
   @include icon(chevron-right);
-  position: relative;
-  top: $h4 / 6;
   font-size: $h4;
   height: $h4;
+  position: relative;
+  top: $h4 / 6;
 }
 
 .icon-clipboard-check {
