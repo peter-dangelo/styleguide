@@ -42,56 +42,12 @@ $day-width: $space-4;
     }
   }
 
-  .day-in-week-0 {
-    left: 0;
+  @for $i from 0 through 6 {
+    .day-in-week-#{$i} { left: $day-width * $i; }
   }
 
-  .day-in-week-1 {
-    left: $day-width * 1;
-  }
-
-  .day-in-week-2 {
-    left: $day-width * 2;
-  }
-
-  .day-in-week-3 {
-    left: $day-width * 3;
-  }
-
-  .day-in-week-4 {
-    left: $day-width * 4;
-  }
-
-  .day-in-week-5 {
-    left: $day-width * 5;
-  }
-
-  .day-in-week-6 {
-    left: $day-width * 6;
-  }
-
-  .week-1 {
-    top: 0;
-  }
-
-  .week-2 {
-    top: $day-width * 1;
-  }
-
-  .week-3 {
-    top: $day-width * 2;
-  }
-
-  .week-4 {
-    top: $day-width * 3;
-  }
-
-  .week-5 {
-    top: $day-width * 4;
-  }
-
-  .week-6 {
-    top: $day-width * 5;
+  @for $i from 0 through 5 {
+    .week-#{$i + 1} { top: $day-width * $i; }
   }
 }
 
