@@ -372,7 +372,6 @@ $icon-view: '\E04A';
 
 .icon-calendar {
   @include icon(calendar);
-  margin-top: 2px;
 }
 
 .icon-check {
@@ -381,18 +380,10 @@ $icon-view: '\E04A';
 
 .icon-chevron-left {
   @include icon(chevron-left);
-  font-size: $h4;
-  height: $h4;
-  position: relative;
-  top: $h4 / 6;
 }
 
 .icon-chevron-right {
   @include icon(chevron-right);
-  font-size: $h4;
-  height: $h4;
-  position: relative;
-  top: $h4 / 6;
 }
 
 .icon-clipboard-check {

@@ -1,5 +1,6 @@
 import React from 'react';
-import DatePicker from './date_picker'
+import DatePicker from './date_picker';
+import Moment from 'moment';
 
 const Type = React.PropTypes;
 
@@ -8,10 +9,20 @@ export default React.createClass({
   displayName: "ReactDateField",
 
   propTypes: {
+    dateFormat: Type.oneOf(['MM/DD/YYYY','DD/MM/YYYY', 'YYYY/MM/DD','MMM D, YYYY']),
     disabled: Type.bool,
-    extraClasses: Type.arrayOf(Type.string),
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
+    onChange: Type.func,
+    value: Type.oneOfType([Type.string, Type.date])
+  },
+
+  momentDate() {
+    if (Object.prototype.toString.call(this.props.value) === '[object Date]') {
+      return Moment(this.props.value);
+    } else {
+      return Moment(this.props.value, this.props.dateFormat);
+    }
   },
 
   fieldClasses() {
@@ -22,17 +33,11 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      date : new Date(),
-      dateFormatter : function(date) {
-        var output = '';
-        output+=date.getMonth()+1+'/';
-        output+=date.getDate()+'/';
-        output+=date.getFullYear();
-        return output;
-      },
       disabled: false,
       fieldColor: 'light',
-      onChangeDate : function() {}
+      label: 'Date',
+      onChange : function() {},
+      value : new Date(),
     }
   },
 
@@ -61,9 +66,9 @@ export default React.createClass({
   },
 
   onChangeDate(date) {
-    this.props.date = date;
+    this.props.value = date;
     this.hideDatePicker();
-    this.props.onChangeDate(date);
+    this.props.onChange(date);
   },
 
   propTypes: {
@@ -81,14 +86,14 @@ export default React.createClass({
       width: '100%',
       height:'100%',
       display: (this.state.show ? 'block' : 'none'),
-      'z-index': '101'
+      zIndex: '101'
     };
 
     return (
       <div className={"date-field date-field-react-container relative " + this.props.extraClasses}>
         <div style={style} onClick={this.hideDatePicker}></div>
         <div className={"date-field-react-wrapper no-select"}>
-          {this.transferPropsTo(<DatePicker date={this.props.date} show={this.state.show} onChangeDate={this.onChangeDate} />)}
+          {this.transferPropsTo(<DatePicker date={this.momentDate().toDate()} show={this.state.show} onChangeDate={this.onChangeDate} />)}
         </div>
         {this.label()}
         <br/>
@@ -98,7 +103,7 @@ export default React.createClass({
           onFocus={this.showDatePicker}
           readOnly
           type="text"
-          value={this.props.dateFormatter(this.props.date)}/>
+          value={this.momentDate().format(this.props.dateFormat)}/>
         <span className={this.iconClasses()}></span>
       </div>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'moment';
 import MonthPicker from './month_picker'
 import DayPicker from './day_picker'
 
