@@ -7,9 +7,10 @@ $day-width: $space-4;
   }
 
   .icon {
+    left: $day-width * 5.8;
     position: absolute;
-    right: $space-3*2;
-    top: $space-3*2;
+    top: $space-5;
+    z-index: 104;
   }
 }
 
@@ -55,12 +56,8 @@ $day-width: $space-4;
   position: absolute;
 
   a {
-    display: block;
     height: $day-width - $space-1;
-    padding-top: $space-1;
-    text-align: center;
-    text-decoration: none;
-    transition: color $duration;
+    padding-top: $space-1 / 2;
     width: $day-width;
 
     &:hover {

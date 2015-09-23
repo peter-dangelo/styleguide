@@ -28,13 +28,13 @@ export default React.createClass({
         </div>
         <a onClick={this.changeMonth.bind(this, this.props.date.getMonth()+1)} className="icon-chevron-right next ml2 blue-secondary"></a>
         <div className="mt1 mb1 week-labels relative">
-          <span className='day-in-week-0 grey-50 inline-block' key='week-label-0'>SU</span>
-          <span className='day-in-week-1 grey-50 inline-block' key='week-label-1'>MO</span>
-          <span className='day-in-week-2 grey-50 inline-block' key='week-label-2'>TU</span>
-          <span className='day-in-week-3 grey-50 inline-block' key='week-label-3'>WE</span>
-          <span className='day-in-week-4 grey-50 inline-block' key='week-label-4'>TH</span>
-          <span className='day-in-week-5 grey-50 inline-block' key='week-label-5'>FR</span>
-          <span className='day-in-week-6 grey-50 inline-block' key='week-label-6'>SA</span>
+          <span className='day-in-week-0 grey-50 inline-block h6' key='week-label-0'>SU</span>
+          <span className='day-in-week-1 grey-50 inline-block h6' key='week-label-1'>MO</span>
+          <span className='day-in-week-2 grey-50 inline-block h6' key='week-label-2'>TU</span>
+          <span className='day-in-week-3 grey-50 inline-block h6' key='week-label-3'>WE</span>
+          <span className='day-in-week-4 grey-50 inline-block h6' key='week-label-4'>TH</span>
+          <span className='day-in-week-5 grey-50 inline-block h6' key='week-label-5'>FR</span>
+          <span className='day-in-week-6 grey-50 inline-block h6' key='week-label-6'>SA</span>
         </div>
       </div>
     );

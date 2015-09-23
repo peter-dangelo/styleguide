@@ -17,7 +17,7 @@ export default React.createClass({
   },
 
   mappedMonth() {
-    var date=this.props.date,
+    var date = this.props.date,
       firstDay = DateUtils.createNewDay(1, date.getTime()).getDay(),
       daysArray = DateUtils.getArrayByBoundary(1, DateUtils.daysInMonthCount(date.getMonth(), date.getFullYear())),
       selectedDate = this.props.selectedDate,
@@ -25,7 +25,7 @@ export default React.createClass({
 
     return daysArray.map(function(day) {
       var thisDate = DateUtils.createNewDay(day, date.getTime()),
-        weekNumber = Math.ceil((day+firstDay / 7),
+        weekNumber = Math.ceil((day + firstDay) / 7),
         selected = false;
 
       if (date.getMonth()==selectedDate.getMonth() && date.getFullYear()==selectedDate.getFullYear()) {

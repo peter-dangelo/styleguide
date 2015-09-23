@@ -58,7 +58,7 @@ export default React.createClass({
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' extraClasses={['py2']} units="Units"  />
             <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
-            <ReactDateField label="Date" fieldColor='light' extraClasses={['py2']}/>
+            <ReactDateField label="Date" fieldColor='light' extraClasses={['py2']} dateFormat='%d/%m/%Y'/>
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
             <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
@@ -95,7 +95,7 @@ export default React.createClass({
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
               <NumberField label="Number" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <DateField label="Date" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
-              <ReactDateField label="ReactDate" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
+              <ReactDateField label="ReactDate" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <SimpleSelect label="Simple Select" fieldColor='dark' options={options} disabled={true} extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <Checkbox label="Checkbox" fieldColor='dark' disabled={true} extraClasses={['py2']}/>

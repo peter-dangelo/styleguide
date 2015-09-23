@@ -4,7 +4,15 @@ import DatePicker from './date_picker'
 const Type = React.PropTypes;
 
 export default React.createClass({
+
   displayName: "ReactDateField",
+
+  propTypes: {
+    disabled: Type.bool,
+    extraClasses: Type.arrayOf(Type.string),
+    fieldColor: Type.oneOf(['light', 'dark']),
+    label: Type.string,
+  },
 
   fieldClasses() {
     var classes = [];
@@ -77,7 +85,7 @@ export default React.createClass({
     };
 
     return (
-      <div className="date-field date-field-react-container relative">
+      <div className={"date-field date-field-react-container relative " + this.props.extraClasses}>
         <div style={style} onClick={this.hideDatePicker}></div>
         <div className={"date-field-react-wrapper no-select"}>
           {this.transferPropsTo(<DatePicker date={this.props.date} show={this.state.show} onChangeDate={this.onChangeDate} />)}

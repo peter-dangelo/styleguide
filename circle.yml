@@ -10,7 +10,7 @@ dependencies:
 test:
   override:
     - echo "TODO"
-    
+
 deployment:
   production:
     branch: master

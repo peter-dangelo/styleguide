@@ -22,7 +22,7 @@ export default React.createClass({
 
     return (
       <div className={className}>
-        <a className="semibold" href="#" onClick={this.handleClick}>{this.props.date.getDate()}</a>
+        <a className="semibold block center c-fade h4" href="#" onClick={this.handleClick}>{this.props.date.getDate()}</a>
       </div>
     );
   }

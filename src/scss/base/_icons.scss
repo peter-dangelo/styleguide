@@ -372,6 +372,7 @@ $icon-view: '\E04A';
 
 .icon-calendar {
   @include icon(calendar);
+  margin-top: 2px;
 }
 
 .icon-check {

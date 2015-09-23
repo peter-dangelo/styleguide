@@ -1,5 +1,43 @@
 export default  {
 
+  datepickerString(userFormat) {
+    switch(userFormat) {
+      case "%m/%d/%Y":
+        return 'mm/dd/yy'
+        break;
+      case "%d/%m/%Y":
+        return 'dd/mm/yy'
+        break;
+      case "%Y/%m/%d":
+        return 'yy/mm/dd'
+        break;
+      case "%b %d, %Y":
+        return 'M d, yy'
+        break;
+      default:
+        return null;
+    }
+  },
+
+  momentString(userFormat) {
+    switch(userFormat) {
+      case "%m/%d/%Y":
+        return 'MM/DD/YYYY'
+        break;
+      case "%d/%m/%Y":
+        return 'DD/MM/YYYY'
+        break;
+      case "%Y/%m/%d":
+        return 'YYYY/MM/DD'
+        break;
+      case "%b %d, %Y":
+        return 'MMM D, YYYY'
+        break;
+      default:
+        return null;
+    }
+  },
+
   createNewDay(date, time) {
     var newDate = new Date();
     newDate.setTime(time);
