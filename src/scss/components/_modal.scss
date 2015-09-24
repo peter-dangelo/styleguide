@@ -1,3 +1,11 @@
 .modal-background {
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+.modal-clear-bg {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}

@@ -14,7 +14,17 @@ export default React.createClass({
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
     onChange: Type.func,
-    value: Type.oneOfType([Type.string, Type.date])
+    // value: Type.oneOfType([Type.string, Type.date])
+  },
+
+  getDefaultProps() {
+    return {
+      disabled: false,
+      fieldColor: 'light',
+      label: 'Date',
+      onChange : function() {},
+      value : new Date(),
+    }
   },
 
   momentDate() {
@@ -29,16 +39,6 @@ export default React.createClass({
     var classes = [];
     classes.push('field-'+this.props.fieldColor);
     return classes.join(' ');
-  },
-
-  getDefaultProps() {
-    return {
-      disabled: false,
-      fieldColor: 'light',
-      label: 'Date',
-      onChange : function() {},
-      value : new Date(),
-    }
   },
 
   getInitialState() {
@@ -57,8 +57,14 @@ export default React.createClass({
     }
   },
 
+  maskClasses() {
+    var classes = ['icon-bg', 'rounded-2', 'icon-bg-' + this.props.fieldColor];
+    if (this.props.disabled) classes.push('disabled');
+    return classes.join(' ');
+  },
+
   showDatePicker() {
-    this.setState({show:true});
+    if (!this.props.disabled) this.setState({show:true});
   },
 
   hideDatePicker() {
@@ -71,40 +77,39 @@ export default React.createClass({
     this.props.onChange(date);
   },
 
-  propTypes: {
-    disabled: Type.bool,
-    extraClasses: Type.arrayOf(Type.string),
-    fieldColor: Type.oneOf(['light', 'dark']),
-    label: Type.string
+  datePicker() {
+    if (this.state.show) {
+      return (
+        <div>
+          <div className='modal-clear-bg' onClick={this.hideDatePicker}></div>
+          <DatePicker
+            date={this.momentDate().toDate()}
+            show={this.state.show}
+            onChangeDate={this.onChangeDate} />
+        </div>
+      );
+    }
   },
 
   render() {
-    var style = {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height:'100%',
-      display: (this.state.show ? 'block' : 'none'),
-      zIndex: '101'
-    };
-
+    console.log(this.props);
     return (
-      <div className={"date-field date-field-react-container relative " + this.props.extraClasses}>
-        <div style={style} onClick={this.hideDatePicker}></div>
-        <div className={"date-field-react-wrapper no-select"}>
-          {this.transferPropsTo(<DatePicker date={this.momentDate().toDate()} show={this.state.show} onChangeDate={this.onChangeDate} />)}
-        </div>
+      <div className="date-field date-field-react-container relative col-3 clearfix">
         {this.label()}
-        <br/>
-        <input
-          className="field-light relative"
-          disabled={this.props.disabled}
-          onFocus={this.showDatePicker}
-          readOnly
-          type="text"
-          value={this.momentDate().format(this.props.dateFormat)}/>
-        <span className={this.iconClasses()}></span>
+        <br />
+        {this.datePicker()}
+        <div className='relative rounded-2 overflow-hidden'>
+          <input
+            className={'relative fit ' + this.fieldClasses()}
+            disabled={this.props.disabled}
+            onFocus={this.showDatePicker}
+            readOnly
+            type="text"
+            value={this.momentDate().format(this.props.dateFormat)}/>
+          <span className={this.iconClasses()} onClick={this.showDatePicker}></span>
+          <div className={this.maskClasses()} onClick={this.showDatePicker}></div>
+        </div>
+        <div className="clearfix"></div>
       </div>
     );
   }
