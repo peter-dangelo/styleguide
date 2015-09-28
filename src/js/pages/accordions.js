@@ -56,14 +56,14 @@ export default React.createClass({
         <AccordionItem
           title={<h3 className="mb0 blue">{"Accordion Item 1"}</h3>}
           isOpen={this.state.accordionOpen}
-          containerClasses={['bt', 'bw-1', 'bc-blue-baby', 'px2']} >
+          containerClasses={['bt', 'bw-1', 'bc-blue-25', 'px2']} >
           <p>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum sapien, vitae posuere sapien consectetur sed. Suspendisse non lorem quis quam mollis vestibulum blandit sit amet lectus. Quisque sagittis sapien enim, quis maximus mauris fermentum non."}</p>
         </AccordionItem>
 
         <AccordionItem
           title={<h3 className="mb0 blue">{"Accordion Item 2"}</h3>}
           isOpen={this.state.accordionOpen}
-          containerClasses={['bt', 'bw-1', 'bc-blue-baby', 'px2']} >
+          containerClasses={['bt', 'bw-1', 'bc-blue-25', 'px2']} >
           <p>{"Morbi elit dui, pellentesque a malesuada et, lobortis sit amet nisl. Integer purus lorem, sodales aliquam facilisis non, iaculis id nisl. Nam fringilla elementum turpis, a venenatis risus luctus ac. Ut rhoncus viverra mi, ut sodales nibh sollicitudin ut. Ut ut elit sit amet magna semper blandit. "}</p>
         </AccordionItem>
 
