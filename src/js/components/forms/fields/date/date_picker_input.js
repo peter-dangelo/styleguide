@@ -1,17 +1,16 @@
 import React from 'react';
 import DatePicker from './date_picker';
+import DateUtils from './date_utils';
 import Moment from 'moment';
 
 const Type = React.PropTypes;
 
 export default React.createClass({
 
-  validFormats: ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY'],
-
   displayName: "ReactDateField",
 
   propTypes: {
-    dateFormat: Type.oneOf(this.validFormats),
+    dateFormat: Type.oneOf(DateUtils.validFormats),
     disabled: Type.bool,
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
@@ -94,7 +93,7 @@ export default React.createClass({
   },
 
   value() {
-    if (this.validFormats.indexOf(this.props.dateFormat) != -1) {
+    if (DateUtils.validFormats.indexOf(this.props.dateFormat) != -1) {
       return this.momentDate().format(this.props.dateFormat);
     } else {
       return "Invalid date format";
@@ -103,7 +102,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="date-field date-field-react-container relative col-3 clearfix">
+      <div className="date-field date-field-react-container relative clearfix">
         {this.label()}
         <br />
         {this.datePicker()}

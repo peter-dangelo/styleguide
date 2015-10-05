@@ -1,5 +1,7 @@
 export default  {
 
+  validFormats: ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY'],
+
   createNewDay(date, time) {
     var newDate = new Date();
     newDate.setTime(time);
