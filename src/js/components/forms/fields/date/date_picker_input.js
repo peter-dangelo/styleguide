@@ -6,10 +6,12 @@ const Type = React.PropTypes;
 
 export default React.createClass({
 
+  validFormats: ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY'],
+
   displayName: "ReactDateField",
 
   propTypes: {
-    dateFormat: Type.oneOf(['MM/DD/YYYY','DD/MM/YYYY', 'YYYY/MM/DD','MMM D, YYYY']),
+    dateFormat: Type.oneOf(this.validFormats),
     disabled: Type.bool,
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
@@ -42,7 +44,7 @@ export default React.createClass({
   },
 
   getInitialState() {
-    return {show:false};
+    return {show: false};
   },
 
   iconClasses() {
@@ -91,6 +93,14 @@ export default React.createClass({
     }
   },
 
+  value() {
+    if (this.validFormats.indexOf(this.props.dateFormat) != -1) {
+      return this.momentDate().format(this.props.dateFormat);
+    } else {
+      return "Invalid date format";
+    }
+  },
+
   render() {
     return (
       <div className="date-field date-field-react-container relative col-3 clearfix">
@@ -104,7 +114,7 @@ export default React.createClass({
             onFocus={this.showDatePicker}
             readOnly
             type="text"
-            value={this.momentDate().format(this.props.dateFormat)}/>
+            value={this.value()} />
           <span className={this.iconClasses()} onClick={this.showDatePicker}></span>
           <div className={this.maskClasses()} onClick={this.showDatePicker}></div>
         </div>
