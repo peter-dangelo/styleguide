@@ -92,7 +92,6 @@ export default React.createClass({
   },
 
   render() {
-    console.log(this.props);
     return (
       <div className="date-field date-field-react-container relative col-3 clearfix">
         {this.label()}
