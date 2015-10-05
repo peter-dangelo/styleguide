@@ -72,7 +72,7 @@ export default React.createClass({
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' disabled={true} extraClasses={['py2']} />
             <DateField label="Date" fieldColor='light' disabled={true} />
-            <ReactDateField label="ReactDate" fieldColor='light' disabled={true} extraClasses={['py2']}/>
+            <ReactDateField label="ReactDate" fieldColor='light' disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
             <div className='clearfix'></div>
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} disabled={true} extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  disabled={true} extraClasses={['py2']} />
@@ -85,7 +85,7 @@ export default React.createClass({
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" extraClasses={['py2']}/>
               <NumberField label="Number" fieldColor='dark' extraClasses={['py2']} units="Units" />
               <DateField label="Date" fieldColor='dark' extraClasses={['py2']}/>
-              <ReactDateField label="Date" fieldColor='dark' extraClasses={['py2']}/>
+              <ReactDateField label="Date" fieldColor='dark' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
               <div className='clearfix'></div>
               <SimpleSelect label="Simple Select" fieldColor='dark' options={options} promptText="- Select -" extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' extraClasses={['py2']}/>
@@ -98,7 +98,7 @@ export default React.createClass({
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
               <NumberField label="Number" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <DateField label="Date" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
-              <ReactDateField label="ReactDate" fieldColor='dark' disabled={true} extraClasses={['py2']} />
+              <ReactDateField label="ReactDate" fieldColor='dark' disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />
               <div className='clearfix'></div>
               <SimpleSelect label="Simple Select" fieldColor='dark' options={options} disabled={true} extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' disabled={true} extraClasses={['py2']} />
