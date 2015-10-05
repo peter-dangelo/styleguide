@@ -18,7 +18,7 @@ export default React.createClass({
 
   render() {
     var className = "date-field-react-day week-" + this.props.week + " day-in-week-" + this.props.date.getDay();
-    className += (this.props.selected ? ' bc-blue-secondary bg-grey-95 bw-1 b white' : ' grey-25');
+    className += (this.props.selected ? ' bc-blue-50 bg-grey-95 bw-1 b white' : ' grey-25');
 
     return (
       <div className={className}>
