@@ -6,6 +6,13 @@ const Type = React.PropTypes;
 export default React.createClass({
   displayName: "SimpleSelect",
 
+  propTypes: {
+    includeBlank: Type.oneOfType([Type.bool, Type.string]),
+    options: Type.oneOfType([Type.object, Type.array]).isRequired,
+    placeholder: Type.string,
+    value: Type.oneOfType([Type.string, Type.number])
+  },
+
   componentWillMount() {
     this.setState({value: this.props.value || null});
   },
