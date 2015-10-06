@@ -54,12 +54,12 @@ export default React.createClass({
       'px2',
       'py1',
       this.state.show_options ? 'rounded-top-2' : 'rounded-2',
-      this.props.disabled ? 'grey-25' : 'pointer'
+      this.props.disabled ? 'grey-50' : 'pointer'
     ];
     let arrowClasses = [
       'h6',
       'relative',
-      this.props.disabled ? 'grey-225' : 'blue-70',
+      this.props.disabled ? 'grey-50' : 'blue-70',
       this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'
     ];
     let arrowStyle = {
