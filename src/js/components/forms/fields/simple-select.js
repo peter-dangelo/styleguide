@@ -23,15 +23,18 @@ export default React.createClass({
     }
   },
 
-  // getDefaultProps() {
-  // },
-
-  onClickOption(option, e) {
-    e.preventDefault();
+  onClickOption(option) {
     this.setState({
-      value: option.value,
+      value: option,
       show_options: false
     });
+  },
+
+  onClickOptionEmpty() {
+    this.setState({
+      value: null,
+      show_options: false}
+    );
   },
 
   onClickValue() {
