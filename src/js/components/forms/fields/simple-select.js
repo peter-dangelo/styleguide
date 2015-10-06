@@ -41,7 +41,7 @@ export default React.createClass({
   },
 
   renderValue() {
-    let selectedOption = _.find(this.props.options, (option) => option.value == this.state.value );
+    let value = this.props.options[this.state.value] || this.props.placeholder;
     let valueClasses = [
       'b',
       'bc-grey-25',
@@ -65,7 +65,7 @@ export default React.createClass({
 
     return (
       <div className={valueClasses.join(' ')} onClick={this.onClickValue}>
-        <div>{selectedOption ? selectedOption.label : this.props.promptText}</div>
+        <div>{value}</div>
         <div className={arrowClasses.join(' ')} style={arrowStyle} />
       </div>
     );
