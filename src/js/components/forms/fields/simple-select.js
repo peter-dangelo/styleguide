@@ -77,9 +77,9 @@ export default React.createClass({
       'right-0',
       'rounded-bottom-2'
     ];
-    let options = this.props.options.map( (option) => {
+    let options = this.props.options.map( (option, index) => {
       return (
-        <div className="option pointer px2 py1" onClick={this.onClickOption.bind(this, option)}>
+        <div key={index} className="option pointer px2 py1" onClick={this.onClickOption.bind(this, option)}>
           {option.label}
         </div>
       );
