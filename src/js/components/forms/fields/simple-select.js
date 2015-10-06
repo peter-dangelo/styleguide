@@ -72,7 +72,7 @@ export default React.createClass({
   },
 
   renderOptions() {
-    let classes = [
+    let optionsContainerClasses = [
       'absolute',
       'bc-grey-25',
       'bg-white',
@@ -84,15 +84,29 @@ export default React.createClass({
       'right-0',
       'rounded-bottom-2'
     ];
-    let options = this.props.options.map( (option, index) => {
+    let optionClasses = [
+      'option',
+      'pointer',
+      'px2',
+      'py1'
+    ];
+    let emptyOption = (
+      <div className={optionClasses.concat('grey-50').join(' ')} onClick={this.onClickOptionEmpty}>
+        {typeof this.props.includeBlank == "string" ? this.props.includeBlank : "--"}
+      </div>
+    );
+    let options = Object.keys(this.props.options).map( (key, index) => {
       return (
-        <div key={index} className="option pointer px2 py1" onClick={this.onClickOption.bind(this, option)}>
-          {option.label}
+        <div key={index} className={optionClasses.join(' ')} onClick={this.onClickOption.bind(this, key)}>
+          {this.props.options[key]}
         </div>
       );
     });
     return (
-      <div className={classes.join(' ')}>{options}</div>
+      <div className={optionsContainerClasses.join(' ')}>
+        {this.props.includeBlank ? emptyOption : false}
+        {options}
+      </div>
     );
   },
 
