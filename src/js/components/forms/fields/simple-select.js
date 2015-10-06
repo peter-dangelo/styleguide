@@ -1,82 +1,101 @@
 import React from 'react';
+import _ from 'underscore';
 
 const Type = React.PropTypes;
 
 export default React.createClass({
   displayName: "SimpleSelect",
 
-  propTypes: {
-    extraClasses: Type.arrayOf(Type.string),
-    disabled: Type.bool,
-    fieldColor: Type.oneOf(['light', 'dark']),
-    label: Type.string,
-    multiple: Type.bool,
-    options: Type.object,
-    promptText: Type.string,
-    readOnly: Type.bool
+  componentWillMount() {
+    this.setState({value: this.props.value || null});
   },
 
-  getDefaultProps() {
+  getInitialState() {
     return {
-      disabled: false,
-      fieldColor: 'light',
-      inactive: false,
-      multiple: false,
-      readOnly: false
+      show_options: false
     }
   },
 
-  label() {
-    if(this.props.label) {
-      return <label className="px2 mb1">{this.props.label}</label>;
+  // getDefaultProps() {
+  // },
+
+  onClickOption(option, e) {
+    e.preventDefault();
+    this.setState({
+      value: option.value,
+      show_options: false
+    });
+  },
+
+  onClickValue() {
+    if(!this.props.disabled) {
+      this.setState({show_options: !this.state.show_options});
     }
   },
 
-  options() {
-    var options = this.props.options;
-    if(this.props.promptText) {
-      options.unshift({'value':'','label':this.props.promptText});
-    }
-    return options;
+  renderValue() {
+    let selectedOption = _.find(this.props.options, (option) => option.value == this.state.value );
+    let valueClasses = [
+      'b',
+      'bc-grey-25',
+      'bw-1',
+      'flex',
+      'flex-justify',
+      'px2',
+      'py1',
+      this.state.show_options ? 'rounded-top-2' : 'rounded-2',
+      this.props.disabled ? 'grey-25' : 'pointer'
+    ];
+    let arrowClasses = [
+      'h6',
+      this.props.disabled ? 'grey-225' : 'blue-70',
+      this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'
+    ];
+
+    return (
+      <div className={valueClasses.join(' ')} onClick={this.onClickValue}>
+        <span>{selectedOption ? selectedOption.label : this.props.promptText}</span>
+        <span className={arrowClasses.join(' ')} />
+      </div>
+    );
   },
 
-  iconClasses() {
-    var classes = ['icon', 'icon-arrow-down', 'absolute', 'right', 'mxn3'];
-    this.props.disabled ? classes.push('grey-25') : classes.push('blue-70');
-    return classes.join(' ');
-  },
-
-  fieldClasses() {
-    var classes = [];
-    classes.push('select-'+this.props.fieldColor);
-    return classes.join(' ');
-  },
-
-  classes() {
-    var classes = ['simple-select'];
-    if(this.props.disabled) {
-      classes.push('disabled');
-    }
-    classes.push(this.props.extraClasses);
-    return classes.join(' ');
+  renderOptions() {
+    let classes = [
+      'absolute',
+      'bc-grey-25',
+      'bg-white',
+      'bb',
+      'bl',
+      'br',
+      'bw-1',
+      'left-0',
+      'right-0',
+      'rounded-bottom-2'
+    ];
+    let options = this.props.options.map( (option) => {
+      return (
+        <div className="option pointer px3 py1" onClick={this.onClickOption.bind(this, option)}>
+          {option.label}
+        </div>
+      );
+    });
+    return (
+      <div className={classes.join(' ')}>{options}</div>
+    );
   },
 
   render() {
-    return  <div className={this.classes()}>
-        {this.label()}
-        <div className="relative">
-          <select
-            className={this.fieldClasses()}
-            multiple={this.props.multiple}
-            disabled={this.props.disabled || this.props.inactive || this.props.readOnly}
-          >
-            {this.options().map(function(option){
-              return <option value={option.value}>{option.label}</option>;
-            })}
-          </select>
-          <span className={this.iconClasses()}></span>
 
-        </div>
+    let value = this.renderValue();
+    let options = this.renderOptions();
+
+    return (
+      <div className="simple-select relative">
+        <input type="hidden" name={this.props.name} value={this.state.value} disabled={this.props.disabled} />
+        {value}
+        {this.state.show_options ? options : false}
       </div>
+    );
   }
 });
