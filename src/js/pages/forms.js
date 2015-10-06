@@ -57,7 +57,10 @@ export default React.createClass({
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' extraClasses={['py2']} units="Units"  />
             <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
-            <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
+            <SimpleSelect
+              disabled={false}
+              options={options}
+              promptText="- Select -"/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
             <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' extraClasses={['py2']}/>
