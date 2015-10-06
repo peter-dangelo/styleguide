@@ -48,14 +48,18 @@ export default React.createClass({
     ];
     let arrowClasses = [
       'h6',
+      'relative',
       this.props.disabled ? 'grey-225' : 'blue-70',
       this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'
     ];
+    let arrowStyle = {
+      top: 1
+    };
 
     return (
       <div className={valueClasses.join(' ')} onClick={this.onClickValue}>
-        <span>{selectedOption ? selectedOption.label : this.props.promptText}</span>
-        <span className={arrowClasses.join(' ')} />
+        <div>{selectedOption ? selectedOption.label : this.props.promptText}</div>
+        <div className={arrowClasses.join(' ')} style={arrowStyle} />
       </div>
     );
   },
