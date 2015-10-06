@@ -18,6 +18,13 @@ var options = [
     { value: 'san_francisco', label: 'San Francisco' }
 ];
 
+var simpleSelectOptions = {
+  london: 'London',
+  newyork: 'New York',
+  chicago: 'Chicago' ,
+  san_francisco: 'San Francisco'
+};
+
 function _onChange(val) {
   console.log("Selected: " + val);
 }
