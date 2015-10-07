@@ -133,10 +133,10 @@ label {
 
 [type=radio] {
   -webkit-appearance: none;
-  height: 14px;
+  height: 16px;
   padding: 0;
   position: relative;
-  width: 14px;
+  width: 16px;
 
   &:disabled:after {
     cursor: default;
@@ -162,7 +162,7 @@ label {
     height: 8px;
     left: 4px;
     position: absolute;
-    top: 4px; 
+    top: 4px;
     width: 8px;
     z-index: 1;
   }
@@ -175,8 +175,8 @@ label {
 
 // fields on white background
 .field-light {
-  background: $blue-light;
-  border: 1px solid $blue-light;
+  background: $blue-05;
+  border: 1px solid $blue-05;
 }
 
 .field-light:disabled {
