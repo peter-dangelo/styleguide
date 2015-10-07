@@ -70,7 +70,10 @@ export default React.createClass({
   },
 
   renderValue() {
-    let value = this.props.options[this.state.value] || this.props.placeholder;
+
+    let options = this.props.options;
+    let value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
+
     let valueClasses = [
       'b',
       'bc-grey-25',
