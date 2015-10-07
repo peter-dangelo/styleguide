@@ -18,12 +18,14 @@ var options = [
     { value: 'san_francisco', label: 'San Francisco' }
 ];
 
-var simpleSelectOptions = {
+var simpleSelectOptionsObject = {
   london: 'London',
   newyork: 'New York',
   chicago: 'Chicago' ,
   san_francisco: 'San Francisco'
 };
+
+var simpleSelectOptionsArray = ['London','New York','Chicago','San Francisco'];
 
 function _onChange(val) {
   console.log("Selected: " + val);
