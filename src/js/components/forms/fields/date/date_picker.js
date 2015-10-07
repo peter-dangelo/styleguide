@@ -7,16 +7,27 @@ const Type = React.PropTypes;
 
 export default React.createClass({
 
-  onChangeVisibleDate: function(date) {
+  displayName: "ReactDateField",
+
+  propTypes: {
+    disabled: Type.bool,
+    extraClasses: Type.arrayOf(Type.string),
+    fieldColor: Type.oneOf(['light', 'dark']),
+    label: Type.string,
+    onChangeDate: Type.func,
+    show: Type.bool
+  },
+
+  onChangeVisibleDate(date) {
     this.setState({visibleDate:date});
   },
 
-  onChangeSelectedDate: function(date) {
+  onChangeSelectedDate(date) {
     this.setState({visibleDate:date});
     this.props.onChangeDate(date);
   },
 
-  getDefaultProps: function() {
+  getDefaultProps() {
     return({
       date : new Date(),
       show : true,
@@ -27,29 +38,32 @@ export default React.createClass({
     });
   },
 
-  getInitialState: function() {
+  getInitialState() {
     var date = new Date();
-    date.setTime(this.props['date'].getTime());
+    date.setTime(this.props.date.getTime());
     return({visibleDate:date});
   },
 
-  changeYear: function(year) {
+  changeYear(year) {
     var date = new Date();
     date.setTime(this.state.visibleDate.getTime());
     date.setFullYear(year);
     this.setState({visibleDate:date});
   },
 
-  changeMonth: function(month) {
+  changeMonth(month) {
     var date = new Date();
     date.setTime(this.state.visibleDate.getTime());
     date.setMonth(month);
     this.setState({visibleDate:date});
   },
 
-  render: function () {
+  render() {
 
-    var style = {visibility: (this.props.show ? 'visible' : 'hidden')};
+    var style = {
+      visibility: (this.props.show ? 'visible' : 'hidden'),
+      zIndex: this.props.zIndex
+    };
 
     return (
       <div className="date-field-react bg-grey-90 rounded-3 p3 no-select" style={style}>

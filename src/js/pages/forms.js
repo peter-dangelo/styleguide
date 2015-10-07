@@ -48,6 +48,10 @@ export default React.createClass({
     return val.length;
   },
 
+  _exludedDates() {
+
+  },
+
   render() {
     return <Styleguide title="Forms Styles">
         <div title="Forms">
@@ -59,6 +63,8 @@ export default React.createClass({
             <NumberField label="Number" fieldColor='light' extraClasses={['py2']} units="Units"  />
             <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
             <ReactDateField label="Date" fieldColor='light' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
+            <div className='clearfix'></div>
+            <ReactDateField label="With Excluded Dates" fieldColor='light' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
             <div className='clearfix'></div>
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />

@@ -36,30 +36,41 @@ export default React.createClass({
     }
   },
 
-  fieldClasses() {
-    var classes = [];
-    classes.push('field-'+this.props.fieldColor);
-    return classes.join(' ');
+  baseZIndex() {
+    return this.state.show ? 300 : 1;
   },
 
   getInitialState() {
     return {show: false};
   },
 
+  label() {
+    if (this.props.label) {
+      return <label onClick={this.showDatePicker} className="px2 mb1">{this.props.label}</label>;
+    }
+  },
+
+  containerClasses() {
+    var classes = ['date-field', 'date-field-react-container', 'relative'];
+    if (this.props.disabled) classes.push('disabled');
+    classes.push(this.props.extraClasses);
+    return classes.join(' ');
+  },
+
+  fieldClasses() {
+    var classes = ['relative', 'fit'];
+    classes.push('field-'+this.props.fieldColor);
+    return classes.join(' ');
+  },
+
   iconClasses() {
-    var classes = ['icon', 'icon-calendar', 'ml1'];
+    var classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
     this.props.disabled ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
   },
 
-  label() {
-    if(this.props.label) {
-      return <label htmlFor={this.props.id} className="px2 mb1">{this.props.label}</label>;
-    }
-  },
-
   maskClasses() {
-    var classes = ['icon-bg', 'rounded-2', 'icon-bg-' + this.props.fieldColor];
+    var classes = ['icon-bg', 'rounded-2', 'absolute', 'icon-bg-'+this.props.fieldColor];
     if (this.props.disabled) classes.push('disabled');
     return classes.join(' ');
   },
@@ -82,8 +93,12 @@ export default React.createClass({
     if (this.state.show) {
       return (
         <div>
-          <div className='modal-clear-bg' onClick={this.hideDatePicker}></div>
+          <div
+            className='modal-clear-bg'
+            onClick={this.hideDatePicker}
+            style={{zIndex: this.baseZIndex()-2}}></div>
           <DatePicker
+            zIndex={this.baseZIndex()-1}
             date={this.momentDate().toDate()}
             show={this.state.show}
             onChangeDate={this.onChangeDate} />
@@ -102,20 +117,27 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="date-field date-field-react-container relative clearfix">
+      <div className={this.containerClasses()}>
         {this.label()}
         <br />
         {this.datePicker()}
-        <div className='relative rounded-2 overflow-hidden no-select'>
+        <div className='relative rounded-2 overflow-hidden no-select' style={{zIndex: this.baseZIndex()}}>
           <input
-            className={'relative fit ' + this.fieldClasses()}
+            className={this.fieldClasses()}
             disabled={this.props.disabled}
             onFocus={this.showDatePicker}
+            onfocusout={this.hideDatePicker}
             readOnly
             type="text"
             value={this.value()} />
-          <span className={this.iconClasses()} onClick={this.showDatePicker}></span>
-          <div className={this.maskClasses()} onClick={this.showDatePicker}></div>
+          <span
+            className={this.iconClasses()}
+            onClick={this.showDatePicker}
+            style={{zIndex: this.baseZIndex()+2}}></span>
+          <div
+            className={this.maskClasses()}
+            onClick={this.showDatePicker}
+            style={{zIndex: this.baseZIndex()+1}}></div>
         </div>
         <div className="clearfix"></div>
       </div>
