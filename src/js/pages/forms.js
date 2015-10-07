@@ -27,6 +27,10 @@ var simpleSelectOptionsObject = {
 
 var simpleSelectOptionsArray = ['London','New York','Chicago','San Francisco'];
 
+function simpleSelectChange() {
+  console.log(this.refs.citySelect.state.value);
+}
+
 function _onChange(val) {
   console.log("Selected: " + val);
 }
@@ -69,8 +73,9 @@ export default React.createClass({
             <div>
               <label className="px2 mb1">Simple Select</label>
               <SimpleSelect
-                onChange={() => {console.log('simple select changed')}}
+                onChange={simpleSelectChange.bind(this)}
                 name='city'
+                ref='citySelect'
                 options={simpleSelectOptionsObject}
                 placeholder="- Select -"/>
             </div>
