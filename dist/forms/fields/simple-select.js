@@ -10,58 +10,155 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashFind = require('lodash.find');
+var _underscore = require('underscore');
 
-var _lodashFind2 = _interopRequireDefault(_lodashFind);
+var _underscore2 = _interopRequireDefault(_underscore);
 
 var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
   displayName: "SimpleSelect",
 
+  propTypes: {
+    includeBlank: Type.oneOfType([Type.bool, Type.string]),
+    options: Type.oneOfType([Type.object, Type.array]).isRequired,
+    placeholder: Type.string,
+    value: Type.oneOfType([Type.string, Type.number]),
+    name: Type.string
+  },
+
   componentWillMount: function componentWillMount() {
-    this.setState({ value: this.props.value });
+    this.setState({ value: this.props.value || null });
   },
 
-  onClickOption: function onClickOption(option, e) {
-    e.preventDefault();
-    this.setState({ value: option.value });
+  componentDidMount: function componentDidMount() {
+    document.addEventListener('click', this.onDocumentClick);
   },
 
-  render: function render() {
-    var _this = this;
+  componentWillUnmount: function componentWillUnmount() {
+    document.removeEventListener('click', this.onDocumentClick);
+  },
 
-    console.log('find', _lodashFind2['default']);
+  getInitialState: function getInitialState() {
+    return {
+      show_options: false
+    };
+  },
 
-    var options = this.props.options.map(function (option) {
-      return _react2['default'].createElement(
-        'div',
-        null,
-        _react2['default'].createElement(
-          'a',
-          { href: '#', onClick: _this.onClickOption.bind(_this, option) },
-          option.label
-        )
-      );
+  onDocumentClick: function onDocumentClick(e) {
+    var componentNode = this.getDOMNode();
+    var targetNode = e.target;
+    if (!componentNode.contains(targetNode)) {
+      this.setState({ show_options: false });
+    }
+  },
+
+  onClickOption: function onClickOption(option) {
+    this.setState({
+      value: option,
+      show_options: false
     });
+  },
 
-    var value = _react2['default'].createElement(
-      'div',
-      null,
-      this.state.value
-    );
+  onClickOptionEmpty: function onClickOptionEmpty() {
+    this.setState({
+      value: null,
+      show_options: false });
+  },
+
+  onClickValue: function onClickValue() {
+    if (!this.props.disabled) {
+      this.setState({ show_options: !this.state.show_options });
+    }
+  },
+
+  optionsArray: function optionsArray() {
+    var options = this.props.options;
+    return typeof options === 'object' && Array.isArray(options) ? options : false;
+  },
+
+  optionsObject: function optionsObject() {
+    var options = this.props.options;
+    return typeof options === 'object' && !Array.isArray(options) ? options : false;
+  },
+
+  renderValue: function renderValue() {
+
+    var options = this.props.options;
+    var value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
+
+    var valueClasses = ['b', 'bc-grey-25', 'bw-1', 'flex', 'flex-justify', 'px2', 'py1', this.state.show_options ? 'rounded-top-2' : 'rounded-2', this.props.disabled ? 'grey-50' : 'pointer'];
+    var arrowClasses = ['h6', 'relative', this.props.disabled ? 'grey-50' : 'blue-70', this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'];
+    var arrowStyle = {
+      top: 1
+    };
 
     return _react2['default'].createElement(
       'div',
-      null,
+      { className: valueClasses.join(' '), onClick: this.onClickValue },
       _react2['default'].createElement(
         'div',
-        { className: 'orange' },
-        'SELECT'
+        null,
+        value ? value : this.props.placeholder
       ),
+      _react2['default'].createElement('div', { className: arrowClasses.join(' '), style: arrowStyle })
+    );
+  },
+
+  renderOptionsFromObject: function renderOptionsFromObject(classes) {
+    var _this = this;
+
+    return Object.keys(this.props.options).map(function (key, index) {
+      return _react2['default'].createElement(
+        'div',
+        { key: index, className: classes.join(' '), onClick: _this.onClickOption.bind(_this, key) },
+        _this.props.options[key]
+      );
+    });
+  },
+
+  renderOptionsFromArray: function renderOptionsFromArray(classes) {
+    var _this2 = this;
+
+    return this.props.options.map(function (option, index) {
+      return _react2['default'].createElement(
+        'div',
+        { key: index, className: classes.join(' '), onClick: _this2.onClickOption.bind(_this2, option) },
+        option
+      );
+    });
+  },
+
+  renderOptions: function renderOptions() {
+    var optionsContainerClasses = ['absolute', 'bc-grey-25', 'bg-white', 'bb', 'bl', 'br', 'bw-1', 'left-0', 'right-0', 'rounded-bottom-2'];
+    var optionClasses = ['option', 'pointer', 'px2', 'py1'];
+    var emptyOption = _react2['default'].createElement(
+      'div',
+      { className: optionClasses.concat('grey-50').join(' '), onClick: this.onClickOptionEmpty },
+      typeof this.props.includeBlank == "string" ? this.props.includeBlank : "--"
+    );
+
+    var options = this.optionsObject() ? this.renderOptionsFromObject(optionClasses) : this.renderOptionsFromArray(optionClasses);
+
+    return _react2['default'].createElement(
+      'div',
+      { className: optionsContainerClasses.join(' ') },
+      this.props.includeBlank ? emptyOption : false,
+      options
+    );
+  },
+
+  render: function render() {
+
+    var value = this.renderValue();
+    var options = this.renderOptions();
+
+    return _react2['default'].createElement(
+      'div',
+      { className: 'simple-select relative' },
       _react2['default'].createElement('input', { type: 'hidden', name: this.props.name, value: this.state.value, disabled: this.props.disabled }),
       value,
-      options
+      this.state.show_options ? options : false
     );
   }
 });
