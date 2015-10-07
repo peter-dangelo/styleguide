@@ -24,7 +24,8 @@ exports['default'] = _react2['default'].createClass({
     options: Type.oneOfType([Type.object, Type.array]).isRequired,
     placeholder: Type.string,
     value: Type.oneOfType([Type.string, Type.number]),
-    name: Type.string
+    name: Type.string,
+    onChange: Type.func
   },
 
   componentWillMount: function componentWillMount() {
@@ -37,6 +38,12 @@ exports['default'] = _react2['default'].createClass({
 
   componentWillUnmount: function componentWillUnmount() {
     document.removeEventListener('click', this.onDocumentClick);
+  },
+
+  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
+    if (this.state.value != prevState.value) {
+      this.props.onChange();
+    }
   },
 
   getInitialState: function getInitialState() {
