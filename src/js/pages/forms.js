@@ -82,7 +82,6 @@ export default React.createClass({
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' disabled={true} extraClasses={['py2']} />
             <DateField label="Date" fieldColor='light' disabled={true} />
-            <SimpleSelect label="Simple Select" fieldColor='light' options={options} disabled={true} extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  disabled={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' disabled={true} extraClasses={['py2']}/>
             <Radio name="radios2" fieldColor='light' label="Radio" disabled={true} extraClasses={['py2']} />
@@ -93,7 +92,6 @@ export default React.createClass({
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" extraClasses={['py2']}/>
               <NumberField label="Number" fieldColor='dark' extraClasses={['py2']} units="Units" />
               <DateField label="Date" fieldColor='dark' extraClasses={['py2']}/>
-              <SimpleSelect label="Simple Select" fieldColor='dark' options={options} promptText="- Select -" extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' extraClasses={['py2']}/>
               <Checkbox label="Checkbox" fieldColor='dark' extraClasses={['py2']}/>
               <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
@@ -104,7 +102,6 @@ export default React.createClass({
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
               <NumberField label="Number" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <DateField label="Date" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
-              <SimpleSelect label="Simple Select" fieldColor='dark' options={options} disabled={true} extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <Checkbox label="Checkbox" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
               <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
