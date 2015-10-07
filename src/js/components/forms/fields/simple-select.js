@@ -97,7 +97,7 @@ export default React.createClass({
 
     return (
       <div className={valueClasses.join(' ')} onClick={this.onClickValue}>
-        <div>{value}</div>
+        <div>{value ? value : this.props.placeholder}</div>
         <div className={arrowClasses.join(' ')} style={arrowStyle} />
       </div>
     );
