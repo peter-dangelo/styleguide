@@ -106,7 +106,7 @@ export default React.createClass({
         {this.label()}
         <br />
         {this.datePicker()}
-        <div className='relative rounded-2 overflow-hidden'>
+        <div className='relative rounded-2 overflow-hidden no-select'>
           <input
             className={'relative fit ' + this.fieldClasses()}
             disabled={this.props.disabled}

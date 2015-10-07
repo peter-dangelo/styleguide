@@ -52,7 +52,7 @@ export default React.createClass({
     var style = {visibility: (this.props.show ? 'visible' : 'hidden')};
 
     return (
-      <div className="date-field-react bg-grey-90 rounded-3 p3" style={style}>
+      <div className="date-field-react bg-grey-90 rounded-3 p3 no-select" style={style}>
         <div className="date-field-react-container">
           <MonthPicker
             date={this.state.visibleDate}
