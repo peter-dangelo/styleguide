@@ -147,13 +147,9 @@ export default React.createClass({
         {typeof this.props.includeBlank == "string" ? this.props.includeBlank : "--"}
       </div>
     );
-    let options = Object.keys(this.props.options).map( (key, index) => {
-      return (
-        <div key={index} className={optionClasses.join(' ')} onClick={this.onClickOption.bind(this, key)}>
-          {this.props.options[key]}
-        </div>
-      );
-    });
+
+    let options = this.optionsObject() ? this.renderOptionsFromObject(optionClasses) : this.renderOptionsFromArray(optionClasses);
+
     return (
       <div className={optionsContainerClasses.join(' ')}>
         {this.props.includeBlank ? emptyOption : false}
