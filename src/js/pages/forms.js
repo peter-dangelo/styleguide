@@ -69,8 +69,7 @@ export default React.createClass({
             <div>
               <label className="px2 mb1">Simple Select</label>
               <SimpleSelect
-                value={'newyork'}
-                options={simpleSelectOptions}
+                options={simpleSelectOptionsObject}
                 placeholder="- Select -"/>
             </div>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
