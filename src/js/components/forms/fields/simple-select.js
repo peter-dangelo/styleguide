@@ -103,6 +103,26 @@ export default React.createClass({
     );
   },
 
+  renderOptionsFromObject(classes) {
+    return Object.keys(this.props.options).map( (key, index) => {
+      return (
+        <div key={index} className={classes.join(' ')} onClick={this.onClickOption.bind(this, key)}>
+          {this.props.options[key]}
+        </div>
+      );
+    });
+  },
+
+  renderOptionsFromArray(classes) {
+    return this.props.options.map((option, index) => {
+      return (
+        <div key={index} className={classes.join(' ')} onClick={this.onClickOption.bind(this, option)}>
+          {option}
+        </div>
+      );
+    });
+  },
+
   renderOptions() {
     let optionsContainerClasses = [
       'absolute',
