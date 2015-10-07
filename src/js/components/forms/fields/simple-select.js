@@ -11,7 +11,8 @@ export default React.createClass({
     options: Type.oneOfType([Type.object, Type.array]).isRequired,
     placeholder: Type.string,
     value: Type.oneOfType([Type.string, Type.number]),
-    name: Type.string
+    name: Type.string,
+    onChange: Type.func
   },
 
   componentWillMount() {
@@ -24,6 +25,12 @@ export default React.createClass({
 
   componentWillUnmount() {
     document.removeEventListener('click', this.onDocumentClick);
+  },
+
+  componentDidUpdate(prevProps, prevState) {
+    if(this.state.value != prevState.value) {
+      this.props.onChange();
+    }
   },
 
   getInitialState() {

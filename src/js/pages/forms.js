@@ -69,6 +69,7 @@ export default React.createClass({
             <div>
               <label className="px2 mb1">Simple Select</label>
               <SimpleSelect
+                onChange={() => {console.log('simple select changed')}}
                 name='city'
                 options={simpleSelectOptionsObject}
                 placeholder="- Select -"/>
