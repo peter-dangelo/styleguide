@@ -59,6 +59,16 @@ export default React.createClass({
     }
   },
 
+  optionsArray() {
+    let options = this.props.options;
+    return (typeof options === 'object' && Array.isArray(options)) ? options : false;
+  },
+
+  optionsObject() {
+    let options = this.props.options;
+    return (typeof options === 'object' && !Array.isArray(options)) ? options : false;
+  },
+
   renderValue() {
     let value = this.props.options[this.state.value] || this.props.placeholder;
     let valueClasses = [
