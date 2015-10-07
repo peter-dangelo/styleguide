@@ -17,9 +17,25 @@ export default React.createClass({
     this.setState({value: this.props.value || null});
   },
 
+  componentDidMount() {
+    document.addEventListener('click', this.onDocumentClick);
+  },
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onDocumentClick);
+  },
+
   getInitialState() {
     return {
       show_options: false
+    }
+  },
+
+  onDocumentClick(e) {
+    let componentNode = this.getDOMNode();
+    let targetNode = e.target;
+    if(!componentNode.contains(targetNode)) {
+      this.setState({show_options: false})
     }
   },
 
