@@ -101,18 +101,19 @@ exports['default'] = _react2['default'].createClass({
     var options = this.props.options;
     var value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
 
-    var valueClasses = ['b', 'bw-1', 'flex', 'flex-justify', 'px2', 'py1', this.state.show_options ? 'rounded-top-2' : 'rounded-2', this.props.disabled ? 'grey-50' : 'pointer', this.props.borderColorClass];
-    var arrowClasses = ['h6', 'relative', this.props.disabled ? 'grey-50' : 'blue-70', this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'];
+    var valueContainerClasses = ['b', 'bw-1', 'flex', 'flex-justify', 'mr1', 'px2', 'py1', this.state.show_options ? 'rounded-top-2' : 'rounded-2', this.props.disabled ? 'grey-50' : 'pointer', this.props.borderColorClass];
+    var valueClasses = ['nowrap'];
+    var arrowClasses = ['h6', 'ml1', 'relative', this.props.disabled ? 'grey-50' : 'blue-70', this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'];
     var arrowStyle = {
       top: 1
     };
 
     return _react2['default'].createElement(
       'div',
-      { className: valueClasses.join(' '), onClick: this.onClickValue },
+      { className: valueContainerClasses.join(' '), onClick: this.onClickValue },
       _react2['default'].createElement(
         'div',
-        null,
+        { className: valueClasses.join(' ') },
         value ? value : this.props.placeholder
       ),
       _react2['default'].createElement('div', { className: arrowClasses.join(' '), style: arrowStyle })
