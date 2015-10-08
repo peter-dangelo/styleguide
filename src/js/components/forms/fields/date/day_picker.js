@@ -8,32 +8,46 @@ export default React.createClass({
 
   displayName: "DayPicker",
 
-  selectDay(date) {
-    this.props.selectDate(date);
+  propTypes: {
+    date: Type.string,
+    maxDate: Type.object,
+    minDate: Type.object,
+    selectDate: Type.func
   },
 
-  sizeClass() {
-    return (this.weekCount() > 5 ? 'extra-week' : '');
+  classes() {
+    var classes = [ 'date-field-react-daypicker',
+                    'relative' ];
+    if (this.weekCount() > 5) classes.push('extra-week');
+    return classes.join(' ');
   },
 
   mappedMonth() {
     var date = this.props.date,
-      firstDay = DateUtils.createNewDay(1, date.getTime()).getDay(),
-      daysArray = DateUtils.getArrayByBoundary(1, DateUtils.daysInMonthCount(date.getMonth(), date.getFullYear())),
-      selectedDate = this.props.selectedDate,
-      reactObject = this;
+        daysArray = DateUtils.getArrayByBoundary(1, DateUtils.daysInMonthCount(date.getMonth(), date.getFullYear())),
+        firstDay = DateUtils.createNewDay(1, date.getTime()).getDay(),
+        reactObj = this,
+        selectedDate = this.props.selectedDate;
 
     return daysArray.map(function(day) {
       var thisDate = DateUtils.createNewDay(day, date.getTime()),
-        weekNumber = Math.ceil((day + firstDay) / 7),
-        selected = false;
+          weekNumber = Math.ceil((day + firstDay) / 7),
+          selected = false;
 
       if (date.getMonth()==selectedDate.getMonth() && date.getFullYear()==selectedDate.getFullYear()) {
         selected = (day==selectedDate.getDate());
       }
 
-      return <Day key={'day-mo-' + day} selected={selected} date={thisDate} week={weekNumber} changeDate={reactObject.selectDay} />
+      return <Day key={'day-mo-' + day}
+                  selected={selected}
+                  date={thisDate}
+                  week={weekNumber}
+                  changeDate={reactObj.handleSelect} />
     });
+  },
+
+  handleSelect(date) {
+    this.props.handleSelect(date);
   },
 
   weekCount() {
@@ -42,7 +56,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div className={"date-field-react-dates " + this.sizeClass()}>
+      <div className={this.classes()}>
         <div>
           {this.mappedMonth()}
         </div>

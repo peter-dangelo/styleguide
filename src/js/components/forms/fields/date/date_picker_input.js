@@ -28,26 +28,12 @@ export default React.createClass({
     }
   },
 
-  momentDate() {
-    if (Object.prototype.toString.call(this.props.value) === '[object Date]') {
-      return Moment(this.props.value);
-    } else {
-      return Moment(this.props.value, this.props.dateFormat);
-    }
-  },
-
-  baseZIndex() {
-    return this.state.show ? 300 : 1;
-  },
-
   getInitialState() {
     return {show: false};
   },
 
-  label() {
-    if (this.props.label) {
-      return <label onClick={this.showDatePicker} className="px2 mb1">{this.props.label}</label>;
-    }
+  baseZIndex() {
+    return this.state.show ? 300 : 1;
   },
 
   containerClasses() {
@@ -55,38 +41,6 @@ export default React.createClass({
     if (this.props.disabled) classes.push('disabled');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
-  },
-
-  fieldClasses() {
-    var classes = ['relative', 'fit'];
-    classes.push('field-'+this.props.fieldColor);
-    return classes.join(' ');
-  },
-
-  iconClasses() {
-    var classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
-    this.props.disabled ? classes.push('grey-25') : classes.push('blue-70');
-    return classes.join(' ');
-  },
-
-  maskClasses() {
-    var classes = ['icon-bg', 'rounded-2', 'absolute', 'icon-bg-'+this.props.fieldColor];
-    if (this.props.disabled) classes.push('disabled');
-    return classes.join(' ');
-  },
-
-  showDatePicker() {
-    if (!this.props.disabled) this.setState({show:true});
-  },
-
-  hideDatePicker() {
-    this.setState({show:false});
-  },
-
-  onChangeDate(date) {
-    this.props.value = date;
-    this.hideDatePicker();
-    this.props.onChange(date);
   },
 
   datePicker() {
@@ -105,6 +59,48 @@ export default React.createClass({
         </div>
       );
     }
+  },
+
+  fieldClasses() {
+    var classes = ['relative', 'fit', 'pr5'];
+    classes.push( 'field-' + this.props.fieldColor );
+    return classes.join(' ');
+  },
+
+  hideDatePicker() {
+    this.setState({show:false});
+  },
+
+  iconClasses() {
+    var classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
+    this.props.disabled ? classes.push('grey-25') : classes.push('blue-70');
+    return classes.join(' ');
+  },
+
+  label() {
+    if (this.props.label) {
+      return <label onClick={this.showDatePicker} className="px2 mb1">
+               {this.props.label}
+             </label>;
+    }
+  },
+
+  momentDate() {
+    if (Object.prototype.toString.call(this.props.value) === '[object Date]') {
+      return Moment(this.props.value);
+    } else {
+      return Moment(this.props.value, this.props.dateFormat);
+    }
+  },
+
+  onChangeDate(date) {
+    this.props.value = date;
+    this.hideDatePicker();
+    this.props.onChange(date);
+  },
+
+  showDatePicker() {
+    if (!this.props.disabled) this.setState({show:true});
   },
 
   value() {
@@ -134,10 +130,6 @@ export default React.createClass({
             className={this.iconClasses()}
             onClick={this.showDatePicker}
             style={{zIndex: this.baseZIndex()+2}}></span>
-          <div
-            className={this.maskClasses()}
-            onClick={this.showDatePicker}
-            style={{zIndex: this.baseZIndex()+1}}></div>
         </div>
         <div className="clearfix"></div>
       </div>

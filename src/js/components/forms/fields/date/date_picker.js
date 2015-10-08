@@ -18,23 +18,9 @@ export default React.createClass({
     show: Type.bool
   },
 
-  onChangeVisibleDate(date) {
-    this.setState({visibleDate:date});
-  },
-
-  onChangeSelectedDate(date) {
-    this.setState({visibleDate:date});
-    this.props.onChangeDate(date);
-  },
-
   getDefaultProps() {
     return({
-      date : new Date(),
-      show : true,
-      onChangeDate :
-        function(date) {
-          console.log('You have selected new date' + date);
-        }
+      show : true
     });
   },
 
@@ -44,13 +30,6 @@ export default React.createClass({
     return({visibleDate:date});
   },
 
-  changeYear(year) {
-    var date = new Date();
-    date.setTime(this.state.visibleDate.getTime());
-    date.setFullYear(year);
-    this.setState({visibleDate:date});
-  },
-
   changeMonth(month) {
     var date = new Date();
     date.setTime(this.state.visibleDate.getTime());
@@ -58,15 +37,32 @@ export default React.createClass({
     this.setState({visibleDate:date});
   },
 
-  render() {
+  changeYear(year) {
+    var date = new Date();
+    date.setTime(this.state.visibleDate.getTime());
+    date.setFullYear(year);
+    this.setState({visibleDate:date});
+  },
 
-    var style = {
+  handleSelect(date) {
+    this.setState({visibleDate:date});
+    this.props.onChangeDate(date);
+  },
+
+  onChangeVisibleDate(date) {
+    this.setState({visibleDate:date});
+  },
+
+  style() {
+    return {
       visibility: (this.props.show ? 'visible' : 'hidden'),
       zIndex: this.props.zIndex
     };
+  },
 
+  render() {
     return (
-      <div className="date-field-react bg-grey-90 rounded-3 p3 no-select" style={style}>
+      <div className="date-field-react bg-grey-90 rounded-3 p3 no-select" style={this.style()}>
         <div className="date-field-react-container">
           <MonthPicker
             date={this.state.visibleDate}
@@ -76,7 +72,7 @@ export default React.createClass({
             excludedDates={this.props.excludedDates}
             selectedDate={this.props.date}
             changeDate={this.onChangeVisibleDate}
-            selectDate={this.onChangeSelectedDate} />
+            handleSelect={this.handleSelect} />
         </div>
       </div>
     );
