@@ -89,19 +89,22 @@ export default React.createClass({
     let options = this.props.options;
     let value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
 
-    let valueClasses = [
+    let valueContainerClasses = [
       'b',
       'bw-1',
       'flex',
       'flex-justify',
+      'mr1',
       'px2',
       'py1',
       this.state.show_options ? 'rounded-top-2' : 'rounded-2',
       this.props.disabled ? 'grey-50' : 'pointer',
       this.props.borderColorClass
     ];
+    let valueClasses = ['nowrap'];
     let arrowClasses = [
       'h6',
+      'ml1',
       'relative',
       this.props.disabled ? 'grey-50' : 'blue-70',
       this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'
@@ -111,8 +114,8 @@ export default React.createClass({
     };
 
     return (
-      <div className={valueClasses.join(' ')} onClick={this.onClickValue}>
-        <div>{value ? value : this.props.placeholder}</div>
+      <div className={valueContainerClasses.join(' ')} onClick={this.onClickValue}>
+        <div className={valueClasses.join(' ')}>{value ? value : this.props.placeholder}</div>
         <div className={arrowClasses.join(' ')} style={arrowStyle} />
       </div>
     );
