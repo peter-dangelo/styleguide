@@ -73,6 +73,7 @@ export default React.createClass({
             onChangeMonth={this.changeMonth} />
           <DayPicker
             date={this.state.visibleDate}
+            excludedDates={this.props.excludedDates}
             selectedDate={this.props.date}
             changeDate={this.onChangeVisibleDate}
             selectDate={this.onChangeSelectedDate} />

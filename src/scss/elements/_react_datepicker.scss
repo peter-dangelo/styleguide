@@ -1,7 +1,7 @@
 $day-width: $space-4;
 
 .date-field-react-container {
-  width: $day-width*7;
+  width: $day-width * 7;
 
   input {
     box-sizing: border-box;
@@ -75,7 +75,6 @@ $day-width: $space-4;
 }
 
 .date-field-react-day {
-  position: absolute;
 
   a {
     height: $day-width - $space-1;
@@ -85,6 +84,11 @@ $day-width: $space-4;
     &:hover {
       color: $white;
     }
+  }
+
+  &.disabled a:hover {
+    color: $grey-75;
+    cursor: default;
   }
 }
 
