@@ -94,14 +94,13 @@ export default React.createClass({
       'bw-1',
       'flex',
       'flex-justify',
-      'mr1',
       'px2',
       'py1',
       this.state.show_options ? 'rounded-top-2' : 'rounded-2',
       this.props.disabled ? 'grey-50' : 'pointer',
       this.props.borderColorClass
     ];
-    let valueClasses = ['nowrap'];
+    let valueClasses = ['nowrap','mr1'];
     let arrowClasses = [
       'h6',
       'ml1',
@@ -155,6 +154,7 @@ export default React.createClass({
       this.props.borderColorClass
     ];
     let optionClasses = [
+      'nowrap',
       'option',
       'pointer',
       'px2',
