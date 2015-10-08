@@ -12,7 +12,14 @@ export default React.createClass({
     placeholder: Type.string,
     value: Type.oneOfType([Type.string, Type.number]),
     name: Type.string,
+    borderColorClass: Type.string,
     onChange: Type.func
+  },
+
+  getDefaultProps() {
+    return {
+      borderColorClass: 'bc-grey-25'
+    }
   },
 
   componentWillMount() {
@@ -84,14 +91,14 @@ export default React.createClass({
 
     let valueClasses = [
       'b',
-      'bc-grey-25',
       'bw-1',
       'flex',
       'flex-justify',
       'px2',
       'py1',
       this.state.show_options ? 'rounded-top-2' : 'rounded-2',
-      this.props.disabled ? 'grey-50' : 'pointer'
+      this.props.disabled ? 'grey-50' : 'pointer',
+      this.props.borderColorClass
     ];
     let arrowClasses = [
       'h6',
@@ -134,7 +141,6 @@ export default React.createClass({
   renderOptions() {
     let optionsContainerClasses = [
       'absolute',
-      'bc-grey-25',
       'bg-white',
       'bb',
       'bl',
@@ -142,7 +148,8 @@ export default React.createClass({
       'bw-1',
       'left-0',
       'right-0',
-      'rounded-bottom-2'
+      'rounded-bottom-2',
+      this.props.borderColorClass
     ];
     let optionClasses = [
       'option',
