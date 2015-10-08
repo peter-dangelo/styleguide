@@ -101,7 +101,7 @@ exports['default'] = _react2['default'].createClass({
     var options = this.props.options;
     var value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
 
-    var valueContainerClasses = ['b', 'bw-1', 'flex', 'flex-justify', 'px2', 'py1', this.state.show_options ? 'rounded-top-2' : 'rounded-2', this.props.disabled ? 'grey-50' : 'pointer', this.props.borderColorClass];
+    var valueContainerClasses = ['b', 'bw-1', 'flex', 'flex-justify', 'px2', 'py1', this.state.show_options ? 'rounded-top-2' : 'rounded-2', this.props.disabled ? 'grey-50' : 'pointer', this.state.show_options ? 'bc-grey-25' : this.props.borderColorClass];
     var valueClasses = ['nowrap', 'mr1'];
     var arrowClasses = ['h6', 'ml1', 'relative', this.props.disabled ? 'grey-50' : 'blue-70', this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'];
     var arrowStyle = {
@@ -145,7 +145,7 @@ exports['default'] = _react2['default'].createClass({
   },
 
   renderOptions: function renderOptions() {
-    var optionsContainerClasses = ['absolute', 'bg-white', 'bb', 'bl', 'br', 'bw-1', 'left-0', 'right-0', 'rounded-bottom-2', this.props.borderColorClass];
+    var optionsContainerClasses = ['absolute', 'bg-white', 'bb', 'bl', 'br', 'bw-1', 'left-0', 'right-0', 'rounded-bottom-2', this.state.show_options ? 'bc-grey-25' : this.props.borderColorClass];
     var optionClasses = ['bg-white', 'nowrap', 'option', 'pointer', 'px2', 'py1'];
     var emptyOption = _react2['default'].createElement(
       'div',

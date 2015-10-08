@@ -98,7 +98,7 @@ export default React.createClass({
       'py1',
       this.state.show_options ? 'rounded-top-2' : 'rounded-2',
       this.props.disabled ? 'grey-50' : 'pointer',
-      this.props.borderColorClass
+      this.state.show_options ? 'bc-grey-25' : this.props.borderColorClass
     ];
     let valueClasses = ['nowrap','mr1'];
     let arrowClasses = [
@@ -151,7 +151,7 @@ export default React.createClass({
       'left-0',
       'right-0',
       'rounded-bottom-2',
-      this.props.borderColorClass
+      this.state.show_options ? 'bc-grey-25' : this.props.borderColorClass
     ];
     let optionClasses = [
       'bg-white',
