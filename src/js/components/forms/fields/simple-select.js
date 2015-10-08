@@ -154,6 +154,7 @@ export default React.createClass({
       this.props.borderColorClass
     ];
     let optionClasses = [
+      'bg-white',
       'nowrap',
       'option',
       'pointer',
@@ -169,7 +170,7 @@ export default React.createClass({
     let options = this.optionsObject() ? this.renderOptionsFromObject(optionClasses) : this.renderOptionsFromArray(optionClasses);
 
     return (
-      <div className={optionsContainerClasses.join(' ')}>
+      <div className={optionsContainerClasses.join(' ')} style={{zIndex: 1000}}>
         {this.props.includeBlank ? emptyOption : false}
         {options}
       </div>
