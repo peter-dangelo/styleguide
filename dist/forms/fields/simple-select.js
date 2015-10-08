@@ -25,7 +25,14 @@ exports['default'] = _react2['default'].createClass({
     placeholder: Type.string,
     value: Type.oneOfType([Type.string, Type.number]),
     name: Type.string,
+    borderColorClass: Type.string,
     onChange: Type.func
+  },
+
+  getDefaultProps: function getDefaultProps() {
+    return {
+      borderColorClass: 'bc-grey-25'
+    };
   },
 
   componentWillMount: function componentWillMount() {
@@ -94,7 +101,7 @@ exports['default'] = _react2['default'].createClass({
     var options = this.props.options;
     var value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
 
-    var valueClasses = ['b', 'bc-grey-25', 'bw-1', 'flex', 'flex-justify', 'px2', 'py1', this.state.show_options ? 'rounded-top-2' : 'rounded-2', this.props.disabled ? 'grey-50' : 'pointer'];
+    var valueClasses = ['b', 'bw-1', 'flex', 'flex-justify', 'px2', 'py1', this.state.show_options ? 'rounded-top-2' : 'rounded-2', this.props.disabled ? 'grey-50' : 'pointer', this.props.borderColorClass];
     var arrowClasses = ['h6', 'relative', this.props.disabled ? 'grey-50' : 'blue-70', this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'];
     var arrowStyle = {
       top: 1
@@ -137,7 +144,7 @@ exports['default'] = _react2['default'].createClass({
   },
 
   renderOptions: function renderOptions() {
-    var optionsContainerClasses = ['absolute', 'bc-grey-25', 'bg-white', 'bb', 'bl', 'br', 'bw-1', 'left-0', 'right-0', 'rounded-bottom-2'];
+    var optionsContainerClasses = ['absolute', 'bg-white', 'bb', 'bl', 'br', 'bw-1', 'left-0', 'right-0', 'rounded-bottom-2', this.props.borderColorClass];
     var optionClasses = ['option', 'pointer', 'px2', 'py1'];
     var emptyOption = _react2['default'].createElement(
       'div',
