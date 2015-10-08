@@ -146,7 +146,7 @@ exports['default'] = _react2['default'].createClass({
 
   renderOptions: function renderOptions() {
     var optionsContainerClasses = ['absolute', 'bg-white', 'bb', 'bl', 'br', 'bw-1', 'left-0', 'right-0', 'rounded-bottom-2', this.props.borderColorClass];
-    var optionClasses = ['nowrap', 'option', 'pointer', 'px2', 'py1'];
+    var optionClasses = ['bg-white', 'nowrap', 'option', 'pointer', 'px2', 'py1'];
     var emptyOption = _react2['default'].createElement(
       'div',
       { className: optionClasses.concat('grey-50').join(' '), onClick: this.onClickOptionEmpty },
@@ -157,7 +157,7 @@ exports['default'] = _react2['default'].createClass({
 
     return _react2['default'].createElement(
       'div',
-      { className: optionsContainerClasses.join(' ') },
+      { className: optionsContainerClasses.join(' '), style: { zIndex: 1000 } },
       this.props.includeBlank ? emptyOption : false,
       options
     );
