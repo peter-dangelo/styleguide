@@ -18,10 +18,10 @@
 -------------------------------*/
 
 $space-1: 0.3125rem !default;
-$space-2: 0.625rem !default;
-$space-3: 1.25rem !default;
-$space-4: 1.875rem !default;
-$space-5: 2.5rem !default;
+$space-2: $space-1 * 2 !default;
+$space-3: $space-1 * 4 !default;
+$space-4: $space-1 * 6 !default;
+$space-5: $space-1 * 8 !default;
 
 
 // Sizing variables for typography
