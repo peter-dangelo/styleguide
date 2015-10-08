@@ -19,16 +19,20 @@ var options = [
 ];
 
 var simpleSelectOptionsObject = {
-  london: 'London',
-  newyork: 'New York',
-  chicago: 'Chicago' ,
-  san_francisco: 'San Francisco'
+  10: 'London',
+  15: 'New York',
+  25: 'Chicago' ,
+  50: 'San Francisco'
 };
 
 var simpleSelectOptionsArray = ['London','New York','Chicago','San Francisco'];
 
-function simpleSelectChange() {
-  console.log(this.refs.citySelect.state.value);
+function simpleSelectArrayChange() {
+  alert('selected value: '+ this.refs.simpleSelectArrayOptions.state.value )
+}
+
+function simpleSelectObjectChange() {
+  alert('selected value: ' + this.refs.simpleSelectObjectOptions.state.value )
 }
 
 function _onChange(val) {
@@ -65,20 +69,10 @@ export default React.createClass({
         <div title="Forms">
           <form className="clearfix">
             <hr />
-
             <p>Default fields</p>
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' extraClasses={['py2']} units="Units"  />
             <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
-            <div>
-              <label className="px2 mb1">Simple Select</label>
-              <SimpleSelect
-                onChange={simpleSelectChange.bind(this)}
-                name='city'
-                ref='citySelect'
-                options={simpleSelectOptionsObject}
-                placeholder="- Select -"/>
-            </div>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
             <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' extraClasses={['py2']}/>
@@ -154,6 +148,41 @@ export default React.createClass({
           </form>
           <hr />
         </div>
+
+        <div title="Simple Select">
+
+          <div className="mb3">
+            <h3>Options as array</h3>
+            <div className="py1 mb2">
+              <code className="language-javascript overflow-scroll">
+               ["London","New York","Chicago","San Francisco"]
+              </code>
+            </div>
+            <SimpleSelect
+              onChange={simpleSelectArrayChange.bind(this)}
+              name='city'
+              ref='simpleSelectArrayOptions'
+              options={simpleSelectOptionsArray}
+              placeholder="- Select City -"/>
+          </div>
+
+          <div className="mb3">
+            <h3>Options as object</h3>
+            <div className="py1 mb2">
+              <code className="language-javascript overflow-scroll">
+               {'{10:"London",15:"New York",25:"Chicago",50:"San Francisco"}'}
+              </code>
+            </div>
+            <SimpleSelect
+              onChange={simpleSelectObjectChange.bind(this)}
+              name='city'
+              ref='simpleSelectObjectOptions'
+              options={simpleSelectOptionsObject}
+              placeholder="- Select -"/>
+          </div>
+
+        </div>
+
         <div title="Actionable Forms">
           <hr />
           <h3>EditLabel</h3>
