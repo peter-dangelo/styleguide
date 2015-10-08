@@ -94,8 +94,7 @@ export default React.createClass({
       'bw-1',
       'flex',
       'flex-justify',
-      'px2',
-      'py1',
+      'p2',
       this.state.show_options ? 'rounded-top-2' : 'rounded-2',
       this.props.disabled ? 'grey-50' : 'pointer',
       this.state.show_options ? 'bc-grey-25' : this.props.borderColorClass
@@ -158,8 +157,7 @@ export default React.createClass({
       'nowrap',
       'option',
       'pointer',
-      'px2',
-      'py1'
+      'p2'
     ];
     let emptyOption = (
       <div className={optionClasses.concat('grey-50').join(' ')} onClick={this.onClickOptionEmpty}>
