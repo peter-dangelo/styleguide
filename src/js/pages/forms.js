@@ -18,22 +18,14 @@ var options = [
     { value: 'san_francisco', label: 'San Francisco' }
 ];
 
-var simpleSelectOptionsObject = {
+var simpleSelectOptions1 = ['London','New York','Chicago','San Francisco'];
+
+var simpleSelectOptions2 = {
   10: 'London',
   15: 'New York',
   25: 'Chicago' ,
   50: 'San Francisco'
 };
-
-var simpleSelectOptionsArray = ['London','New York','Chicago','San Francisco'];
-
-function simpleSelectArrayChange() {
-  alert('selected value: '+ this.refs.simpleSelectArrayOptions.state.value )
-}
-
-function simpleSelectObjectChange() {
-  alert('selected value: ' + this.refs.simpleSelectObjectOptions.state.value )
-}
 
 function _onChange(val) {
   console.log("Selected: " + val);
@@ -48,8 +40,33 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      editLabel: "Label"
+      editLabel: "Label",
+      simpleSelect1Value: null,
+      simpleSelect2Value: null,
+      simpleSelect3Value: 15,
+      simpleSelect4Value: 25,
+      simpleSelect5Value: null,
     };
+  },
+
+  onSimpleSelect1Change() {
+    this.setState({simpleSelect1Value: this.refs.simpleSelect1.state.value})
+  },
+
+  onSimpleSelect2Change() {
+    this.setState({simpleSelect2Value: this.refs.simpleSelect2.state.value})
+  },
+
+  onSimpleSelect3Change() {
+    this.setState({simpleSelect3Value: this.refs.simpleSelect3.state.value})
+  },
+
+  onSimpleSelect4Change() {
+    this.setState({simpleSelect4Value: this.refs.simpleSelect4.state.value})
+  },
+
+  onSimpleSelect5Change() {
+    this.setState({simpleSelect5Value: this.refs.simpleSelect5.state.value})
   },
 
   _onSave(value) {
@@ -150,37 +167,75 @@ export default React.createClass({
         </div>
 
         <div title="Simple Select">
-
+          <p>A very simple select component without the bells and whistles.  Meant for use in place of an html select.</p>
           <div className="mb3">
-            <h3>Options as array</h3>
+            <h3>Options as an array</h3>
             <div className="py1 mb2">
               <code className="language-javascript overflow-scroll">
                ["London","New York","Chicago","San Francisco"]
               </code>
             </div>
             <SimpleSelect
-              onChange={simpleSelectArrayChange.bind(this)}
+              onChange={this.onSimpleSelect1Change}
               name='city'
-              ref='simpleSelectArrayOptions'
-              options={simpleSelectOptionsArray}
+              ref='simpleSelect1'
+              options={simpleSelectOptions1}
               placeholder="- Select City -"/>
+            <p className='py2'>selected value: {this.state.simpleSelect1Value}</p>
           </div>
-
           <div className="mb3">
-            <h3>Options as object</h3>
+            <h3>Options as an object</h3>
             <div className="py1 mb2">
               <code className="language-javascript overflow-scroll">
-               {'{10:"London",15:"New York",25:"Chicago",50:"San Francisco"}'}
+               {'{10:"London", 15:"New York", 25:"Chicago", 50:"San Francisco"}'}
               </code>
             </div>
             <SimpleSelect
-              onChange={simpleSelectObjectChange.bind(this)}
+              onChange={this.onSimpleSelect2Change}
               name='city'
-              ref='simpleSelectObjectOptions'
-              options={simpleSelectOptionsObject}
+              ref='simpleSelect2'
+              options={simpleSelectOptions2}
               placeholder="- Select -"/>
+            <p className='py2'>selected value: {this.state.simpleSelect2Value}</p>
           </div>
-
+          <div className="mb3">
+            <h3>Selected value</h3>
+            <p>New York is selected</p>
+            <SimpleSelect
+              onChange={this.onSimpleSelect3Change}
+              value={this.state.simpleSelect3Value}
+              name='city'
+              ref='simpleSelect3'
+              options={simpleSelectOptions2}
+              placeholder="- Select -"/>
+            <p className='py2'>selected value: {this.state.simpleSelect3Value}</p>
+          </div>
+          <div className="mb3">
+            <h3>Errors</h3>
+            <p>Error if Chicago is selected</p>
+            <SimpleSelect
+              onChange={this.onSimpleSelect4Change}
+              value={this.state.simpleSelect4Value}
+              borderColorClass={this.state.simpleSelect4Value == 25 ? 'bc-orange' : void 0}
+              name='city'
+              ref='simpleSelect4'
+              options={simpleSelectOptions2}
+              placeholder="- Select -"/>
+            <p className='py2'>selected value: {this.state.simpleSelect4Value}</p>
+          </div>
+          <div className="mb3">
+            <h3>Include a blank option</h3>
+            <SimpleSelect
+              includeBlank={true}
+              onChange={this.onSimpleSelect5Change}
+              value={this.state.simpleSelect5Value}
+              borderColorClass={this.state.simpleSelect5Value == 25 ? 'bc-orange' : void 0}
+              name='city'
+              ref='simpleSelect5'
+              options={simpleSelectOptions2}
+              placeholder="- Select -"/>
+            <p className='py2'>selected value: {this.state.simpleSelect5Value}</p>
+          </div>
         </div>
 
         <div title="Actionable Forms">
