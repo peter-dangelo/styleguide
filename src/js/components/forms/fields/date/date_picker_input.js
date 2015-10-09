@@ -37,7 +37,7 @@ export default React.createClass({
   },
 
   containerClasses() {
-    var classes = ['date-field', 'date-field-react-container', 'relative'];
+    var classes = ['date-field', 'react-datepicker-container', 'relative'];
     if (this.props.disabled) classes.push('disabled');
     classes.push(this.props.extraClasses);
     return classes.join(' ');

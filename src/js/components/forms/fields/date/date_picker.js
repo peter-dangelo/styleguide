@@ -62,8 +62,8 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="date-field-react bg-grey-90 rounded-3 p3 no-select" style={this.style()}>
-        <div className="date-field-react-container">
+      <div className="react-datepicker bg-grey-90 rounded-3 p3 no-select absolute" style={this.style()}>
+        <div className="react-datepicker-container">
           <MonthPicker
             date={this.state.visibleDate}
             onChangeMonth={this.changeMonth} />

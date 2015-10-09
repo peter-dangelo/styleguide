@@ -16,15 +16,16 @@ export default React.createClass({
   },
 
   classes() {
-    var classes = [ 'date-field-react-daypicker',
-                    'relative' ];
+    var classes = ['react-datepicker-daypicker', 'relative'];
     if (this.weekCount() > 5) classes.push('extra-week');
     return classes.join(' ');
   },
 
   mappedMonth() {
     var date = this.props.date,
-        daysArray = DateUtils.getArrayByBoundary(1, DateUtils.daysInMonthCount(date.getMonth(), date.getFullYear())),
+        daysArray = DateUtils.getArrayByBoundary(1,
+                                                 DateUtils.daysInMonthCount(date.getMonth(),
+                                                 date.getFullYear())),
         firstDay = DateUtils.createNewDay(1, date.getTime()).getDay(),
         reactObj = this,
         selectedDate = this.props.selectedDate;

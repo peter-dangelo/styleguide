@@ -1,6 +1,6 @@
 $day-width: $space-4;
 
-.date-field-react-container {
+.react-datepicker-container {
   width: $day-width * 7;
 
   input {
@@ -8,25 +8,14 @@ $day-width: $space-4;
   }
 
   .icon {
-    position: absolute;
     right: $space-2;
     top: 23%;
   }
 }
 
-.date-field-react {
+.react-datepicker {
   left: -$space-3;
-  position: absolute;
   top: $space-2;
-
-  .month-picker {
-    margin-top: $space-4 * 2;
-    text-align: center;
-
-    .month-name {
-      width: 50%;
-    }
-  }
 
   @for $i from 0 through 6 {
     .day-in-week-#{$i} { left: $day-width * $i; }
@@ -37,7 +26,15 @@ $day-width: $space-4;
   }
 }
 
-.date-field-react-daypicker {
+.react-datepicker-monthpicker {
+  margin-top: $space-4 * 2;
+
+  .month-name {
+    width: 50%;
+  }
+}
+
+.react-datepicker-daypicker {
   height: $day-width * 5;
   width: $day-width * 7;
 
@@ -46,7 +43,7 @@ $day-width: $space-4;
   }
 }
 
-.date-field-react-day {
+.react-datepicker-day {
 
   a {
     height: $day-width - $space-1;
@@ -64,9 +61,6 @@ $day-width: $space-4;
   }
 }
 
-.week-labels {
-
-  span {
-    width: $day-width;
-  }
+.week-labels span {
+  width: $day-width;
 }

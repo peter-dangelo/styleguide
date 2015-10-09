@@ -23,7 +23,7 @@ export default React.createClass({
 
   classes() {
     var classes = [ "absolute",
-                    "date-field-react-day",
+                    "react-datepicker-day",
                     "day-in-week-" + this.props.date.getDay(),
                     "week-" + this.props.week ];
 
