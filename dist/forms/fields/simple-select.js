@@ -14,6 +14,10 @@ var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
+var _clickOutsideClickOutside = require('../../click-outside/click-outside');
+
+var _clickOutsideClickOutside2 = _interopRequireDefault(_clickOutsideClickOutside);
+
 var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
@@ -39,14 +43,6 @@ exports['default'] = _react2['default'].createClass({
     this.setState({ value: this.props.value || null });
   },
 
-  componentDidMount: function componentDidMount() {
-    document.addEventListener('click', this.onDocumentClick);
-  },
-
-  componentWillUnmount: function componentWillUnmount() {
-    document.removeEventListener('click', this.onDocumentClick);
-  },
-
   componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
     if (this.state.value != prevState.value) {
       this.props.onChange();
@@ -57,14 +53,6 @@ exports['default'] = _react2['default'].createClass({
     return {
       show_options: false
     };
-  },
-
-  onDocumentClick: function onDocumentClick(e) {
-    var componentNode = this.getDOMNode();
-    var targetNode = e.target;
-    if (!componentNode.contains(targetNode)) {
-      this.setState({ show_options: false });
-    }
   },
 
   onClickOption: function onClickOption(option) {
@@ -84,6 +72,10 @@ exports['default'] = _react2['default'].createClass({
     if (!this.props.disabled) {
       this.setState({ show_options: !this.state.show_options });
     }
+  },
+
+  onClickOutside: function onClickOutside() {
+    this.setState({ show_options: false });
   },
 
   optionsArray: function optionsArray() {
@@ -169,11 +161,15 @@ exports['default'] = _react2['default'].createClass({
     var options = this.renderOptions();
 
     return _react2['default'].createElement(
-      'div',
-      { className: 'simple-select relative' },
-      _react2['default'].createElement('input', { type: 'hidden', name: this.props.name, value: this.state.value, disabled: this.props.disabled }),
-      value,
-      this.state.show_options ? options : false
+      _clickOutsideClickOutside2['default'],
+      { onClickOutside: this.onClickOutside },
+      _react2['default'].createElement(
+        'div',
+        { className: 'simple-select relative' },
+        _react2['default'].createElement('input', { type: 'hidden', name: this.props.name, value: this.state.value, disabled: this.props.disabled }),
+        value,
+        this.state.show_options ? options : false
+      )
     );
   }
 });
