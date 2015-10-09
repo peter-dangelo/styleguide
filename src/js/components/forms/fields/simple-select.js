@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'underscore';
+import ClickOutside from '../../click-outside/click-outside';
 
 const Type = React.PropTypes;
 
@@ -26,14 +27,6 @@ export default React.createClass({
     this.setState({value: this.props.value || null});
   },
 
-  componentDidMount() {
-    document.addEventListener('click', this.onDocumentClick);
-  },
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.onDocumentClick);
-  },
-
   componentDidUpdate(prevProps, prevState) {
     if(this.state.value != prevState.value) {
       this.props.onChange();
@@ -43,14 +36,6 @@ export default React.createClass({
   getInitialState() {
     return {
       show_options: false
-    }
-  },
-
-  onDocumentClick(e) {
-    let componentNode = this.getDOMNode();
-    let targetNode = e.target;
-    if(!componentNode.contains(targetNode)) {
-      this.setState({show_options: false})
     }
   },
 
@@ -72,6 +57,10 @@ export default React.createClass({
     if(!this.props.disabled) {
       this.setState({show_options: !this.state.show_options});
     }
+  },
+
+  onClickOutside() {
+    this.setState({show_options: false})
   },
 
   optionsArray() {
@@ -181,11 +170,13 @@ export default React.createClass({
     let options = this.renderOptions();
 
     return (
-      <div className="simple-select relative">
-        <input type="hidden" name={this.props.name} value={this.state.value} disabled={this.props.disabled} />
-        {value}
-        {this.state.show_options ? options : false}
-      </div>
+      <ClickOutside onClickOutside={this.onClickOutside}>
+        <div className="simple-select relative">
+          <input type="hidden" name={this.props.name} value={this.state.value} disabled={this.props.disabled} />
+          {value}
+          {this.state.show_options ? options : false}
+        </div>
+      </ClickOutside>
     );
   }
 });
