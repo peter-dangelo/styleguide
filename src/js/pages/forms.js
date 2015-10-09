@@ -50,6 +50,11 @@ export default React.createClass({
     };
   },
 
+  pushPullToday(offset) {
+    var d = new Date();
+    return d.setDate(d.getDate()+offset);
+  },
+
   onSimpleSelect1Change() {
     this.setState({simpleSelect1Value: this.refs.simpleSelect1.state.value})
   },
@@ -93,7 +98,14 @@ export default React.createClass({
             <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
             <ReactDateField label="Date" fieldColor='light' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
             <div className='clearfix'></div>
-            <ReactDateField label="With Excluded Dates" fieldColor='light' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
+            <ReactDateField
+              dateFormat='MMM D, YYYY'
+              extraClasses={['py2']}
+              fieldColor='light'
+              label="With Min/Max Dates"
+              maxDate={this.pushPullToday(5)}
+              minDate={this.pushPullToday(-5)}
+              value={new Date()}/>
             <div className='clearfix'></div>
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
