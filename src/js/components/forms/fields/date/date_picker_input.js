@@ -117,7 +117,8 @@ export default React.createClass({
         {this.label()}
         <br />
         {this.datePicker()}
-        <div className='relative rounded-2 overflow-hidden no-select' style={{zIndex: this.baseZIndex()}}>
+        <div className='relative rounded-2 overflow-hidden no-select'
+             style={{zIndex: this.baseZIndex()}}>
           <input
             className={this.fieldClasses()}
             disabled={this.props.disabled}
