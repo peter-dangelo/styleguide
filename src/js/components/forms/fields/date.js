@@ -40,10 +40,10 @@ export default React.createClass({
 
   classes() {
     var classes = ['date-field'];
-    if(this.props.disabled) {
+    if (this.props.disabled) {
       classes.push('disabled');
     }
-    if(this.props.readOnly) {
+    if (this.props.readOnly) {
       classes.push('read-only');
     }
     classes.push(this.props.extraClasses);

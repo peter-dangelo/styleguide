@@ -103,7 +103,7 @@ export default React.createClass({
               extraClasses={['py2']}
               fieldColor='light'
               label="With Min/Max Dates"
-              maxDate={this.pushPullToday(5)}
+              maxDate={this.pushPullToday(35)}
               minDate={this.pushPullToday(-5)}
               value={new Date()}/>
             <div className='clearfix'></div>

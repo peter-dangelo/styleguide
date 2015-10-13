@@ -14,6 +14,8 @@ export default React.createClass({
     extraClasses: Type.arrayOf(Type.string),
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
+    maxDate: Type.object,
+    minDate: Type.object,
     onChangeDate: Type.func,
     show: Type.bool
   },
@@ -66,13 +68,16 @@ export default React.createClass({
         <div className="react-datepicker-container">
           <MonthPicker
             date={this.state.visibleDate}
+            maxDate={this.props.maxDate}
+            minDate={this.props.minDate}
             onChangeMonth={this.changeMonth} />
           <DayPicker
-            date={this.state.visibleDate}
-            excludedDates={this.props.excludedDates}
-            selectedDate={this.props.date}
             changeDate={this.onChangeVisibleDate}
-            handleSelect={this.handleSelect} />
+            date={this.state.visibleDate}
+            handleSelect={this.handleSelect}
+            maxDate={this.props.maxDate}
+            minDate={this.props.minDate}
+            selectedDate={this.props.date} />
         </div>
       </div>
     );

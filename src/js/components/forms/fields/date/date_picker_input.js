@@ -14,6 +14,8 @@ export default React.createClass({
     disabled: Type.bool,
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
+    maxDate: Type.object,
+    minDate: Type.object,
     onChange: Type.func,
     // value: Type.oneOfType([Type.string, Type.date])
   },
@@ -52,10 +54,12 @@ export default React.createClass({
             onClick={this.hideDatePicker}
             style={{zIndex: this.baseZIndex()-2}}></div>
           <DatePicker
-            zIndex={this.baseZIndex()-1}
             date={this.momentDate().toDate()}
+            maxDate={this.props.maxDate}
+            minDate={this.props.minDate}
+            onChangeDate={this.onChangeDate}
             show={this.state.show}
-            onChangeDate={this.onChangeDate} />
+            zIndex={this.baseZIndex()-1} />
         </div>
       );
     }
