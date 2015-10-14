@@ -39,11 +39,13 @@ export default React.createClass({
                               month: reactObj.props.visibleMonth,
                               date: dayOfMonth });
 
-      var disabled = thisDate.isBefore(reactObj.props.minDate) || thisDate.isAfter(reactObj.props.maxDate),
+      var disabled = (!!reactObj.props.minDate && thisDate.isBefore(reactObj.props.minDate)) ||
+                     (!!reactObj.props.maxDate && thisDate.isAfter(reactObj.props.maxDate)),
           selected = false,
           weekNumber = Math.ceil((dayOfMonth + reactObj.startOfVisibleMonth().weekday()) / 7);
 
-      if (reactObj.props.date.month() == reactObj.props.visibleMonth && reactObj.props.date.year() == reactObj.props.visibleYear) {
+      if (reactObj.props.date.month() == reactObj.props.visibleMonth &&
+          reactObj.props.date.year() == reactObj.props.visibleYear) {
         selected = (dayOfMonth == reactObj.props.date.date());
       }
 
