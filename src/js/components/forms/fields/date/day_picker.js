@@ -20,7 +20,6 @@ export default React.createClass({
   arrayByBoundary(start, end) {
     var out = [];
     for(var i= start; i<=end; i++) { out.push(i); }
-    console.log(out);
     return out;
   },
 
