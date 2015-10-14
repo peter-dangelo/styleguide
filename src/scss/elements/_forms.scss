@@ -2,6 +2,7 @@ input,
 select,
 textarea,
 fieldset {
+  font-family: $sans-family;
   font-size: $h5;
   margin-bottom: 0;
   margin-top: 0;
@@ -296,10 +297,6 @@ label {
     top: 3px;
     width: 0;
   }
-  // we don't want full widths for number fields
-  input {
-    width: auto;
-  }
 
   .units {
     margin-left: 15px;
@@ -336,10 +333,10 @@ label {
   }
 }
 
-.date-field {
-  input {
-    width: auto;
-  }
+// Fields we don't want to be full-width
+.date-field,
+.number-field {
+  width: $space-5 * 5;
 }
 
 .simple-select {
