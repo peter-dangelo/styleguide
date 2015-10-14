@@ -62,8 +62,8 @@ export default React.createClass({
                style={{zIndex: this.baseZIndex()-2}}>
           </div>
           <DatePicker date={this.state.date}
-                      maxDate={this.momentDate(this.props.maxDate)}
-                      minDate={this.momentDate(this.props.minDate)}
+                      maxDate={this.momentDate(this.props.maxDate).add(1, 'day')}
+                      minDate={this.momentDate(this.props.minDate).subtract(1, 'day')}
                       onChangeDate={this.changeDate}
                       show={this.state.show}
                       zIndex={this.baseZIndex()-1} />
