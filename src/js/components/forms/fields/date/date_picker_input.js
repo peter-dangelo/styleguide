@@ -29,7 +29,8 @@ export default React.createClass({
       date : new Date(),
       disabled: false,
       fieldColor: 'light',
-      label: 'Date'
+      label: 'Date',
+      onChange: function() {}
     }
   },
 
