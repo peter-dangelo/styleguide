@@ -18,6 +18,7 @@ export default React.createClass({
     dateFormat: Type.oneOf(validDateFormats),
     disabled: Type.bool,
     fieldColor: Type.oneOf(['light', 'dark']),
+    includeMaxMinBounds: Type.bool,
     label: Type.string,
     maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
     minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
@@ -29,6 +30,7 @@ export default React.createClass({
       date : new Date(),
       disabled: false,
       fieldColor: 'light',
+      includeMaxMinBounds: true,
       label: 'Date',
       onChange: function() {}
     }
@@ -44,6 +46,26 @@ export default React.createClass({
 
   baseZIndex() {
     return this.state.show ? 300 : 1;
+  },
+
+  boundedMaxDate() {
+    if (!!this.props.maxDate) {
+      if (this.props.includeMaxMinBounds) {
+        return this.momentDate(this.props.maxDate).add(1, 'day');
+      } else {
+        return this.momentDate(this.props.maxDate);
+      }
+    }
+  },
+
+  boundedMinDate() {
+    if (!!this.props.minDate) {
+      if (this.props.includeMaxMinBounds) {
+        return this.momentDate(this.props.minDate).subtract(1, 'day');
+      } else {
+        return this.momentDate(this.props.minDate);
+      }
+    }
   },
 
   containerClasses() {
@@ -62,8 +84,8 @@ export default React.createClass({
                style={{zIndex: this.baseZIndex()-2}}>
           </div>
           <DatePicker date={this.state.date}
-                      maxDate={this.maxDateWithBound()}
-                      minDate={this.minDateWithBound()}
+                      maxDate={this.boundedMaxDate()}
+                      minDate={this.boundedMinDate()}
                       onChangeDate={this.changeDate}
                       show={this.state.show}
                       zIndex={this.baseZIndex()-1} />
@@ -103,14 +125,6 @@ export default React.createClass({
                {this.props.label}
              </label>;
     }
-  },
-
-  maxDateWithBound() {
-    if (!!this.props.minDate) return this.momentDate(this.props.maxDate).add(1, 'day');
-  },
-
-  minDateWithBound() {
-    if (!!this.props.minDate) return this.momentDate(this.props.minDate).subtract(1, 'day');
   },
 
   momentDate(date) {
