@@ -5,77 +5,101 @@ var months = ["January", "February", "March", "April",
               "May", "June", "July", "August",
               "September", "October", "November", "December"];
 
+var weekAbbvs = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
+
 const Type = React.PropTypes;
 
 export default React.createClass({
 
   displayName: "MonthPicker",
 
-  getDefaultProps() {
-    return {
-      buttonClassNames : "btn btn-xs btn-default",
-      textClassNames : "btn btn-xs"
-    };
+  propTypes: {
+    maxDate: Type.object,
+    minDate: Type.object,
+    onChangeMonth: Type.func.isRequired,
+    visibleMonth: Type.number.isRequired,
+    visibleYear: Type.number.isRequired
   },
 
-  changeMonth(month) {
-    this.props.onChangeMonth(month);
+  goToNextMonth(e) {
+    e.preventDefault();
+    if (this.props.visibleMonth == 11) {
+      this.props.onChangeMonth(0, this.props.visibleYear+1);
+    } else {
+      this.props.onChangeMonth(this.props.visibleMonth+1, this.props.visibleYear);
+    }
   },
 
-  displayNext() {
+  goToPrevMonth(e) {
+    e.preventDefault();
+    if (this.props.visibleMonth == 0) {
+      this.props.onChangeMonth(11, this.props.visibleYear-1);
+    } else {
+      this.props.onChangeMonth(this.props.visibleMonth-1, this.props.visibleYear);
+    }
+  },
+
+  showNext() {
+    var endOfThisMonth = Moment({
+      year: this.props.visibleYear,
+      month: this.props.visibleMonth
+    }).endOf('month');
+
     if (!!this.props.maxDate) {
-      return this.momentDate().endOf('month').add(1, 'day').isAfter(Moment(this.props.maxDate));
+      return this.props.maxDate.isAfter(endOfThisMonth);
     } else {
       return true;
     }
   },
 
-  displayPrev() {
+  showPrev() {
+    var startOfThisMonth = Moment({
+      year: this.props.visibleYear,
+      month: this.props.visibleMonth
+    });
+
     if (!!this.props.minDate) {
-      return this.momentDate().startOf('month').subtract(1, 'day').isBefore(Moment(this.props.minDate));
+      return this.props.minDate.isBefore(startOfThisMonth);
     } else {
       return true;
     }
-  },
-
-  momentDate() {
-    return Moment(this.props.date);
   },
 
   nextIcon() {
-    if (this.displayNext()) {
-      return <a onClick={this.changeMonth.bind(this, this.props.date.getMonth()-1)}
-                className="icon-chevron-left prev mr2 blue-50"></a>
+    if (this.showNext()) {
+      return <a onClick={this.goToNextMonth} className="icon-chevron-right next mr2 blue-50"></a>
     } else {
       return '';
     }
   },
 
   prevIcon() {
-    if (this.displayPrev()) {
-      return <a onClick={this.changeMonth.bind(this, this.props.date.getMonth()+1)}
-                className="icon-chevron-right next ml2 blue-50"></a>
+    if (this.showPrev()) {
+      return <a onClick={this.goToPrevMonth} className="icon-chevron-left prev ml2 blue-50"></a>
     } else {
       return '';
     }
   },
 
+  weekLabels() {
+    return [0,1,2,3,4,5,6].map(function(i) {
+      return <span className={"grey-50 inline-block h6 day-in-week-" + i.toString()}
+                   key={"week-label-" + i.toString()} >
+               {weekAbbvs[i]}
+             </span>
+    });
+  },
+
   render() {
     return (
       <div className="react-datepicker-monthpicker center">
-        {this.nextIcon()}
-        <div className={"month-name inline-block white semibold " + this.props.textClassNames}>
-          {months[this.props.date.getMonth()] + " " + this.props.date.getFullYear()}
-        </div>
         {this.prevIcon()}
+        <div className="month-name inline-block white semibold">
+          {months[this.props.visibleMonth] + " " + this.props.visibleYear}
+        </div>
+        {this.nextIcon()}
         <div className="mt1 mb1 week-labels relative">
-          <span className='day-in-week-0 grey-50 inline-block h6' key='week-label-0'>SU</span>
-          <span className='day-in-week-1 grey-50 inline-block h6' key='week-label-1'>MO</span>
-          <span className='day-in-week-2 grey-50 inline-block h6' key='week-label-2'>TU</span>
-          <span className='day-in-week-3 grey-50 inline-block h6' key='week-label-3'>WE</span>
-          <span className='day-in-week-4 grey-50 inline-block h6' key='week-label-4'>TH</span>
-          <span className='day-in-week-5 grey-50 inline-block h6' key='week-label-5'>FR</span>
-          <span className='day-in-week-6 grey-50 inline-block h6' key='week-label-6'>SA</span>
+          {this.weekLabels()}
         </div>
       </div>
     );

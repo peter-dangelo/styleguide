@@ -1,16 +1,17 @@
-import React from 'react';
-import Styleguide from '../styleguide';
-import Select from 'react-select';
-import DateField from '../components/forms/fields/date';
-import ReactDateField from '../components/forms/fields/date/date_picker_input';
-import NumberField from '../components/forms/fields/number';
-import TextField from '../components/forms/fields/text';
-import TextArea from '../components/forms/fields/textarea';
 import Checkbox from '../components/forms/fields/checkbox';
-import Radio from '../components/forms/fields/radio';
-import SimpleSelect from '../components/forms/fields/simple-select';
+import DateField from '../components/forms/fields/date';
 import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
+import Moment from 'moment';
+import NumberField from '../components/forms/fields/number';
+import Radio from '../components/forms/fields/radio';
+import React from 'react';
+import ReactDateField from '../components/forms/fields/date/date_picker_input';
+import Select from 'react-select';
+import SimpleSelect from '../components/forms/fields/simple-select';
+import Styleguide from '../styleguide';
+import TextArea from '../components/forms/fields/textarea';
+import TextField from '../components/forms/fields/text';
 
 var options = [
   { value: 'london', label: 'London' },
@@ -52,7 +53,7 @@ export default React.createClass({
 
   pushPullToday(offset) {
     var d = new Date();
-    return d.setDate(d.getDate()+offset);
+    return new Date(d.setDate(d.getDate()+offset));
   },
 
   onSimpleSelect1Change() {
@@ -104,8 +105,7 @@ export default React.createClass({
               fieldColor='light'
               label="With Min/Max Dates"
               maxDate={this.pushPullToday(35)}
-              minDate={this.pushPullToday(-5)}
-              value={new Date()}/>
+              minDate={this.pushPullToday(-5)} />
             <div className='clearfix'></div>
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
@@ -119,7 +119,7 @@ export default React.createClass({
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' disabled={true} extraClasses={['py2']} />
             <DateField label="Date" fieldColor='light' disabled={true} />
-            <ReactDateField label="ReactDate" fieldColor='light' disabled={true} extraClasses={['py2']} dateFormat='MMM'/>
+            <ReactDateField date="2015/1/1" label="ReactDate" fieldColor='light' disabled={true} extraClasses={['py2']} dateFormat='YYYY/MM/DD'/>
             <div className='clearfix'></div>
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} disabled={true} extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  disabled={true} extraClasses={['py2']} />

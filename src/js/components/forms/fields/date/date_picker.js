@@ -1,58 +1,38 @@
-import React from 'react';
-import Moment from 'moment';
-import MonthPicker from './month_picker'
 import DayPicker from './day_picker'
+import MonthPicker from './month_picker'
+import React from 'react';
 
 const Type = React.PropTypes;
 
 export default React.createClass({
 
-  displayName: "ReactDateField",
+  displayName: "ReactDatePicker",
 
   propTypes: {
-    disabled: Type.bool,
-    extraClasses: Type.arrayOf(Type.string),
-    fieldColor: Type.oneOf(['light', 'dark']),
-    label: Type.string,
+    date: Type.object.isRequired,
     maxDate: Type.object,
     minDate: Type.object,
-    onChangeDate: Type.func,
-    show: Type.bool
-  },
-
-  getDefaultProps() {
-    return({
-      show : true
-    });
+    onChangeDate: Type.func.isRequired,
+    show: Type.bool,
+    zIndex: Type.number
   },
 
   getInitialState() {
-    var date = new Date();
-    date.setTime(this.props.date.getTime());
-    return({visibleDate:date});
+    return {
+      visibleMonth: this.props.date.month(),
+      visibleYear: this.props.date.year()
+    };
   },
 
-  changeMonth(month) {
-    var date = new Date();
-    date.setTime(this.state.visibleDate.getTime());
-    date.setMonth(month);
-    this.setState({visibleDate:date});
+  changeMonth(month, year) {
+    this.setState({
+      visibleMonth: month,
+      visibleYear: year
+    });
   },
 
-  changeYear(year) {
-    var date = new Date();
-    date.setTime(this.state.visibleDate.getTime());
-    date.setFullYear(year);
-    this.setState({visibleDate:date});
-  },
-
-  handleSelect(date) {
-    this.setState({visibleDate:date});
+  changeDate(date) {
     this.props.onChangeDate(date);
-  },
-
-  onChangeVisibleDate(date) {
-    this.setState({visibleDate:date});
   },
 
   style() {
@@ -66,18 +46,17 @@ export default React.createClass({
     return (
       <div className="react-datepicker bg-grey-90 rounded-3 p3 no-select absolute" style={this.style()}>
         <div className="react-datepicker-container">
-          <MonthPicker
-            date={this.state.visibleDate}
-            maxDate={this.props.maxDate}
-            minDate={this.props.minDate}
-            onChangeMonth={this.changeMonth} />
-          <DayPicker
-            changeDate={this.onChangeVisibleDate}
-            date={this.state.visibleDate}
-            handleSelect={this.handleSelect}
-            maxDate={this.props.maxDate}
-            minDate={this.props.minDate}
-            selectedDate={this.props.date} />
+          <MonthPicker maxDate={this.props.maxDate}
+                       minDate={this.props.minDate}
+                       onChangeMonth={this.changeMonth}
+                       visibleMonth={this.state.visibleMonth}
+                       visibleYear={this.state.visibleYear} />
+          <DayPicker date={this.props.date}
+                     maxDate={this.props.maxDate}
+                     minDate={this.props.minDate}
+                     onChangeDate={this.changeDate}
+                     visibleMonth={this.state.visibleMonth}
+                     visibleYear={this.state.visibleYear} />
         </div>
       </div>
     );

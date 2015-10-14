@@ -1,6 +1,6 @@
-import React from 'react';
 import Day from './day';
-import DateUtils from './date_utils';
+import Moment from 'moment';
+import React from 'react';
 
 const Type = React.PropTypes;
 
@@ -9,50 +9,64 @@ export default React.createClass({
   displayName: "DayPicker",
 
   propTypes: {
-    date: Type.string,
+    date: Type.object.isRequired,
     maxDate: Type.object,
     minDate: Type.object,
-    selectDate: Type.func
+    onChangeDate: Type.func.isRequired,
+    visibleMonth: Type.number.isRequired,
+    visibleYear: Type.number.isRequired
+  },
+
+  arrayByBoundary(start, end) {
+    var out = [];
+    for(var i= start; i<=end; i++) { out.push(i); }
+    console.log(out);
+    return out;
   },
 
   classes() {
     var classes = ['react-datepicker-daypicker', 'relative'];
-    if (this.weekCount() > 5) classes.push('extra-week');
+    if (this.weeksInMonth() > 5) classes.push('extra-week');
     return classes.join(' ');
   },
 
   mappedMonth() {
-    var date = this.props.date,
-        daysArray = DateUtils.getArrayByBoundary(1,
-                                                 DateUtils.daysInMonthCount(date.getMonth(),
-                                                 date.getFullYear())),
-        firstDay = DateUtils.createNewDay(1, date.getTime()).getDay(),
-        reactObj = this,
-        selectedDate = this.props.selectedDate;
+    var daysArray = this.arrayByBoundary(1, this.startOfVisibleMonth().endOf('month').date()),
+        reactObj = this;
 
-    return daysArray.map(function(day) {
-      var thisDate = DateUtils.createNewDay(day, date.getTime()),
-          weekNumber = Math.ceil((day + firstDay) / 7),
-          selected = false;
+    return daysArray.map(function(dayOfMonth) {
 
-      if (date.getMonth()==selectedDate.getMonth() && date.getFullYear()==selectedDate.getFullYear()) {
-        selected = (day==selectedDate.getDate());
+      var thisDate = Moment({ year: reactObj.props.visibleYear,
+                              month: reactObj.props.visibleMonth,
+                              date: dayOfMonth });
+
+      var disabled = thisDate.isBefore(reactObj.props.minDate) || thisDate.isAfter(reactObj.props.maxDate),
+          selected = false,
+          weekNumber = Math.ceil((dayOfMonth + reactObj.startOfVisibleMonth().weekday()) / 7);
+
+      if (reactObj.props.date.month() == reactObj.props.visibleMonth && reactObj.props.date.year() == reactObj.props.visibleYear) {
+        selected = (dayOfMonth == reactObj.props.date.date());
       }
 
-      return <Day key={'day-mo-' + day}
+      return <Day date={thisDate}
+                  disabled={disabled}
+                  key={'day-mo-' + dayOfMonth}
+                  onChangeDate={reactObj.changeDate}
                   selected={selected}
-                  date={thisDate}
-                  week={weekNumber}
-                  changeDate={reactObj.handleSelect} />
+                  week={weekNumber} />
     });
   },
 
-  handleSelect(date) {
-    this.props.handleSelect(date);
+  changeDate(date) {
+    this.props.onChangeDate(date);
   },
 
-  weekCount() {
-    return DateUtils.weeksInMonthCount(this.props.date.getMonth(), this.props.date.getFullYear());
+  startOfVisibleMonth() {
+    return Moment({year: this.props.visibleYear, month: this.props.visibleMonth});
+  },
+
+  weeksInMonth() {
+    return Math.ceil((this.startOfVisibleMonth().weekday() + this.startOfVisibleMonth().endOf('month').date()) / 7);
   },
 
   render() {

@@ -1,37 +1,44 @@
 import React from 'react';
 import DatePicker from './date_picker';
-import DateUtils from './date_utils';
 import Moment from 'moment';
 
 const Type = React.PropTypes;
+
+// Note: The value of date.month() for 1/1/2015 is 0, not 1
+
+let validDateFormats = ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY'];
 
 export default React.createClass({
 
   displayName: "ReactDateField",
 
+  // The rest of the child components all use Moment objects for dates.
   propTypes: {
-    dateFormat: Type.oneOf(DateUtils.validFormats),
+    date: Type.oneOfType([Type.object, Type.string, Type.number]),
+    dateFormat: Type.oneOf(validDateFormats),
     disabled: Type.bool,
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
-    maxDate: Type.object,
-    minDate: Type.object,
-    onChange: Type.func,
-    // value: Type.oneOfType([Type.string, Type.date])
+    maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
+    minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
+    onChange: Type.func
   },
 
   getDefaultProps() {
     return {
+      date : new Date(),
       disabled: false,
       fieldColor: 'light',
-      label: 'Date',
-      onChange : function() {},
-      value : new Date(),
+      label: 'Date'
     }
   },
 
   getInitialState() {
-    return {show: false};
+    return {
+      date: this.momentDate(this.props.date),
+      disabled: (this.props.disabled || !this.isFormatValid() || !this.isDateValid(this.props.date)),
+      show: false
+    };
   },
 
   baseZIndex() {
@@ -40,7 +47,7 @@ export default React.createClass({
 
   containerClasses() {
     var classes = ['date-field', 'react-datepicker-container', 'relative'];
-    if (this.props.disabled) classes.push('disabled');
+    if (this.state.disabled) classes.push('disabled');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
   },
@@ -49,17 +56,16 @@ export default React.createClass({
     if (this.state.show) {
       return (
         <div>
-          <div
-            className='modal-clear-bg'
-            onClick={this.hideDatePicker}
-            style={{zIndex: this.baseZIndex()-2}}></div>
-          <DatePicker
-            date={this.momentDate().toDate()}
-            maxDate={this.props.maxDate}
-            minDate={this.props.minDate}
-            onChangeDate={this.onChangeDate}
-            show={this.state.show}
-            zIndex={this.baseZIndex()-1} />
+          <div className='modal-clear-bg'
+               onClick={this.hideDatePicker}
+               style={{zIndex: this.baseZIndex()-2}}>
+          </div>
+          <DatePicker date={this.state.date}
+                      maxDate={this.momentDate(this.props.maxDate)}
+                      minDate={this.momentDate(this.props.minDate)}
+                      onChangeDate={this.changeDate}
+                      show={this.state.show}
+                      zIndex={this.baseZIndex()-1} />
         </div>
       );
     }
@@ -68,17 +74,26 @@ export default React.createClass({
   fieldClasses() {
     var classes = ['relative', 'fit', 'pr5'];
     classes.push( 'field-' + this.props.fieldColor );
+    if (!(this.isFormatValid() && this.isDateValid())) classes.push('bc-orange');
     return classes.join(' ');
   },
 
   hideDatePicker() {
-    this.setState({show:false});
+    this.setState({show: false});
   },
 
   iconClasses() {
     var classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
-    this.props.disabled ? classes.push('grey-25') : classes.push('blue-70');
+    this.state.disabled ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
+  },
+
+  isDateValid(date=this.state.date) {
+    return this.momentDate(date).isValid();
+  },
+
+  isFormatValid() {
+    return validDateFormats.indexOf(this.props.dateFormat) != -1;
   },
 
   label() {
@@ -89,27 +104,41 @@ export default React.createClass({
     }
   },
 
-  momentDate() {
-    if (Object.prototype.toString.call(this.props.value) === '[object Date]') {
-      return Moment(this.props.value);
+  momentDate(date) {
+    if (!!date) {
+      switch (date.constructor.name) {
+        case "Date":
+        case "Number":
+          return Moment(date);
+        case "Moment":
+          return date;
+        case "String":
+          return Moment(date, this.props.dateFormat);
+        default:
+          return null;
+      }
     } else {
-      return Moment(this.props.value, this.props.dateFormat);
+      return null;
     }
   },
 
-  onChangeDate(date) {
-    this.props.value = date;
+  changeDate(date) {
+    this.setState({date: date});
     this.hideDatePicker();
     this.props.onChange(date);
   },
 
   showDatePicker() {
-    if (!this.props.disabled) this.setState({show:true});
+    if (!this.state.disabled) this.setState({show: true});
   },
 
   value() {
-    if (DateUtils.validFormats.indexOf(this.props.dateFormat) != -1) {
-      return this.momentDate().format(this.props.dateFormat);
+    if (this.isFormatValid()) {
+      if (this.isDateValid()) {
+        return this.momentDate(this.state.date).format(this.props.dateFormat);
+      } else {
+        return "Couldn't parse date";
+      }
     } else {
       return "Invalid date format";
     }
@@ -123,18 +152,16 @@ export default React.createClass({
         {this.datePicker()}
         <div className='relative rounded-2 overflow-hidden no-select'
              style={{zIndex: this.baseZIndex()}}>
-          <input
-            className={this.fieldClasses()}
-            disabled={this.props.disabled}
-            onFocus={this.showDatePicker}
-            onfocusout={this.hideDatePicker}
-            readOnly
-            type="text"
-            value={this.value()} />
-          <span
-            className={this.iconClasses()}
-            onClick={this.showDatePicker}
-            style={{zIndex: this.baseZIndex()+2}}></span>
+          <input className={this.fieldClasses()}
+                 disabled={this.state.disabled}
+                 onFocus={this.showDatePicker}
+                 onfocusout={this.hideDatePicker}
+                 readOnly
+                 type="text"
+                 value={this.value()} />
+          <span className={this.iconClasses()}
+                onClick={this.showDatePicker}
+                style={{zIndex: this.baseZIndex()+2}}></span>
         </div>
         <div className="clearfix"></div>
       </div>
