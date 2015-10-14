@@ -6,7 +6,7 @@ const Type = React.PropTypes;
 
 export default React.createClass({
 
-  displayName: "ReactDatePicker",
+  displayName: "DatePicker",
 
   propTypes: {
     date: Type.object.isRequired,
@@ -44,8 +44,8 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="react-datepicker bg-grey-90 rounded-3 p3 no-select absolute" style={this.style()}>
-        <div className="react-datepicker-container">
+      <div className="datepicker bg-grey-90 rounded-3 p3 no-select absolute" style={this.style()}>
+        <div>
           <MonthPicker maxDate={this.props.maxDate}
                        minDate={this.props.minDate}
                        onChangeMonth={this.changeMonth}

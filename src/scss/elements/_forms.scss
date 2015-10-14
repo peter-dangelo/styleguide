@@ -333,10 +333,8 @@ label {
   }
 }
 
-// Fields we don't want to be full-width
-.date-field,
 .number-field {
-  width: $space-5 * 5;
+  width: auto;
 }
 
 .simple-select {

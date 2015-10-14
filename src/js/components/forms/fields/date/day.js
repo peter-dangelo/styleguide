@@ -24,7 +24,7 @@ export default React.createClass({
 
   classes() {
     var classes = [ "absolute",
-                    "react-datepicker-day",
+                    "day",
                     "day-in-week-" + this.props.date.weekday(),
                     "week-" + this.props.week ];
 

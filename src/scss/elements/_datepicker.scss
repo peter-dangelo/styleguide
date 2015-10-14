@@ -1,6 +1,6 @@
 $day-width: $space-4;
 
-.react-datepicker-container {
+.date-field {
   width: $day-width * 7;
 
   input {
@@ -13,7 +13,7 @@ $day-width: $space-4;
   }
 }
 
-.react-datepicker {
+.datepicker {
   left: -$space-3;
   top: $space-2;
 
@@ -26,15 +26,20 @@ $day-width: $space-4;
   }
 }
 
-.react-datepicker-monthpicker {
+.monthpicker {
   margin-top: $space-4 * 2;
 
-  .month-name {
-    width: 50%;
+  .icon-chevron-left {
+    left: $space-4;
   }
+
+  .icon-chevron-right {
+    right: $space-4;
+  }
+
 }
 
-.react-datepicker-daypicker {
+.daypicker {
   height: $day-width * 5;
   width: $day-width * 7;
 
@@ -43,7 +48,7 @@ $day-width: $space-4;
   }
 }
 
-.react-datepicker-day {
+.day {
 
   a {
     height: $day-width - $space-1;

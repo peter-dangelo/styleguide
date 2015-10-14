@@ -10,7 +10,7 @@ let validDateFormats = ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY']
 
 export default React.createClass({
 
-  displayName: "ReactDateField",
+  displayName: "DateField",
 
   // The rest of the child components all use Moment objects for dates.
   propTypes: {
@@ -47,7 +47,7 @@ export default React.createClass({
   },
 
   containerClasses() {
-    var classes = ['date-field', 'react-datepicker-container', 'relative'];
+    var classes = ['date-field', 'relative'];
     if (this.state.disabled) classes.push('disabled');
     classes.push(this.props.extraClasses);
     return classes.join(' ');

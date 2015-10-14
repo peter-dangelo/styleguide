@@ -24,7 +24,7 @@ export default React.createClass({
   },
 
   classes() {
-    var classes = ['react-datepicker-daypicker', 'relative'];
+    var classes = ['daypicker', 'relative'];
     if (this.weeksInMonth() > 5) classes.push('extra-week');
     return classes.join(' ');
   },

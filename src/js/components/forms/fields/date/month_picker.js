@@ -67,7 +67,7 @@ export default React.createClass({
 
   nextIcon() {
     if (this.showNext()) {
-      return <a onClick={this.goToNextMonth} className="icon-chevron-right next mr2 blue-50"></a>
+      return <a onClick={this.goToNextMonth} className="icon-chevron-right absolute top-0 blue-50"></a>
     } else {
       return '';
     }
@@ -75,7 +75,7 @@ export default React.createClass({
 
   prevIcon() {
     if (this.showPrev()) {
-      return <a onClick={this.goToPrevMonth} className="icon-chevron-left prev ml2 blue-50"></a>
+      return <a onClick={this.goToPrevMonth} className="icon-chevron-left absolute top-0 blue-50"></a>
     } else {
       return '';
     }
@@ -92,9 +92,9 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="react-datepicker-monthpicker center">
+      <div className="monthpicker relative fill">
         {this.prevIcon()}
-        <div className="month-name inline-block white semibold">
+        <div className="center white semibold">
           {months[this.props.visibleMonth] + " " + this.props.visibleYear}
         </div>
         {this.nextIcon()}
