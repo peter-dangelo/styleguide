@@ -10,14 +10,6 @@
   100% { opacity: 1; }
 }
 
-.o-fade {
-  transition: opacity $duration;
-}
-
-.v-fade {
-  transition: visibility $duration;
-}
-
 .c-fade {
   transition: color $duration;
 }
