@@ -301,6 +301,10 @@ label {
   .units {
     margin-left: 15px;
   }
+
+  input {
+    width: auto;
+  }
 }
 
 .checkbox-field, .radio-field {
@@ -331,10 +335,6 @@ label {
   .label-right {
     top: -1px;
   }
-}
-
-.number-field {
-  width: auto;
 }
 
 .simple-select {
