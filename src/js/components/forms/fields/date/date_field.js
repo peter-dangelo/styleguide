@@ -1,6 +1,7 @@
-import React from 'react';
 import DatePicker from './date_picker';
+import FieldError from '../../field-error';
 import Moment from 'moment';
+import React from 'react';
 
 const Type = React.PropTypes;
 
@@ -17,6 +18,7 @@ export default React.createClass({
     date: Type.oneOfType([Type.object, Type.string, Type.number]),
     dateFormat: Type.oneOf(validDateFormats),
     disabled: Type.bool,
+    errors: Type.array,
     fieldColor: Type.oneOf(['light', 'dark']),
     includeMaxMinBounds: Type.bool,
     label: Type.string,
@@ -29,6 +31,7 @@ export default React.createClass({
     return {
       date : new Date(),
       disabled: false,
+      errors: [],
       fieldColor: 'light',
       includeMaxMinBounds: true,
       label: 'Date',
@@ -40,6 +43,7 @@ export default React.createClass({
     return {
       date: this.momentDate(this.props.date),
       disabled: (this.props.disabled || !this.isFormatValid() || !this.isDateValid(this.props.date)),
+      errors: this.initErrors(),
       show: false
     };
   },
@@ -68,6 +72,12 @@ export default React.createClass({
     }
   },
 
+  changeDate(date) {
+    this.setState({date: date});
+    this.hideDatePicker();
+    this.props.onChange(date);
+  },
+
   containerClasses() {
     var classes = ['date-field', 'relative'];
     if (this.state.disabled) classes.push('disabled');
@@ -94,20 +104,34 @@ export default React.createClass({
     }
   },
 
-  fieldClasses() {
-    var classes = ['relative', 'fit', 'pr5'];
-    classes.push( 'field-' + this.props.fieldColor );
-    if (!(this.isFormatValid() && this.isDateValid())) classes.push('bc-orange');
-    return classes.join(' ');
+  fieldError() {
+    if (this.state.errors.length > 0) {
+      return <FieldError message={this.state.errors.join('; ')} />;
+    }
   },
 
   hideDatePicker() {
+    this.resetErrors();
     this.setState({show: false});
   },
 
   iconClasses() {
     var classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
     this.state.disabled ? classes.push('grey-25') : classes.push('blue-70');
+    return classes.join(' ');
+  },
+
+  initErrors() {
+    var errors = this.props.errors || [];
+    if (!this.isDateValid(this.props.date)) errors.push('Error parsing date');
+    if (!this.isFormatValid()) errors.push('Invalid date format');
+    return errors;
+  },
+
+  inputClasses() {
+    var classes = ['relative', 'fit', 'pr5'];
+    classes.push( 'field-' + this.props.fieldColor );
+    if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
     return classes.join(' ');
   },
 
@@ -145,10 +169,10 @@ export default React.createClass({
     }
   },
 
-  changeDate(date) {
-    this.setState({date: date});
-    this.hideDatePicker();
-    this.props.onChange(date);
+  resetErrors() {
+    var errors = [];
+    if (!this.isDateValid()) errors.push('Error parsing date');
+    this.setState({errors: errors});
   },
 
   showDatePicker() {
@@ -171,14 +195,14 @@ export default React.createClass({
     return (
       <div className={this.containerClasses()}>
         {this.label()}
+        {this.fieldError()}
         <br />
         {this.datePicker()}
         <div className='relative rounded-2 overflow-hidden no-select'
              style={{zIndex: this.baseZIndex()}}>
-          <input className={this.fieldClasses()}
+          <input className={this.inputClasses()}
                  disabled={this.state.disabled}
                  onFocus={this.showDatePicker}
-                 onfocusout={this.hideDatePicker}
                  readOnly
                  type="text"
                  value={this.value()} />
