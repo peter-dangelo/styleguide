@@ -17,10 +17,11 @@ exports["default"] = _react2["default"].createClass({
   displayName: "Day",
 
   propTypes: {
-    changeDate: Type.func,
+    onChangeDate: Type.func.isRequired,
+    date: Type.object.isRequired,
     disabled: Type.bool,
     selected: Type.bool,
-    week: Type.number
+    week: Type.number.isRequired
   },
 
   getDefaultProps: function getDefaultProps() {
@@ -32,7 +33,7 @@ exports["default"] = _react2["default"].createClass({
   },
 
   classes: function classes() {
-    var classes = ["absolute", "react-datepicker-day", "day-in-week-" + this.props.date.getDay(), "week-" + this.props.week];
+    var classes = ["absolute", "day", "day-in-week-" + this.props.date.weekday(), "week-" + this.props.week];
 
     if (this.props.selected) classes.push('bc-blue-50 bg-grey-95 bw-1 b white');else if (this.props.disabled) classes.push('disabled grey-75 cursor-n');else classes.push('grey-25');
 
@@ -41,7 +42,7 @@ exports["default"] = _react2["default"].createClass({
 
   handleClick: function handleClick(e) {
     e.preventDefault();
-    if (!this.props.disabled) this.props.changeDate(this.props.date);
+    if (!this.props.disabled) this.props.onChangeDate(this.props.date);
   },
 
   render: function render() {
@@ -53,7 +54,7 @@ exports["default"] = _react2["default"].createClass({
         { className: "semibold block center c-fade h4",
           href: "#",
           onClick: this.handleClick },
-        this.props.date.getDate()
+        this.props.date.date()
       )
     );
   }

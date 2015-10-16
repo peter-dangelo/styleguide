@@ -6,17 +6,17 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
 var _day = require('./day');
 
 var _day2 = _interopRequireDefault(_day);
 
-var _date_utils = require('./date_utils');
+var _moment = require('moment');
 
-var _date_utils2 = _interopRequireDefault(_date_utils);
+var _moment2 = _interopRequireDefault(_moment);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
 
 var Type = _react2['default'].PropTypes;
 
@@ -25,48 +25,65 @@ exports['default'] = _react2['default'].createClass({
   displayName: "DayPicker",
 
   propTypes: {
-    date: Type.string,
+    date: Type.object.isRequired,
     maxDate: Type.object,
     minDate: Type.object,
-    selectDate: Type.func
+    onChangeDate: Type.func.isRequired,
+    visibleMonth: Type.number.isRequired,
+    visibleYear: Type.number.isRequired
+  },
+
+  arrayByBoundary: function arrayByBoundary(start, end) {
+    var out = [];
+    for (var i = start; i <= end; i++) {
+      out.push(i);
+    }
+    return out;
   },
 
   classes: function classes() {
-    var classes = ['react-datepicker-daypicker', 'relative'];
-    if (this.weekCount() > 5) classes.push('extra-week');
+    var classes = ['daypicker', 'relative'];
+    if (this.weeksInMonth() > 5) classes.push('extra-week');
     return classes.join(' ');
   },
 
   mappedMonth: function mappedMonth() {
-    var date = this.props.date,
-        daysArray = _date_utils2['default'].getArrayByBoundary(1, _date_utils2['default'].daysInMonthCount(date.getMonth(), date.getFullYear())),
-        firstDay = _date_utils2['default'].createNewDay(1, date.getTime()).getDay(),
-        reactObj = this,
-        selectedDate = this.props.selectedDate;
+    var daysArray = this.arrayByBoundary(1, this.startOfVisibleMonth().endOf('month').date()),
+        reactObj = this;
 
-    return daysArray.map(function (day) {
-      var thisDate = _date_utils2['default'].createNewDay(day, date.getTime()),
-          weekNumber = Math.ceil((day + firstDay) / 7),
-          selected = false;
+    return daysArray.map(function (dayOfMonth) {
 
-      if (date.getMonth() == selectedDate.getMonth() && date.getFullYear() == selectedDate.getFullYear()) {
-        selected = day == selectedDate.getDate();
+      var thisDate = (0, _moment2['default'])({ year: reactObj.props.visibleYear,
+        month: reactObj.props.visibleMonth,
+        date: dayOfMonth });
+
+      var disabled = !!reactObj.props.minDate && thisDate.isBefore(reactObj.props.minDate) || !!reactObj.props.maxDate && thisDate.isAfter(reactObj.props.maxDate),
+          selected = false,
+          weekNumber = Math.ceil((dayOfMonth + reactObj.startOfVisibleMonth().weekday()) / 7);
+
+      if (reactObj.props.date.month() == reactObj.props.visibleMonth && reactObj.props.date.year() == reactObj.props.visibleYear) {
+        selected = dayOfMonth == reactObj.props.date.date();
       }
 
-      return _react2['default'].createElement(_day2['default'], { key: 'day-mo-' + day,
+      return _react2['default'].createElement(_day2['default'], { date: thisDate,
+        disabled: disabled,
+        key: 'day-mo-' + dayOfMonth,
+        onChangeDate: reactObj.changeDate,
         selected: selected,
-        date: thisDate,
-        week: weekNumber,
-        changeDate: reactObj.handleSelect });
+        week: weekNumber });
     });
   },
 
-  handleSelect: function handleSelect(date) {
-    this.props.handleSelect(date);
+  changeDate: function changeDate(date) {
+    this.props.onChangeDate(date);
   },
 
-  weekCount: function weekCount() {
-    return _date_utils2['default'].weeksInMonthCount(this.props.date.getMonth(), this.props.date.getFullYear());
+  startOfVisibleMonth: function startOfVisibleMonth() {
+    return (0, _moment2['default'])({ year: this.props.visibleYear, month: this.props.visibleMonth });
+  },
+
+  weeksInMonth: function weeksInMonth() {
+    return Math.ceil((this.startOfVisibleMonth().weekday() + this.startOfVisibleMonth().endOf('month').date()) / 7);
   },
 
   render: function render() {

@@ -1,10 +1,14 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
 
 var _react = require('react');
 
@@ -12,76 +16,110 @@ var _react2 = _interopRequireDefault(_react);
 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-var Type = _react2["default"].PropTypes;
+var weekAbbvs = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
 
-exports["default"] = _react2["default"].createClass({
+var Type = _react2['default'].PropTypes;
+
+exports['default'] = _react2['default'].createClass({
 
   displayName: "MonthPicker",
 
-  getDefaultProps: function getDefaultProps() {
-    return {
-      buttonClassNames: "btn btn-xs btn-default",
-      textClassNames: "btn btn-xs"
-    };
+  propTypes: {
+    maxDate: Type.object,
+    minDate: Type.object,
+    onChangeMonth: Type.func.isRequired,
+    visibleMonth: Type.number.isRequired,
+    visibleYear: Type.number.isRequired
   },
 
-  changeMonth: function changeMonth(month) {
-    this.props.onChangeMonth(month);
+  goToNextMonth: function goToNextMonth(e) {
+    e.preventDefault();
+    if (this.props.visibleMonth == 11) {
+      this.props.onChangeMonth(0, this.props.visibleYear + 1);
+    } else {
+      this.props.onChangeMonth(this.props.visibleMonth + 1, this.props.visibleYear);
+    }
+  },
+
+  goToPrevMonth: function goToPrevMonth(e) {
+    e.preventDefault();
+    if (this.props.visibleMonth == 0) {
+      this.props.onChangeMonth(11, this.props.visibleYear - 1);
+    } else {
+      this.props.onChangeMonth(this.props.visibleMonth - 1, this.props.visibleYear);
+    }
+  },
+
+  showNext: function showNext() {
+    var endOfThisMonth = (0, _moment2['default'])({
+      year: this.props.visibleYear,
+      month: this.props.visibleMonth
+    }).endOf('month');
+
+    if (!!this.props.maxDate) {
+      return this.props.maxDate.isAfter(endOfThisMonth);
+    } else {
+      return true;
+    }
+  },
+
+  showPrev: function showPrev() {
+    var startOfThisMonth = (0, _moment2['default'])({
+      year: this.props.visibleYear,
+      month: this.props.visibleMonth
+    });
+
+    if (!!this.props.minDate) {
+      return this.props.minDate.isBefore(startOfThisMonth);
+    } else {
+      return true;
+    }
+  },
+
+  nextIcon: function nextIcon() {
+    if (this.showNext()) {
+      return _react2['default'].createElement('a', { onClick: this.goToNextMonth, className: 'icon-chevron-right absolute top-0 blue-50' });
+    } else {
+      return '';
+    }
+  },
+
+  prevIcon: function prevIcon() {
+    if (this.showPrev()) {
+      return _react2['default'].createElement('a', { onClick: this.goToPrevMonth, className: 'icon-chevron-left absolute top-0 blue-50' });
+    } else {
+      return '';
+    }
+  },
+
+  weekLabels: function weekLabels() {
+    return [0, 1, 2, 3, 4, 5, 6].map(function (i) {
+      return _react2['default'].createElement(
+        'span',
+        { className: "grey-50 inline-block h6 day-in-week-" + i.toString(),
+          key: "week-label-" + i.toString() },
+        weekAbbvs[i]
+      );
+    });
   },
 
   render: function render() {
-    return _react2["default"].createElement(
-      "div",
-      { className: "react-datepicker-monthpicker center" },
-      _react2["default"].createElement("a", { onClick: this.changeMonth.bind(this, this.props.date.getMonth() - 1),
-        className: "icon-chevron-left prev mr2 blue-50" }),
-      _react2["default"].createElement(
-        "div",
-        { className: "month-name inline-block white semibold " + this.props.textClassNames },
-        months[this.props.date.getMonth()] + " " + this.props.date.getFullYear()
+    return _react2['default'].createElement(
+      'div',
+      { className: 'monthpicker relative fill' },
+      this.prevIcon(),
+      _react2['default'].createElement(
+        'div',
+        { className: 'center white semibold' },
+        months[this.props.visibleMonth] + " " + this.props.visibleYear
       ),
-      _react2["default"].createElement("a", { onClick: this.changeMonth.bind(this, this.props.date.getMonth() + 1),
-        className: "icon-chevron-right next ml2 blue-50" }),
-      _react2["default"].createElement(
-        "div",
-        { className: "mt1 mb1 week-labels relative" },
-        _react2["default"].createElement(
-          "span",
-          { className: "day-in-week-0 grey-50 inline-block h6", key: "week-label-0" },
-          "SU"
-        ),
-        _react2["default"].createElement(
-          "span",
-          { className: "day-in-week-1 grey-50 inline-block h6", key: "week-label-1" },
-          "MO"
-        ),
-        _react2["default"].createElement(
-          "span",
-          { className: "day-in-week-2 grey-50 inline-block h6", key: "week-label-2" },
-          "TU"
-        ),
-        _react2["default"].createElement(
-          "span",
-          { className: "day-in-week-3 grey-50 inline-block h6", key: "week-label-3" },
-          "WE"
-        ),
-        _react2["default"].createElement(
-          "span",
-          { className: "day-in-week-4 grey-50 inline-block h6", key: "week-label-4" },
-          "TH"
-        ),
-        _react2["default"].createElement(
-          "span",
-          { className: "day-in-week-5 grey-50 inline-block h6", key: "week-label-5" },
-          "FR"
-        ),
-        _react2["default"].createElement(
-          "span",
-          { className: "day-in-week-6 grey-50 inline-block h6", key: "week-label-6" },
-          "SA"
-        )
+      this.nextIcon(),
+      _react2['default'].createElement(
+        'div',
+        { className: 'mt1 mb1 week-labels relative' },
+        this.weekLabels()
       )
     );
   }
 });
-module.exports = exports["default"];
+module.exports = exports['default'];

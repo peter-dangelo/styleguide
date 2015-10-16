@@ -1,11 +1,16 @@
+/**
+
+  datepicker
+-----------------------------------------
+
+  (Mostly) sizing rules for the Namely UI datepicker.
+
+---------------------------------------*/
+
 $day-width: $space-4;
 
 .date-field {
   width: $day-width * 7;
-
-  input {
-    box-sizing: border-box;
-  }
 
   .icon {
     right: $space-2;
@@ -36,7 +41,6 @@ $day-width: $space-4;
   .icon-chevron-right {
     right: $space-4;
   }
-
 }
 
 .daypicker {
