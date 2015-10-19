@@ -105,7 +105,7 @@ export default React.createClass({
                        minDate={this.pushPullToday(-5)} />
             <div className='clearfix'></div>
             <DateField dateFormat='MMM D, YYYY'
-                       errors={['Sada té']}
+                       errors={['Sa da tay']}
                        extraClasses={['py2']}
                        fieldColor='light'
                        label="With Error" />
