@@ -44,7 +44,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="datepicker bg-grey-90 rounded-3 p3 no-select absolute" style={this.style()}>
+      <div className="datepicker bg-grey-90 rounded-3 p2 no-select absolute" style={this.style()}>
         <div>
           <MonthPicker maxDate={this.props.maxDate}
                        minDate={this.props.minDate}

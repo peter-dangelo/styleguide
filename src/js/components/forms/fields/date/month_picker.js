@@ -83,7 +83,7 @@ export default React.createClass({
 
   weekLabels() {
     return [0,1,2,3,4,5,6].map(function(i) {
-      return <span className={"grey-50 inline-block h6 day-in-week-" + i.toString()}
+      return <span className={"grey-50 inline-block center h6 day-in-week-" + i.toString()}
                    key={"week-label-" + i.toString()} >
                {weekAbbvs[i]}
              </span>

@@ -95,7 +95,7 @@ export default React.createClass({
             <p>Default fields</p>
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' extraClasses={['py2']} units="Units"  />
-            <DateField label="Date" fieldColor='light' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
+            <DateField fieldColor='light' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
             <div className='clearfix'></div>
             <DateField dateFormat='MMM D, YYYY'
                        extraClasses={['py2']}

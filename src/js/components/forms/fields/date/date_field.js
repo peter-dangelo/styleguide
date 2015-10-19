@@ -34,7 +34,6 @@ export default React.createClass({
       errors: [],
       fieldColor: 'light',
       includeMaxMinBounds: true,
-      label: 'Date',
       onChange: function() {}
     }
   },
@@ -81,6 +80,7 @@ export default React.createClass({
   containerClasses() {
     var classes = ['date-field', 'relative'];
     if (this.state.disabled) classes.push('disabled');
+    if (this.props.label) classes.push('with-label');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
   },
@@ -145,7 +145,9 @@ export default React.createClass({
 
   label() {
     if (this.props.label) {
-      return <label onClick={this.showDatePicker} className="px2 mb1">
+      return <label className="px2 mb1 relative"
+                    onClick={this.showDatePicker}
+                    style={{zIndex: this.baseZIndex()+2}} >
                {this.props.label}
              </label>;
     }
