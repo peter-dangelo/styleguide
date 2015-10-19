@@ -140,7 +140,7 @@ exports['default'] = _react2['default'].createClass({
   },
 
   initErrors: function initErrors() {
-    var errors = this.props.errors || [];
+    var errors = this.props.errors;
     if (!this.isDateValid(this.props.date)) errors.push('Error parsing date');
     if (!this.isFormatValid()) errors.push('Invalid date format');
     return errors;
