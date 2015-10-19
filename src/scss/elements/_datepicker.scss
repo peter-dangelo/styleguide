@@ -79,5 +79,7 @@ $day-width: $space-4;
 }
 
 .week-labels span {
+  // TODO: Replace this with a variable when the style guide typography is updated
+  font-size: 12px;
   width: $day-width;
 }
