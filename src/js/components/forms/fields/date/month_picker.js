@@ -67,7 +67,8 @@ export default React.createClass({
 
   nextIcon() {
     if (this.showNext()) {
-      return <a onClick={this.goToNextMonth} className="icon-chevron-right absolute top-0 blue-50"></a>
+      return <div className="icon-chevron-right absolute top-0 blue-50"
+                  onClick={this.goToNextMonth}></div>
     } else {
       return '';
     }
@@ -75,7 +76,8 @@ export default React.createClass({
 
   prevIcon() {
     if (this.showPrev()) {
-      return <a onClick={this.goToPrevMonth} className="icon-chevron-left absolute top-0 blue-50"></a>
+      return <div className="icon-chevron-left absolute top-0 blue-50"
+                  onClick={this.goToPrevMonth}></div>
     } else {
       return '';
     }
