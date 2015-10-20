@@ -15,7 +15,7 @@ export default createClass({
 
   render() {
     return (
-      <span className="orange small">
+      <span className="orange small semibold">
         <Icon name="alert" extraClasses={['mr1']} />
         {this.props.message}
       </span>
