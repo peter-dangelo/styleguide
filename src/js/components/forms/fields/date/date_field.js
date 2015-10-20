@@ -15,8 +15,7 @@ export default React.createClass({
 
   // The rest of the child components all use Moment objects for dates.
   propTypes: {
-    date: Type.oneOfType([Type.object, Type.string, Type.number]),
-    dateFormat: Type.oneOf(validDateFormats),
+    dateFormat: Type.oneOf(validDateFormats).isRequired,
     disabled: Type.bool,
     errors: Type.array,
     fieldColor: Type.oneOf(['light', 'dark']),
@@ -24,12 +23,13 @@ export default React.createClass({
     label: Type.string,
     maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
     minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
-    onChange: Type.func
+    onChange: Type.func,
+    placeholder: Type.string,
+    value: Type.oneOfType([Type.object, Type.string, Type.number])
   },
 
   getDefaultProps() {
     return {
-      date : new Date(),
       disabled: false,
       errors: [],
       fieldColor: 'light',
@@ -40,8 +40,8 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      date: this.momentDate(this.props.date),
-      disabled: (this.props.disabled || !this.isFormatValid() || !this.isDateValid(this.props.date)),
+      value: this.momentDate(this.props.value),
+      disabled: (this.props.disabled || !this.isFormatValid()),
       errors: this.initErrors(),
       show: false
     };
@@ -71,14 +71,16 @@ export default React.createClass({
     }
   },
 
+  // Accepts only moments
   changeDate(date) {
-    this.setState({date: date});
+    this.setState({value: date});
+    this.resetErrors();
     this.hideDatePicker();
     this.props.onChange(date);
   },
 
   containerClasses() {
-    var classes = ['date-field', 'relative'];
+    let classes = ['date-field', 'relative'];
     if (this.state.disabled) classes.push('disabled');
     if (this.props.label) classes.push('with-label');
     classes.push(this.props.extraClasses);
@@ -93,7 +95,7 @@ export default React.createClass({
                onClick={this.hideDatePicker}
                style={{zIndex: this.baseZIndex()-2}}>
           </div>
-          <DatePicker date={this.state.date}
+          <DatePicker date={this.state.value || Moment()}
                       maxDate={this.boundedMaxDate()}
                       minDate={this.boundedMinDate()}
                       onChangeDate={this.changeDate}
@@ -111,32 +113,37 @@ export default React.createClass({
   },
 
   hideDatePicker() {
-    this.resetErrors();
     this.setState({show: false});
   },
 
   iconClasses() {
-    var classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
+    let classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
     this.state.disabled ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
   },
 
   initErrors() {
-    var errors = this.props.errors || [];
-    if (!this.isDateValid(this.props.date)) errors.push('Error parsing date');
+    let errors = [];
+    if (!this.isDateValid()) errors.push('Error parsing date');
     if (!this.isFormatValid()) errors.push('Invalid date format');
-    return errors;
+    return errors.concat(this.props.errors);
   },
 
   inputClasses() {
-    var classes = ['relative', 'fit', 'pr5'];
+    let classes = ['relative', 'fit', 'pr5'];
     classes.push( 'field-' + this.props.fieldColor );
     if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
     return classes.join(' ');
   },
 
-  isDateValid(date=this.state.date) {
-    return this.momentDate(date).isValid();
+  isDateValid() {
+    if (this.state && this.state.value) {
+      return this.state.value.isValid();
+    } else if (this.props.value) {
+      return this.momentDate(this.props.value).isValid();
+    } else {
+      return true;
+    }
   },
 
   isFormatValid() {
@@ -172,7 +179,7 @@ export default React.createClass({
   },
 
   resetErrors() {
-    var errors = [];
+    let errors = [];
     if (!this.isDateValid()) errors.push('Error parsing date');
     this.setState({errors: errors});
   },
@@ -182,15 +189,7 @@ export default React.createClass({
   },
 
   value() {
-    if (this.isFormatValid()) {
-      if (this.isDateValid()) {
-        return this.momentDate(this.state.date).format(this.props.dateFormat);
-      } else {
-        return "Couldn't parse date";
-      }
-    } else {
-      return "Invalid date format";
-    }
+    if (this.state.value) return this.state.value.format(this.props.dateFormat);
   },
 
   render() {
@@ -207,6 +206,7 @@ export default React.createClass({
                  onFocus={this.showDatePicker}
                  readOnly
                  type="text"
+                 placeholder={this.props.placeholder}
                  value={this.value()} />
           <span className={this.iconClasses()}
                 onClick={this.showDatePicker}

@@ -95,14 +95,18 @@ export default React.createClass({
             <p>Default fields</p>
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' extraClasses={['py2']} units="Units"  />
-            <DateField fieldColor='light' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
+            <DateField dateFormat='MMM D, YYYY'
+                       extraClasses={['py2']}
+                       fieldColor='light'
+                       placeholder="Placeholder" />
             <div className='clearfix'></div>
             <DateField dateFormat='MMM D, YYYY'
                        extraClasses={['py2']}
                        fieldColor='light'
                        label="With Min/Max Dates"
                        maxDate={this.pushPullToday(35)}
-                       minDate={this.pushPullToday(-5)} />
+                       minDate={this.pushPullToday(-5)}
+                       value={new Date} />
             <div className='clearfix'></div>
             <DateField dateFormat='MMM D, YYYY'
                        errors={['Sa da tay']}
