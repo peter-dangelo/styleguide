@@ -197,7 +197,6 @@ export default React.createClass({
       <div className={this.containerClasses()}>
         {this.label()}
         {this.fieldError()}
-        <br />
         {this.datePicker()}
         <div className='relative rounded-2 overflow-hidden no-select'
              style={{zIndex: this.baseZIndex()}}>
