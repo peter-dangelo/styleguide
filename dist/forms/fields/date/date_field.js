@@ -34,8 +34,7 @@ exports['default'] = _react2['default'].createClass({
 
   // The rest of the child components all use Moment objects for dates.
   propTypes: {
-    date: Type.oneOfType([Type.object, Type.string, Type.number]),
-    dateFormat: Type.oneOf(validDateFormats),
+    dateFormat: Type.oneOf(validDateFormats).isRequired,
     disabled: Type.bool,
     errors: Type.array,
     fieldColor: Type.oneOf(['light', 'dark']),
@@ -43,25 +42,25 @@ exports['default'] = _react2['default'].createClass({
     label: Type.string,
     maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
     minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
-    onChange: Type.func
+    onChange: Type.func,
+    placeholder: Type.string,
+    value: Type.oneOfType([Type.object, Type.string, Type.number])
   },
 
   getDefaultProps: function getDefaultProps() {
     return {
-      date: new Date(),
       disabled: false,
       errors: [],
       fieldColor: 'light',
       includeMaxMinBounds: true,
-      label: 'Date',
       onChange: function onChange() {}
     };
   },
 
   getInitialState: function getInitialState() {
     return {
-      date: this.momentDate(this.props.date),
-      disabled: this.props.disabled || !this.isFormatValid() || !this.isDateValid(this.props.date),
+      value: this.momentDate(this.props.value),
+      disabled: this.props.disabled || !this.isFormatValid(),
       errors: this.initErrors(),
       show: false
     };
@@ -91,8 +90,10 @@ exports['default'] = _react2['default'].createClass({
     }
   },
 
+  // Accepts only moments
   changeDate: function changeDate(date) {
-    this.setState({ date: date });
+    this.setState({ value: date });
+    this.resetErrors();
     this.hideDatePicker();
     this.props.onChange(date);
   },
@@ -100,6 +101,7 @@ exports['default'] = _react2['default'].createClass({
   containerClasses: function containerClasses() {
     var classes = ['date-field', 'relative'];
     if (this.state.disabled) classes.push('disabled');
+    if (this.props.label) classes.push('with-label');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
   },
@@ -112,7 +114,7 @@ exports['default'] = _react2['default'].createClass({
         _react2['default'].createElement('div', { className: 'modal-clear-bg',
           onClick: this.hideDatePicker,
           style: { zIndex: this.baseZIndex() - 2 } }),
-        _react2['default'].createElement(_date_picker2['default'], { date: this.state.date,
+        _react2['default'].createElement(_date_picker2['default'], { date: this.state.value || (0, _moment2['default'])(),
           maxDate: this.boundedMaxDate(),
           minDate: this.boundedMinDate(),
           onChangeDate: this.changeDate,
@@ -129,7 +131,6 @@ exports['default'] = _react2['default'].createClass({
   },
 
   hideDatePicker: function hideDatePicker() {
-    this.resetErrors();
     this.setState({ show: false });
   },
 
@@ -140,10 +141,10 @@ exports['default'] = _react2['default'].createClass({
   },
 
   initErrors: function initErrors() {
-    var errors = this.props.errors;
-    if (!this.isDateValid(this.props.date)) errors.push('Error parsing date');
+    var errors = [];
+    if (!this.isDateValid()) errors.push('Error parsing date');
     if (!this.isFormatValid()) errors.push('Invalid date format');
-    return errors;
+    return errors.concat(this.props.errors);
   },
 
   inputClasses: function inputClasses() {
@@ -154,9 +155,13 @@ exports['default'] = _react2['default'].createClass({
   },
 
   isDateValid: function isDateValid() {
-    var date = arguments.length <= 0 || arguments[0] === undefined ? this.state.date : arguments[0];
-
-    return this.momentDate(date).isValid();
+    if (this.state && this.state.value) {
+      return this.state.value.isValid();
+    } else if (this.props.value) {
+      return this.momentDate(this.props.value).isValid();
+    } else {
+      return true;
+    }
   },
 
   isFormatValid: function isFormatValid() {
@@ -167,7 +172,9 @@ exports['default'] = _react2['default'].createClass({
     if (this.props.label) {
       return _react2['default'].createElement(
         'label',
-        { onClick: this.showDatePicker, className: 'px2 mb1' },
+        { className: 'px2 mb1 relative',
+          onClick: this.showDatePicker,
+          style: { zIndex: this.baseZIndex() + 2 } },
         this.props.label
       );
     }
@@ -202,15 +209,7 @@ exports['default'] = _react2['default'].createClass({
   },
 
   value: function value() {
-    if (this.isFormatValid()) {
-      if (this.isDateValid()) {
-        return this.momentDate(this.state.date).format(this.props.dateFormat);
-      } else {
-        return "Couldn't parse date";
-      }
-    } else {
-      return "Invalid date format";
-    }
+    if (this.state.value) return this.state.value.format(this.props.dateFormat);
   },
 
   render: function render() {
@@ -230,6 +229,7 @@ exports['default'] = _react2['default'].createClass({
           onFocus: this.showDatePicker,
           readOnly: true,
           type: 'text',
+          placeholder: this.props.placeholder,
           value: this.value() }),
         _react2['default'].createElement('span', { className: this.iconClasses(),
           onClick: this.showDatePicker,
