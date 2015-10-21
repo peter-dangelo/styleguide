@@ -13,7 +13,7 @@
     "compile": "babel -d dist/ src/js/components/"
   },
   "engine": {
-    "node": ">=0.12.6"
+    "node": ">=4.2.1"
   },
   "author": "HipsterBrown",
   "license": "MIT",
