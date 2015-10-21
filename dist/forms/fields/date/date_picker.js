@@ -61,7 +61,7 @@ exports['default'] = _react2['default'].createClass({
   render: function render() {
     return _react2['default'].createElement(
       'div',
-      { className: 'datepicker bg-grey-90 rounded-3 p3 no-select absolute', style: this.style() },
+      { className: 'datepicker bg-grey-90 rounded-3 p2 no-select absolute', style: this.style() },
       _react2['default'].createElement(
         'div',
         null,
