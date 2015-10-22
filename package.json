@@ -12,6 +12,9 @@
     "start": "gulp",
     "compile": "babel -d dist/ src/js/components/"
   },
+  "engine": {
+    "node": ">=4.2.1"
+  },
   "author": "HipsterBrown",
   "license": "MIT",
   "dependencies": {
