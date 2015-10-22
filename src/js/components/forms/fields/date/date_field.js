@@ -130,7 +130,7 @@ export default React.createClass({
   },
 
   inputClasses() {
-    let classes = ['relative', 'fit', 'pr5'];
+    let classes = ['relative', 'fit', 'pr4'];
     classes.push( 'field-' + this.props.fieldColor );
     if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
     return classes.join(' ');
@@ -197,7 +197,6 @@ export default React.createClass({
       <div className={this.containerClasses()}>
         {this.label()}
         {this.fieldError()}
-        <br />
         {this.datePicker()}
         <div className='relative rounded-2 overflow-hidden no-select'
              style={{zIndex: this.baseZIndex()}}>
