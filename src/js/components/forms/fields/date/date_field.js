@@ -117,7 +117,7 @@ export default React.createClass({
   },
 
   iconClasses() {
-    let classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
+    let classes = ['icon-calendar', 'ml1', 'absolute'];
     this.state.disabled ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
   },
