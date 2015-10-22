@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from './icon';
 import Popup from './popup';
-import FieldError from './forms/field-error';
+import FieldErrors from './forms/field-errors';
 import Colors from '../../lib/_colors.json';
 import OutsideClick from './mixins/outside-click';
 
@@ -115,7 +115,7 @@ export default createClass({
   _showError() {
     return (
       <div className="fill px2">
-        <FieldError message={this.props.errorMessage} />
+        <FieldErrors errors={[this.props.errorMessage]} />
       </div>
     );
   },
