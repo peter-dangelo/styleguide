@@ -130,7 +130,7 @@ export default React.createClass({
   },
 
   inputClasses() {
-    let classes = ['relative', 'fit', 'pr5'];
+    let classes = ['relative', 'fit', 'pr4'];
     classes.push( 'field-' + this.props.fieldColor );
     if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
     return classes.join(' ');
