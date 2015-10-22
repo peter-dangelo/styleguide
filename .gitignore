@@ -1,11 +1,9 @@
 node_modules/
-bower_components/
 .DS_Store
 npm-debug.log*
 public/app.js
 public/app.css
 public/app.css.map
-public/prism-twilight.css
 public/fonts/
 dist/namely-ui.css
 dump.rdb

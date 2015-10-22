@@ -78,7 +78,8 @@ exports['default'] = _react2['default'].createClass({
 
   nextIcon: function nextIcon() {
     if (this.showNext()) {
-      return _react2['default'].createElement('a', { onClick: this.goToNextMonth, className: 'icon-chevron-right absolute top-0 blue-50' });
+      return _react2['default'].createElement('div', { className: 'icon-chevron-right absolute top-0 blue-50',
+        onClick: this.goToNextMonth });
     } else {
       return '';
     }
@@ -86,7 +87,8 @@ exports['default'] = _react2['default'].createClass({
 
   prevIcon: function prevIcon() {
     if (this.showPrev()) {
-      return _react2['default'].createElement('a', { onClick: this.goToPrevMonth, className: 'icon-chevron-left absolute top-0 blue-50' });
+      return _react2['default'].createElement('div', { className: 'icon-chevron-left absolute top-0 blue-50',
+        onClick: this.goToPrevMonth });
     } else {
       return '';
     }
@@ -96,7 +98,7 @@ exports['default'] = _react2['default'].createClass({
     return [0, 1, 2, 3, 4, 5, 6].map(function (i) {
       return _react2['default'].createElement(
         'span',
-        { className: "grey-50 inline-block h6 day-in-week-" + i.toString(),
+        { className: "grey-50 inline-block center h6 day-in-week-" + i.toString(),
           key: "week-label-" + i.toString() },
         weekAbbvs[i]
       );
