@@ -34,7 +34,7 @@ export default createClass({
         {this.list()}
       </div>;
     } else {
-      return <span style={{display: 'none'}} />;
+      return null;
     }
   }
 });
