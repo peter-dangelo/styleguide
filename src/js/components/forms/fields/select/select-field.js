@@ -1,3 +1,4 @@
+import FieldErrors from '../../field-errors';
 import React from 'react';
 import SimpleSelect from './simple-select';
 
@@ -12,6 +13,7 @@ export default React.createClass({
     errors: Type.array,
     fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
+    name: Type.string,
     onChange: Type.func,
     placeholder: Type.string,
     value: Type.oneOfType([Type.object, Type.string, Type.number])
@@ -54,6 +56,10 @@ export default React.createClass({
   },
 
   render() {
-    return <span />;
+    return <div>
+      {this.label()}
+      <SimpleSelect options={{}} />
+      <FieldErrors errors={this.state.errors} />
+    </div>;
   }
 });

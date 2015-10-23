@@ -1,4 +1,4 @@
-import DatePicker from './date_picker';
+import DatePicker from './date-picker';
 import FieldErrors from '../../field-errors';
 import Moment from 'moment';
 import React from 'react';
@@ -23,6 +23,7 @@ export default React.createClass({
     label: Type.string,
     maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
     minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
+    name: Type.string,
     onChange: Type.func,
     placeholder: Type.string,
     value: Type.oneOfType([Type.object, Type.string, Type.number])
@@ -205,6 +206,7 @@ export default React.createClass({
              style={{zIndex: this.baseZIndex()}}>
           <input className={this.inputClasses()}
                  disabled={this.state.disabled}
+                 name={this.props.name}
                  onFocus={this.showDatePicker}
                  readOnly
                  type="text"

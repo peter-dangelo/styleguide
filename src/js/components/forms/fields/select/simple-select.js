@@ -93,7 +93,7 @@ export default React.createClass({
       'bw-1',
       'flex',
       'flex-justify',
-      'p2',
+      'p1',
       this.state.show_options ? 'rounded-top-2' : 'rounded-2',
       this.props.disabled ? 'grey-50' : 'pointer',
       this.state.show_options ? 'bc-grey-25' : this.props.borderColorClass
@@ -156,7 +156,7 @@ export default React.createClass({
       'nowrap',
       'option',
       'pointer',
-      'p2'
+      'p1'
     ];
     let emptyOption = (
       <div className={optionClasses.concat('grey-50').join(' ')} onClick={this.onClickOptionEmpty}>
@@ -175,7 +175,6 @@ export default React.createClass({
   },
 
   render() {
-
     let value = this.renderValue();
     let options = this.renderOptions();
 
