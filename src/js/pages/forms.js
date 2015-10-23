@@ -98,21 +98,8 @@ export default React.createClass({
             <DateField dateFormat='MMM D, YYYY'
                        extraClasses={['py2']}
                        fieldColor='light'
+                       label='Date'
                        placeholder="Placeholder" />
-            <div className='clearfix'></div>
-            <DateField dateFormat='MMM D, YYYY'
-                       extraClasses={['py2']}
-                       fieldColor='light'
-                       label="With Min/Max Dates"
-                       maxDate={this.pushPullToday(35)}
-                       minDate={this.pushPullToday(-5)}
-                       value={new Date} />
-            <div className='clearfix'></div>
-            <DateField dateFormat='MMM D, YYYY'
-                       errors={['Sa da tay']}
-                       extraClasses={['py2']}
-                       fieldColor='light'
-                       label="With Error" />
             <div className='clearfix'></div>
             <SimpleSelect label="Simple Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
@@ -293,6 +280,33 @@ export default React.createClass({
           <h3 className="mt4">File Input</h3>
           <p className="small">An interactive file component with file name preview.</p>
           <FileInput labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
+        </div>
+
+        <div title="Date Fields">
+          <DateField dateFormat='MMM D, YYYY'
+                     extraClasses={['py2']}
+                     fieldColor='light'
+                     value={new Date} />
+          <div className='clearfix'></div>
+          <DateField dateFormat='MMM D, YYYY'
+                     extraClasses={['py2']}
+                     fieldColor='light'
+                     label="With Min/Max Dates"
+                     maxDate={this.pushPullToday(35)}
+                     minDate={this.pushPullToday(-5)}
+                     value={new Date} />
+          <div className='clearfix'></div>
+          <DateField dateFormat='MMM D, YYY'
+                     extraClasses={['py2']}
+                     fieldColor='light'
+                     label="With bad format string" />
+          <div className='clearfix'></div>
+          <DateField dateFormat='MMM D, YYYY'
+                     errors={['You broke it!', 'Time is irrelevant']}
+                     extraClasses={['py2']}
+                     fieldColor='light'
+                     label="With errors" />
+          <div className='clearfix'></div>
         </div>
       </Styleguide>
   }
