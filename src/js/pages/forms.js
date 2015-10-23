@@ -7,7 +7,7 @@ import Radio from '../components/forms/fields/radio';
 import React from 'react';
 import DateField from '../components/forms/fields/date/date_field';
 import Select from 'react-select';
-import SimpleSelect from '../components/forms/fields/simple-select';
+import SimpleSelect from '../components/forms/fields/select/simple-select';
 import Styleguide from '../styleguide';
 import TextArea from '../components/forms/fields/textarea';
 import TextField from '../components/forms/fields/text';

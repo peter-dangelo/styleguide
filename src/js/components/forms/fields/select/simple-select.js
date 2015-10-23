@@ -69,7 +69,7 @@ export default React.createClass({
   },
 
   onClickValue() {
-    if(!this.props.disabled) {
+    if (!this.props.disabled) {
       this.setState({show_options: !this.state.show_options});
     }
   },
@@ -85,7 +85,6 @@ export default React.createClass({
   },
 
   renderValue() {
-
     let options = this.props.options;
     let value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
 
