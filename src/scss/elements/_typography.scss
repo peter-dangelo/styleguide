@@ -12,17 +12,17 @@
 // Base typography styling
 h1, h2, h3, h4 {
   line-height: $heading-line-height;
-  margin: $space-2 0 $space-2 0;
+  margin: $space-2 0;
 }
 
 h5, h6 {
   line-height: $line-height;
-  margin: $space-1 0 $space-1 0;
+  margin: $space-1 0;
 }
 
 p {
   line-height: $line-height;
-  margin: $space-2 0 $space-2 0;
+  margin: $space-2 0;
 }
 
 p, dl, ol, ul {
@@ -31,7 +31,7 @@ p, dl, ol, ul {
 
 small, .small {
   font-size: $h6;
-  line-height: 1
+  line-height: 1;
 }
 
 hr {

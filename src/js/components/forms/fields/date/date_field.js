@@ -197,7 +197,6 @@ export default React.createClass({
   },
 
   render() {
-    console.log(this.state.errors);
     return (
       <div className={this.containerClasses()}>
         {this.label()}
