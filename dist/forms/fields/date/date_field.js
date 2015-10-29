@@ -10,9 +10,9 @@ var _date_picker = require('./date_picker');
 
 var _date_picker2 = _interopRequireDefault(_date_picker);
 
-var _fieldError = require('../../field-error');
+var _fieldErrors = require('../../field-errors');
 
-var _fieldError2 = _interopRequireDefault(_fieldError);
+var _fieldErrors2 = _interopRequireDefault(_fieldErrors);
 
 var _moment = require('moment');
 
@@ -60,10 +60,25 @@ exports['default'] = _react2['default'].createClass({
   getInitialState: function getInitialState() {
     return {
       value: this.momentDate(this.props.value),
-      disabled: this.props.disabled || !this.isFormatValid(),
-      errors: this.initErrors(),
+      disabled: this.props.disabled || false,
+      errors: this.props.errors || [],
       show: false
     };
+  },
+
+  componentDidMount: function componentDidMount() {
+    if (!this.isFormatValid()) {
+      this.setState({
+        disabled: true,
+        errors: ['Invalid date format']
+      });
+    } else {
+      if (!this.isDateValid()) {
+        this.setState({
+          errors: this.state.errors.concat('Invalid date')
+        });
+      }
+    }
   },
 
   baseZIndex: function baseZIndex() {
@@ -124,31 +139,18 @@ exports['default'] = _react2['default'].createClass({
     }
   },
 
-  fieldError: function fieldError() {
-    if (this.state.errors.length > 0) {
-      return _react2['default'].createElement(_fieldError2['default'], { message: this.state.errors.join('; ') });
-    }
-  },
-
   hideDatePicker: function hideDatePicker() {
     this.setState({ show: false });
   },
 
   iconClasses: function iconClasses() {
-    var classes = ['icon', 'icon-calendar', 'ml1', 'absolute'];
+    var classes = ['icon-calendar', 'ml1', 'absolute'];
     this.state.disabled ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
   },
 
-  initErrors: function initErrors() {
-    var errors = [];
-    if (!this.isDateValid()) errors.push('Error parsing date');
-    if (!this.isFormatValid()) errors.push('Invalid date format');
-    return errors.concat(this.props.errors);
-  },
-
   inputClasses: function inputClasses() {
-    var classes = ['relative', 'fit', 'pr5'];
+    var classes = ['relative', 'fit', 'pr4'];
     classes.push('field-' + this.props.fieldColor);
     if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
     return classes.join(' ');
@@ -200,7 +202,7 @@ exports['default'] = _react2['default'].createClass({
 
   resetErrors: function resetErrors() {
     var errors = [];
-    if (!this.isDateValid()) errors.push('Error parsing date');
+    if (!this.isDateValid()) errors.push('Invalid date');
     this.setState({ errors: errors });
   },
 
@@ -217,8 +219,6 @@ exports['default'] = _react2['default'].createClass({
       'div',
       { className: this.containerClasses() },
       this.label(),
-      this.fieldError(),
-      _react2['default'].createElement('br', null),
       this.datePicker(),
       _react2['default'].createElement(
         'div',
@@ -235,7 +235,8 @@ exports['default'] = _react2['default'].createClass({
           onClick: this.showDatePicker,
           style: { zIndex: this.baseZIndex() + 2 } })
       ),
-      _react2['default'].createElement('div', { className: 'clearfix' })
+      _react2['default'].createElement('div', { className: 'clearfix' }),
+      _react2['default'].createElement(_fieldErrors2['default'], { errors: this.state.errors })
     );
   }
 });
