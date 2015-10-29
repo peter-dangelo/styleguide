@@ -19,7 +19,7 @@ var options = [
   { value: 'san_francisco', label: 'San Francisco' }
 ];
 
-var simpleSelectOptions1 = ['London','New York','Chicago','San Francisco'];
+var simpleSelectOptions1 = ['London', 'New York', 'Chicago', 'San Francisco'];
 
 var simpleSelectOptions2 = {
   10: 'London',
@@ -101,7 +101,7 @@ export default React.createClass({
                        label='Date'
                        placeholder="Placeholder" />
             <div className='clearfix'></div>
-            <SelectField label="Select" fieldColor='light' options={options} promptText="- Select -" extraClasses={['py2']}/>
+            <SelectField label="Select" fieldColor='light' options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
             <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' extraClasses={['py2']}/>
@@ -114,7 +114,7 @@ export default React.createClass({
             <NumberField label="Number" fieldColor='light' disabled={true} extraClasses={['py2']} />
             <DateField date="2015/1/1" label="ReactDate" fieldColor='light' disabled={true} extraClasses={['py2']} dateFormat='YYYY/MM/DD'/>
             <div className='clearfix'></div>
-            <SelectField label="Simple Select" fieldColor='light' options={options} disabled={true} extraClasses={['py2']}/>
+            <SelectField label="Simple Select" fieldColor='light' options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  disabled={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' disabled={true} extraClasses={['py2']}/>
             <Radio name="radios2" fieldColor='light' label="Radio" disabled={true} extraClasses={['py2']} />
@@ -126,7 +126,7 @@ export default React.createClass({
               <NumberField label="Number" fieldColor='dark' extraClasses={['py2']} units="Units" />
               <DateField label="Date" fieldColor='dark' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
               <div className='clearfix'></div>
-              <SelectField label="Simple Select" fieldColor='dark' options={options} promptText="- Select -" extraClasses={['py2']}/>
+              <SelectField label="Simple Select" fieldColor='dark' options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' extraClasses={['py2']}/>
               <Checkbox label="Checkbox" fieldColor='dark' extraClasses={['py2']}/>
               <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
@@ -138,7 +138,7 @@ export default React.createClass({
               <NumberField label="Number" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <DateField label="ReactDate" fieldColor='dark' disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />
               <div className='clearfix'></div>
-              <SelectField label="Simple Select" fieldColor='dark' options={options} disabled={true} extraClasses={['py2']}/>
+              <SelectField label="Simple Select" fieldColor='dark' options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <Checkbox label="Checkbox" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
               <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>

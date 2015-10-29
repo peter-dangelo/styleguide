@@ -7,23 +7,30 @@ export default React.createClass({
   displayName: "SimpleSelect",
 
   propTypes: {
+    disabled: Type.bool,
+    fieldColor: Type.oneOf(['light', 'dark']),
+    hasError: Type.bool,
     includeBlank: Type.oneOfType([Type.bool, Type.string]),
+    name: Type.string,
+    onChange: Type.func,
     options: Type.oneOfType([Type.object, Type.array]).isRequired,
     placeholder: Type.string,
-    value: Type.oneOfType([Type.string, Type.number]),
-    name: Type.string,
-    borderColorClass: Type.string,
-    onChange: Type.func
+    value: Type.oneOfType([Type.string, Type.number])
   },
 
   getDefaultProps() {
     return {
-      borderColorClass: 'bc-grey-25'
-    }
+      fieldColor: 'light',
+      hasErrors: false,
+      onChange: function() {}
+    };
   },
 
-  componentWillMount() {
-    this.setState({value: this.props.value || null});
+  getInitialState() {
+    return {
+      show_options: false,
+      value: this.props.value || null
+    };
   },
 
   componentDidMount() {
@@ -35,23 +42,14 @@ export default React.createClass({
   },
 
   componentDidUpdate(prevProps, prevState) {
-    if(this.state.value != prevState.value) {
-      this.props.onChange();
-    }
+    if (this.state.value != prevState.value) this.props.onChange();
   },
 
-  getInitialState() {
-    return {
-      show_options: false
-    }
-  },
-
-  onDocumentClick(e) {
-    let componentNode = this.getDOMNode();
-    let targetNode = e.target;
-    if(!componentNode.contains(targetNode)) {
-      this.setState({show_options: false})
-    }
+  arrowClasses() {
+    let classes = ['h6', 'ml1', 'relative'];
+    classes.push(this.props.disabled ? 'grey-50' : 'blue-70');
+    classes.push(this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down');
+    return classes.join(' ');
   },
 
   onClickOption(option) {
@@ -64,14 +62,18 @@ export default React.createClass({
   onClickOptionEmpty() {
     this.setState({
       value: null,
-      show_options: false}
-    );
+      show_options: false
+    });
+  },
+
+  onDocumentClick(e) {
+    if (!this.getDOMNode().contains(e.target)) {
+      this.setState({show_options: false})
+    }
   },
 
   onClickValue() {
-    if (!this.props.disabled) {
-      this.setState({show_options: !this.state.show_options});
-    }
+    if (!this.props.disabled) this.setState({show_options: !this.state.show_options});
   },
 
   optionsArray() {
@@ -79,111 +81,113 @@ export default React.createClass({
     return (typeof options === 'object' && Array.isArray(options)) ? options : false;
   },
 
+  optionsClasses() {
+    let classes = ['absolute', 'bb', 'bl', 'br', 'bw-1', 'left-0', 'right-0', 'rounded-bottom-2'];
+    classes.push(this.state.show_options ? 'bc-grey-50' : 'bc-grey-25');
+    return classes.join(' ');
+  },
+
   optionsObject() {
     let options = this.props.options;
     return (typeof options === 'object' && !Array.isArray(options)) ? options : false;
   },
 
-  renderValue() {
-    let options = this.props.options;
-    let value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
+  renderOptions() {
+    if (!this.props.disabled) {
+      let optionClasses = 'bg-white nowrap option pointer py1 px3';
 
-    let valueContainerClasses = [
-      'b',
-      'bw-1',
-      'flex',
-      'flex-justify',
-      'p1',
-      this.state.show_options ? 'rounded-top-2' : 'rounded-2',
-      this.props.disabled ? 'grey-50' : 'pointer',
-      this.state.show_options ? 'bc-grey-25' : this.props.borderColorClass
-    ];
-    let valueClasses = ['nowrap','mr1'];
-    let arrowClasses = [
-      'h6',
-      'ml1',
-      'relative',
-      this.props.disabled ? 'grey-50' : 'blue-70',
-      this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down'
-    ];
-    let arrowStyle = {
-      top: 1
-    };
-
-    return (
-      <div className={valueContainerClasses.join(' ')} onClick={this.onClickValue}>
-        <div className={valueClasses.join(' ')}>{value ? value : this.props.placeholder}</div>
-        <div className={arrowClasses.join(' ')} style={arrowStyle} />
-      </div>
-    );
-  },
-
-  renderOptionsFromObject(classes) {
-    return Object.keys(this.props.options).map( (key, index) => {
-      return (
-        <div key={index} className={classes.join(' ')} onClick={this.onClickOption.bind(this, key)}>
-          {this.props.options[key]}
+      let emptyOption = (
+        <div className={optionClasses+" grey-50"} onClick={this.onClickOptionEmpty}>
+          {typeof this.props.includeBlank == "string" ? this.props.includeBlank : "--"}
         </div>
       );
-    });
+
+      if (this.optionsObject()) {
+        var options = this.renderOptionsFromObject(optionClasses);
+      } else {
+        var options = this.renderOptionsFromArray(optionClasses)
+      }
+
+      if (this.state.show_options) {
+        return <div className={this.optionsClasses()} style={{zIndex: 1000}}>
+                 {this.props.includeBlank ? emptyOption : false}
+                 {options}
+               </div>;
+      }
+    } else {
+      return false;
+    }
   },
 
   renderOptionsFromArray(classes) {
     return this.props.options.map((option, index) => {
-      return (
-        <div key={index} className={classes.join(' ')} onClick={this.onClickOption.bind(this, option)}>
-          {option}
-        </div>
-      );
+      return <div className={classes + ' grey-75'}
+                  key={index}
+                  onClick={this.onClickOption.bind(this, option)}>
+               {option}
+             </div>;
     });
   },
 
-  renderOptions() {
-    let optionsContainerClasses = [
-      'absolute',
-      'bg-white',
-      'bb',
-      'bl',
-      'br',
-      'bw-1',
-      'left-0',
-      'right-0',
-      'rounded-bottom-2',
-      this.state.show_options ? 'bc-grey-25' : this.props.borderColorClass
-    ];
-    let optionClasses = [
-      'bg-white',
-      'nowrap',
-      'option',
-      'pointer',
-      'p1'
-    ];
-    let emptyOption = (
-      <div className={optionClasses.concat('grey-50').join(' ')} onClick={this.onClickOptionEmpty}>
-        {typeof this.props.includeBlank == "string" ? this.props.includeBlank : "--"}
-      </div>
-    );
+  renderOptionsFromObject(classes) {
+    return Object.keys(this.props.options).map((key, index) => {
+      return <div className={classes + ' grey-75'}
+                  key={index}
+                  onClick={this.onClickOption.bind(this, key)}>
+               {this.props.options[key]}
+             </div>;
+    });
+  },
 
-    let options = this.optionsObject() ? this.renderOptionsFromObject(optionClasses) : this.renderOptionsFromArray(optionClasses);
+  renderValue() {
+    let value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
+    let arrowStyle = {top: 1, right: 3, fontSize: '12px', height: '19px'};
 
-    return (
-      <div className={optionsContainerClasses.join(' ')} style={{zIndex: 1000}}>
-        {this.props.includeBlank ? emptyOption : false}
-        {options}
-      </div>
-    );
+    return <div className={this.valueClasses()} onClick={this.onClickValue}>
+             <div className='nowrap mr1'>
+               {value ? value : this.props.placeholder}
+             </div>
+             <div className={this.arrowClasses()} style={arrowStyle} />
+           </div>;
+  },
+
+  valueBorderClass() {
+    if (this.props.hasErrors) {
+      return 'bc-orange';
+    } else if (this.props.disabled) {
+      if (this.props.fieldColor == 'dark') {
+        return 'bc-grey-10';
+      } else {
+        return 'bc-grey-10';
+      }
+    } else if (this.state.show_options) {
+      return 'bc-grey-50';
+    } else {
+      return this.props.fieldColor == 'light' ? 'bc-grey-25' : 'bc-white';
+    }
+  },
+
+  valueClasses() {
+    let classes = ['simple-select', 'b', 'bw-1', 'flex', 'flex-justify', 'p1', 'grey-75'];
+    classes.push(this.valueBorderClass());
+    classes.push(this.state.show_options ? 'rounded-top-2' : "rounded-2");
+    if (this.props.disabled) {
+      classes.push('disabled');
+      classes.push(this.props.fieldColor == 'light' ? 'grey-10 bg-grey-10' : 'grey-50 bg-grey-15');
+    } else {
+      classes.push('pointer bg-white');
+    }
+    return classes.join(' ');
   },
 
   render() {
-    let value = this.renderValue();
-    let options = this.renderOptions();
-
-    return (
-      <div className="simple-select relative">
-        <input type="hidden" name={this.props.name} value={this.state.value} disabled={this.props.disabled} />
-        {value}
-        {this.state.show_options ? options : false}
-      </div>
-    );
+    return <div className="relative simple-select">
+             <input type="hidden"
+                    name={this.props.name}
+                    value={this.state.value}
+                    disabled={this.props.disabled} />
+             {this.renderValue()}
+             {this.renderOptions()}
+           </div>;
   }
 });

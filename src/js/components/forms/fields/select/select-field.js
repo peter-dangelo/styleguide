@@ -11,10 +11,13 @@ export default React.createClass({
   propTypes: {
     disabled: Type.bool,
     errors: Type.array,
+    extraClasses: Type.array,
     fieldColor: Type.oneOf(['light', 'dark']),
+    includeBlank: Type.oneOfType([Type.bool, Type.string]),
     label: Type.string,
     name: Type.string,
     onChange: Type.func,
+    options: Type.oneOfType([Type.object, Type.array]).isRequired,
     placeholder: Type.string,
     value: Type.oneOfType([Type.object, Type.string, Type.number])
   },
@@ -35,11 +38,21 @@ export default React.createClass({
     };
   },
 
+  borderColor() {
+    if (this.state.errors.length > 0) {
+      return 'bc-orange';
+    }
+  },
+
   containerClasses() {
-    let classes = ['select-field', 'relative'];
-    if (this.state.disabled) classes.push('disabled');
+    let classes = ['relative'];
     classes.push(this.props.extraClasses);
     return classes.join(' ');
+  },
+
+  handleChange(e) {
+    this.props.onChange();
+    this.resetErrors();
   },
 
   label() {
@@ -58,7 +71,15 @@ export default React.createClass({
   render() {
     return <div>
       {this.label()}
-      <SimpleSelect options={{}} />
+      <SimpleSelect disabled={this.props.disabled}
+                    fieldColor={this.props.fieldColor}
+                    hasError={this.props.errors.length > 0}
+                    includeBlank={this.props.includeBlank}
+                    name={this.props.name}
+                    onChange={this.handleChange}
+                    options={this.props.options}
+                    placeholder={this.props.placeholder}
+                    value={this.props.value} />
       <FieldErrors errors={this.state.errors} />
     </div>;
   }
