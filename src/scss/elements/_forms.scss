@@ -237,18 +237,6 @@ label {
   border: 1px solid $grey-10;
 }
 
-// select field on white background
-.select-light {
-  background: $white;
-  border-color: $grey-10;
-
-  &:disabled,
-  &.disabled {
-    background: $grey-10;
-    border-color: $grey-10;
-  }
-}
-
 // fields on dark background (grey form)
 
 .field-dark {
