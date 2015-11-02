@@ -56,6 +56,7 @@ export default React.createClass({
   },
 
   onSimpleSelect1Change() {
+    console.log(this.refs);
     this.setState({simpleSelect1Value: this.refs.simpleSelect1.state.value})
   },
 

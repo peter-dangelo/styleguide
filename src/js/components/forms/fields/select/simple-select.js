@@ -109,10 +109,12 @@ export default React.createClass({
       }
 
       if (this.state.show_options) {
-        return <div className={this.optionsClasses()} style={{zIndex: 1000}}>
-                 {this.props.includeBlank ? emptyOption : false}
-                 {options}
-               </div>;
+        return (
+          <div className={this.optionsClasses()} style={{zIndex: 1000}}>
+            {this.props.includeBlank ? emptyOption : false}
+            {options}
+          </div>
+        );
       }
     } else {
       return false;
@@ -121,21 +123,25 @@ export default React.createClass({
 
   renderOptionsFromArray(classes) {
     return this.props.options.map((option, index) => {
-      return <div className={classes + ' grey-75'}
-                  key={index}
-                  onClick={this.onClickOption.bind(this, option)}>
-               {option}
-             </div>;
+      return (
+        <div className={classes + ' grey-75'}
+             key={index}
+             onClick={this.onClickOption.bind(this, option)}>
+          {option}
+        </div>
+      );
     });
   },
 
   renderOptionsFromObject(classes) {
     return Object.keys(this.props.options).map((key, index) => {
-      return <div className={classes + ' grey-75'}
-                  key={index}
-                  onClick={this.onClickOption.bind(this, key)}>
-               {this.props.options[key]}
-             </div>;
+      return (
+        <div className={classes + ' grey-75'}
+             key={index}
+             onClick={this.onClickOption.bind(this, key)}>
+          {this.props.options[key]}
+        </div>
+      );
     });
   },
 
@@ -143,12 +149,14 @@ export default React.createClass({
     let value = this.optionsArray() ? this.state.value : this.props.options[this.state.value];
     let arrowStyle = {top: 1, right: 3, fontSize: '12px', height: '19px'};
 
-    return <div className={this.valueClasses()} onClick={this.onClickValue}>
-             <div className='nowrap mr1'>
-               {value ? value : this.props.placeholder}
-             </div>
-             <div className={this.arrowClasses()} style={arrowStyle} />
-           </div>;
+    return (
+      <div className={this.valueClasses()} onClick={this.onClickValue}>
+        <div className='nowrap mr1'>
+          {value ? value : this.props.placeholder}
+        </div>
+        <div className={this.arrowClasses()} style={arrowStyle} />
+      </div>
+    );
   },
 
   valueBorderClass() {
@@ -181,13 +189,15 @@ export default React.createClass({
   },
 
   render() {
-    return <div className="relative simple-select">
-             <input type="hidden"
-                    name={this.props.name}
-                    value={this.state.value}
-                    disabled={this.props.disabled} />
-             {this.renderValue()}
-             {this.renderOptions()}
-           </div>;
+    return (
+      <div className="relative simple-select">
+        <input type="hidden"
+               name={this.props.name}
+               value={this.state.value}
+               disabled={this.props.disabled} />
+        {this.renderValue()}
+        {this.renderOptions()}
+      </div>
+    );
   }
 });

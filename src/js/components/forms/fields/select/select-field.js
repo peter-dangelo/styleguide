@@ -27,7 +27,8 @@ export default React.createClass({
       disabled: false,
       errors: [],
       fieldColor: 'light',
-      onChange: function() {}
+      onChange: function() {},
+      value: null
     }
   },
 
@@ -51,9 +52,11 @@ export default React.createClass({
 
   label() {
     if (this.props.label) {
-      return <label className="px2 mb1 relative">
-               {this.props.label}
-             </label>;
+      return (
+        <label className="px2 mb1 relative">
+          {this.props.label}
+        </label>
+      );
     }
   },
 
@@ -62,18 +65,20 @@ export default React.createClass({
   },
 
   render() {
-    return <div>
-      {this.label()}
-      <SimpleSelect disabled={this.props.disabled}
-                    fieldColor={this.props.fieldColor}
-                    hasError={this.state.errors.length > 0}
-                    includeBlank={this.props.includeBlank}
-                    name={this.props.name}
-                    onChange={this.handleChange}
-                    options={this.props.options}
-                    placeholder={this.props.placeholder}
-                    value={this.props.value} />
-      <FieldErrors errors={this.state.errors} />
-    </div>;
+    return (
+      <div>
+        {this.label()}
+        <SimpleSelect disabled={this.props.disabled}
+                      fieldColor={this.props.fieldColor}
+                      hasError={this.state.errors.length > 0}
+                      includeBlank={this.props.includeBlank}
+                      name={this.props.name}
+                      onChange={this.handleChange}
+                      options={this.props.options}
+                      placeholder={this.props.placeholder}
+                      value={this.props.value} />
+        <FieldErrors errors={this.state.errors} />
+      </div>
+    );
   }
 });
