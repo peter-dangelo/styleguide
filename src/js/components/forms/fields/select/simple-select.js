@@ -10,7 +10,7 @@ export default React.createClass({
     disabled: Type.bool,
     fieldColor: Type.oneOf(['light', 'dark']),
     hasError: Type.bool,
-    includeBlank: Type.oneOfType([Type.bool, Type.string]),
+    includeBlank: Type.bool,
     name: Type.string,
     onChange: Type.func,
     options: Type.oneOfType([Type.object, Type.array]).isRequired,
@@ -98,7 +98,7 @@ export default React.createClass({
 
       let emptyOption = (
         <div className={optionClasses+" grey-50"} onClick={this.onClickOptionEmpty}>
-          {typeof this.props.includeBlank == "string" ? this.props.includeBlank : "--"}
+          {this.props.placeholder ? this.props.placeholder : "--"}
         </div>
       );
 

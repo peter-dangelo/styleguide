@@ -38,12 +38,6 @@ export default React.createClass({
     };
   },
 
-  borderColor() {
-    if (this.state.errors.length > 0) {
-      return 'bc-orange';
-    }
-  },
-
   containerClasses() {
     let classes = ['relative'];
     classes.push(this.props.extraClasses);
