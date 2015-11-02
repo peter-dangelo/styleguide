@@ -351,6 +351,10 @@ label {
     border-color: $grey-15;
   }
 
+  &.bc-orange-hover:hover {
+    border-color: $orange;
+  }
+
   .option:hover {
     background-color: $grey-5;
   }

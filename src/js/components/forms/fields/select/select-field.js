@@ -64,8 +64,7 @@ export default React.createClass({
   },
 
   resetErrors() {
-    let errors = [];
-    this.setState({errors: errors});
+    this.setState({errors: []});
   },
 
   render() {
@@ -73,7 +72,7 @@ export default React.createClass({
       {this.label()}
       <SimpleSelect disabled={this.props.disabled}
                     fieldColor={this.props.fieldColor}
-                    hasError={this.props.errors.length > 0}
+                    hasError={this.state.errors.length > 0}
                     includeBlank={this.props.includeBlank}
                     name={this.props.name}
                     onChange={this.handleChange}

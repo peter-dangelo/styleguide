@@ -21,7 +21,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       fieldColor: 'light',
-      hasErrors: false,
+      hasError: false,
       onChange: function() {}
     };
   },
@@ -152,8 +152,8 @@ export default React.createClass({
   },
 
   valueBorderClass() {
-    if (this.props.hasErrors) {
-      return 'bc-orange';
+    if (this.props.hasError) {
+      return 'bc-orange bc-orange-hover';
     } else if (this.props.disabled) {
       if (this.props.fieldColor == 'dark') {
         return 'bc-grey-10';

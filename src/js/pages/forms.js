@@ -230,15 +230,15 @@ export default React.createClass({
           </div>
           <div className="mb3">
             <h3>Errors</h3>
-            <p>Error if Chicago is selected</p>
+            <p>With an error</p>
             <SelectField
-              onChange={this.onSimpleSelect4Change}
-              value={this.state.simpleSelect4Value}
-              borderColorClass={this.state.simpleSelect4Value == 25 ? 'bc-orange' : void 0}
               name='city'
-              ref='simpleSelect4'
+              onChange={this.onSimpleSelect4Change}
+              errors={["That's no good!"]}
               options={simpleSelectOptions2}
-              placeholder="- Select -"/>
+              placeholder="- Select -"
+              ref='simpleSelect4'
+              value={this.state.simpleSelect4Value}/>
             <p className='py2'>selected value: {this.state.simpleSelect4Value}</p>
           </div>
           <div className="mb3">
