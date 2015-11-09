@@ -54,7 +54,6 @@ export default React.createClass({
     ];
 
     return classes.join(' ')
-
   },
 
   modalContentClasses() {
@@ -71,7 +70,6 @@ export default React.createClass({
     classes.push('col-'+this.props.contentColumns);
 
     return classes.join(' ');
-
   },
 
   render() {
@@ -82,7 +80,5 @@ export default React.createClass({
           </div>
         </div>
       </div>
-
   }
-
 });

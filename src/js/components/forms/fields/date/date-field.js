@@ -2,6 +2,7 @@ import DatePicker from './date-picker';
 import FieldErrors from '../../field-errors';
 import Moment from 'moment';
 import React from 'react';
+import Tooltip from '../../../tooltip';
 
 const Type = React.PropTypes;
 
@@ -44,7 +45,7 @@ export default React.createClass({
       value: this.momentDate(this.props.value),
       disabled: this.props.disabled || false,
       errors: this.props.errors || [],
-      show: false
+      isOpen: false
     };
   },
 
@@ -64,7 +65,7 @@ export default React.createClass({
   },
 
   baseZIndex() {
-    return this.state.show ? 300 : 1;
+    return this.state.isOpen ? 300 : 1;
   },
 
   boundedMaxDate() {
@@ -104,7 +105,7 @@ export default React.createClass({
   },
 
   datePicker() {
-    if (this.state.show) {
+    if (this.state.isOpen) {
       return (
         <div>
           <div className='modal-clear-bg'
@@ -115,17 +116,15 @@ export default React.createClass({
                       maxDate={this.boundedMaxDate()}
                       minDate={this.boundedMinDate()}
                       onChangeDate={this.changeDate}
-                      show={this.state.show}
+                      isOpen={this.state.isOpen}
                       zIndex={this.baseZIndex()-1} />
         </div>
       );
     }
   },
 
-
-
   hideDatePicker() {
-    this.setState({show: false});
+    this.setState({isOpen: false});
   },
 
   iconClasses() {
@@ -190,7 +189,7 @@ export default React.createClass({
   },
 
   showDatePicker() {
-    if (!this.state.disabled) this.setState({show: true});
+    if (!this.state.disabled) this.setState({isOpen: true});
   },
 
   value() {

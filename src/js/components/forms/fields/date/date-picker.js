@@ -13,7 +13,7 @@ export default React.createClass({
     maxDate: Type.object,
     minDate: Type.object,
     onChangeDate: Type.func.isRequired,
-    show: Type.bool,
+    isOpen: Type.bool,
     zIndex: Type.number
   },
 
@@ -37,7 +37,7 @@ export default React.createClass({
 
   style() {
     return {
-      visibility: (this.props.show ? 'visible' : 'hidden'),
+      visibility: (this.props.isOpen ? 'visible' : 'hidden'),
       zIndex: this.props.zIndex
     };
   },
