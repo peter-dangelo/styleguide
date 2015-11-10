@@ -19,6 +19,7 @@ exports['default'] = _react2['default'].createClass({
   propTypes: {
     zIndex: Type.number,
     contentColumns: Type.number,
+    contentHeight: Type.number,
     disableClickBackground: Type.bool,
     closeModal: Type.func,
     isOpen: Type.bool
@@ -72,7 +73,7 @@ exports['default'] = _react2['default'].createClass({
         { className: 'container fill' },
         _react2['default'].createElement(
           'div',
-          { onClick: this.clickContent, className: this.modalContentClasses() },
+          { onClick: this.clickContent, className: this.modalContentClasses(), style: { height: this.props.contentHeight } },
           this.props.children
         )
       )
