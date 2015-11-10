@@ -9,6 +9,7 @@ export default React.createClass({
   propTypes: {
     zIndex: Type.number,
     contentColumns: Type.number,
+    contentHeight: Type.number,
     disableClickBackground: Type.bool,
     closeModal: Type.func,
     isOpen: Type.bool
@@ -77,7 +78,7 @@ export default React.createClass({
   render() {
     return <div ref="modal" style={{zIndex: this.props.zIndex}} className={this.modalBackgroundClasses()} onClick={this.clickBackground}>
         <div className="container fill">
-          <div onClick={this.clickContent} className={this.modalContentClasses()}>
+          <div onClick={this.clickContent} className={this.modalContentClasses()} style={{height: this.props.contentHeight}}>
             {this.props.children}
           </div>
         </div>
