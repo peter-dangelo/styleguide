@@ -12,9 +12,7 @@ export default React.createClass({
     date: Type.object.isRequired,
     maxDate: Type.object,
     minDate: Type.object,
-    onChangeDate: Type.func.isRequired,
-    isOpen: Type.bool,
-    zIndex: Type.number
+    onChangeDate: Type.func.isRequired
   },
 
   getInitialState() {
@@ -35,16 +33,9 @@ export default React.createClass({
     this.props.onChangeDate(date);
   },
 
-  style() {
-    return {
-      visibility: (this.props.isOpen ? 'visible' : 'hidden'),
-      zIndex: this.props.zIndex
-    };
-  },
-
   render() {
     return (
-      <div className="datepicker bg-grey-90 rounded-3 p2 no-select absolute" style={this.style()}>
+      <div className="datepicker no-select">
         <div>
           <MonthPicker maxDate={this.props.maxDate}
                        minDate={this.props.minDate}
@@ -57,6 +48,7 @@ export default React.createClass({
                      onChangeDate={this.changeDate}
                      visibleMonth={this.state.visibleMonth}
                      visibleYear={this.state.visibleYear} />
+          <div className="clearfix"></div>
         </div>
       </div>
     );

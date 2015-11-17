@@ -3,6 +3,7 @@ import FieldErrors from '../../field-errors';
 import Moment from 'moment';
 import React from 'react';
 import Tooltip from '../../../tooltip';
+import OverlayWrapper from '../../../overlay-wrapper';
 
 const Type = React.PropTypes;
 
@@ -64,10 +65,6 @@ export default React.createClass({
     }
   },
 
-  baseZIndex() {
-    return this.state.isOpen ? 300 : 1;
-  },
-
   boundedMaxDate() {
     if (!!this.props.maxDate) {
       if (this.props.includeMaxMinBounds) {
@@ -99,28 +96,17 @@ export default React.createClass({
   containerClasses() {
     let classes = ['date-field', 'relative'];
     if (this.state.disabled) classes.push('disabled');
-    if (this.props.label) classes.push('with-label');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
   },
 
   datePicker() {
-    if (this.state.isOpen) {
-      return (
-        <div>
-          <div className='modal-clear-bg'
-               onClick={this.hideDatePicker}
-               style={{zIndex: this.baseZIndex()-2}}>
-          </div>
-          <DatePicker date={this.state.value || Moment()}
-                      maxDate={this.boundedMaxDate()}
-                      minDate={this.boundedMinDate()}
-                      onChangeDate={this.changeDate}
-                      isOpen={this.state.isOpen}
-                      zIndex={this.baseZIndex()-1} />
-        </div>
-      );
-    }
+    return (
+      <DatePicker date={this.state.value || Moment()}
+                  maxDate={this.boundedMaxDate()}
+                  minDate={this.boundedMinDate()}
+                  onChangeDate={this.changeDate} />
+    );
   },
 
   hideDatePicker() {
@@ -157,8 +143,7 @@ export default React.createClass({
   label() {
     if (this.props.label) {
       return <label className="px2 mb1 relative"
-                    onClick={this.showDatePicker}
-                    style={{zIndex: this.baseZIndex()+2}} >
+                    onClick={this.showDatePicker} >
                {this.props.label}
              </label>;
     }
@@ -192,6 +177,16 @@ export default React.createClass({
     if (!this.state.disabled) this.setState({isOpen: true});
   },
 
+  tooltip() {
+    if (this.state.isOpen) {
+      return (
+        <Tooltip content={this.datePicker()}
+                 position='top-right'
+                 handleClose={this.hideDatePicker} />
+      );
+    }
+  },
+
   value() {
     if (this.state.value) return this.state.value.format(this.props.dateFormat);
   },
@@ -200,9 +195,8 @@ export default React.createClass({
     return (
       <div className={this.containerClasses()}>
         {this.label()}
-        {this.datePicker()}
-        <div className='relative rounded-2 overflow-hidden no-select'
-             style={{zIndex: this.baseZIndex()}}>
+        {this.tooltip()}
+        <div className='relative rounded-2 overflow-hidden no-select' >
           <input className={this.inputClasses()}
                  disabled={this.state.disabled}
                  name={this.props.name}
@@ -212,8 +206,7 @@ export default React.createClass({
                  placeholder={this.props.placeholder}
                  value={this.value()} />
           <span className={this.iconClasses()}
-                onClick={this.showDatePicker}
-                style={{zIndex: this.baseZIndex()+2}}></span>
+                onClick={this.showDatePicker} ></span>
         </div>
         <div className="clearfix"></div>
         <FieldErrors errors={this.state.errors} />
