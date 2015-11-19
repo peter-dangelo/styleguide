@@ -7,19 +7,13 @@ export default React.createClass({
   displayName: "OverlayWrapper",
 
   propTypes: {
-    extraClasses: Type.array,
-    overlayContent: Type.node.isRequired,
-    trigger: Type.oneOfType([
-      Type.oneOf(['click', 'hover', 'focus']),
-      Type.arrayOf(Type.oneOf(['click', 'hover', 'focus']))
-    ]),
-    triggerContent: Type.node.isRequired
+    handleClose: Type.func,
+    overlayContent: Type.node.isRequired
   },
 
   getDefaultProps() {
     return {
-      extraClasses: null,
-      trigger: 'click',
+      handleClose: function() {}
     };
   },
 
@@ -40,8 +34,7 @@ export default React.createClass({
   render() {
     return (
       <div>
-        {this.props.triggerContent()}
-        {this.props.overlayContent()}
+        {this.props.overlayContent}
       </div>
     );
   }

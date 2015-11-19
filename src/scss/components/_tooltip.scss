@@ -7,7 +7,7 @@
 
   &.top-center .triangle-top {
     left: 50%;
-    margin-left: -$space-1;
+    margin-left: -$space-2;
     top: -$space-2;
   }
 
@@ -23,7 +23,7 @@
 
   &.right-center .triangle-right {
     right: -$space-2;
-    margin-top: -$space-1;
+    margin-top: -$space-2;
     top: 50%;
   }
 
@@ -40,7 +40,7 @@
   &.bottom-center .triangle-bottom {
     bottom: -$space-2;
     left: 50%;
-    margin-left: -$space-1;
+    margin-left: -$space-2;
   }
 
   &.bottom-left .triangle-bottom {
@@ -55,7 +55,7 @@
 
   &.left-center .triangle-left {
     left: -$space-2;
-    margin-top: -$space-1;
+    margin-top: -$space-2;
     top: 50%;
   }
 

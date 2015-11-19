@@ -4,9 +4,9 @@ const Type = React.PropTypes;
 
 const caretPositions = [
   "top-left", "top-center", "top-right",
-  "left-top", "left-center", "left-bottom",
+  "right-top", "right-center", "right-bottom",
   "bottom-right", "bottom-center", "bottom-left",
-  "right-bottom", "right-center", "right-top"
+  "left-bottom", "left-center", "left-top"
 ];
 
 export default React.createClass({

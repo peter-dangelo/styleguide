@@ -177,14 +177,25 @@ export default React.createClass({
     if (!this.state.disabled) this.setState({isOpen: true});
   },
 
-  tooltip() {
+  overlayWrapper() {
     if (this.state.isOpen) {
       return (
-        <Tooltip content={this.datePicker()}
-                 position='top-right'
-                 handleClose={this.hideDatePicker} />
+        <OverlayWrapper handleClose={this.hideDatePicker}
+                        overlayContent={this.tooltip()} />
       );
     }
+  },
+
+  positionTooltip() {
+
+  },
+
+  tooltip() {
+    return (
+      <Tooltip content={this.datePicker()}
+               position='top-right'
+               handleClose={this.hideDatePicker} />
+    );
   },
 
   value() {
@@ -195,7 +206,6 @@ export default React.createClass({
     return (
       <div className={this.containerClasses()}>
         {this.label()}
-        {this.tooltip()}
         <div className='relative rounded-2 overflow-hidden no-select' >
           <input className={this.inputClasses()}
                  disabled={this.state.disabled}
@@ -206,8 +216,10 @@ export default React.createClass({
                  placeholder={this.props.placeholder}
                  value={this.value()} />
           <span className={this.iconClasses()}
-                onClick={this.showDatePicker} ></span>
+                onClick={this.showDatePicker}
+                ref={this.positionTooltip} ></span>
         </div>
+        {this.overlayWrapper()}
         <div className="clearfix"></div>
         <FieldErrors errors={this.state.errors} />
       </div>
