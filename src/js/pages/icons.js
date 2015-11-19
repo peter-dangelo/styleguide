@@ -10,8 +10,8 @@ export default React.createClass({
     return <Styleguide title="Icons">
       <div title="Names">
         {IconData.map(function(object, i){
-          return <div>
-            <Icon name={object.name} key={i} />
+          return <div key={i}>
+            <Icon name={object.name} />
             <code>.icon-{object.name}</code>
           </div>;
         })}
