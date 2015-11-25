@@ -3,7 +3,7 @@ import FieldErrors from '../../field-errors';
 import Moment from 'moment';
 import React from 'react';
 import Tooltip from '../../../tooltip';
-import OverlayWrapper from '../../../overlay-wrapper';
+import Overlay from '../../../overlay';
 
 const Type = React.PropTypes;
 
@@ -43,10 +43,9 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      value: this.momentDate(this.props.value),
       disabled: this.props.disabled || false,
       errors: this.props.errors || [],
-      isOpen: false
+      value: this.momentDate(this.props.value)
     };
   },
 
@@ -89,12 +88,11 @@ export default React.createClass({
   changeDate(date) {
     this.setState({value: date});
     this.resetErrors();
-    this.hideDatePicker();
     this.props.onChange(date);
   },
 
   containerClasses() {
-    let classes = ['date-field', 'relative'];
+    let classes = ['date-field', 'col-3'];
     if (this.state.disabled) classes.push('disabled');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
@@ -109,14 +107,18 @@ export default React.createClass({
     );
   },
 
-  hideDatePicker() {
-    this.setState({isOpen: false});
-  },
-
   iconClasses() {
     let classes = ['icon-calendar', 'ml1', 'absolute'];
     this.state.disabled ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
+  },
+
+  iconStyle() {
+    return {
+      right: '8px',
+      top: '6px',
+      fontSize: '15px'
+    };
   },
 
   inputClasses() {
@@ -149,6 +151,38 @@ export default React.createClass({
     }
   },
 
+  overlay() {
+    if (!this.state.disabled) {
+      return (
+        <Overlay handleClick={this.changeDate}
+                 handleClose={this.hideDatePicker}
+                 content={this.tooltip()} >
+          {this.overlayContent()}
+        </Overlay>
+      );
+    } else {
+      return this.overlayContent();
+    }
+  },
+
+  overlayContent() {
+    return (
+      <div className='relative rounded-2 overflow-hidden no-select' >
+        <input className={this.inputClasses()}
+               disabled={this.state.disabled}
+               name={this.props.name}
+               onFocus={this.showDatePicker}
+               readOnly
+               type="text"
+               placeholder={this.props.placeholder}
+               value={this.value()} />
+        <span className={this.iconClasses()}
+              onClick={this.showDatePicker}
+              style={this.iconStyle()}></span>
+      </div>
+    );
+  },
+
   momentDate(date) {
     if (!!date) {
       switch (date.constructor.name) {
@@ -173,28 +207,13 @@ export default React.createClass({
     this.setState({errors: errors});
   },
 
-  showDatePicker() {
-    if (!this.state.disabled) this.setState({isOpen: true});
-  },
-
-  overlayWrapper() {
-    if (this.state.isOpen) {
-      return (
-        <OverlayWrapper handleClose={this.hideDatePicker}
-                        overlayContent={this.tooltip()} />
-      );
-    }
-  },
-
-  positionTooltip() {
-
-  },
-
   tooltip() {
     return (
       <Tooltip content={this.datePicker()}
+               handleClose={this.hideDatePicker}
                position='top-right'
-               handleClose={this.hideDatePicker} />
+               right='-24px'
+               top='37px' />
     );
   },
 
@@ -206,20 +225,7 @@ export default React.createClass({
     return (
       <div className={this.containerClasses()}>
         {this.label()}
-        <div className='relative rounded-2 overflow-hidden no-select' >
-          <input className={this.inputClasses()}
-                 disabled={this.state.disabled}
-                 name={this.props.name}
-                 onFocus={this.showDatePicker}
-                 readOnly
-                 type="text"
-                 placeholder={this.props.placeholder}
-                 value={this.value()} />
-          <span className={this.iconClasses()}
-                onClick={this.showDatePicker}
-                ref={this.positionTooltip} ></span>
-        </div>
-        {this.overlayWrapper()}
+        {this.overlay()}
         <div className="clearfix"></div>
         <FieldErrors errors={this.state.errors} />
       </div>

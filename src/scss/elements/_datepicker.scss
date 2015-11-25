@@ -9,16 +9,8 @@
 
 $day-width: $space-4;
 
-.date-field {
-  width: $day-width * 7;
-
-  .icon-calendar {
-    right: $space-2;
-    top: 12%;
-  }
-}
-
 .datepicker {
+  width: $day-width * 7;
 
   @for $i from 0 through 6 {
     .day-in-week-#{$i} { left: $day-width * $i; }

@@ -26,10 +26,13 @@ export default React.createClass({
   getDefaultProps() {
     return {
       baseZIndex: 300,
+      bottom: null,
+      caretPosition: 'top-right',
       handleClose: function() {},
       height: 'auto',
-      caretPosition: 'top-right',
-      right: 0,
+      left: null,
+      right: null,
+      top: null,
       width: 'auto'
     };
   },
@@ -41,14 +44,6 @@ export default React.createClass({
     };
   },
 
-  positionTop() {
-    return (20);
-  },
-
-  positionLeft() {
-    return (20);
-  },
-
   classes() {
     let classes = ['tooltip', 'absolute', 'rounded-3', 'p2', 'bg-blue-95'];
     classes.push(this.props.caretPosition);
@@ -58,9 +53,11 @@ export default React.createClass({
 
   style() {
     return {
+      bottom: this.props.bottom,
       height: this.props.height,
-      left: this.positionLeft(),
-      top: this.positionTop(),
+      left: this.props.left,
+      right: this.props.right,
+      top: this.props.top,
       width: this.props.width,
       zIndex: this.props.baseZIndex
     };

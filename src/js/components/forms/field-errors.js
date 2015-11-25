@@ -22,7 +22,7 @@ export default createClass({
   list() {
     return this.props.errors.map(function(errorMsg) {
       return <div className="orange small semibold" key={errorMsg} >
-        <Icon name="alert" extraClasses={['mr1']} size={12} top={1} />
+        <Icon name="alert" extraClasses={['mr1']} size={12} top={-1} />
         {errorMsg}
       </div>
     });
