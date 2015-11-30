@@ -15,7 +15,25 @@
   "engine": {
     "node": ">=4.2.1"
   },
-  "author": "HipsterBrown",
+  "author": "Namely <dev@namely.com",
+  "contributors": [{
+    "name": "Jason Fellows"
+  },
+  {
+    "name": "Katie Reed"
+  },
+  {
+    "name": "Keith Poplawski"
+  },
+  {
+    "name": "Nick Hehr"
+  },
+  {
+    "name": "Shelly Yip"
+  },
+  {
+    "name": "Tyler Sargent"
+  }],
   "license": "MIT",
   "dependencies": {
     "alt": "^0.17.1",
