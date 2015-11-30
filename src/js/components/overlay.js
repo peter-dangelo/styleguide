@@ -10,7 +10,6 @@ export default React.createClass({
     handleClick: Type.func,
     handleClose: Type.func,
     handleOpen: Type.func,
-    mode: Type.oneOf(['hover', 'click']),
     content: Type.node.isRequired
   },
 
@@ -18,8 +17,7 @@ export default React.createClass({
     return {
       handleClick: function() {},
       handleClose: function() {},
-      handleOpen: function() {},
-      mode: 'click'
+      handleOpen: function() {}
     };
   },
 
@@ -33,15 +31,11 @@ export default React.createClass({
   },
 
   componentDidMount() {
-    if (this.props.mode == 'click') {
-      document.addEventListener('click', this.onDocumentClick);
-    }
+    document.addEventListener('click', this.onDocumentClick);
   },
 
   componentWillUnmount() {
-    if (this.props.mode == 'click') {
-      document.removeEventListener('click', this.onDocumentClick);
-    }
+    document.removeEventListener('click', this.onDocumentClick);
   },
 
   content() {
