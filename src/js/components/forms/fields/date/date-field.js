@@ -155,7 +155,6 @@ export default React.createClass({
     if (!this.state.disabled) {
       return (
         <Overlay handleClick={this.changeDate}
-                 handleClose={this.hideDatePicker}
                  content={this.tooltip()} >
           {this.triggerContent()}
         </Overlay>
@@ -210,7 +209,6 @@ export default React.createClass({
   tooltip() {
     return (
       <Tooltip content={this.datePicker()}
-               handleClose={this.hideDatePicker}
                position='top-right'
                right='-24px'
                top='37px' />
