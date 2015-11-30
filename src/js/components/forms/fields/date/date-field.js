@@ -157,15 +157,15 @@ export default React.createClass({
         <Overlay handleClick={this.changeDate}
                  handleClose={this.hideDatePicker}
                  content={this.tooltip()} >
-          {this.overlayContent()}
+          {this.triggerContent()}
         </Overlay>
       );
     } else {
-      return this.overlayContent();
+      return this.triggerContent();
     }
   },
 
-  overlayContent() {
+  triggerContent() {
     return (
       <div className='relative rounded-2 overflow-hidden no-select' >
         <input className={this.inputClasses()}

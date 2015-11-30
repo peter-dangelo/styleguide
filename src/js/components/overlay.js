@@ -10,7 +10,7 @@ export default React.createClass({
     handleClick: Type.func,
     handleClose: Type.func,
     handleOpen: Type.func,
-    mode: Type.oneOf['hover', 'click'],
+    mode: Type.oneOf(['hover', 'click']),
     content: Type.node.isRequired
   },
 
@@ -57,9 +57,11 @@ export default React.createClass({
 
   onDocumentClick(e) {
     if (this.getDOMNode().contains(e.target)) {
-      this.props.handleClick();
       if (!this.state.isOpen) {
         this.show();
+      } else {
+        this.props.handleClick();
+        if (e.target.classList.contains('overlay-trigger')) this.hide();
       }
     } else {
       this.hide();
