@@ -43,7 +43,6 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      disabled: this.props.disabled || false,
       errors: this.props.errors || [],
       value: this.momentDate(this.props.value)
     };
@@ -52,11 +51,10 @@ export default React.createClass({
   componentDidMount() {
     if (!this.isFormatValid()) {
       this.setState({
-        disabled: true,
         errors: ['Invalid date format']
       });
     } else {
-      if (!this.isDateValid()) {
+      if (!this.state.value && !this.isDateValid()) {
         this.setState({
           errors: this.state.errors.concat('Invalid date')
         });
@@ -93,7 +91,7 @@ export default React.createClass({
 
   containerClasses() {
     let classes = ['date-field', 'col-3'];
-    if (this.state.disabled) classes.push('disabled');
+    if (this.disabled()) classes.push('disabled');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
   },
@@ -107,9 +105,13 @@ export default React.createClass({
     );
   },
 
+  disabled() {
+    return this.props.disabled || !this.isFormatValid();
+  },
+
   iconClasses() {
     let classes = ['icon-calendar', 'ml1', 'absolute'];
-    this.state.disabled ? classes.push('grey-25') : classes.push('blue-70');
+    this.disabled() ? classes.push('grey-25') : classes.push('blue-70');
     return classes.join(' ');
   },
 
@@ -152,7 +154,7 @@ export default React.createClass({
   },
 
   overlay() {
-    if (!this.state.disabled) {
+    if (!this.disabled()) {
       return (
         <Overlay handleClick={this.changeDate}
                  content={this.tooltip()} >
@@ -168,7 +170,7 @@ export default React.createClass({
     return (
       <div className='relative rounded-2 overflow-hidden no-select' >
         <input className={this.inputClasses()}
-               disabled={this.state.disabled}
+               disabled={this.disabled()}
                name={this.props.name}
                onFocus={this.showDatePicker}
                readOnly
