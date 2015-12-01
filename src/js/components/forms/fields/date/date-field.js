@@ -160,8 +160,7 @@ export default React.createClass({
   overlay() {
     if (!this.disabled()) {
       return (
-        <Overlay handleClick={this.changeDate}
-                 content={this.tooltip()} >
+        <Overlay content={this.tooltip()}>
           {this.triggerContent()}
         </Overlay>
       );
@@ -202,7 +201,6 @@ export default React.createClass({
           return null;
       }
     } else {
-      console.log('no date in formatdate');
       return null;
     }
   },
@@ -217,12 +215,10 @@ export default React.createClass({
   },
 
   value() {
-    console.log('calling value');
     if (this.state.value) return this.state.value.format(this.props.dateFormat);
   },
 
   render() {
-    console.log(this.state);
     return (
       <div className={this.containerClasses()}>
         {this.label()}
