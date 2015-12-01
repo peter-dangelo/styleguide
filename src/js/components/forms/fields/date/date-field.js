@@ -22,13 +22,13 @@ export default React.createClass({
     errors: Type.array,
     fieldColor: Type.oneOf(['light', 'dark']),
     includeMaxMinBounds: Type.bool,
+    initialValue: Type.oneOfType([Type.object, Type.string, Type.number]),
     label: Type.string,
     maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
     minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
     name: Type.string,
     onChange: Type.func,
-    placeholder: Type.string,
-    value: Type.oneOfType([Type.object, Type.string, Type.number])
+    placeholder: Type.string
   },
 
   getDefaultProps() {
@@ -44,7 +44,7 @@ export default React.createClass({
   getInitialState() {
     return {
       errors: this.props.errors || [],
-      value: this.momentDate(this.props.value)
+      value: this.momentDate(this.props.initialValue)
     };
   },
 
@@ -84,8 +84,12 @@ export default React.createClass({
 
   // Accepts only moments
   changeDate(date) {
-    this.setState({value: date});
-    this.resetErrors();
+    let errors = [];
+    if (!this.isDateValid()) errors.push('Invalid date');
+    this.setState({
+      errors: errors,
+      value: date
+    });
     this.props.onChange(date);
   },
 
@@ -133,8 +137,8 @@ export default React.createClass({
   isDateValid() {
     if (this.state && this.state.value) {
       return this.state.value.isValid();
-    } else if (this.props.value) {
-      return this.momentDate(this.props.value).isValid();
+    } else if (this.props.initialValue) {
+      return this.momentDate(this.props.initialValue).isValid();
     } else {
       return true;
     }
@@ -198,14 +202,9 @@ export default React.createClass({
           return null;
       }
     } else {
+      console.log('no date in formatdate');
       return null;
     }
-  },
-
-  resetErrors() {
-    let errors = [];
-    if (!this.isDateValid()) errors.push('Invalid date');
-    this.setState({errors: errors});
   },
 
   tooltip() {
@@ -218,10 +217,12 @@ export default React.createClass({
   },
 
   value() {
+    console.log('calling value');
     if (this.state.value) return this.state.value.format(this.props.dateFormat);
   },
 
   render() {
+    console.log(this.state);
     return (
       <div className={this.containerClasses()}>
         {this.label()}
