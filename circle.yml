@@ -21,5 +21,8 @@ deployment:
   staging:
     branch: circleci
     commands:
+      - npm run compile
+      - aws s3 sync ./dist s3://namely-styleguide/staging/`echo $CIRCLE_SHA1 | cut -c1-8`/ --acl public-read
       - npm install node-slack-cli -g
+      - slack -c namely-ui -m "Deployed styleguide to https://d1pol32eeyc3ek.cloudfront.net/staging/`echo $CIRCLE_SHA1 | cut -c1-8`"
       - slack -c namely-ui -m "A THING HAPPENED!"
