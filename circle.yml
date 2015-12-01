@@ -21,4 +21,5 @@ deployment:
   staging:
     branch: circleci
     commands:
+      - npm install node-slack-cli -g
       - slack -c namely-ui -m "A THING HAPPENED!"
