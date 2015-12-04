@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react/addons';
 
 const Type = React.PropTypes;
+const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 const caretPositions = [
   "top-left", "top-center", "top-right",
@@ -14,6 +15,7 @@ export default React.createClass({
   displayName: "Tooltip",
 
   propTypes: {
+    animate: Type.bool,
     baseZIndex: Type.number,
     content: Type.node.isRequired,
     extraClasses: Type.array,
@@ -25,6 +27,7 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
+      animate: true,
       baseZIndex: 300,
       bottom: null,
       caretPosition: 'top-right',
@@ -51,6 +54,27 @@ export default React.createClass({
     return classes.join(' ');
   },
 
+  direction() {
+    switch (this.props.caretPosition) {
+      case 'top-center':
+      case 'top-left':
+      case 'top-right':
+        return 'top';
+      case 'right-center':
+      case 'right-top':
+      case 'right-bottom':
+        return 'right';
+      case 'bottom-center':
+      case 'bottom-left':
+      case 'bottom-right':
+        return 'bottom';
+      case 'left-bottom':
+      case 'left-center':
+      case 'left-top':
+        return 'left';
+    }
+  },
+
   style() {
     return {
       bottom: this.props.bottom,
@@ -63,34 +87,22 @@ export default React.createClass({
     };
   },
 
-  triangleClass() {
-    switch (this.props.caretPosition) {
-      case 'top-center':
-      case 'top-left':
-      case 'top-right':
-        return 'triangle-top';
-      case 'right-center':
-      case 'right-top':
-      case 'right-bottom':
-        return 'triangle-right';
-      case 'bottom-center':
-      case 'bottom-left':
-      case 'bottom-right':
-        return 'triangle-bottom';
-      case 'left-bottom':
-      case 'left-center':
-      case 'left-top':
-        return 'triangle-left';
-    }
+  triangleClasses() {
+    let classes = ['absolute', 'bc-blue-95', 'blue-95'];
+    classes.push(`triangle-${this.direction()}`);
+    return classes.join(' ');
   },
 
   render() {
     return (
-      <div className={this.classes()} style={this.style()}>
-        <div className={this.triangleClass() + ' absolute bc-blue-95 blue-95'}></div>
-        {this.props.content}
-        <div className="clearfix"></div>
-      </div>
+      <ReactCSSTransitionGroup transitionName={`anim-fade-${this.direction()}`}
+                               transitionAppear={true} >
+        <div className={this.classes()} style={this.style()}>
+          <div className={this.triangleClasses() + ' absolute bc-blue-95 blue-95'}></div>
+          {this.props.content}
+          <div className="clearfix"></div>
+        </div>
+      </ReactCSSTransitionGroup>
     );
   }
 });
