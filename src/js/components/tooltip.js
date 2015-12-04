@@ -16,7 +16,7 @@ export default React.createClass({
 
   propTypes: {
     animate: Type.bool,
-    baseZIndex: Type.number,
+    zIndex: Type.number,
     content: Type.node.isRequired,
     extraClasses: Type.array,
     handleClose: Type.func,
@@ -28,7 +28,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       animate: true,
-      baseZIndex: 300,
+      zIndex: 300,
       bottom: null,
       caretPosition: 'top-right',
       handleClose: function() {},
@@ -83,7 +83,7 @@ export default React.createClass({
       right: this.props.right,
       top: this.props.top,
       width: this.props.width,
-      zIndex: this.props.baseZIndex
+      zIndex: this.props.zIndex
     };
   },
 
