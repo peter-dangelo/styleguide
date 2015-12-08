@@ -1,24 +1,25 @@
-import React from 'react';
-import Styleguide from '../styleguide';
-import Select from 'react-select';
-import DateField from '../components/forms/fields/date';
-import NumberField from '../components/forms/fields/number';
-import TextField from '../components/forms/fields/text';
-import TextArea from '../components/forms/fields/textarea';
 import Checkbox from '../components/forms/fields/checkbox';
-import Radio from '../components/forms/fields/radio';
-import SimpleSelect from '../components/forms/fields/simple-select';
 import EditLabel from '../components/edit-label';
 import FileInput from '../components/forms/file-input';
+import Moment from 'moment';
+import NumberField from '../components/forms/fields/number';
+import Radio from '../components/forms/fields/radio';
+import React from 'react';
+import DateField from '../components/forms/fields/date/date-field';
+import Select from 'react-select';
+import SelectField from '../components/forms/fields/select/select-field';
+import Styleguide from '../styleguide';
+import TextArea from '../components/forms/fields/textarea';
+import TextField from '../components/forms/fields/text';
 
 var options = [
-    { value: 'london', label: 'London' },
-    { value: 'newyork', label: 'New York' },
-    { value: 'chicago', label: 'Chicago' },
-    { value: 'san_francisco', label: 'San Francisco' }
+  { value: 'london', label: 'London' },
+  { value: 'newyork', label: 'New York' },
+  { value: 'chicago', label: 'Chicago' },
+  { value: 'san_francisco', label: 'San Francisco' }
 ];
 
-var simpleSelectOptions1 = ['London','New York','Chicago','San Francisco'];
+var simpleSelectOptions1 = ['London', 'New York', 'Chicago', 'San Francisco'];
 
 var simpleSelectOptions2 = {
   10: 'London',
@@ -49,7 +50,13 @@ export default React.createClass({
     };
   },
 
+  pushPullToday(offset) {
+    var d = new Date();
+    return new Date(d.setDate(d.getDate()+offset));
+  },
+
   onSimpleSelect1Change() {
+    console.log(this.refs);
     this.setState({simpleSelect1Value: this.refs.simpleSelect1.state.value})
   },
 
@@ -89,7 +96,13 @@ export default React.createClass({
             <p>Default fields</p>
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' extraClasses={['py2']} units="Units"  />
-            <DateField label="Date" fieldColor='light' extraClasses={['py2']} />
+            <DateField dateFormat='MMM D, YYYY'
+                       extraClasses={['py2']}
+                       fieldColor='light'
+                       label='Date'
+                       placeholder="Placeholder" />
+            <div className='clearfix'></div>
+            <SelectField label="Select" fieldColor='light' options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  extraClasses={['py2']} />
             <TextArea label="Textarea Expandable" fieldColor='light' expandable={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' extraClasses={['py2']}/>
@@ -100,7 +113,9 @@ export default React.createClass({
             <p className="mt4">Disabled fields</p>
             <TextField label="Text" fieldColor='light' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
             <NumberField label="Number" fieldColor='light' disabled={true} extraClasses={['py2']} />
-            <DateField label="Date" fieldColor='light' disabled={true} />
+            <DateField date="2015/1/1" label="ReactDate" fieldColor='light' disabled={true} extraClasses={['py2']} dateFormat='YYYY/MM/DD'/>
+            <div className='clearfix'></div>
+            <SelectField label="Simple Select" fieldColor='light' options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
             <TextArea label="Textarea" fieldColor='light'  disabled={true} extraClasses={['py2']} />
             <Checkbox label="Checkbox" fieldColor='light' disabled={true} extraClasses={['py2']}/>
             <Radio name="radios2" fieldColor='light' label="Radio" disabled={true} extraClasses={['py2']} />
@@ -110,7 +125,9 @@ export default React.createClass({
               <p>Default fields</p>
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" extraClasses={['py2']}/>
               <NumberField label="Number" fieldColor='dark' extraClasses={['py2']} units="Units" />
-              <DateField label="Date" fieldColor='dark' extraClasses={['py2']}/>
+              <DateField label="Date" fieldColor='dark' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
+              <div className='clearfix'></div>
+              <SelectField label="Simple Select" fieldColor='dark' options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' extraClasses={['py2']}/>
               <Checkbox label="Checkbox" fieldColor='dark' extraClasses={['py2']}/>
               <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
@@ -120,7 +137,9 @@ export default React.createClass({
               <p>Disabled fields</p>
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
               <NumberField label="Number" fieldColor='dark' disabled={true} extraClasses={['py2']} />
-              <DateField label="Date" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
+              <DateField label="ReactDate" fieldColor='dark' disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />
+              <div className='clearfix'></div>
+              <SelectField label="Simple Select" fieldColor='dark' options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextArea label="Textarea" fieldColor='dark' disabled={true} extraClasses={['py2']} />
               <Checkbox label="Checkbox" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
               <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
@@ -175,7 +194,7 @@ export default React.createClass({
                ["London","New York","Chicago","San Francisco"]
               </code>
             </div>
-            <SimpleSelect
+            <SelectField
               onChange={this.onSimpleSelect1Change}
               name='city'
               ref='simpleSelect1'
@@ -190,7 +209,7 @@ export default React.createClass({
                {'{10:"London", 15:"New York", 25:"Chicago", 50:"San Francisco"}'}
               </code>
             </div>
-            <SimpleSelect
+            <SelectField
               onChange={this.onSimpleSelect2Change}
               name='city'
               ref='simpleSelect2'
@@ -201,7 +220,7 @@ export default React.createClass({
           <div className="mb3">
             <h3>Selected value</h3>
             <p>New York is selected</p>
-            <SimpleSelect
+            <SelectField
               onChange={this.onSimpleSelect3Change}
               value={this.state.simpleSelect3Value}
               name='city'
@@ -212,20 +231,20 @@ export default React.createClass({
           </div>
           <div className="mb3">
             <h3>Errors</h3>
-            <p>Error if Chicago is selected</p>
-            <SimpleSelect
-              onChange={this.onSimpleSelect4Change}
-              value={this.state.simpleSelect4Value}
-              borderColorClass={this.state.simpleSelect4Value == 25 ? 'bc-orange' : void 0}
+            <p>With an error</p>
+            <SelectField
               name='city'
-              ref='simpleSelect4'
+              onChange={this.onSimpleSelect4Change}
+              errors={["That's no good!"]}
               options={simpleSelectOptions2}
-              placeholder="- Select -"/>
+              placeholder="- Select -"
+              ref='simpleSelect4'
+              value={this.state.simpleSelect4Value}/>
             <p className='py2'>selected value: {this.state.simpleSelect4Value}</p>
           </div>
           <div className="mb3">
             <h3>Include a blank option</h3>
-            <SimpleSelect
+            <SelectField
               includeBlank={true}
               onChange={this.onSimpleSelect5Change}
               value={this.state.simpleSelect5Value}
@@ -263,9 +282,33 @@ export default React.createClass({
           <p className="small">An interactive file component with file name preview.</p>
           <FileInput labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
         </div>
+
+        <div title="Date Fields">
+          <DateField dateFormat='MMM D, YYYY'
+                     extraClasses={['py2']}
+                     fieldColor='light'
+                     value={new Date} />
+          <div className='clearfix'></div>
+          <DateField dateFormat='MMM D, YYYY'
+                     extraClasses={['py2']}
+                     fieldColor='light'
+                     label="With Min/Max Dates"
+                     maxDate={this.pushPullToday(35)}
+                     minDate={this.pushPullToday(-5)}
+                     value={new Date} />
+          <div className='clearfix'></div>
+          <DateField dateFormat='MMM D, YYY'
+                     extraClasses={['py2']}
+                     fieldColor='light'
+                     label="With bad format string" />
+          <div className='clearfix'></div>
+          <DateField dateFormat='MMM D, YYYY'
+                     errors={['You broke it!', 'Time is irrelevant']}
+                     extraClasses={['py2']}
+                     fieldColor='light'
+                     label="With errors" />
+          <div className='clearfix'></div>
+        </div>
       </Styleguide>
   }
 });
-
-
-

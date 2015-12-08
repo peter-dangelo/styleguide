@@ -61,18 +61,13 @@ gulp.task('icons', function(){
     .pipe(gulp.dest('././public/fonts/'));
 });
 
-gulp.task('import-styles', function(){
-  gulp.src('./bower_components/prism/themes/prism-twilight.css')
-  .pipe(gulp.dest('./public'));
-});
-
 gulp.task('styles', function(){
   gulp.src('./src/scss/app.scss')
   .pipe(sourcemaps.init())
   .pipe(sass({errLogToConsole: true}))
-  .pipe(sourcemaps.write('.'))
   .pipe(minifyCSS({processImport: false}))
   .pipe(autoprefix())
+  .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest('./public'))
   .pipe(connect.reload());
 });
@@ -94,7 +89,7 @@ gulp.task('colors', function(){
   .pipe(gulp.dest('./src/scss/base/'));
 });
 
-gulp.task('server', ['icons', 'colors', 'import-styles', 'styles', 'scripts'], function(){
+gulp.task('server', ['icons', 'colors', 'styles', 'scripts'], function(){
   connect.server({
     root: ['public'],
     port: gutil.env.port || 8080,

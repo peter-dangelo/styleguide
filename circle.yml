@@ -1,16 +1,15 @@
 machine:
   node:
-    version: '0.12.0'
+    version: '4.2.1'
 dependencies:
   override:
     - npm install
-    - bower install
     - gem install scss-lint
 
 test:
   override:
     - echo "TODO"
-    
+
 deployment:
   production:
     branch: master

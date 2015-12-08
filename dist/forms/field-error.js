@@ -26,7 +26,7 @@ exports['default'] = createClass({
   render: function render() {
     return _react2['default'].createElement(
       'span',
-      { className: 'orange small' },
+      { className: 'orange small semibold' },
       _react2['default'].createElement(_icon2['default'], { name: 'alert', extraClasses: ['mr1'] }),
       this.props.message
     );
