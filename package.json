@@ -10,7 +10,8 @@
   "scripts": {
     "prepublish": "npm run compile",
     "start": "gulp",
-    "compile": "babel -d dist/ src/js/components/"
+    "compile": "babel -d dist/ src/js/components/",
+    "test": "./node_modules/karma/bin/karma start"
   },
   "engine": {
     "node": ">=4.2.1"

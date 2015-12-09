@@ -1,7 +1,4 @@
 var babelify = require('babelify');
-var cover = require('browserify-istanbul');
-// empty for now...
-var coverOptions = {};
 
 module.exports = function(config) {
   config.set({
@@ -35,25 +32,19 @@ module.exports = function(config) {
       paths: ['./src/js/components'],
       configure: function(bundle) {
         bundle.on('prebundle', function(){
-          bundle.transform(babelify).transform(cover())
+          bundle.transform(babelify)
         })
       }
     },
 
-    reporters: ['mocha','coverage'],
+    reporters: ['mocha'],
 
     plugins: [
       'karma-mocha',
       'karma-mocha-reporter',
-      'karma-chrome-launcher',
       'karma-jsdom-launcher',
-      'karma-coverage',
       'karma-browserify'
     ],
-
-    coverageReporter: {
-      type: 'html'
-    },
 
     port: 9876,
 
