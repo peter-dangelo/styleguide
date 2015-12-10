@@ -3,7 +3,7 @@ var babelify = require('babelify');
 module.exports = function(config) {
   config.set({
 
-    singleRun: true,
+    singleRun: false,
     autoWatch: true,
     basePath: '',
 

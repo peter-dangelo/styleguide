@@ -11,7 +11,7 @@
     "prepublish": "npm run compile",
     "start": "gulp",
     "compile": "babel -d dist/ src/js/components/",
-    "test": "./node_modules/karma/bin/karma start"
+    "test": "./node_modules/karma/bin/karma start --single-run=true"
   },
   "engine": {
     "node": ">=4.2.1"
