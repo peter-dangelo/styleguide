@@ -1,6 +1,7 @@
 // import ready form components
 
 import Checkbox from './fields/checkbox';
+import Date from './fields/date/date-picker';
 import Number from './fields/number';
 import Radio from './fields/radio';
 import SimpleSelect from './fields/select/simple-select';
@@ -9,6 +10,7 @@ import Textarea from './fields/textarea';
 
 export default {
   Checkbox,
+  Date,
   Number,
   Radio,
   SimpleSelect,
