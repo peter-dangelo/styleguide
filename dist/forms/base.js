@@ -12,9 +12,7 @@ var _fieldsCheckbox = require('./fields/checkbox');
 
 var _fieldsCheckbox2 = _interopRequireDefault(_fieldsCheckbox);
 
-var _fieldsDate = require('./fields/date');
-
-var _fieldsDate2 = _interopRequireDefault(_fieldsDate);
+// import Date from './fields/date';
 
 var _fieldsNumber = require('./fields/number');
 
@@ -38,7 +36,7 @@ var _fieldsTextarea2 = _interopRequireDefault(_fieldsTextarea);
 
 exports['default'] = {
   Checkbox: _fieldsCheckbox2['default'],
-  Date: _fieldsDate2['default'],
+  Date: Date,
   Number: _fieldsNumber2['default'],
   Radio: _fieldsRadio2['default'],
   SimpleSelect: _fieldsSelectSimpleSelect2['default'],

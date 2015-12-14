@@ -22,7 +22,8 @@ export default React.createClass({
     return {
       fieldColor: 'light',
       hasError: false,
-      onChange: function() {}
+      onChange: function() {},
+      options: []
     };
   },
 
@@ -94,7 +95,7 @@ export default React.createClass({
 
   renderOptions() {
     if (!this.props.disabled) {
-      let optionClasses = 'bg-white nowrap option pointer py1 px3';
+      let optionClasses = 'simple-select-option bg-white nowrap option pointer py1 px3';
 
       let emptyOption = (
         <div className={optionClasses+" grey-50"} onClick={this.onClickOptionEmpty}>
@@ -150,7 +151,7 @@ export default React.createClass({
     let arrowStyle = {top: 1, right: 3, fontSize: '12px', height: '19px'};
 
     return (
-      <div className={this.valueClasses()} onClick={this.onClickValue}>
+      <div ref='simpleSelectValue' className={this.valueClasses()} onClick={this.onClickValue}>
         <div className='nowrap mr1'>
           {value ? value : this.props.placeholder}
         </div>
