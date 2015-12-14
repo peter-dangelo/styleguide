@@ -35,7 +35,8 @@ exports['default'] = _react2['default'].createClass({
     return {
       fieldColor: 'light',
       hasError: false,
-      onChange: function onChange() {}
+      onChange: function onChange() {},
+      options: []
     };
   },
 
@@ -107,7 +108,7 @@ exports['default'] = _react2['default'].createClass({
 
   renderOptions: function renderOptions() {
     if (!this.props.disabled) {
-      var optionClasses = 'bg-white nowrap option pointer py1 px3';
+      var optionClasses = 'simple-select-option bg-white nowrap option pointer py1 px3';
 
       var emptyOption = _react2['default'].createElement(
         'div',
@@ -168,7 +169,7 @@ exports['default'] = _react2['default'].createClass({
 
     return _react2['default'].createElement(
       'div',
-      { className: this.valueClasses(), onClick: this.onClickValue },
+      { ref: 'simpleSelectValue', className: this.valueClasses(), onClick: this.onClickValue },
       _react2['default'].createElement(
         'div',
         { className: 'nowrap mr1' },
