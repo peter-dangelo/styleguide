@@ -3,6 +3,7 @@ import React from 'react';
 const Type = React.PropTypes;
 
 export default React.createClass({
+
   displayName: "ClickOutside",
 
   propTypes: {
@@ -22,7 +23,7 @@ export default React.createClass({
     let targetNode = e.target;
     if(!componentNode.contains(targetNode)) {
       try {
-        this.props.onClickOutside();
+        this.props.onClickOutside(e);
       } catch (e) {
         console.log(e, 'The click-outside component requires an onClickOutside function prop');
       }
