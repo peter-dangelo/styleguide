@@ -280,7 +280,7 @@ export default React.createClass({
 
           <h3 className="mt4">File Input</h3>
           <p className="small">An interactive file component with file name preview.</p>
-          <Field.File labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
+          <FileField labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
         </div>
 
         <div title="Date Fields">
