@@ -3,7 +3,8 @@ import React from 'react';
 const Type = React.PropTypes;
 
 export default React.createClass({
-  displayName: "NumberField",
+
+  displayName: "FieldNumber",
 
   propTypes: {
     disabled: Type.bool,

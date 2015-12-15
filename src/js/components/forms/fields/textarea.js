@@ -3,7 +3,8 @@ import React from 'react';
 const Type = React.PropTypes;
 
 export default React.createClass({
-  displayName: "TextArea",
+
+  displayName: "FieldTextarea",
 
   propTypes: {
     disabled: Type.bool,
