@@ -24,7 +24,6 @@ describe('Icon', () => {
     icon = React.findDOMNode(component);
   })
 
-
   it('can render a component', () => {
     TestUtils.findRenderedDOMComponentWithClass(component, 'icon-test');
   });
