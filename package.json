@@ -80,7 +80,7 @@
     "mocha": "^2.3.4",
     "sinon": "^1.17.1",
     "node-dir": "^0.1.8",
-    "react-component-metadata": "^1.2.2",
+    "react-component-metadata": "^2.1.0",
     "react-docgen": "^2.0.0",
     "stringify-object": "^2.0.0",
     "vinyl-source-stream": "^1.1.0"
