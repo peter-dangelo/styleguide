@@ -1,13 +1,13 @@
 import Checkbox from '../components/forms/fields/checkbox';
-import EditLabel from '../components/edit-label';
-import FileInput from '../components/forms/file-input';
+import EditLabel from '../components/forms/edit-label';
+import FileField from '../components/forms/fields/file';
 import Moment from 'moment';
 import NumberField from '../components/forms/fields/number';
 import Radio from '../components/forms/fields/radio';
 import React from 'react';
-import DateField from '../components/forms/fields/date/date-field';
+import DateField from '../components/forms/fields/date/date';
 import Select from 'react-select';
-import SelectField from '../components/forms/fields/select/select-field';
+import SelectField from '../components/forms/fields/select/select';
 import Styleguide from '../styleguide';
 import TextArea from '../components/forms/fields/textarea';
 import TextField from '../components/forms/fields/text';
@@ -280,7 +280,7 @@ export default React.createClass({
 
           <h3 className="mt4">File Input</h3>
           <p className="small">An interactive file component with file name preview.</p>
-          <FileInput labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
+          <FileField labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
         </div>
 
         <div title="Date Fields">

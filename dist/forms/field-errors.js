@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _icon = require('../icon');
+var _miscIcon = require('../misc/icon');
 
-var _icon2 = _interopRequireDefault(_icon);
+var _miscIcon2 = _interopRequireDefault(_miscIcon);
 
 var createClass = _react2['default'].createClass;
 var Type = _react2['default'].PropTypes;
@@ -34,7 +34,7 @@ exports['default'] = createClass({
       return _react2['default'].createElement(
         'div',
         { className: 'orange small semibold' },
-        _react2['default'].createElement(_icon2['default'], { name: 'alert', extraClasses: ['mr1'], size: 12, top: 1 }),
+        _react2['default'].createElement(_miscIcon2['default'], { name: 'alert', extraClasses: ['mr1'], size: 12, top: 1 }),
         errorMsg
       );
     });

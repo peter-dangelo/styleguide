@@ -22,7 +22,7 @@ var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
 
-  displayName: "SelectField",
+  displayName: "FieldSelect",
 
   propTypes: {
     disabled: Type.bool,

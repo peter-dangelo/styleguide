@@ -17,7 +17,8 @@ var Children = _reactAddons2["default"].Children;
 var Type = _reactAddons2["default"].PropTypes;
 var cloneWithProps = _reactAddons2["default"].addons.cloneWithProps;
 exports["default"] = createClass({
-  displayName: "FileInput",
+
+  displayName: "FieldFile",
 
   getInitialState: function getInitialState() {
     return {

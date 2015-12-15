@@ -13,7 +13,8 @@ var _react2 = _interopRequireDefault(_react);
 var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
-  displayName: "TextArea",
+
+  displayName: "FieldTextarea",
 
   propTypes: {
     disabled: Type.bool,
