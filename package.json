@@ -8,7 +8,7 @@
   },
   "styles": "./dist/namely-ui.css",
   "scripts": {
-    "prepublish": "./scripts/prepublish.sh",
+    "postinstall": "./scripts/prepublish.sh",
     "start": "gulp",
     "test": "./node_modules/karma/bin/karma start --single-run=true"
   },
