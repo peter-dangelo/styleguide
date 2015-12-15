@@ -9,6 +9,7 @@ const {
 const { cloneWithProps } = React.addons;
 
 export default createClass({
+
   displayName: 'Popup',
 
   propTypes: {
@@ -67,7 +68,7 @@ export default createClass({
       const posX = nodeRight + this.props.width > windowWidth ? 'right' : 'left';
       const posY = nodeBottom + this.props.width > windowHeight ? 'bottom' : 'top';
 
-      this.setState({ 
+      this.setState({
         open: true,
         posX: posX,
         posY: posY
