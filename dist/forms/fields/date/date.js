@@ -30,7 +30,7 @@ var validDateFormats = ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY']
 
 exports['default'] = _react2['default'].createClass({
 
-  displayName: "DateField",
+  displayName: "FieldDate",
 
   // The rest of the child components all use Moment objects for dates.
   propTypes: {

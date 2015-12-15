@@ -15,6 +15,7 @@ var Type = _reactAddons2['default'].PropTypes;
 var Children = _reactAddons2['default'].Children;
 var cloneWithProps = _reactAddons2['default'].addons.cloneWithProps;
 exports['default'] = createClass({
+
   displayName: 'Popup',
 
   propTypes: {

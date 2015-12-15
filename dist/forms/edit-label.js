@@ -10,33 +10,31 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _icon = require('./icon');
+var _miscIcon = require('../misc/icon');
 
-var _icon2 = _interopRequireDefault(_icon);
+var _miscIcon2 = _interopRequireDefault(_miscIcon);
 
-var _popup = require('./popup');
+var _overlaysPopup = require('../overlays/popup');
 
-var _popup2 = _interopRequireDefault(_popup);
+var _overlaysPopup2 = _interopRequireDefault(_overlaysPopup);
 
-var _formsFieldErrors = require('./forms/field-errors');
+var _fieldErrors = require('./field-errors');
 
-var _formsFieldErrors2 = _interopRequireDefault(_formsFieldErrors);
+var _fieldErrors2 = _interopRequireDefault(_fieldErrors);
 
-var _lib_colorsJson = require('../../lib/_colors.json');
+var _lib_colorsJson = require('../../../lib/_colors.json');
 
 var _lib_colorsJson2 = _interopRequireDefault(_lib_colorsJson);
 
-var _mixinsOutsideClick = require('./mixins/outside-click');
+var _overlaysClickOutside = require('../overlays/click-outside');
 
-var _mixinsOutsideClick2 = _interopRequireDefault(_mixinsOutsideClick);
+var _overlaysClickOutside2 = _interopRequireDefault(_overlaysClickOutside);
 
 var createClass = _react2['default'].createClass;
 var Type = _react2['default'].PropTypes;
 exports['default'] = createClass({
 
   displayName: 'EditLabel',
-
-  mixins: [_mixinsOutsideClick2['default']],
 
   propTypes: {
     label: Type.string.isRequired,
@@ -138,7 +136,7 @@ exports['default'] = createClass({
     return _react2['default'].createElement(
       'div',
       { className: 'fill' },
-      _react2['default'].createElement(_formsFieldErrors2['default'], { errors: [this.props.errorMessage] })
+      _react2['default'].createElement(_fieldErrors2['default'], { errors: [this.props.errorMessage] })
     );
   },
 
@@ -157,55 +155,59 @@ exports['default'] = createClass({
       };
 
       return _react2['default'].createElement(
-        'div',
-        { className: 'flex flex-center flex-wrap', ref: 'wrapper' },
-        _react2['default'].createElement('textarea', {
-          className: this._getTextClasses(),
-          defaultValue: this.props.label,
-          onKeyDown: this.state.saveDisabled ? void 0 : this._handleKey,
-          onKeyUp: this._checkContent,
-          placeholder: this.props.placeholder,
-          ref: 'labelInput',
-          style: textStyle
-        }),
-        _react2['default'].createElement(_icon2['default'], {
-          name: 'check',
-          extraClasses: this._getSaveClasses(),
-          onClick: this.state.saveDisabled ? void 0 : this._handleSave
-        }),
+        _overlaysClickOutside2['default'],
+        { onClickOutside: this.handleOutsideClick },
         _react2['default'].createElement(
-          _popup2['default'],
-          { ref: 'pop' },
-          _react2['default'].createElement(_icon2['default'], {
-            name: 'delete',
-            extraClasses: ["blue-70", "px2", "small", "m0"]
+          'div',
+          { className: 'flex flex-center flex-wrap', ref: 'wrapper' },
+          _react2['default'].createElement('textarea', {
+            className: this._getTextClasses(),
+            defaultValue: this.props.label,
+            onKeyDown: this.state.saveDisabled ? void 0 : this._handleKey,
+            onKeyUp: this._checkContent,
+            placeholder: this.props.placeholder,
+            ref: 'labelInput',
+            style: textStyle
+          }),
+          _react2['default'].createElement(_miscIcon2['default'], {
+            name: 'check',
+            extraClasses: this._getSaveClasses(),
+            onClick: this.state.saveDisabled ? void 0 : this._handleSave
           }),
           _react2['default'].createElement(
-            'div',
-            { className: 'white' },
-            _react2['default'].createElement(
-              'h4',
-              null,
-              'Are you sure?'
-            ),
-            this.props.children,
+            _overlaysPopup2['default'],
+            { ref: 'pop' },
+            _react2['default'].createElement(_miscIcon2['default'], {
+              name: 'delete',
+              extraClasses: ["blue-70", "px2", "small", "m0"]
+            }),
             _react2['default'].createElement(
               'div',
-              { className: 'right-align' },
+              { className: 'white' },
               _react2['default'].createElement(
-                'button',
-                { className: 'button-link button-sm button-secondary mr2', onClick: this._handleClose },
-                'Cancel'
+                'h4',
+                null,
+                'Are you sure?'
               ),
+              this.props.children,
               _react2['default'].createElement(
-                'button',
-                { className: 'button-danger button-sm', onClick: this._handleDelete },
-                'Delete'
+                'div',
+                { className: 'right-align' },
+                _react2['default'].createElement(
+                  'button',
+                  { className: 'button-link button-sm button-secondary mr2', onClick: this._handleClose },
+                  'Cancel'
+                ),
+                _react2['default'].createElement(
+                  'button',
+                  { className: 'button-danger button-sm', onClick: this._handleDelete },
+                  'Delete'
+                )
               )
             )
-          )
-        ),
-        this.state.hasErrors ? this._showError() : void 0
+          ),
+          this.state.hasErrors ? this._showError() : void 0
+        )
       );
     } else {
       return _react2['default'].createElement(
@@ -216,7 +218,7 @@ exports['default'] = createClass({
           { className: 'blue-70 py1 m0' },
           this.props.label
         ),
-        _react2['default'].createElement(_icon2['default'], { name: 'pencil', ref: 'pencil', extraClasses: ["blue-70", "py1", "ml1", "small", "m0", "hover-show"], onClick: this._triggerEdit })
+        _react2['default'].createElement(_miscIcon2['default'], { name: 'pencil', ref: 'pencil', extraClasses: ["blue-70", "py1", "ml1", "small", "m0", "hover-show"], onClick: this._triggerEdit })
       );
     }
   }

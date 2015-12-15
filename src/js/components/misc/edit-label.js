@@ -1,9 +1,9 @@
 import React from 'react';
 import Icon from './icon';
-import Popup from './overlays/popup';
-import FieldErrors from './forms/field-errors';
-import Colors from '../../lib/_colors.json';
-import ClickOutside from './overlays/click-outside';
+import Popup from '../overlays/popup';
+import FieldErrors from '../forms/field-errors';
+import Colors from '../../../lib/_colors.json';
+import ClickOutside from '../overlays/click-outside';
 
 const {
   createClass,

@@ -13,6 +13,7 @@ var _react2 = _interopRequireDefault(_react);
 var Type = _react2['default'].PropTypes;
 
 exports['default'] = _react2['default'].createClass({
+
   displayName: "ClickOutside",
 
   propTypes: {
@@ -32,7 +33,7 @@ exports['default'] = _react2['default'].createClass({
     var targetNode = e.target;
     if (!componentNode.contains(targetNode)) {
       try {
-        this.props.onClickOutside();
+        this.props.onClickOutside(e);
       } catch (e) {
         console.log(e, 'The click-outside component requires an onClickOutside function prop');
       }
