@@ -1,0 +1,8 @@
+test/
+src/
+node_modules/
+site/
+public/
+karma.conf.js
+scss-lint.yml
+Gulpfile.js
