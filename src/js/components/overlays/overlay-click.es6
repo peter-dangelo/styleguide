@@ -4,7 +4,7 @@ const Type = React.PropTypes;
 
 export default React.createClass({
 
-  displayName: "Overlay",
+  displayName: "OverlayClick",
 
   propTypes: {
     handleClick: Type.func,
