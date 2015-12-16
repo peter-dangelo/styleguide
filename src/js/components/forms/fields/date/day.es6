@@ -42,7 +42,7 @@ export default React.createClass({
   render() {
     return (
       <div className={this.classes()}>
-        <div className="semibold center c-fade h4 overlay-trigger"
+        <div className="semibold center c-fade h4"
            href="#"
            onClick={this.handleClick}>
           {this.props.date.date()}

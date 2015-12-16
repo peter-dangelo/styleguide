@@ -16,27 +16,29 @@ export default React.createClass({
 
   propTypes: {
     animate: Type.bool,
-    zIndex: Type.number,
+    caretPosition: Type.oneOf(caretPositions),
+    closeOverlay: Type.func,
     content: Type.node.isRequired,
     extraClasses: Type.array,
     handleClose: Type.func,
     height: Type.oneOf(['auto', Type.number]),
-    caretPosition: Type.oneOf(caretPositions),
-    width: Type.oneOf(['auto', Type.number])
+    width: Type.oneOf(['auto', Type.number]),
+    zIndex: Type.number
   },
 
   getDefaultProps() {
     return {
       animate: true,
-      zIndex: 300,
       bottom: null,
       caretPosition: 'top-right',
+      closeOverlay: function() {},
       handleClose: function() {},
       height: 'auto',
       left: null,
       right: null,
       top: null,
-      width: 'auto'
+      width: 'auto',
+      zIndex: 300
     };
   },
 
@@ -99,7 +101,7 @@ export default React.createClass({
                                transitionAppear={true} >
         <div className={this.classes()} style={this.style()}>
           <div className={this.triangleClasses() + ' absolute bc-blue-95 blue-95'}></div>
-          {this.props.content}
+          {React.cloneElement(this.props.content, {closeOverlay: this.props.closeOverlay})}
           <div className="clearfix"></div>
         </div>
       </ReactCSSTransitionGroup>

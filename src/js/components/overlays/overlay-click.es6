@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react/addons';
 
 const Type = React.PropTypes;
 
@@ -40,7 +40,7 @@ export default React.createClass({
 
   content() {
     if (this.state.isOpen) {
-      return this.props.content;
+      return React.cloneElement(this.props.content, {closeOverlay: this.hide});
     }
   },
 
@@ -55,7 +55,6 @@ export default React.createClass({
         this.show();
       } else {
         this.props.onClick();
-        if (e.target.classList.contains('overlay-trigger')) this.hide();
       }
     } else {
       this.hide();
