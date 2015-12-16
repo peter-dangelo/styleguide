@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
 import React from 'react';
-import Icon from 'icon';
+import Icon from 'misc/icon';
 import Sinon from 'sinon';
 
 describe('Icon', () => {
