@@ -8,9 +8,8 @@
   },
   "styles": "./dist/namely-ui.css",
   "scripts": {
-    "prepublish": "npm run compile",
+    "postinstall": "./scripts/prepublish.sh",
     "start": "gulp",
-    "compile": "babel -d dist/ src/js/components/",
     "test": "./node_modules/karma/bin/karma start --single-run=true"
   },
   "engine": {
