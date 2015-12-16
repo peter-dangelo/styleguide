@@ -2,8 +2,8 @@ import DatePicker from './date-picker';
 import FieldErrors from '../../field-errors';
 import Moment from 'moment';
 import React from 'react';
-import Tooltip from '../../../tooltip';
-import Overlay from '../../../overlay';
+import Tooltip from '../../../overlays/tooltip';
+import Overlay from '../../../overlays/overlay-click';
 
 const Type = React.PropTypes;
 
