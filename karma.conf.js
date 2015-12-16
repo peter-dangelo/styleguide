@@ -37,6 +37,13 @@ module.exports = function(config) {
         })
       }
     },
+    
+    // change Karma's debug.html to the mocha web reporter
+    client: {
+      mocha: {
+        reporter: 'html'
+      }
+    },
 
     reporters: ['mocha'],
 
@@ -44,7 +51,8 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-mocha-reporter',
       'karma-jsdom-launcher',
-      'karma-browserify'
+      'karma-browserify',
+      'karma-chrome-launcher'
     ],
 
     port: 9876,
