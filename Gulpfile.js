@@ -29,6 +29,7 @@ function string_src(filename, string) {
 gulp.task('scripts', function(){
   browserify({
     entries: './src/js/index.js',
+    extensions: ['.es6', '.js'],
     debug: true
   })
   .transform(babelify)

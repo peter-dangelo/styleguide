@@ -11,29 +11,37 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/js/components/**/*.js',
+      'src/js/components/**/*.es6',
       'test/**/*.spec.js'
     ],
 
     // list of files to exclude
     // view component is giving me problems.  excluding for now...
     exclude: [
-      'src/js/components/view/**/*.js'
+      'src/js/components/view/**/*.es6'
     ],
 
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'test/**/*.spec.js': ['browserify'],
-      'src/js/components/**/*.js': ['browserify']
+      'src/js/components/**/*.es6': ['browserify']
     },
 
     browserify: {
       debug: true,
       paths: ['./src/js/components'],
+      extensions: ['.js', '.es6'],
       configure: function(bundle) {
         bundle.on('prebundle', function(){
           bundle.transform(babelify)
         })
+      }
+    },
+    
+    // change Karma's debug.html to the mocha web reporter
+    client: {
+      mocha: {
+        reporter: 'html'
       }
     },
 
@@ -43,7 +51,8 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-mocha-reporter',
       'karma-jsdom-launcher',
-      'karma-browserify'
+      'karma-browserify',
+      'karma-chrome-launcher'
     ],
 
     port: 9876,
