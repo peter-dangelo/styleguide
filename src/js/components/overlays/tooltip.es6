@@ -101,7 +101,7 @@ export default React.createClass({
                                transitionAppear={true} >
         <div className={this.classes()} style={this.style()}>
           <div className={this.triangleClasses() + ' absolute bc-blue-95 blue-95'}></div>
-          {React.cloneElement(this.props.content, {closeOverlay: this.props.closeOverlay})}
+          {React.cloneElement(this.props.content, {closeTooltip: this.props.closeOverlay})}
           <div className="clearfix"></div>
         </div>
       </ReactCSSTransitionGroup>

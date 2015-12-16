@@ -9,7 +9,7 @@ export default React.createClass({
   displayName: "DatePicker",
 
   propTypes: {
-    closeOverlay: Type.func,
+    closeTooltip: Type.func,
     date: Type.object.isRequired,
     maxDate: Type.object,
     minDate: Type.object,
@@ -18,7 +18,7 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      closeOverlay: function() {}
+      closeTooltip: function() {}
     };
   },
 
@@ -38,7 +38,7 @@ export default React.createClass({
 
   changeDate(date) {
     this.props.onChangeDate(date);
-    this.props.closeOverlay();
+    this.props.closeTooltip();
   },
 
   render() {
