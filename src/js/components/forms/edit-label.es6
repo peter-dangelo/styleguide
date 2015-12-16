@@ -134,7 +134,7 @@ export default createClass({
       };
 
       return (
-        <OverlayClick handleClick={this.handleOutsideClick}>
+        <OverlayClick onClick={this.handleOutsideClick}>
           <div className="flex flex-center flex-wrap" ref="wrapper">
             <textarea
               className={this._getTextClasses()}

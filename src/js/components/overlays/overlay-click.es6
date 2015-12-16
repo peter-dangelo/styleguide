@@ -7,17 +7,17 @@ export default React.createClass({
   displayName: "OverlayClick",
 
   propTypes: {
-    handleClick: Type.func,
-    handleClose: Type.func,
-    handleOpen: Type.func,
-    content: Type.node.isRequired
+    content: Type.node.isRequired,
+    onClick: Type.func,
+    onClose: Type.func,
+    onOpen: Type.func
   },
 
   getDefaultProps() {
     return {
-      handleClick: function() {},
-      handleClose: function() {},
-      handleOpen: function() {}
+      onClick: function() {},
+      onClose: function() {},
+      onOpen: function() {}
     };
   },
 
@@ -31,11 +31,11 @@ export default React.createClass({
   },
 
   componentDidMount() {
-    document.addEventListener('click', this.onDocumentClick);
+    document.addEventListener('click', this.handleDocumentClick);
   },
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.onDocumentClick);
+    document.removeEventListener('click', this.handleDocumentClick);
   },
 
   content() {
@@ -45,16 +45,16 @@ export default React.createClass({
   },
 
   hide() {
-    this.props.handleClose();
+    this.props.onClose();
     this.setState({isOpen: false});
   },
 
-  onDocumentClick(e) {
+  handleDocumentClick(e) {
     if (this.getDOMNode().contains(e.target)) {
       if (!this.state.isOpen) {
         this.show();
       } else {
-        this.props.handleClick();
+        this.props.onClick();
         if (e.target.classList.contains('overlay-trigger')) this.hide();
       }
     } else {
@@ -63,7 +63,7 @@ export default React.createClass({
   },
 
   show() {
-    this.props.handleOpen();
+    this.props.onOpen();
     this.setState({isOpen: true});
   },
 
