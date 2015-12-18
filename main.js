@@ -1,0 +1,3 @@
+// experimental...
+var Modal = require('./dist/overlays/modal');
+module.exports.Modal = Modal;
