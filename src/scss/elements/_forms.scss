@@ -58,6 +58,44 @@ label {
   line-height: 1;
 }
 
+fieldset {
+  background-color: $grey-10;
+  border: 0;
+  border-radius: 6px;
+  padding: $space-3;
+
+  input,
+  select,
+  textarea,
+  .simple-select {
+
+    &:hover {
+
+    }
+  }
+
+  label {
+
+  }
+}
+
+.tooltip {
+
+  input,
+  select,
+  textarea,
+  .simple-select {
+
+    &:hover {
+
+    }
+  }
+
+  label {
+
+  }
+}
+
 [type=text],
 [type=datetime],
 [type=datetime-local],
