@@ -119,8 +119,8 @@ export default React.createClass({
             <Checkbox label="Checkbox" fieldColor='light' disabled={true} extraClasses={['py2']}/>
             <Radio name="radios2" fieldColor='light' label="Radio" disabled={true} extraClasses={['py2']} />
 
-            <p className="mt4">Fields within grey block</p>
-            <div className="bg-grey-10 p3 rounded-3">
+            <p className="mt4">Fields within fieldset</p>
+            <fieldset>
               <p>Default fields</p>
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" extraClasses={['py2']}/>
               <NumberField label="Number" fieldColor='dark' extraClasses={['py2']} units="Units" />
@@ -143,7 +143,7 @@ export default React.createClass({
               <Checkbox label="Checkbox" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
               <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
               <Radio name="radios2" fieldColor='dark' label="Radio" disabled={true} extraClasses={['py2']} />
-            </div>
+            </fieldset>
 
             <hr />
 
