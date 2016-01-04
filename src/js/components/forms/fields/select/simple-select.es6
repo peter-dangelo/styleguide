@@ -189,7 +189,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="relative simple-select">
+      <div className="relative">
         <input type="hidden"
                name={this.props.name}
                value={this.state.value}
