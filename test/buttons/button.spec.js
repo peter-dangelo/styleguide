@@ -5,17 +5,40 @@ import Button from 'buttons/button';
 import Sinon from 'sinon';
 
 describe('Button', () => {
+  let callback = Sinon.spy();
 
-  it('expects the button-link class if the link prop is true', () => {
-    let button = TestUtils.renderIntoDocument(<Button link={true}/>)
-    let options = TestUtils.scryRenderedDOMComponentsWithClass(button, 'button-link')
+  let props = {
+    type: null,
+    label: 'test',
+    size: 'sm',
+    disabled: false,
+    link: true,
+    extraClasses: ['extraclass-1', 'extraclass-2'],
+    icon: 'pencil'
+  }
+
+  let component;
+  let button;
+  beforeEach(() => {
+    component = TestUtils.renderIntoDocument(
+      <Button {...props} />
+    );
+    button = React.findDOMNode(component);
+  })
+
+  it('applies extraClasses to the rendered component', () => {
+    let classes = button.getAttribute('class');
+    expect(classes).to.contain('extraclass-1');
+    expect(classes).to.contain('extraclass-2');
+  });
+
+  it('applies the button-link class if true in props', () => {
+    let options = TestUtils.scryRenderedDOMComponentsWithClass(component, 'button-link')
     expect(options.length).to.equal(1)
   });
 
-  it('renders an icon if icon exists', () => {
-    let button = TestUtils.renderIntoDocument(<Button icon={'pencil'}/>)
-    let options = TestUtils.scryRenderedDOMComponentsWithClass(button, 'icon-pencil')
-    expect(options.length).to.equal(1)
+  it('can render a component with an icon', () => {
+    TestUtils.findRenderedDOMComponentWithClass(component, 'icon-pencil');
   });
 
 });
