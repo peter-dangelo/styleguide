@@ -361,6 +361,7 @@ fieldset {
 }
 
 .checkbox-field, .radio-field {
+  margin-right: $space-4;
 
   &.read-only, &.inactive {
 
@@ -372,19 +373,12 @@ fieldset {
   .label-right {
     margin-left: $space-2;
     position: relative;
+    top: -4px;
   }
 
   &.inactive input {
     background: none;
   }
-}
-
-.checkbox-field .label-right {
-  top: -4px;
-}
-
-.radio-field .label-right {
-  top: -4px;
 }
 
 .simple-select {
