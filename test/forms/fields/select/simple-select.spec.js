@@ -124,6 +124,15 @@ describe('SimpleSelect', () => {
 
   });
 
+  describe('#renderOptions', () => {
+
+    it('returns false if disabled', () => {
+      let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={true} />);
+      expect(simple_select.renderOptions()).to.be.false;
+    });
+
+  });
+
   describe('#onClickOption()', () => {
 
     let simple_select;
