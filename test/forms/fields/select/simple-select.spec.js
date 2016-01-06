@@ -123,6 +123,27 @@ describe('SimpleSelect', () => {
 
   });
 
+  describe('#onClickOptionEmpty()', () => {
+
+    let simple_select;
+
+    beforeEach(() => {
+      simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={options_object} includeBlank={true} />)
+      simple_select.setState({show_options: true})
+      let options = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'simple-select-option');
+      TestUtils.Simulate.click(options[0])
+    });
+
+    it('sets state.value to null', () => {
+      expect(simple_select.state.value).to.be.null
+    });
+
+    it('sets state.show_options back to false', () => {
+      expect(simple_select.state.show_options).to.be.false
+    });
+
+  });
+
   it('expects one option element for each option given in an options array', () => {
     let simple_select = TestUtils.renderIntoDocument(<SimpleSelect options={['one','two']}/>)
     simple_select.setState({show_options: true})
