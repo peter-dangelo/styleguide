@@ -102,6 +102,28 @@ describe('SimpleSelect', () => {
     })
   });
 
+  describe('#optionsClasses()', () => {
+
+    let simple_select;
+
+    beforeEach(() => {
+      simple_select = TestUtils.renderIntoDocument(<SimpleSelect />)
+    });
+
+    it('includes the correct gray if state.show_options is true', () => {
+      simple_select.setState({show_options: true})
+      expect(simple_select.optionsClasses()).to.include('bc-grey-50');
+      expect(simple_select.optionsClasses()).to.not.include('bc-grey-25');
+    });
+
+    it('includes the correct gray if state.show_options is false', () => {
+      simple_select.setState({show_options: false})
+      expect(simple_select.optionsClasses()).to.include('bc-grey-25');
+      expect(simple_select.optionsClasses()).to.not.include('bc-grey-50');
+    });
+
+  });
+
   describe('#onClickOption()', () => {
 
     let simple_select;
