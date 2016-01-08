@@ -113,12 +113,6 @@ export default React.createClass({
     return this.props.disabled || !this.isFormatValid();
   },
 
-  iconClasses() {
-    let classes = ['icon-calendar', 'ml1', 'absolute'];
-    this.disabled() ? classes.push('grey-25') : classes.push('blue-70');
-    return classes.join(' ');
-  },
-
   iconStyle() {
     return {
       right: '8px',
@@ -180,7 +174,7 @@ export default React.createClass({
                type="text"
                placeholder={this.props.placeholder}
                value={this.value()} />
-        <span className={this.iconClasses()}
+        <span className='icon-calendar ml1 absolute'
               onClick={this.showDatePicker}
               style={this.iconStyle()}></span>
       </div>

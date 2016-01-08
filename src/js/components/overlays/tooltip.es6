@@ -15,7 +15,6 @@ export default React.createClass({
   displayName: "Tooltip",
 
   propTypes: {
-    animate: Type.bool,
     caretPosition: Type.oneOf(caretPositions),
     closeOverlay: Type.func,
     content: Type.node.isRequired,
@@ -28,7 +27,6 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      animate: true,
       bottom: null,
       caretPosition: 'top-right',
       closeOverlay: function() {},

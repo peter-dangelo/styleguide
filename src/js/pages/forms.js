@@ -132,7 +132,7 @@ export default React.createClass({
               <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
               <Radio name="radios3" fieldColor='dark' label="Radio 1" extraClasses={['py2']}/>
               <Radio name="radios3" fieldColor='dark' label="Radio 2" extraClasses={['py2']}/>
-              <hr className="bc-white"/>
+              <hr />
               <p>Disabled fields</p>
               <TextField label="Text" fieldColor='dark' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
               <NumberField label="Number" fieldColor='dark' disabled={true} extraClasses={['py2']} />
@@ -144,6 +144,32 @@ export default React.createClass({
               <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
               <Radio name="radios2" fieldColor='dark' label="Radio" disabled={true} extraClasses={['py2']} />
             </fieldset>
+
+            <p className="mt4">Fields within tooltip</p>
+            <div className="tooltip rounded-3 p2 bg-blue-95">
+              <p className="grey-10">Default fields</p>
+              <TextField label="Text" fieldColor='dark' placeholder="Placeholder" extraClasses={['py2']}/>
+              <NumberField label="Number" fieldColor='dark' extraClasses={['py2']} units="Units" />
+              <DateField label="Date" fieldColor='dark' extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
+              <div className='clearfix'></div>
+              <SelectField label="Simple Select" fieldColor='dark' options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
+              <TextArea label="Textarea" fieldColor='dark' extraClasses={['py2']}/>
+              <Checkbox label="Checkbox" fieldColor='dark' extraClasses={['py2']}/>
+              <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
+              <Radio name="radios3" fieldColor='dark' label="Radio 1" extraClasses={['py2']}/>
+              <Radio name="radios3" fieldColor='dark' label="Radio 2" extraClasses={['py2']}/>
+              <hr />
+              <p className="grey-10">Disabled fields</p>
+              <TextField label="Text" fieldColor='dark' placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
+              <NumberField label="Number" fieldColor='dark' disabled={true} extraClasses={['py2']} />
+              <DateField label="ReactDate" fieldColor='dark' disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />
+              <div className='clearfix'></div>
+              <SelectField label="Simple Select" fieldColor='dark' options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
+              <TextArea label="Textarea" fieldColor='dark' disabled={true} extraClasses={['py2']} />
+              <Checkbox label="Checkbox" fieldColor='dark' disabled={true} extraClasses={['py2']}/>
+              <Checkbox label="Checked read-only" fieldColor='dark' readOnly={true} checked={true} extraClasses={['py2']}/>
+              <Radio name="radios2" fieldColor='dark' label="Radio" disabled={true} extraClasses={['py2']} />
+            </div>
 
             <hr />
 

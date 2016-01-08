@@ -50,7 +50,6 @@ export default React.createClass({
 
   arrowClasses() {
     let classes = ['h6', 'ml1', 'relative'];
-    classes.push(this.props.disabled ? 'grey-50' : 'blue-70');
     classes.push(this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down');
     return classes.join(' ');
   },

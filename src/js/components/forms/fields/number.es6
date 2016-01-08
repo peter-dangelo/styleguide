@@ -41,12 +41,6 @@ export default React.createClass({
     return classes.join(' ');
   },
 
-  iconClasses() {
-    var classes = ['icon', 'icon-arrow-double'];
-    this.props.disabled ? classes.push('grey-25') : classes.push('blue-70');
-    return classes.join(' ');
-  },
-
   fieldClasses() {
     var classes = [];
     classes.push('field-'+this.props.fieldColor);
@@ -72,7 +66,7 @@ export default React.createClass({
           type="number"
           readOnly={this.props.readOnly}
         ></input>
-        <span className={this.iconClasses()}></span>
+        <span className='icon-arrow-double relative'></span>
         {this.units()}
       </div>
   }

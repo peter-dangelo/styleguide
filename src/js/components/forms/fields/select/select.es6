@@ -40,8 +40,11 @@ export default React.createClass({
   },
 
   containerClasses() {
-    let classes = ['relative'];
+    let classes = ['select-field', 'relative'];
     classes.push(this.props.extraClasses);
+    if (this.state.disabled) {
+      classes.push('disabled');
+    }
     return classes.join(' ');
   },
 
@@ -66,7 +69,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div>
+      <div className={this.containerClasses()}>
         {this.label()}
         <SimpleSelect ref='simpleSelect'
                       disabled={this.props.disabled}
