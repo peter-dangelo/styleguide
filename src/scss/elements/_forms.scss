@@ -406,11 +406,11 @@ fieldset {
     &:after {
       background-color: $white;
       border-color: $grey-75;
+    }
 
-      &:focus:not([readonly]),
-      &:hover:not([readonly]) {
-        border-color: $blue-50;
-      }
+    &:focus:not([readonly]):after,
+    &:hover:not([readonly]):after {
+      border-color: $blue-50;
     }
 
     &[readonly]:after {
@@ -420,11 +420,11 @@ fieldset {
     &:disabled:after {
       background-color: $grey-75;
       border-color: $grey-75;
+    }
 
-      &:focus:not([readonly]),
-      &:hover:not([readonly]) {
-        border-color: $grey-75;
-      }
+    &:focus:not([readonly]):disabled:after,
+    &:hover:not([readonly]):disabled:after {
+      border-color: $grey-75;
     }
   }
 
