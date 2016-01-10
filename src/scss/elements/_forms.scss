@@ -51,9 +51,9 @@ label {
 .date-field input,
 textarea {
   background: $blue-05;
-  border-width: 1px;
-  border-style: solid;
   border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
   box-sizing: border-box;
   color: $grey-75;
   vertical-align: middle;
@@ -189,16 +189,16 @@ select,
 
 [type=radio] {
   -webkit-appearance: none;
+  background: none;
+  border: 0;
   height: $space-3;
   padding: 0;
   position: relative;
   width: $space-3;
-  background: none;
-  border: 0;
 
   &:after {
-    border-radius: 50%;
     border: 1px solid $grey-15;
+    border-radius: 50%;
     color: $grey-50;
     content: '';
     cursor: pointer;
@@ -211,9 +211,9 @@ select,
   }
 
   &:disabled:after {
-    cursor: default;
     background: $grey-10;
     border-color: $grey-10;
+    cursor: default;
   }
 
   &:disabled:hover:after {
@@ -271,11 +271,13 @@ fieldset {
       background: $grey-15;
       border-color: $grey-15;
       color: $grey-50;
+    }
 
-      &:focus:not([readonly]),
-      &:hover:not([readonly]) {
-        border-color: $grey-15;
-      }
+    &:focus:not([readonly]):disabled,
+    &:hover:not([readonly]):disabled,
+    &:focus:not([readonly]).disabled,
+    &:hover:not([readonly]).disabled {
+      border-color: $grey-15;
     }
   }
 
@@ -292,11 +294,13 @@ fieldset {
       background: $grey-15;
       border-color: $grey-15;
       color: $grey-50;
+    }
 
-      &:focus,
-      &:hover {
-        border-color: $grey-15;
-      }
+    &.disabled:focus,
+    &:disabled:hover,
+    &.disabled:focus,
+    &:disabled:hover {
+      border-color: $grey-15;
     }
   }
 
@@ -311,11 +315,11 @@ fieldset {
     &:disabled:after {
       background-color: $grey-15;
       border-color: $grey-15;
+    }
 
-      &:focus:not([readonly]),
-      &:hover:not([readonly]) {
-        border-color: $grey-15;
-      }
+    &:focus:not([readonly]):disabled:after,
+    &:hover:not([readonly]):disabled:after {
+      border-color: $grey-15;
     }
   }
 
@@ -325,7 +329,6 @@ fieldset {
 }
 
 .modal,
-.popContainer,
 .tooltip {
 
   [type=text],
@@ -352,11 +355,13 @@ fieldset {
       background-color: $grey-75;
       border-color: $grey-75;
       color: $grey-50;
+    }
 
-      &:focus:not([readonly]),
-      &:hover:not([readonly]) {
-        border-color: $grey-75;
-      }
+    &:focus:not([readonly]).disabled,
+    &:hover:not([readonly]):disabled,
+    &:focus:not([readonly]).disabled,
+    &:hover:not([readonly]):disabled {
+      border-color: $grey-75;
     }
   }
 
@@ -367,11 +372,13 @@ fieldset {
       background-color: $grey-75;
       border-color: $grey-75;
       color: $grey-50;
+    }
 
-      &:focus:not([readonly]),
-      &:hover:not([readonly]) {
-        border-color: $grey-75;
-      }
+    &:focus:not([readonly]).disabled,
+    &:hover:not([readonly]):disabled,
+    &:focus:not([readonly]).disabled,
+    &:hover:not([readonly]):disabled {
+      border-color: $grey-75;
     }
 
     &:focus:not([readonly]),
@@ -392,11 +399,13 @@ fieldset {
       background: $grey-75;
       border-color: $grey-75;
       color: $grey-75;
+    }
 
-      &:focus,
-      &:hover {
-        border-color: $grey-75;
-      }
+    &:focus.disabled,
+    &:hover:disabled,
+    &:focus.disabled,
+    &:hover:disabled {
+      border-color: $grey-75;
     }
   }
 
