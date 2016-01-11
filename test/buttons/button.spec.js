@@ -14,7 +14,7 @@ describe('Button', () => {
     disabled: false,
     link: true,
     extraClasses: ['extraclass-1', 'extraclass-2'],
-    icon: 'pencil'
+    icon: 'paperclip'
   }
 
   let component;
@@ -33,12 +33,13 @@ describe('Button', () => {
   });
 
   it('applies the button-link class if true in props', () => {
-    let options = TestUtils.scryRenderedDOMComponentsWithClass(component, 'button-link')
-    expect(options.length).to.equal(1)
+    let classes = TestUtils.scryRenderedDOMComponentsWithClass(component, 'button-link');
+    expect(classes.length).to.equal(1);
   });
 
   it('can render a component with an icon', () => {
-    TestUtils.findRenderedDOMComponentWithClass(component, 'icon-pencil');
+    let classes = button.getAttribute('class');
+    expect(classes).to.contain('icon-paperclip');
   });
 
 });
