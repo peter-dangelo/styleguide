@@ -166,11 +166,7 @@ export default React.createClass({
     if (this.props.hasError) {
       return 'bc-orange bc-orange-hover';
     } else if (this.props.disabled) {
-      if (this.props.fieldColor == 'dark') {
-        return 'bc-grey-10';
-      } else {
-        return 'bc-grey-10';
-      }
+      return 'bc-grey-10';
     } else if (this.state.show_options) {
       return 'bc-grey-50';
     } else {
