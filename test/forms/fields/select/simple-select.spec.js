@@ -42,26 +42,13 @@ describe('SimpleSelect', () => {
     })
   });
 
-  describe('#arrowClasses()', () => {
-     it('returns grey arrow if disabled', () => {
-       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={true}/>)
-       let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'grey-50');
-       expect(elem.length).to.equal(1)
-     })
-     it('returns blue arrow by default', () => {
-       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={false}/>)
-       let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'blue-70');
-       expect(elem.length).to.equal(1)
-     })
-   });
-
-   describe('#valueBorderClass()', () => {
-      it('returns bc-orange border color if there is an error', () => {
-        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect hasError={true}/>)
-        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-orange bc-orange-hover');
-        expect(elem).to.exist
-      })
-    });
+  describe('#valueBorderClass()', () => {
+    it('returns bc-orange border color if there is an error', () => {
+      let simple_select = TestUtils.renderIntoDocument(<SimpleSelect hasError={true}/>)
+      let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-orange bc-orange-hover');
+      expect(elem).to.exist
+    })
+  });
 
   describe('#optionsObject()', () => {
     it('returns this.props.options when an object if passed to options prop', () => {
