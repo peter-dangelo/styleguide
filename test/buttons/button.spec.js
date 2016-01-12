@@ -12,7 +12,7 @@ describe('Button', () => {
     type: 'secondary',
     label: 'test',
     size: 'sm',
-    disabled: false,
+    disabled: true,
     link: true,
     extraClasses: ['extraclass-1', 'extraclass-2'],
     icon: 'paperclip'
@@ -35,6 +35,11 @@ describe('Button', () => {
   it('should show the type if passed one', () => {
     let classes = button.getAttribute('class');
     expect(classes).to.contain('secondary');
+  });
+
+  it('should be disabled if true in props', () => {
+    let instance = button.getAttribute('disabled');
+    expect(instance).to.exist;
   });
 
   it('applies extraClasses to the rendered component', () => {
