@@ -25,7 +25,7 @@ describe('Button', () => {
   })
 
   it('should output a button', () => {
-    let type = TestUtils.scryRenderedDOMComponentsWithTag(component, 'button')
+    let type = TestUtils.scryRenderedDOMComponentsWithTag(component, 'button');
     expect(type.length).to.equal(1);
   });
 
@@ -51,7 +51,6 @@ describe('Button', () => {
   });
 
     describe('Disabled prop', () => {
-
       it('should render disabled if the prop is true', () => {
         let instance = button.getAttribute('disabled');
         expect(instance).to.exist;
@@ -61,7 +60,6 @@ describe('Button', () => {
         let instance = button.getAttribute('disabled');
         expect(instance).to.not.be.true;
       });
-
     });
 
 });
