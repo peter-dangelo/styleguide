@@ -20,7 +20,9 @@ textarea {
   }
 
   &.bc-orange {
+    // scss-lint:disable ImportantRule
     border-color: $orange !important;
+    // scss-lint:disable ImportantRule
   }
 }
 
@@ -98,22 +100,37 @@ textarea {
 }
 
 // Date field inputs are always read-only
-.date-field input {
-  border-color: $blue-05;
+.date-field {
 
-  &:focus,
-  &:hover {
+  .icon-calendar {
+    color: $blue-50;
+  }
+
+  input {
+    border-color: $blue-05;
+
+    &:disabled {
+      border-color: $grey-10;
+    }
+  }
+
+  &:focus input,
+  &:hover input {
     border-color: $blue-25;
   }
 
-  &.disabled,
-  &:disabled {
-    border-color: $grey-10;
+  &:focus .icon-calendar,
+  &:hover .icon-calendar {
+    color: $blue-70;
+  }
 
-    &:focus,
-    &:hover {
-      border-color: $grey-10;
-    }
+  &:focus input:disabled,
+  &:hover input:disabled {
+    border-color: $grey-10;
+  }
+
+  &.disabled .icon-calendar {
+    color: $grey-50;
   }
 }
 
@@ -278,6 +295,7 @@ fieldset {
   .simple-select,
   textarea {
     background-color: $white;
+    border-color: $white;
 
     &:focus:not([readonly]),
     &:hover:not([readonly]) {
@@ -299,26 +317,30 @@ fieldset {
     }
   }
 
-  .date-field input {
-    background-color: $white;
+  .date-field {
 
-    &:focus,
-    &:hover {
-      border-color: $grey-50;
+    input {
+      background-color: $white;
     }
 
-    &.disabled,
-    &:disabled {
+    input:disabled {
       background: $grey-15;
       border-color: $grey-15;
       color: $grey-50;
     }
 
-    &.disabled:focus,
-    &:disabled:hover,
-    &.disabled:focus,
-    &:disabled:hover {
+    &:focus input,
+    &:hover input {
+      border-color: $grey-50;
+    }
+
+    &:focus input:disabled,
+    &:hover input:disabled {
       border-color: $grey-15;
+    }
+
+    &.disabled .icon-calendar {
+      color: $grey-50;
     }
   }
 
@@ -504,17 +526,6 @@ textarea {
     .icon-arrow-up {
       color: $blue-70;
     }
-
-    &.disabled,
-    &.disabled:focus,
-    &.disabled:hover {
-
-      .icon-arrow-double,
-      .icon-arrow-down,
-      .icon-arrow-up {
-        color: $grey-50;
-      }
-    }
   }
 
   &.disabled,
@@ -524,39 +535,6 @@ textarea {
     .icon-arrow-double,
     .icon-arrow-down,
     .icon-arrow-up {
-      color: $grey-50;
-    }
-  }
-}
-
-.date-field {
-
-  .icon-calendar {
-    color: $blue-50;
-  }
-
-  &:focus,
-  &:hover {
-
-    .icon-calendar {
-      color: $blue-70;
-    }
-
-    &.disabled,
-    &.disabled:focus,
-    &.disabled:hover {
-
-      .icon-calendar {
-        color: $grey-50;
-      }
-    }
-  }
-
-  &.disabled,
-  &.disabled:focus,
-  &.disabled:hover {
-
-    .icon-calendar {
       color: $grey-50;
     }
   }
