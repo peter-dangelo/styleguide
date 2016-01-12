@@ -5,8 +5,6 @@ import Button from 'buttons/button';
 import ButtonGroup from 'buttons/button-group';
 
 describe('Button', () => {
-  let callback = Sinon.spy();
-
   let props = {
     type: 'secondary',
     label: 'test',
