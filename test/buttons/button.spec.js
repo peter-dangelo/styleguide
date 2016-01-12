@@ -9,7 +9,7 @@ describe('Button', () => {
   let callback = Sinon.spy();
 
   let props = {
-    type: null,
+    type: 'secondary',
     label: 'test',
     size: 'sm',
     disabled: false,
@@ -30,6 +30,11 @@ describe('Button', () => {
   it('should output a button', () => {
     let type = TestUtils.scryRenderedDOMComponentsWithTag(component, 'button')
     expect(type.length).to.equal(1);
+  });
+
+  it('should show the type if passed one', () => {
+    let classes = button.getAttribute('class');
+    expect(classes).to.contain('secondary');
   });
 
   it('applies extraClasses to the rendered component', () => {
