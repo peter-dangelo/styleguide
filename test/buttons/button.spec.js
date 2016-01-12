@@ -34,11 +34,6 @@ describe('Button', () => {
     expect(classes).to.contain('secondary');
   });
 
-  it('should be disabled if true in props', () => {
-    let instance = button.getAttribute('disabled');
-    expect(instance).to.exist;
-  });
-
   it('applies extraClasses to the rendered component', () => {
     let classes = button.getAttribute('class');
     expect(classes).to.contain('extraclass-1');
@@ -54,5 +49,19 @@ describe('Button', () => {
     let classes = button.getAttribute('class');
     expect(classes).to.contain('icon-paperclip');
   });
+
+    describe('Disabled prop', () => {
+
+      it('should render disabled if the prop is true', () => {
+        let instance = button.getAttribute('disabled');
+        expect(instance).to.exist;
+      });
+
+      it('should render without being disabled if the prop is false', () => {
+        let instance = button.getAttribute('disabled');
+        expect(instance).to.not.be.true;
+      });
+
+    });
 
 });
