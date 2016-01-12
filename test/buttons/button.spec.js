@@ -3,7 +3,6 @@ import TestUtils from 'react/lib/ReactTestUtils';
 import React from 'react';
 import Button from 'buttons/button';
 import ButtonGroup from 'buttons/button-group';
-import Sinon from 'sinon';
 
 describe('Button', () => {
   let callback = Sinon.spy();
