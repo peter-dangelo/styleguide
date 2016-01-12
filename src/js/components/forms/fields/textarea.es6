@@ -9,7 +9,6 @@ export default React.createClass({
   propTypes: {
     disabled: Type.bool,
     extraClasses: Type.arrayOf(Type.string),
-    fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
     placeholder: Type.string,
     readOnly: Type.bool,
@@ -18,7 +17,6 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      fieldColor: 'light',
       readOnly: false,
       expandable: false
     }
@@ -33,13 +31,6 @@ export default React.createClass({
   expand(e) {
     e.target.style.height = "auto";
     e.target.style.height = e.target.scrollHeight + "px";
-  },
-
-  fieldClasses() {
-    var classes = [];
-    classes.push('field-' + this.props.fieldColor);
-    return classes.join(' ');
-
   },
 
   classes() {
@@ -58,13 +49,10 @@ export default React.createClass({
     return  <div className={this.classes()}>
         {this.label()}
         <br/>
-        <textarea
-          className={this.fieldClasses()}
-          disabled={this.props.disabled}
-          readOnly={this.props.readOnly}
-          placeholder={this.props.placeholder}
-          onChange={this.props.expandable ? this.expand : null}
-        />
+        <textarea disabled={this.props.disabled}
+                  readOnly={this.props.readOnly}
+                  placeholder={this.props.placeholder}
+                  onChange={this.props.expandable ? this.expand : null} />
       </div>
   }
 });

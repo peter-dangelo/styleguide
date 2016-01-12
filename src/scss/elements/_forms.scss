@@ -122,6 +122,24 @@ select,
   background: $white;
   border: 1px solid $grey-25;
 
+  &.bc-grey-50 {
+    border-color: $grey-50;
+  }
+
+  &.bc-orange {
+    border-color: $orange;
+  }
+
+  &.disabled,
+  &:disabled {
+    background: $grey-10;
+    border-color: $grey-10;
+  }
+
+  &.disabled:hover {
+    border-color: $grey-10;
+  }
+
   &:focus,
   &:hover {
     border-color: $grey-50;
@@ -374,10 +392,10 @@ fieldset {
       color: $grey-50;
     }
 
-    &:focus:not([readonly]).disabled,
-    &:hover:not([readonly]):disabled,
-    &:focus:not([readonly]).disabled,
-    &:hover:not([readonly]):disabled {
+    &.disabled:focus:not([readonly]),
+    &:disabled:hover:not([readonly]),
+    &:disabled:focus:not([readonly]),
+    &.disabled:hover:not([readonly]) {
       border-color: $grey-75;
     }
 
@@ -586,25 +604,6 @@ textarea {
 
   &.inactive input {
     background: none;
-  }
-}
-
-.simple-select {
-
-  &:hover {
-    border-color: $grey-50;
-  }
-
-  &.disabled:hover {
-    border-color: $grey-10;
-  }
-
-  &.bc-orange-hover:hover {
-    border-color: $orange;
-  }
-
-  .option:hover {
-    background-color: $grey-5;
   }
 }
 

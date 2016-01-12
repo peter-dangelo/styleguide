@@ -9,7 +9,6 @@ export default React.createClass({
   propTypes: {
     disabled: Type.bool,
     extraClasses: Type.arrayOf(Type.string),
-    fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
     readOnly: Type.bool,
     units: Type.string
@@ -18,7 +17,6 @@ export default React.createClass({
   getDefaultProps() {
     return {
       readOnly: false,
-      fieldColor: 'light',
       inactive: false
     }
   },
@@ -41,12 +39,6 @@ export default React.createClass({
     return classes.join(' ');
   },
 
-  fieldClasses() {
-    var classes = [];
-    classes.push('field-'+this.props.fieldColor);
-    return classes.join(' ');
-  },
-
   classes() {
     var classes = ['number-field'];
     if(this.props.disabled) {
@@ -60,12 +52,9 @@ export default React.createClass({
     return  <div className={this.classes()}>
         {this.label()}
         <br/>
-        <input
-          className={this.fieldClasses()}
-          disabled={this.props.disabled}
-          type="number"
-          readOnly={this.props.readOnly}
-        ></input>
+        <input disabled={this.props.disabled}
+               type="number"
+               readOnly={this.props.readOnly}/>
         <span className='icon-arrow-double relative'></span>
         {this.units()}
       </div>

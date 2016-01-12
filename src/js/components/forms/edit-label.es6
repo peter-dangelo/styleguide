@@ -102,7 +102,7 @@ export default createClass({
   },
 
   _getTextClasses() {
-    var classes = ["field-light", "mr2", "py1", "h3", "bold", "no-resize", "flex-grow"];
+    var classes = ["mr2", "py1", "h3", "bold", "no-resize", "flex-grow"];
 
     if (this.state.hasErrors) {
       classes.push("bc-orange");
