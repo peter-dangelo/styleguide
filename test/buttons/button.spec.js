@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
 import React from 'react';
 import Button from 'buttons/button';
+import ButtonGroup from 'buttons/button-group';
 import Sinon from 'sinon';
 
 describe('Button', () => {
@@ -25,6 +26,11 @@ describe('Button', () => {
     );
     button = React.findDOMNode(component);
   })
+
+  it('should output a button', () => {
+    let type = TestUtils.scryRenderedDOMComponentsWithTag(component, 'button')
+    expect(type.length).to.equal(1);
+  });
 
   it('applies extraClasses to the rendered component', () => {
     let classes = button.getAttribute('class');
