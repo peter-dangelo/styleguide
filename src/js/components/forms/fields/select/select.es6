@@ -68,7 +68,8 @@ export default React.createClass({
     return (
       <div>
         {this.label()}
-        <SimpleSelect disabled={this.props.disabled}
+        <SimpleSelect ref='simpleSelect'
+                      disabled={this.props.disabled}
                       fieldColor={this.props.fieldColor}
                       hasError={this.state.errors.length > 0}
                       includeBlank={this.props.includeBlank}
