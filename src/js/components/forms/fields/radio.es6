@@ -9,7 +9,6 @@ export default React.createClass({
   propTypes: {
     disabled: Type.bool,
     extraClasses: Type.arrayOf(Type.string),
-    fieldColor: Type.oneOf(['light', 'dark']),
     label: Type.string,
     readOnly: Type.bool,
     checked: Type.bool,
@@ -19,7 +18,6 @@ export default React.createClass({
   getDefaultProps() {
     return {
       disabled: false,
-      fieldColor: 'light',
       readonly: false,
       checked: false
     }
@@ -35,12 +33,6 @@ export default React.createClass({
     }
   },
 
-  fieldClasses() {
-    var classes = [];
-    classes.push('field-'+this.props.fieldColor);
-    return classes.join(' ');
-  },
-
   classes() {
     var classes = ['radio-field'];
     if(this.props.disabled) {
@@ -53,12 +45,9 @@ export default React.createClass({
   render() {
     return <div className={this.classes()}>
         <label>
-          <input
-            disabled={this.props.disabled}
-            className={this.fieldClasses()}
-            type="radio"
-            name={this.props.name}>
-          </input>
+          <input disabled={this.props.disabled}
+                 type="radio"
+                 name={this.props.name} />
           <span className="label-right">{this.props.label}</span>
         </label>
       </div>

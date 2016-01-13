@@ -20,7 +20,6 @@ export default React.createClass({
     dateFormat: Type.oneOf(validDateFormats).isRequired,
     disabled: Type.bool,
     errors: Type.array,
-    fieldColor: Type.oneOf(['light', 'dark']),
     includeMaxMinBounds: Type.bool,
     initialValue: Type.oneOfType([Type.object, Type.string, Type.number]),
     label: Type.string,
@@ -35,7 +34,6 @@ export default React.createClass({
     return {
       disabled: false,
       errors: [],
-      fieldColor: 'light',
       includeMaxMinBounds: true,
       onChange: function() {}
     }
@@ -113,12 +111,6 @@ export default React.createClass({
     return this.props.disabled || !this.isFormatValid();
   },
 
-  iconClasses() {
-    let classes = ['icon-calendar', 'ml1', 'absolute'];
-    this.disabled() ? classes.push('grey-25') : classes.push('blue-70');
-    return classes.join(' ');
-  },
-
   iconStyle() {
     return {
       right: '8px',
@@ -129,7 +121,6 @@ export default React.createClass({
 
   inputClasses() {
     let classes = ['relative', 'fit', 'pr4'];
-    classes.push( 'field-' + this.props.fieldColor );
     if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
     return classes.join(' ');
   },
@@ -180,7 +171,7 @@ export default React.createClass({
                type="text"
                placeholder={this.props.placeholder}
                value={this.value()} />
-        <span className={this.iconClasses()}
+        <span className='icon-calendar ml1 absolute'
               onClick={this.showDatePicker}
               style={this.iconStyle()}></span>
       </div>
