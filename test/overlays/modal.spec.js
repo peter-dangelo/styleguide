@@ -5,13 +5,8 @@ import Modal from 'overlays/modal';
 
 describe('Modal', () => {
   let props = {
-    zIndex: 1000,
-    contentColumns: 9,
-    contentHeight: 100,
-    contentMinHeight: 50,
-    disableClickBackground: false,
-    closeModal: false,
-    isOpen: true
+    isOpen: false,
+    children: 'Child content'
   }
 
   let component;
@@ -24,7 +19,20 @@ describe('Modal', () => {
   })
 
   it('should render successfully', () => {
+    TestUtils.isElement(component);
+  });
 
+  it('defaults to closed if no isOpen prop is passed', () => {
+    expect(component.state.isOpen).to.be.false;
+  });
+
+  it('renders child content passed in through props', () => {
+    expect(modal.innerHTML).to.contain(props.children);
+  })
+
+  describe('Open Modal', () => {
+
+  
   });
 
 });
