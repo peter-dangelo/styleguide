@@ -59,7 +59,7 @@ describe('Modal', () => {
     });
 
     it('successfully joins modal background classes', () => {
-      let element1 = TestUtils.findRenderedDOMComponentWithClass(componentOpen, 'col-5');
+      let element = TestUtils.findRenderedDOMComponentWithClass(componentOpen, 'col-5');
       expect(element).to.exist;
     });
   });
