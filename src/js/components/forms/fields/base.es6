@@ -1,45 +1,68 @@
 import ContextualHelp from '../../overlays/contextual-help';
 import FieldErrors from '../field-errors';
-import React from 'react';
+import { Component, PropTypes } from 'react';
 
-const Type = React.PropTypes;
+var FieldBase = ComposedField => class FieldBase extends Component {
 
-class Field extends React.Component {
+  constructor(props) {
+    super()
+  },
 
   className: 'field',
 
-  displayName: 'Field',
+  displayName: 'FieldBase',
 
-  constructor() {
-    this.state = {
+  propTypes: {
+    disabled: PropTypes.bool,
+    errors: PropTypes.array,
+    initialtValue: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),
+    label: PropTypes.string,
+    name: PropTypes.string,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onKeyUp: PropTypes.func,
+    placeholder: PropTypes.string,
+    readOnly: PropTypes.bool
+  },
+
+  getDefaultProps() {
+    return {
+      disabled: false,
+      errors: [],
+      onBlur: function() {},
+      onChange: function() {},
+      onFocus: function() {},
+      onKeyUp: function() {},
+      readOnly: false
+    };
+  },
+
+  getInitialState() {
+    return {
       errors: this.props.errors || [],
       value: this.props.initialValue
     };
-    this._bind('_handleBlur', '_handleChange', '_handleFocus', '_handleKeyUp');
   },
 
   componentDidMount() {
-    initErrors = this.isValid();
+    initialErrors = this.isValid();
 
-    if (!!this.props.defaultValue && initErrors.length > 0) {
+    if (!!this.props.defaultValue && initalErrors.length > 0) {
       this.setState({
         errors: ['Invalid value']
       });
     }
   },
 
-  _bind(...handlers) {
-    handlers.forEach((handler) => this[handler] = this[handler].bind(this));
-  },
-
-  _containerClasses() {
+  containerClasses() {
     let classes = [this.className];
     if (this.disabled()) classes.push('disabled');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
   },
 
-  _contextualHelp() {
+  contextualHelp() {
     if (this.props.contextualHelp) {
       return (
         <ContextualHelp className="px2 mb1" >
@@ -49,37 +72,37 @@ class Field extends React.Component {
     }
   },
 
-  _disabled() {
-    return this.props.disabled || !this.isValid();
+  disabled() {
+    return this.props.disabled;
   },
 
-  _handleBlur() {
+  handleBlur() {
     this.props.onBlur();
   },
 
-  _handleChange() {
+  handleChange() {
     this.props.onChange();
   },
 
-  _handleFocus() {
+  handleFocus() {
     this.props.onFocus();
   },
 
-  _handleKeyUp() {
+  handleKeyUp() {
     this.props.onKeyUp();
   },
 
-  _inputClasses() {
+  inputClasses() {
     let classes = ['relative', 'fit', 'pr4'];
     if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
     return classes.join(' ');
   },
 
-  _isValid() {
+  isValid() {
     return true;
   },
 
-  _label() {
+  label() {
     if (this.props.label) {
       return (
         <label className="px2 mb1 relative" >
@@ -89,45 +112,17 @@ class Field extends React.Component {
     }
   },
 
-  wrap(inputJSX) {
+  render() {
     return (
-      <div className={this._containerClasses()}>
-        {this._label()}
-        {this._contextualHelp()}
-        {inputJSX}
+      <div className={this.containerClasses()}>
+        {this.label()}
+        {this.contextualHelp()}
+        <WrappedField {...childProps} {this.state} />
         <div className="clearfix"></div>
         <FieldErrors errors={this.state.errors} />
       </div>
     );
-  },
-
-  render() {
-    {this.wrap("<span>I'm a field base!</span>")}
   }
 });
 
-Field.propTypes = {
-  disabled: Type.bool,
-  errors: Type.array,
-  initialtValue: Type.oneOfType([Type.object, Type.string, Type.number]),
-  label: Type.string,
-  name: Type.string,
-  onBlur: Type.func,
-  onChange: Type.func,
-  onFocus: Type.func,
-  onKeyUp: Type.func,
-  placeholder: Type.string,
-  readOnly: Type.bool
-};
-
-Field.defaultProps = {
-  disabled: false,
-  errors: [],
-  onBlur: function() {},
-  onChange: function() {},
-  onFocus: function() {},
-  onKeyUp: function() {},
-  readOnly: false
-};
-
-module.exports = Field;
+export default FieldBase;
