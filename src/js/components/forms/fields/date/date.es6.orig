@@ -17,10 +17,33 @@ class DateField {
 
   // The rest of the child components all use Moment objects for dates.
   propTypes: {
+<<<<<<< HEAD
     dateFormat: PropTypes.oneOf(validDateFormats).isRequired,
     includeMaxMinBounds: PropTypes.bool,
     maxDate: PropTypes.oneOfType(PropTypes.object, PropTypes.string, PropTypes.number]),
     minDate: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),
+=======
+    dateFormat: Type.oneOf(validDateFormats).isRequired,
+    disabled: Type.bool,
+    errors: Type.array,
+    includeMaxMinBounds: Type.bool,
+    initialValue: Type.oneOfType([Type.object, Type.string, Type.number]),
+    label: Type.string,
+    maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
+    minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
+    name: Type.string,
+    onChange: Type.func,
+    placeholder: Type.string
+  },
+
+  getDefaultProps() {
+    return {
+      disabled: false,
+      errors: [],
+      includeMaxMinBounds: true,
+      onChange: function() {}
+    }
+>>>>>>> 3d5886a5ead9deb74f26a0c48bc40d835ce4580e
   },
 
   getInitialState() {
@@ -78,8 +101,8 @@ class DateField {
   datePicker() {
     return (
       <DatePicker date={this.state.value || Moment()}
-                  maxDate={this.boundedMaxDate()}
-                  minDate={this.boundedMinDate()}
+                  maxDate={this._boundedMaxDate()}
+                  minDate={this._boundedMinDate()}
                   onChangeDate={this.changeDate} />
     );
   },
@@ -96,7 +119,17 @@ class DateField {
     };
   },
 
+<<<<<<< HEAD
   isValid() {
+=======
+  inputClasses() {
+    let classes = ['relative', 'fit', 'pr4'];
+    if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
+    return classes.join(' ');
+  },
+
+  isDateValid() {
+>>>>>>> 3d5886a5ead9deb74f26a0c48bc40d835ce4580e
     if (this.state && this.state.value) {
       return this.state.value.isValid();
     } else if (this.props.initialValue) {

@@ -39,45 +39,16 @@ describe('SimpleSelect', () => {
       simple_select.setState({show_options: true})
       TestUtils.Simulate.click(simple_select.refs.simpleSelectValue)
       expect(simple_select.state.show_options).to.be.false
-
     })
   });
 
-  describe('#arrowClasses()', () => {
-     it('returns grey arrow if disabled', () => {
-       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={true}/>)
-       let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'grey-50');
-       expect(elem.length).to.equal(1)
-     })
-     it('returns blue arrow by default', () => {
-       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect disabled={false}/>)
-       let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'blue-70');
-       expect(elem.length).to.equal(1)
-     })
-   });
-
-   describe('#valueBorderClass()', () => {
-      it('returns bc-orange border color if there is an error', () => {
-        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect hasError={true}/>)
-        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-orange bc-orange-hover');
-        expect(elem).to.exist
-      })
-      it('returns grey-25 border color if fieldColor is light', () => {
-        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect fieldColor={('light')}/>)
-        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-grey-25');
-        expect(elem).to.exist
-      })
-      it('returns bc-white border color if the fieldColor is dark', () => {
-        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect fieldColor={('dark')}/>)
-        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-white');
-        expect(elem).to.exist
-      })
-      it('returns grey-10 border color if the field is disabled', () => {
-        let simple_select = TestUtils.renderIntoDocument(<SimpleSelect fieldColor={('dark')} disabled={true}/>)
-        let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-grey-10');
-        expect(elem).to.exist
-      })
-    });
+  describe('#valueBorderClass()', () => {
+    it('returns bc-orange border color if there is an error', () => {
+      let simple_select = TestUtils.renderIntoDocument(<SimpleSelect hasError={true}/>)
+      let elem = TestUtils.scryRenderedDOMComponentsWithClass(simple_select, 'bc-orange bc-orange-hover');
+      expect(elem).to.exist
+    })
+  });
 
   describe('#optionsObject()', () => {
     it('returns this.props.options when an object if passed to options prop', () => {

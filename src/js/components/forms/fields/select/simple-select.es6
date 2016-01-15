@@ -10,7 +10,6 @@ export default React.createClass({
 
   propTypes: {
     disabled: Type.bool,
-    fieldColor: Type.oneOf(['light', 'dark']),
     hasError: Type.bool,
     includeBlank: Type.bool,
     name: Type.string,
@@ -22,7 +21,6 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      fieldColor: 'light',
       hasError: false,
       onChange: function() {},
       options: []
@@ -50,7 +48,6 @@ export default React.createClass({
 
   arrowClasses() {
     let classes = ['h6', 'ml1', 'relative'];
-    classes.push(this.props.disabled ? 'grey-50' : 'blue-70');
     classes.push(this.state.show_options ? 'icon-arrow-up' : 'icon-arrow-down');
     return classes.join(' ');
   },
@@ -165,12 +162,8 @@ export default React.createClass({
   valueBorderClass() {
     if (this.props.hasError) {
       return 'bc-orange bc-orange-hover';
-    } else if (this.props.disabled) {
-      return 'bc-grey-10';
     } else if (this.state.show_options) {
       return 'bc-grey-50';
-    } else {
-      return this.props.fieldColor == 'light' ? 'bc-grey-25' : 'bc-white';
     }
   },
 
@@ -180,7 +173,6 @@ export default React.createClass({
     classes.push(this.state.show_options ? 'rounded-top-2' : "rounded-2");
     if (this.props.disabled) {
       classes.push('disabled');
-      classes.push(this.props.fieldColor == 'light' ? 'grey-10 bg-grey-10' : 'grey-50 bg-grey-15');
     } else {
       classes.push('pointer bg-white');
     }
@@ -189,7 +181,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="relative simple-select">
+      <div className="relative">
         <input type="hidden"
                name={this.props.name}
                value={this.state.value}

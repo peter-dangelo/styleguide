@@ -12,7 +12,6 @@ export default React.createClass({
     disabled: Type.bool,
     errors: Type.array,
     extraClasses: Type.array,
-    fieldColor: Type.oneOf(['light', 'dark']),
     includeBlank: Type.oneOfType([Type.bool, Type.string]),
     label: Type.string,
     name: Type.string,
@@ -26,7 +25,6 @@ export default React.createClass({
     return {
       disabled: false,
       errors: [],
-      fieldColor: 'light',
       onChange: function() {},
       value: null
     }
@@ -40,8 +38,11 @@ export default React.createClass({
   },
 
   containerClasses() {
-    let classes = ['relative'];
+    let classes = ['select-field', 'relative'];
     classes.push(this.props.extraClasses);
+    if (this.state.disabled) {
+      classes.push('disabled');
+    }
     return classes.join(' ');
   },
 
@@ -66,11 +67,10 @@ export default React.createClass({
 
   render() {
     return (
-      <div>
+      <div className={this.containerClasses()}>
         {this.label()}
         <SimpleSelect ref='simpleSelect'
                       disabled={this.props.disabled}
-                      fieldColor={this.props.fieldColor}
                       hasError={this.state.errors.length > 0}
                       includeBlank={this.props.includeBlank}
                       name={this.props.name}
