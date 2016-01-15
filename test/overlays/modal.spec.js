@@ -35,10 +35,6 @@ describe('Modal', () => {
     expect(modal.innerHTML).to.contain(props.children);
   });
 
-  it('adds the correct background classes', () => {
-    expect(modal.innerHTML).to.contain(props.children);
-  });
-
   it('fires the onClick prop when clicked', () => {
     TestUtils.Simulate.click(modal);
     expect(callback.called).to.be.true;
@@ -59,6 +55,11 @@ describe('Modal', () => {
 
     it('adds the correct column class', () => {
       let element = TestUtils.findRenderedDOMComponentWithClass(componentOpen, 'col-5');
+      expect(element).to.exist;
+    });
+
+    it('successfully joins modal background classes', () => {
+      let element1 = TestUtils.findRenderedDOMComponentWithClass(componentOpen, 'col-5');
       expect(element).to.exist;
     });
   });
