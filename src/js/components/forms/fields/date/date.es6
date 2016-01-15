@@ -1,44 +1,26 @@
+import { PropTypes } from 'react';
 import DatePicker from './date-picker';
-import FieldErrors from '../../field-errors';
+import FieldBase from '../base.es6';
 import Moment from 'moment';
-import React from 'react';
 import Tooltip from '../../../overlays/tooltip';
 import Overlay from '../../../overlays/overlay-click';
-
-const Type = React.PropTypes;
 
 // Note: The value of date.month() for 1/1/2015 is 0, not 1
 
 let validDateFormats = ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY'];
 
-export default React.createClass({
+class DateField {
 
-  displayName: "FieldDate",
+  className: 'date-field',
+
+  displayName: "DateField",
 
   // The rest of the child components all use Moment objects for dates.
   propTypes: {
-    dateFormat: Type.oneOf(validDateFormats).isRequired,
-    disabled: Type.bool,
-    errors: Type.array,
-    fieldColor: Type.oneOf(['light', 'dark']),
-    includeMaxMinBounds: Type.bool,
-    initialValue: Type.oneOfType([Type.object, Type.string, Type.number]),
-    label: Type.string,
-    maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
-    minDate: Type.oneOfType([Type.object, Type.string, Type.number]),
-    name: Type.string,
-    onChange: Type.func,
-    placeholder: Type.string
-  },
-
-  getDefaultProps() {
-    return {
-      disabled: false,
-      errors: [],
-      fieldColor: 'light',
-      includeMaxMinBounds: true,
-      onChange: function() {}
-    }
+    dateFormat: PropTypes.oneOf(validDateFormats).isRequired,
+    includeMaxMinBounds: PropTypes.bool,
+    maxDate: PropTypes.oneOfType(PropTypes.object, PropTypes.string, PropTypes.number]),
+    minDate: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),
   },
 
   getInitialState() {
@@ -54,7 +36,7 @@ export default React.createClass({
         errors: ['Invalid date format']
       });
     } else {
-      if (!this.state.value && !this.isDateValid()) {
+      if (!this.state.value && !this.isValid()) {
         this.setState({
           errors: this.state.errors.concat('Invalid date')
         });
@@ -83,9 +65,9 @@ export default React.createClass({
   },
 
   // Accepts only moments
-  changeDate(date) {
+  handleChange(date) {
     let errors = [];
-    if (!this.isDateValid()) errors.push('Invalid date');
+    if (!this.isValid()) errors.push('Invalid date');
     this.setState({
       errors: errors,
       value: date
@@ -93,18 +75,11 @@ export default React.createClass({
     this.props.onChange(date);
   },
 
-  containerClasses() {
-    let classes = ['date-field', 'col-3'];
-    if (this.disabled()) classes.push('disabled');
-    classes.push(this.props.extraClasses);
-    return classes.join(' ');
-  },
-
   datePicker() {
     return (
       <DatePicker date={this.state.value || Moment()}
-                  maxDate={this.boundedMaxDate()}
-                  minDate={this.boundedMinDate()}
+                  maxDate={this._boundedMaxDate()}
+                  minDate={this._boundedMinDate()}
                   onChangeDate={this.changeDate} />
     );
   },
@@ -127,14 +102,7 @@ export default React.createClass({
     };
   },
 
-  inputClasses() {
-    let classes = ['relative', 'fit', 'pr4'];
-    classes.push( 'field-' + this.props.fieldColor );
-    if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
-    return classes.join(' ');
-  },
-
-  isDateValid() {
+  isValid() {
     if (this.state && this.state.value) {
       return this.state.value.isValid();
     } else if (this.props.initialValue) {
@@ -146,15 +114,6 @@ export default React.createClass({
 
   isFormatValid() {
     return validDateFormats.indexOf(this.props.dateFormat) != -1;
-  },
-
-  label() {
-    if (this.props.label) {
-      return <label className="px2 mb1 relative"
-                    onClick={this.showDatePicker} >
-               {this.props.label}
-             </label>;
-    }
   },
 
   overlay() {
@@ -229,3 +188,5 @@ export default React.createClass({
     );
   }
 });
+
+export default FieldBase(DateField);
