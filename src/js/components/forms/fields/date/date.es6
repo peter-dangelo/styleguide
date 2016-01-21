@@ -1,34 +1,22 @@
-import { PropTypes } from 'react';
+import _ from 'underscore';
+import React from 'react';
 import DatePicker from './date-picker';
-import FieldBase from '../base.es6';
+import { fieldProps, FieldBase } from '../base.es6';
 import Moment from 'moment';
 import Tooltip from '../../../overlays/tooltip';
 import Overlay from '../../../overlays/overlay-click';
+
+const Type = React.PropTypes;
 
 // Note: The value of date.month() for 1/1/2015 is 0, not 1
 
 let validDateFormats = ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY'];
 
-class DateField {
+class DateField extends FieldBase {
 
-  className: 'date-field',
-
-  displayName: "DateField",
-
-  // The rest of the child components all use Moment objects for dates.
-  propTypes: {
-    dateFormat: PropTypes.oneOf(validDateFormats).isRequired,
-    includeMaxMinBounds: PropTypes.bool,
-    maxDate: PropTypes.oneOfType(PropTypes.object, PropTypes.string, PropTypes.number]),
-    minDate: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),
-  },
-
-  getInitialState() {
-    return {
-      errors: this.props.errors || [],
-      value: this.momentDate(this.props.initialValue)
-    };
-  },
+  constructor() {
+    super();
+  }
 
   componentDidMount() {
     if (!this.isFormatValid()) {
@@ -42,7 +30,7 @@ class DateField {
         });
       }
     }
-  },
+  }
 
   boundedMaxDate() {
     if (!!this.props.maxDate) {
@@ -52,7 +40,7 @@ class DateField {
         return this.momentDate(this.props.maxDate);
       }
     }
-  },
+  }
 
   boundedMinDate() {
     if (!!this.props.minDate) {
@@ -62,7 +50,7 @@ class DateField {
         return this.momentDate(this.props.minDate);
       }
     }
-  },
+  }
 
   // Accepts only moments
   handleChange(date) {
@@ -72,8 +60,8 @@ class DateField {
       errors: errors,
       value: date
     });
-    this.props.onChange(date);
-  },
+    this.props.onChange();
+  }
 
   datePicker() {
     return (
@@ -82,11 +70,11 @@ class DateField {
                   minDate={this._boundedMinDate()}
                   onChangeDate={this.changeDate} />
     );
-  },
+  }
 
   disabled() {
     return this.props.disabled || !this.isFormatValid();
-  },
+  }
 
   iconStyle() {
     return {
@@ -94,7 +82,7 @@ class DateField {
       top: '6px',
       fontSize: '15px'
     };
-  },
+  }
 
   isValid() {
     if (this.state && this.state.value) {
@@ -104,23 +92,11 @@ class DateField {
     } else {
       return true;
     }
-  },
+  }
 
   isFormatValid() {
     return validDateFormats.indexOf(this.props.dateFormat) != -1;
-  },
-
-  overlay() {
-    if (!this.disabled()) {
-      return (
-        <Overlay content={this.tooltip()}>
-          {this.triggerContent()}
-        </Overlay>
-      );
-    } else {
-      return this.triggerContent();
-    }
-  },
+  }
 
   triggerContent() {
     return (
@@ -138,7 +114,7 @@ class DateField {
               style={this.iconStyle()}></span>
       </div>
     );
-  },
+  }
 
   momentDate(date) {
     if (!!date) {
@@ -156,7 +132,7 @@ class DateField {
     } else {
       return null;
     }
-  },
+  }
 
   tooltip() {
     return (
@@ -165,22 +141,32 @@ class DateField {
                right='-24px'
                top='37px' />
     );
-  },
+  }
 
   value() {
     if (this.state.value) return this.state.value.format(this.props.dateFormat);
-  },
-
-  render() {
-    return (
-      <div className={this.containerClasses()}>
-        {this.label()}
-        {this.overlay()}
-        <div className="clearfix"></div>
-        <FieldErrors errors={this.state.errors} />
-      </div>
-    );
   }
-});
 
-export default FieldBase(DateField);
+  contents() {
+    if (!this.disabled()) {
+      return (
+        <Overlay content={this.tooltip()}>
+          {this.triggerContent()}
+        </Overlay>
+      );
+    } else {
+      return this.triggerContent();
+    }
+  }
+};
+
+DateField.displayName = "DateField";
+
+DateField.propTypes = _.extend({
+  dateFormat: Type.oneOf(validDateFormats).isRequired,
+  includeMaxMinBounds: Type.bool,
+  maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
+  minDate: Type.oneOfType([Type.object, Type.string, Type.number])
+}, fieldProps);
+
+export default DateField;
