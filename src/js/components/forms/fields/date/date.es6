@@ -18,18 +18,20 @@ class DateField extends FieldBase {
     super();
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    let disabled = this.props.disabled;
+    let errors = this.props.errors;
+
     if (!this.isFormatValid()) {
-      this.setState({
-        errors: ['Invalid date format']
-      });
-    } else {
-      if (!this.state.value && !this.isValid()) {
-        this.setState({
-          errors: this.state.errors.concat('Invalid date')
-        });
-      }
+      errors.push('Invalid date format');
+      disabled = true;
     }
+
+    this.setState({
+      disabled: disabled,
+      errors: this.props.errors.concat[this.validate(this.props.initialValue)],
+      value: this.props.initialValue
+    });
   }
 
   boundedMaxDate() {
@@ -52,23 +54,12 @@ class DateField extends FieldBase {
     }
   }
 
-  // Accepts only moments
-  handleChange(date) {
-    let errors = [];
-    if (!this.isValid()) errors.push('Invalid date');
-    this.setState({
-      errors: errors,
-      value: date
-    });
-    this.props.onChange();
-  }
-
   datePicker() {
     return (
       <DatePicker date={this.state.value || Moment()}
                   maxDate={this.boundedMaxDate()}
                   minDate={this.boundedMinDate()}
-                  onChangeDate={this.changeDate} />
+                  onChangeDate={this.handleChange} />
     );
   }
 
@@ -84,13 +75,11 @@ class DateField extends FieldBase {
     };
   }
 
-  isValid() {
-    if (this.state && this.state.value) {
-      return this.state.value.isValid();
-    } else if (this.props.initialValue) {
-      return this.momentDate(this.props.initialValue).isValid();
+  validate(value=null) {
+    if ((!!value && !this.momentDate(value).isValid()) || (!!this.state.value && !this.state.value.isValid())) {
+      return ['Invalid date'];
     } else {
-      return true;
+      return [];
     }
   }
 
@@ -108,7 +97,7 @@ class DateField extends FieldBase {
                readOnly
                type="text"
                placeholder={this.props.placeholder}
-               value={this.value()} />
+               value={this.inputValue()} />
         <span className='icon-calendar ml1 absolute'
               onClick={this.showDatePicker}
               style={this.iconStyle()}></span>
@@ -143,7 +132,7 @@ class DateField extends FieldBase {
     );
   }
 
-  value() {
+  inputValue() {
     if (this.state.value) return this.state.value.format(this.props.dateFormat);
   }
 
@@ -159,6 +148,8 @@ class DateField extends FieldBase {
     }
   }
 };
+
+DateField.baseContainerClasses = ['col-3'];
 
 DateField.displayName = "DateField";
 
