@@ -1,16 +1,18 @@
-import Checkbox from '../components/forms/fields/checkbox';
+import {
+  DateField,
+  SelectField,
+  CheckboxField,
+  FileField,
+  NumberField,
+  RadioField,
+  TextField,
+  TextAreaField
+} from '../components/forms/fields/index';
 import EditLabel from '../components/forms/edit-label';
-import FileField from '../components/forms/fields/file';
 import Moment from 'moment';
-import NumberField from '../components/forms/fields/number';
-import Radio from '../components/forms/fields/radio';
 import React from 'react';
-import DateField from '../components/forms/fields/date/date';
 import Select from 'react-select';
-import SelectField from '../components/forms/fields/select/select';
 import Styleguide from '../styleguide';
-import TextArea from '../components/forms/fields/textarea';
-import TextField from '../components/forms/fields/text';
 
 var options = [
   { value: 'london', label: 'London' },
@@ -46,7 +48,7 @@ export default React.createClass({
       simpleSelect2Value: null,
       simpleSelect3Value: 15,
       simpleSelect4Value: 25,
-      simpleSelect5Value: null,
+      simpleSelect5Value: null
     };
   },
 
@@ -95,18 +97,19 @@ export default React.createClass({
             <p>Default fields</p>
             <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" extraClasses={['py2']} units="Units"  />
-            <DateField dateFormat='MMM D, YYYY'
-                       extraClasses={['py2']}
-                       label='Date'
-                       placeholder="Placeholder" />
+            <DateField
+              dateFormat='MMM D, YYYY'
+              extraClasses={['py2']}
+              label='Date'
+              placeholder="Placeholder" />
             <div className='clearfix'></div>
             <SelectField label="Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
-            <TextArea label="Textarea" extraClasses={['py2']} />
-            <TextArea label="Textarea Expandable" expandable={true} extraClasses={['py2']} />
-            <Checkbox label="Checkbox" extraClasses={['py2']}/>
-            <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-            <Radio name="radios1" label="Radio 1" extraClasses={['py2']}/>
-            <Radio name="radios1" label="Radio 2" extraClasses={['py2']}/>
+            <TextAreaField label="Textarea" extraClasses={['py2']} />
+            <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} />
+            <CheckboxField label="Checkbox" extraClasses={['py2']}/>
+            <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+            <RadioField name="radios1" label="Radio 1" extraClasses={['py2']}/>
+            <RadioField name="radios1" label="Radio 2" extraClasses={['py2']}/>
 
             <p className="mt4">Disabled fields</p>
             <TextField label="Text" placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
@@ -114,9 +117,9 @@ export default React.createClass({
             <DateField date="2015/1/1" label="ReactDate" disabled={true} extraClasses={['py2']} dateFormat='YYYY/MM/DD'/>
             <div className='clearfix'></div>
             <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
-            <TextArea label="Textarea"  disabled={true} extraClasses={['py2']} />
-            <Checkbox label="Checkbox" disabled={true} extraClasses={['py2']}/>
-            <Radio name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
+            <TextAreaField label="Textarea"  disabled={true} extraClasses={['py2']} />
+            <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
+            <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
 
             <p className="mt4">Fields within fieldset</p>
             <fieldset>
@@ -126,11 +129,11 @@ export default React.createClass({
               <DateField label="Date" extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
               <div className='clearfix'></div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
-              <TextArea label="Textarea" extraClasses={['py2']}/>
-              <Checkbox label="Checkbox" extraClasses={['py2']}/>
-              <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-              <Radio name="radios3" label="Radio 1" extraClasses={['py2']}/>
-              <Radio name="radios3" label="Radio 2" extraClasses={['py2']}/>
+              <TextAreaField label="Textarea" extraClasses={['py2']}/>
+              <CheckboxField label="Checkbox" extraClasses={['py2']}/>
+              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+              <RadioField name="radios3" label="Radio 1" extraClasses={['py2']}/>
+              <RadioField name="radios3" label="Radio 2" extraClasses={['py2']}/>
               <hr />
               <p>Disabled fields</p>
               <TextField label="Text" placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
@@ -138,10 +141,10 @@ export default React.createClass({
               <DateField label="ReactDate" disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />
               <div className='clearfix'></div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
-              <TextArea label="Textarea" disabled={true} extraClasses={['py2']} />
-              <Checkbox label="Checkbox" disabled={true} extraClasses={['py2']}/>
-              <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-              <Radio name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
+              <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
+              <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
+              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+              <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
             </fieldset>
 
             <p className="mt4">Fields within tooltip</p>
@@ -152,11 +155,11 @@ export default React.createClass({
               <DateField label="Date" extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
               <div className='clearfix'></div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
-              <TextArea label="Textarea" extraClasses={['py2']}/>
-              <Checkbox label="Checkbox" extraClasses={['py2']}/>
-              <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-              <Radio name="radios3" label="Radio 1" extraClasses={['py2']}/>
-              <Radio name="radios3" label="Radio 2" extraClasses={['py2']}/>
+              <TextAreaField label="Textarea" extraClasses={['py2']}/>
+              <CheckboxField label="Checkbox" extraClasses={['py2']}/>
+              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+              <RadioField name="radios3" label="Radio 1" extraClasses={['py2']}/>
+              <RadioField name="radios3" label="Radio 2" extraClasses={['py2']}/>
               <hr />
               <p className="grey-10">Disabled fields</p>
               <TextField label="Text" placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
@@ -164,10 +167,10 @@ export default React.createClass({
               <DateField label="ReactDate" disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />
               <div className='clearfix'></div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
-              <TextArea label="Textarea" disabled={true} extraClasses={['py2']} />
-              <Checkbox label="Checkbox" disabled={true} extraClasses={['py2']}/>
-              <Checkbox label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-              <Radio name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
+              <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
+              <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
+              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+              <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
             </div>
 
             <hr />

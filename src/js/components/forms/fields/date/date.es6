@@ -13,7 +13,7 @@ let validDateFormats = ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY']
 
 export default React.createClass({
 
-  displayName: "FieldDate",
+  displayName: "DateField",
 
   // The rest of the child components all use Moment objects for dates.
   propTypes: {
