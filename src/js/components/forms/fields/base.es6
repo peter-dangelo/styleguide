@@ -1,4 +1,3 @@
-import _ from 'underscore';
 import React from 'react';
 import ContextualHelp from '../contextual-help';
 import FieldErrors from '../field-errors';
@@ -26,23 +25,22 @@ class FieldBase extends React.Component {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.state = {
+      disabled: false,
       errors: [],
       value: null
     };
   }
 
-  componentDidMount() {
-    initialErrors = this.validate();
-
-    if (!!this.props.initialValue && initialErrors.length > 0) {
-      this.setState({
-        errors: ['Invalid value']
-      });
-    }
+  componentWillMount() {
+    this.setState({
+      disabled: this.props.disabled,
+      errors: this.props.errors.concat(this.validate(this.props.initialValue)),
+      value: this.props.initialValue
+    });
   }
 
   containerClasses() {
-    let classes = [];
+    let classes = this.baseContainerClasses || [];
     if (this.disabled()) classes.push('disabled');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
@@ -62,10 +60,11 @@ class FieldBase extends React.Component {
     return this.props.disabled;
   }
 
-  handleChange(date) {
-    if (_.difference(errors, this.state.errors).length > 0) {
-      this.setState({errors: errors});
-    }
+  handleChange(newValue) {
+    this.setState({
+      errors: this.validate(newValue),
+      value: newValue
+    });
     this.props.onChange();
   }
 
@@ -107,6 +106,8 @@ class FieldBase extends React.Component {
     );
   }
 };
+
+FieldBase.baseContainerClasses = [];
 
 FieldBase.propTypes = fieldProps;
 
