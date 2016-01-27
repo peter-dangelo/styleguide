@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'underscore';
 import Overlay from '../../../overlays/overlay-click';
 
 const Type = React.PropTypes;

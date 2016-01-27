@@ -1,5 +1,3 @@
-// Include all scss partials that are ready for production
-
 @font-face {
   font-family: 'Proxima';
   src: url('https://dzmqh46i6l1ir.cloudfront.net/public/proxima.eot');
@@ -31,29 +29,9 @@
     url('https://dzmqh46i6l1ir.cloudfront.net/public/namely-ui.icons.svg#icons') format('svg');
 }
 
+
+// Wrap all selectors in .namely-ui namespace to eliminate style clash
+// in the consuming applications
 .namely-ui {
-  // Base Styles
-  @import '../src/scss/base/base';
-
-  // Typography Styles
-  @import '../src/scss/elements/typography';
-
-  // Button Styles
-  @import '../src/scss/elements/buttons/buttons';
-
-  // Form Styles
-  @import '../src/scss/elements/forms';
-  @import '../src/scss/elements/select';
-  @import '../src/scss/elements/datepicker';
-
-  // Layout Styles
-  @import '../src/scss/layout/layout';
-
-  // Shape Component Styles
-  @import '../src/scss/components/triangle';
-  @import '../src/scss/components/modal';
-
-  // Animations
-  @import '../src/scss/animations/easing';
-  @import '../src/scss/animations/fade';
+  @import './src/scss/app';
 }
