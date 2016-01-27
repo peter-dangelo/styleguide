@@ -16,8 +16,7 @@
   },
   "files": [
     "CONTRIBUTING.md",
-    "dist/namely-ui.css",
-    "dist/namely-ui.js",
+    "dist"
     "README.md"
   ],
   "engine": {

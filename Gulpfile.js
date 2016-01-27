@@ -120,7 +120,7 @@ gulp.task('scss-lint', function() {
     .pipe(scsslint.failReporter('E'));
 });
 
-gulp.task('styles', function(){
+gulp.task('styles', function() {
   gulp.src('./src/scss/app.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({errLogToConsole: true}))
@@ -144,7 +144,7 @@ gulp.task('server', ['icons', 'colors', 'styles', 'scripts'], function(){
 
 gulp.task('watch', function(){
   gulp.watch('src/lib/scss/_icons-template.scss', ['icons']);
-  gulp.watch('src/lib/_colors.json', ['colors']);
-  gulp.watch('src/scss/**', ['scss-lint', 'styles']);
-  gulp.watch('src/js/**', ['scripts']);
+  gulp.watch('src/lib/_colors.json', ['colors', 'compile:css']);
+  gulp.watch('src/scss/**', ['scss-lint', 'compile:css', 'styles']);
+  gulp.watch('src/js/**', ['compile:js', 'scripts']);
 });
