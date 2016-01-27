@@ -14,6 +14,11 @@
     "start": "gulp",
     "test": "./node_modules/karma/bin/karma start --single-run=true"
   },
+  "files": [
+    "CONTRIBUTING.md",
+    "dist",
+    "README.md"
+  ],
   "engine": {
     "node": ">=4.2.1"
   },
