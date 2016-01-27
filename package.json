@@ -16,7 +16,7 @@
   },
   "files": [
     "CONTRIBUTING.md",
-    "dist"
+    "dist",
     "README.md"
   ],
   "engine": {
