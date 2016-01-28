@@ -1,7 +1,6 @@
 var autoprefix = require('gulp-autoprefixer');
 var babelify = require('babelify');
 var browserify = require('browserify');
-var buffer = require('vinyl-buffer');
 var connect = require('gulp-connect');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
@@ -17,7 +16,6 @@ var scsslint = require('gulp-scss-lint');
 var size = require('gulp-size');
 var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
 
 var fontName = 'icons';
 
@@ -45,31 +43,13 @@ gulp.task('colors', function() {
     .pipe(gulp.dest('./src/scss/base/'));
 });
 
-gulp.task('compile', ['clean', 'compile:css', 'compile:js']);
-
-gulp.task('compile:css', ['icons', 'colors'], function(){
-  gulp.src('./namely-ui.scss')
+gulp.task('compile:css', ['clean', 'icons', 'colors'], function(){
+  gulp.src('src/scss/namely-ui.scss')
     .pipe(sass())
     .pipe(autoprefix())
     .pipe(cssnano())
     .pipe(size({title: 'css'}))
     .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('compile:js', function() {
-  browserify({
-    entries: './namely-ui.js',
-    extensions: ['.es6', '.js'],
-    debug: true
-  })
-    .transform(babelify)
-    .bundle()
-    .pipe(source('namely-ui.js'))
-    .pipe(buffer())
-    .pipe(uglify())
-    .on('error', gutil.log)
-    .pipe(size({title: 'js'}))
-    .pipe(gulp.dest('dist/'))
 });
 
 gulp.task('default', ['server', 'watch']);
@@ -144,7 +124,7 @@ gulp.task('server', ['icons', 'colors', 'styles', 'scripts'], function(){
 
 gulp.task('watch', function(){
   gulp.watch('src/lib/scss/_icons-template.scss', ['icons']);
-  gulp.watch('src/lib/_colors.json', ['colors', 'compile:css']);
+  gulp.watch('src/lib/_colors.json', ['colors']);
   gulp.watch('src/scss/**', ['scss-lint', 'compile:css', 'styles']);
-  gulp.watch('src/js/**', ['compile:js', 'scripts']);
+  gulp.watch('src/js/**', ['scripts']);
 });
