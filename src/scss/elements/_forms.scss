@@ -11,7 +11,7 @@ textarea {
     color: $grey-50;
   }
 
-  &:not([readonly]):focus::placeholder {
+  &::not([readonly]):focus::placeholder {
     color: transparent;
   }
 
@@ -170,7 +170,7 @@ select,
   position: relative;
   width: $space-3;
 
-  &:after {
+  &::after {
     border: 1px solid $grey-15;
     border-radius: 3px;
     color: $grey-50;
@@ -183,7 +183,7 @@ select,
     z-index: 1;
   }
 
-  &:disabled:after {
+  &:disabled::after {
     background: $grey-10;
     border-color: $grey-10;
     border-radius: 3px;
@@ -191,20 +191,20 @@ select,
     cursor: default;
   }
 
-  &[readonly]:after {
+  &[readonly]::after {
     background: none;
     border: 0;
     cursor: default;
   }
 
-  &:hover:after {
+  &:hover::after {
     border-color: $grey-50;
   }
 
   &:checked {
     @include icon(check);
 
-    &:before {
+    &::before {
       color: $grey-50;
       font-size: $h6;
       left: 3px;
@@ -214,7 +214,7 @@ select,
     }
   }
 
-  &:disabled:checked:after {
+  &:disabled:checked::after {
     border: 0;
     cursor: default;
     margin-left: 1px;
@@ -231,7 +231,7 @@ select,
   position: relative;
   width: $space-3;
 
-  &:after {
+  &::after {
     border: 1px solid $grey-15;
     border-radius: 50%;
     color: $grey-50;
@@ -245,21 +245,21 @@ select,
     width: 14px;
   }
 
-  &:disabled:after {
+  &:disabled::after {
     background: $grey-10;
     border-color: $grey-10;
     cursor: default;
   }
 
-  &:disabled:hover:after {
+  &:disabled:hover::after {
     border-color: $grey-15;
   }
 
-  &:hover:after {
+  &:hover::after {
     border-color: $grey-50;
   }
 
-  &:checked:before {
+  &:checked::before {
     background: $grey-50;
     border: 0;
     border-radius: 5px;
@@ -347,18 +347,18 @@ fieldset {
   [type=checkbox],
   [type=radio] {
 
-    &:after {
+    &::after {
       background-color: $white;
       border-color: $white;
     }
 
-    &:disabled:after {
+    &:disabled::after {
       background-color: $grey-15;
       border-color: $grey-15;
     }
 
-    &:focus:not([readonly]):disabled:after,
-    &:hover:not([readonly]):disabled:after {
+    &:focus:not([readonly]):disabled::after,
+    &:hover:not([readonly]):disabled::after {
       border-color: $grey-15;
     }
   }
@@ -452,27 +452,27 @@ fieldset {
   [type=checkbox],
   [type=radio] {
 
-    &:after {
+    &::after {
       background-color: $white;
       border-color: $grey-75;
     }
 
-    &:focus:not([readonly]):after,
-    &:hover:not([readonly]):after {
+    &:focus:not([readonly])::after,
+    &:hover:not([readonly])::after {
       border-color: $blue-50;
     }
 
-    &[readonly]:after {
+    &[readonly]::after {
       background-color: $blue-95;
     }
 
-    &:disabled:after {
+    &:disabled::after {
       background-color: $grey-75;
       border-color: $grey-75;
     }
 
-    &:focus:not([readonly]):disabled:after,
-    &:hover:not([readonly]):disabled:after {
+    &:focus:not([readonly]):disabled::after,
+    &:hover:not([readonly]):disabled::after {
       border-color: $grey-75;
     }
   }

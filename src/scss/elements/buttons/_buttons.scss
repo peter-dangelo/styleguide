@@ -24,19 +24,20 @@ button,
   height: auto;
   line-height: $base-button-font-size;
   outline: none;
-  padding: $space-1*1.5 $space-2;
+  padding: $space-1 * 1.5 $space-2;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   transition: background 0s, color 0s;
   vertical-align: middle;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background: $blue-80;
     text-decoration: none;
     transition: background $duration, color $duration;
   }
 
-  &:before {
+  &::before {
     font-size: $h5;
     line-height: $base-button-font-size;
     margin-right: $space-1;

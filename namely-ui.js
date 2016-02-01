@@ -6,4 +6,3 @@ export * from './src/js/components/lists/index';
 export * from './src/js/components/misc/index';
 export * from './src/js/components/nav/index';
 export * from './src/js/components/overlays/index';
-// export * from 'view/index.es6';

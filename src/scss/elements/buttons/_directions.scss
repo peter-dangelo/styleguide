@@ -1,7 +1,7 @@
 $directional-button-height: (($space-1 * 1.5) * 2) + $base-button-font-size;
 $arrow-dimensions: $directional-button-height * 0.75;
-$arrow-position: -($h2/2);
-$arrow-top: ($directional-button-height * 0.25)/2;
+$arrow-position: -($h2 / 2);
+$arrow-top: ($directional-button-height * 0.25) / 2;
 
 .button-previous {
   background: $blue-50;
@@ -10,7 +10,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   margin-left: 1em;
   padding-left: $space-1;
 
-  &:before {
+  &::before {
     background: $blue-50;
     content: '';
     height: $arrow-dimensions;
@@ -22,7 +22,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   &:hover {
     background: $blue-70;
 
-    &:before {
+    &::before {
       background: $blue-70;
     }
   }
@@ -30,7 +30,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   &:active {
     background: $blue-80;
 
-    &:before {
+    &::before {
       background: $blue-80;
     }
   }
@@ -42,7 +42,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   margin-right: 1em;
   padding-right: $space-1;
 
-  &:after {
+  &::after {
     background: $blue-70;
     content: '';
     height: $arrow-dimensions;
@@ -52,7 +52,7 @@ $arrow-top: ($directional-button-height * 0.25)/2;
 
   &:hover {
 
-    &:after {
+    &::after {
       background: $blue-80;
     }
   }
@@ -64,7 +64,8 @@ $arrow-top: ($directional-button-height * 0.25)/2;
   transform: translateZ(0px);
   z-index: 20;
 
-  &:after, &:before {
+  &::after,
+  &::before {
     border-radius: $border-radius;
     display: block;
     line-height: $base-button-font-size;
@@ -76,14 +77,16 @@ $arrow-top: ($directional-button-height * 0.25)/2;
 
   &:hover {
 
-    &:before, &:after {
+    &::before,
+    &::after {
       transition: background $duration;
     }
   }
 
   &:active {
 
-    &:before, &:after {
+    &::before,
+    &::after {
       background: $blue-80;
     }
   }

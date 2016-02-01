@@ -33,10 +33,9 @@ gulp.task('clean', function() {
   return del(['dist/**/*']);
 });
 
-gulp.task('colors', function() {
+gulp.task('colors', function(){
   var source = './src/lib/_colors.json';
   var banner = "// generated from <%= source %> by gulp-json-sass\n\n";
-
   gulp.src(source)
     .pipe(jsonSass())
     .pipe(header(banner, {source: source}))
@@ -125,6 +124,6 @@ gulp.task('server', ['icons', 'colors', 'styles', 'scripts'], function(){
 gulp.task('watch', function(){
   gulp.watch('src/lib/scss/_icons-template.scss', ['icons']);
   gulp.watch('src/lib/_colors.json', ['colors']);
-  gulp.watch('src/scss/**', ['scss-lint', 'compile:css', 'styles']);
+  gulp.watch('src/scss/**', ['scss-lint', 'styles']);
   gulp.watch('src/js/**', ['scripts']);
 });
