@@ -42,15 +42,6 @@ gulp.task('colors', function(){
     .pipe(gulp.dest('./src/scss/base/'));
 });
 
-gulp.task('compile:css', ['clean', 'icons', 'colors'], function(){
-  gulp.src('src/scss/namely-ui.scss')
-    .pipe(sass())
-    .pipe(autoprefix())
-    .pipe(cssnano())
-    .pipe(size({title: 'css'}))
-    .pipe(gulp.dest('dist/'));
-});
-
 gulp.task('default', ['server', 'watch']);
 
 gulp.task('icons', function() {
@@ -108,6 +99,12 @@ gulp.task('styles', function() {
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./public'))
     .pipe(connect.reload());
+  gulp.src('src/scss/namely-ui.scss')
+    .pipe(sass())
+    .pipe(autoprefix())
+    .pipe(cssnano())
+    .pipe(size({title: 'minified css'}))
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('server', ['icons', 'colors', 'styles', 'scripts'], function(){
@@ -121,9 +118,13 @@ gulp.task('server', ['icons', 'colors', 'styles', 'scripts'], function(){
   });
 });
 
-gulp.task('watch', function(){
-  gulp.watch('src/lib/scss/_icons-template.scss', ['icons']);
-  gulp.watch('src/lib/_colors.json', ['colors']);
-  gulp.watch('src/scss/**', ['scss-lint', 'styles']);
+gulp.task('watch', function() {
+  gulp.watch('src/lib/scss/_icons-template.scss', ['icons', 'styles']);
+  gulp.watch('src/lib/_colors.json', ['colors', 'styles']);
+  gulp.watch([
+    'src/scss/**',
+    '!src/scss/base/_colors.scss',
+    '!src/scss/base/_icons.scss'], ['scss-lint', 'styles']);
   gulp.watch('src/js/**', ['scripts']);
+  gutil.log('Watching for changes...');
 });
