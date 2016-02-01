@@ -4,7 +4,7 @@ const Type = React.PropTypes;
 
 export default React.createClass({
 
-  displayName: "FieldRadio",
+  displayName: "RadioField",
 
   propTypes: {
     disabled: Type.bool,

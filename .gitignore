@@ -1,14 +1,4 @@
-/buttons/
-/forms/
-/infographics/
-/layout/
-/lists/
-/misc/
-/nav/
-/overlays/
-/view/
 .DS_Store
-dist/namely-ui.css
 dump.rdb
 node_modules/
 npm-debug.log*

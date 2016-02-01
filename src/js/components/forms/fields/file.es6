@@ -10,7 +10,7 @@ const { cloneWithProps } = React.addons;
 
 export default createClass({
 
-  displayName: "FieldFile",
+  displayName: "FileField",
 
   getInitialState() {
     return {

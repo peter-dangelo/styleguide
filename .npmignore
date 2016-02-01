@@ -1,7 +1,8 @@
-test/
-node_modules/
-site/
-public/
-karma.conf.js
-scss-lint.yml
+circle.yml
 Gulpfile.js
+karma.conf.js
+node_modules/
+public/
+scss-lint.yml
+site/
+test/

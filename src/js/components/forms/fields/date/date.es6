@@ -13,7 +13,7 @@ let validDateFormats = ['MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'MMM D, YYYY']
 
 export default React.createClass({
 
-  displayName: "FieldDate",
+  displayName: "DateField",
 
   // The rest of the child components all use Moment objects for dates.
   propTypes: {
@@ -162,7 +162,7 @@ export default React.createClass({
 
   triggerContent() {
     return (
-      <div className='relative rounded-2 overflow-hidden no-select' >
+      <div className='relative rounded-2 no-select' >
         <input className={this.inputClasses()}
                disabled={this.disabled()}
                name={this.props.name}
