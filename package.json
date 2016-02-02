@@ -16,6 +16,7 @@
   "files": [
     "CONTRIBUTING.md",
     "dist",
+    "namely-ui.js",
     "README.md",
     "src/js/components"
   ],
