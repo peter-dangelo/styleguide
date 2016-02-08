@@ -103,7 +103,16 @@ export default React.createClass({
               label='Date'
               placeholder="Placeholder" />
             <div className='clearfix'></div>
-            <SelectField label="Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
+            <div className="py2">
+              <label className="px2 mb1">Native Select</label>
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+            <SelectField label="React Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
             <TextAreaField label="Textarea" extraClasses={['py2']} />
             <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} />
             <CheckboxField label="Checkbox" extraClasses={['py2']}/>
@@ -116,6 +125,15 @@ export default React.createClass({
             <NumberField label="Number" disabled={true} extraClasses={['py2']} />
             <DateField date="2015/1/1" label="ReactDate" disabled={true} extraClasses={['py2']} dateFormat='YYYY/MM/DD'/>
             <div className='clearfix'></div>
+            <div className="py2">
+              <label className="px2 mb1">Native Select</label>
+              <select disabled={true}>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
             <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
             <TextAreaField label="Textarea"  disabled={true} extraClasses={['py2']} />
             <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
@@ -128,6 +146,15 @@ export default React.createClass({
               <NumberField label="Number" extraClasses={['py2']} units="Units" />
               <DateField label="Date" extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
               <div className='clearfix'></div>
+              <div className="py2">
+                <label className="px2 mb1">Native Select</label>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextAreaField label="Textarea" extraClasses={['py2']}/>
               <CheckboxField label="Checkbox" extraClasses={['py2']}/>
@@ -140,6 +167,15 @@ export default React.createClass({
               <NumberField label="Number" disabled={true} extraClasses={['py2']} />
               <DateField label="ReactDate" disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />
               <div className='clearfix'></div>
+              <div className="py2">
+                <label className="px2 mb1">Native Select</label>
+                <select disabled={true}>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
               <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
@@ -154,6 +190,15 @@ export default React.createClass({
               <NumberField label="Number" extraClasses={['py2']} units="Units" />
               <DateField label="Date" extraClasses={['py2']} dateFormat='MMM D, YYYY'/>
               <div className='clearfix'></div>
+              <div className="py2">
+                <label className="px2 mb1">Native Select</label>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextAreaField label="Textarea" extraClasses={['py2']}/>
               <CheckboxField label="Checkbox" extraClasses={['py2']}/>
@@ -166,6 +211,15 @@ export default React.createClass({
               <NumberField label="Number" disabled={true} extraClasses={['py2']} />
               <DateField label="ReactDate" disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />
               <div className='clearfix'></div>
+              <div className="py2">
+                <label className="px2 mb1">Native Select</label>
+                <select disabled={true}>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
               <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
