@@ -1,19 +1,20 @@
 import { expect } from 'chai';
-import TestUtils from 'react/lib/ReactTestUtils';
-import React from 'react';
-import Sortable from 'lists/sortable';
 import Sinon from 'sinon';
+import React from 'react';
+import TestUtils from 'react/lib/ReactTestUtils';
+import Sortable from 'lists/sortable';
 
 describe('Sortable', () => {
-  it('renders', () => {
-    let sortable = TestUtils.renderIntoDocument(
+  let sortable;
+  beforeEach(() => {
+    sortable = TestUtils.renderIntoDocument(
       <Sortable>
         <table>
           <thead>
             <tr>
               <th sortKey="name"><a href="#" className="block">First</a></th>
               <th><a href="#" className="block">Last</a></th>
-              <th sortKey="date" active={true} order="desc"><a href="#" className="block">Start Date</a></th>
+              <th sortKey="date" active={true}><a href="#" className="block">Start Date</a></th>
             </tr>
           </thead>
           <tbody>
@@ -36,5 +37,47 @@ describe('Sortable', () => {
         </table>
       </Sortable>
     );
+  });
+
+  it('renders', () => {
+    let headers = TestUtils.scryRenderedDOMComponentsWithTag(sortable, 'th');
+    let rows = TestUtils.scryRenderedDOMComponentsWithTag(sortable, 'tr');
+
+    expect(headers.length).to.eql(3);
+    expect(rows.length).to.eql(4);
+    
+    expect(rows[1].props.children.length).to.eql(3);
+  });
+
+  it('sorts', () => {
+    let bodyCells = TestUtils.scryRenderedDOMComponentsWithTag(sortable, 'td');
+    let headers = React.findDOMNode(sortable).querySelectorAll('th');
+
+    // the first cell should be Flava because the row is initially ordered by date in ascending order
+    expect(
+      React.findDOMNode(bodyCells[0]).textContent
+    ).to.eql('Flava');
+
+    // the date column header should have an up-arrow while the inactive name column should have double-arrow
+    expect(
+      headers[2].querySelectorAll('.icon-arrow-up').length
+    ).to.eql(1);
+    expect(
+      headers[0].querySelectorAll('.icon-arrow-double').length
+    ).to.eql(1);
+
+    TestUtils.Simulate.click(headers.item(0));
+
+    // the first cell should be Chuck because the First column header was clicked
+    expect(
+      React.findDOMNode(bodyCells[0]).textContent
+    ).to.eql('Chuck');
+
+    expect(
+      headers[0].querySelectorAll('.icon-arrow-up').length
+    ).to.eql(1);
+    expect(
+      headers[2].querySelectorAll('.icon-arrow-double').length
+    ).to.eql(1);
   });
 });

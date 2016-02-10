@@ -53,9 +53,9 @@ export default React.createClass({
           <table>
             <thead>
               <tr>
-                <th sortKey="name"><a href="#" className="block">First</a></th>
-                <th><a href="#" className="block">Last</a></th>
-                <th sortKey="date" active={true} order="desc"><a href="#" className="block">Start Date</a></th>
+                <th sortKey="name">First</th>
+                <th>Last</th>
+                <th sortKey="date" active={true}>Start Date</th>
               </tr>
             </thead>
             <tbody>
