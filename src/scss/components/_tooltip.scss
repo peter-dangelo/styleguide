@@ -1,4 +1,7 @@
 .tooltip {
+  background-color: $blue-95;
+  border-radius: 6px;
+  padding: $space-2;
 
   &.top-left .triangle-top {
     left: $space-4;

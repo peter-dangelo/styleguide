@@ -180,13 +180,14 @@ select {
 }
 
 [type=checkbox] {
-  background: none;
+  background-color: $white;
   border: 0;
   height: $space-3;
   position: relative;
   width: $space-3;
 
   &::after {
+    background-color: $white;
     border: 1px solid $grey-15;
     border-radius: 3px;
     color: $grey-50;
@@ -200,7 +201,7 @@ select {
   }
 
   &:disabled::after {
-    background: $grey-10;
+    background-color: $grey-10;
     border-color: $grey-10;
     border-radius: 3px;
     content: '';
@@ -211,10 +212,14 @@ select {
     border-color: $grey-10;
   }
 
-  &[readonly]::after {
+  &[readonly] {
     background: none;
-    border: 0;
-    cursor: default;
+
+    &::after {
+      background: none;
+      border: 0;
+      cursor: default;
+    }
   }
 
   &:hover::after {
@@ -367,6 +372,7 @@ fieldset {
 
   [type=checkbox],
   [type=radio] {
+    background-color: $grey-10;
 
     &::after {
       background-color: $white;
@@ -473,6 +479,7 @@ fieldset {
 
   [type=checkbox],
   [type=radio] {
+    background-color: $blue-95;
 
     &::after {
       background-color: $white;
