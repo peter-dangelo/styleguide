@@ -17,4 +17,5 @@ deployment:
     branch: master
     commands:
       - npm install node-slack-cli -g
-      - slack -c namely-ui -m "Namely UI PR against master is good to go."
+      - surge --project ./public --domain namely.surge.sh
+      - slack -c namely-ui -m "Deployed to http://namely.surge.sh"
