@@ -8,6 +8,7 @@ var fieldProps = {
   contextualHelp: Type.oneOfType([Type.object, Type.string, Type.array]),
   disabled: Type.bool,
   errors: Type.array,
+  extraClasses: Type.array,
   initialValue: Type.oneOfType([Type.object, Type.string, Type.number]),
   label: Type.string,
   name: Type.string,
@@ -31,6 +32,10 @@ class FieldBase extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log(this.containerClasses());
+  }
+
   componentWillMount() {
     this.setState({
       disabled: this.props.disabled,
@@ -39,8 +44,12 @@ class FieldBase extends React.Component {
     });
   }
 
+  baseContainerClasses() {
+    return [];
+  }
+
   containerClasses() {
-    let classes = this.baseContainerClasses || [];
+    let classes = this.baseContainerClasses() || [];
     if (this.disabled()) classes.push('disabled');
     classes.push(this.props.extraClasses);
     return classes.join(' ');
@@ -70,7 +79,7 @@ class FieldBase extends React.Component {
 
   inputClasses() {
     let classes = ['relative', 'fit', 'pr4'];
-    if (this.state.errors.length > 0) classes.push('bc-orange bw-2');
+    if (this.state.errors && this.state.errors.length > 0) classes.push('bc-orange bw-2');
     return classes.join(' ');
   }
 
@@ -106,8 +115,6 @@ class FieldBase extends React.Component {
     );
   }
 };
-
-FieldBase.baseContainerClasses = [];
 
 FieldBase.propTypes = fieldProps;
 

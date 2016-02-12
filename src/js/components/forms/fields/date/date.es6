@@ -34,6 +34,10 @@ class DateField extends FieldBase {
     });
   }
 
+  baseContainerClasses() {
+    return ['date-field', 'col-3'];
+  }
+
   boundedMaxDate() {
     if (!!this.props.maxDate) {
       if (this.props.includeMaxMinBounds) {
@@ -148,8 +152,6 @@ class DateField extends FieldBase {
     }
   }
 };
-
-DateField.baseContainerClasses = ['col-3'];
 
 DateField.displayName = "DateField";
 
