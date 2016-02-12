@@ -89,7 +89,7 @@ class DateField extends FieldBase {
 
   triggerContent() {
     return (
-      <div className='relative rounded-2 overflow-hidden no-select' >
+      <div className='relative rounded-2 no-select' >
         <input className={this.inputClasses()}
                disabled={this.disabled()}
                name={this.props.name}

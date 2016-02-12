@@ -4,7 +4,7 @@ const Type = React.PropTypes;
 
 export default React.createClass({
 
-  displayName: "FieldCheckbox",
+  displayName: "CheckboxField",
 
   propTypes: {
     disabled: Type.bool,

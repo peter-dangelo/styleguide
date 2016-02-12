@@ -4,7 +4,7 @@ const Type = React.PropTypes;
 
 export default React.createClass({
 
-  displayName: "FieldTextarea",
+  displayName: "TextAreaField",
 
   propTypes: {
     disabled: Type.bool,

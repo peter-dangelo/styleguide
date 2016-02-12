@@ -1,6 +1,7 @@
 input,
 select,
 textarea {
+  -moz-appearance: none;
   -webkit-appearance: none;
   font-family: $sans-family;
   font-size: $h5;
@@ -11,7 +12,7 @@ textarea {
     color: $grey-50;
   }
 
-  &:not([readonly]):focus::placeholder {
+  &::not([readonly]):focus::placeholder {
     color: transparent;
   }
 
@@ -28,14 +29,9 @@ textarea {
 
 label {
   color: $grey-50;
-  cursor: pointer;
   display: inline-block;
   font-size: $h6;
   line-height: 1;
-}
-
-.disabled label {
-  cursor: default;
 }
 
 [type=text],
@@ -51,8 +47,9 @@ label {
 [type=url],
 [type=week],
 .date-field input,
+select,
 textarea {
-  background: $blue-05;
+  background-color: $blue-05;
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
@@ -136,7 +133,7 @@ textarea {
 
 select,
 .simple-select {
-  background: $white;
+  background-color: $white;
   border: 1px solid $grey-25;
 
   &.bc-grey-50 {
@@ -149,17 +146,52 @@ select,
 
   &.disabled,
   &:disabled {
-    background: $grey-10;
+    background-color: $grey-10;
     border-color: $grey-10;
   }
 
-  &.disabled:hover {
+  &.disabled:hover,
+  &:disabled:hover {
     border-color: $grey-10;
   }
 
   &:focus,
   &:hover {
     border-color: $grey-50;
+  }
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 8'%3E %3Cpolygon fill='#{$blue-50}' stroke='#{$blue-50}' points='12.209,0.5 6.708,6.5 1.208,0.5 '/%3E %3C/svg%3E");
+  background-position: right 11px;
+  background-repeat: no-repeat;
+  background-size: 23px 8px;
+  height: 31.5px;
+
+  &:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 8'%3E %3Cpolygon fill='#{$blue-70}' stroke='#{$blue-70}' points='12.209,0.5 6.708,6.5 1.208,0.5 '/%3E %3C/svg%3E");
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 23 8'%3E %3Cpolygon fill='#{$grey-50}' stroke='#{$grey-50}' points='12.209,0.5 6.708,6.5 1.208,0.5 '/%3E %3C/svg%3E");
+    background-position: right 11px;
+    background-repeat: no-repeat;
+    background-size: 23px 8px;
+  }
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+  @-moz-document url-prefix() {
+
+    padding: 0;
+
+    option {
+      padding: $space-1;
+    }
   }
 }
 
@@ -170,7 +202,7 @@ select,
   position: relative;
   width: $space-3;
 
-  &:after {
+  &::after {
     border: 1px solid $grey-15;
     border-radius: 3px;
     color: $grey-50;
@@ -183,7 +215,7 @@ select,
     z-index: 1;
   }
 
-  &:disabled:after {
+  &:disabled::after {
     background: $grey-10;
     border-color: $grey-10;
     border-radius: 3px;
@@ -191,20 +223,24 @@ select,
     cursor: default;
   }
 
-  &[readonly]:after {
+  &:disabled:hover::after {
+    border-color: $grey-10;
+  }
+
+  &[readonly]::after {
     background: none;
     border: 0;
     cursor: default;
   }
 
-  &:hover:after {
+  &:hover::after {
     border-color: $grey-50;
   }
 
   &:checked {
     @include icon(check);
 
-    &:before {
+    &::before {
       color: $grey-50;
       font-size: $h6;
       left: 3px;
@@ -214,7 +250,7 @@ select,
     }
   }
 
-  &:disabled:checked:after {
+  &:disabled:checked::after {
     border: 0;
     cursor: default;
     margin-left: 1px;
@@ -231,7 +267,7 @@ select,
   position: relative;
   width: $space-3;
 
-  &:after {
+  &::after {
     border: 1px solid $grey-15;
     border-radius: 50%;
     color: $grey-50;
@@ -245,21 +281,21 @@ select,
     width: 14px;
   }
 
-  &:disabled:after {
+  &:disabled::after {
     background: $grey-10;
     border-color: $grey-10;
     cursor: default;
   }
 
-  &:disabled:hover:after {
+  &:disabled:hover::after {
     border-color: $grey-15;
   }
 
-  &:hover:after {
+  &:hover::after {
     border-color: $grey-50;
   }
 
-  &:checked:before {
+  &:checked::before {
     background: $grey-50;
     border: 0;
     border-radius: 5px;
@@ -292,6 +328,7 @@ fieldset {
   [type=time],
   [type=url],
   [type=week],
+  select,
   .simple-select,
   textarea {
     background-color: $white;
@@ -304,7 +341,7 @@ fieldset {
 
     &.disabled,
     &:disabled {
-      background: $grey-15;
+      background-color: $grey-15;
       border-color: $grey-15;
       color: $grey-50;
     }
@@ -324,7 +361,7 @@ fieldset {
     }
 
     input:disabled {
-      background: $grey-15;
+      background-color: $grey-15;
       border-color: $grey-15;
       color: $grey-50;
     }
@@ -347,18 +384,18 @@ fieldset {
   [type=checkbox],
   [type=radio] {
 
-    &:after {
+    &::after {
       background-color: $white;
       border-color: $white;
     }
 
-    &:disabled:after {
+    &:disabled::after {
       background-color: $grey-15;
       border-color: $grey-15;
     }
 
-    &:focus:not([readonly]):disabled:after,
-    &:hover:not([readonly]):disabled:after {
+    &:focus:not([readonly]):disabled::after,
+    &:hover:not([readonly]):disabled::after {
       border-color: $grey-15;
     }
   }
@@ -405,6 +442,7 @@ fieldset {
     }
   }
 
+  select,
   .simple-select {
 
     &.disabled,
@@ -452,27 +490,27 @@ fieldset {
   [type=checkbox],
   [type=radio] {
 
-    &:after {
+    &::after {
       background-color: $white;
       border-color: $grey-75;
     }
 
-    &:focus:not([readonly]):after,
-    &:hover:not([readonly]):after {
+    &:focus:not([readonly])::after,
+    &:hover:not([readonly])::after {
       border-color: $blue-50;
     }
 
-    &[readonly]:after {
+    &[readonly]::after {
       background-color: $blue-95;
     }
 
-    &:disabled:after {
+    &:disabled::after {
       background-color: $grey-75;
       border-color: $grey-75;
     }
 
-    &:focus:not([readonly]):disabled:after,
-    &:hover:not([readonly]):disabled:after {
+    &:focus:not([readonly]):disabled::after,
+    &:hover:not([readonly]):disabled::after {
       border-color: $grey-75;
     }
   }
@@ -482,7 +520,7 @@ fieldset {
   }
 }
 
-// All inputs except checkbox, radio, select, and textarea
+// All inputs except checkbox, radio, and textarea
 [type=text],
 [type=datetime],
 [type=datetime-local],
@@ -495,6 +533,7 @@ fieldset {
 [type=time],
 [type=url],
 [type=week],
+select,
 .date-field input {
   padding: $space-1;
 }
@@ -553,6 +592,14 @@ textarea {
     width: 0;
   }
 
+  // Don't fight the native look on FF
+  @-moz-document url-prefix() {
+
+    .icon-arrow-double {
+      display: none;
+    }
+  }
+
   .units {
     margin-left: 15px;
   }
@@ -565,14 +612,6 @@ textarea {
 .checkbox-field,
 .radio-field {
   margin-right: $space-4;
-
-  &.read-only,
-  &.inactive {
-
-    label {
-      cursor: default;
-    }
-  }
 
   .label-right {
     margin-left: $space-2;

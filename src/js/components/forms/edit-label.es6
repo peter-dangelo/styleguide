@@ -2,7 +2,6 @@ import React from 'react';
 import Icon from '../misc/icon';
 import Popup from '../overlays/popup';
 import FieldErrors from './field-errors';
-import Colors from '../../../lib/_colors.json';
 import OverlayClick from '../overlays/overlay-click';
 
 const {
@@ -127,7 +126,6 @@ export default createClass({
   render() {
     if(this.state.isEditing) {
       const textStyle = {
-        borderColor: this.state.hasErrors ? Colors["orange"][""] : void 0,
         height: this.state.textHeight,
         width: "auto",
         overflow: 'hidden'

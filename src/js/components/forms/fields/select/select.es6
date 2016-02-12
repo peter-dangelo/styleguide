@@ -6,7 +6,7 @@ const Type = React.PropTypes;
 
 export default React.createClass({
 
-  displayName: "FieldSelect",
+  displayName: "SelectField",
 
   propTypes: {
     disabled: Type.bool,
