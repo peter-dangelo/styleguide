@@ -10,7 +10,6 @@
   },
   "bugs": "https://github.com/namely/styleguide/issues",
   "scripts": {
-    "build": "gulp build",
     "start": "gulp",
     "test": "./node_modules/karma/bin/karma start --single-run=true"
   },
