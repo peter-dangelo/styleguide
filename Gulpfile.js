@@ -29,6 +29,8 @@ function string_src(filename, string) {
   return src
 }
 
+gulp.task('build', ['icons', 'colors', 'styles', 'scripts']);
+
 gulp.task('clean', function() {
   return del(['dist/**/*']);
 });
@@ -107,7 +109,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('server', ['icons', 'colors', 'styles', 'scripts'], function(){
+gulp.task('server', ['build'], function(){
   connect.server({
     root: ['public'],
     port: gutil.env.port || 8081,

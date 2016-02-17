@@ -6,6 +6,7 @@ dependencies:
   override:
     - npm install
     - gem install scss-lint
+    - npm build
     - npm test
 
 test:
