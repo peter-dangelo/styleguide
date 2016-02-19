@@ -1,9 +1,8 @@
-node_modules/
 .DS_Store
+dump.rdb
+node_modules/
 npm-debug.log*
-public/app.js
 public/app.css
 public/app.css.map
+public/app.js
 public/fonts/
-dist/namely-ui.css
-dump.rdb
