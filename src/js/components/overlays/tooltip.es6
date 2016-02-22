@@ -48,7 +48,7 @@ export default React.createClass({
   },
 
   classes() {
-    let classes = ['tooltip', 'absolute', 'rounded-3', 'p2', 'bg-blue-95'];
+    let classes = ['absolute', 'tooltip'];
     classes.push(this.props.caretPosition);
     if (!!this.props.extraClasses) classes.push(this.props.extraClasses);
     return classes.join(' ');
