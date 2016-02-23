@@ -85,6 +85,10 @@ export default React.createClass({
     console.log("Not able to delete right now.");
   },
 
+  _onPick(val) {
+    console.log(val, this.refs.firstPicker.value());
+  },
+
   _validate(val) {
     return val.length;
   },
@@ -101,6 +105,10 @@ export default React.createClass({
               dateFormat='MMM D, YYYY'
               extraClasses={['py2']}
               label='Date'
+              required={true}
+              contextualHelp="Help??"
+              ref="firstPicker"
+              onChange={this._onPick}
               placeholder="Placeholder" />
             <div className='clearfix'></div>
             <div className="py2">

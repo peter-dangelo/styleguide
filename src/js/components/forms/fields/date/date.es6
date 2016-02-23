@@ -1,4 +1,3 @@
-import _ from 'underscore';
 import React from 'react';
 import DatePicker from './date-picker';
 import { fieldProps, FieldBase } from '../base.es6';
@@ -97,13 +96,11 @@ class DateField extends FieldBase {
         <input className={this.inputClasses()}
                disabled={this.disabled()}
                name={this.props.name}
-               onFocus={this.showDatePicker}
                readOnly
                type="text"
                placeholder={this.props.placeholder}
                value={this.inputValue()} />
         <span className='icon-calendar ml1 absolute'
-              onClick={this.showDatePicker}
               style={this.iconStyle()}></span>
       </div>
     );
@@ -155,7 +152,7 @@ class DateField extends FieldBase {
 
 DateField.displayName = "DateField";
 
-DateField.propTypes = _.extend({
+DateField.propTypes = Object.assign({
   dateFormat: Type.oneOf(validDateFormats).isRequired,
   includeMaxMinBounds: Type.bool,
   maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),
