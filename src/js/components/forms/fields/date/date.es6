@@ -96,6 +96,7 @@ class DateField extends FieldBase {
         <input className={this.inputClasses()}
                disabled={this.disabled()}
                name={this.props.name}
+               id={this.props.name}
                readOnly
                type="text"
                placeholder={this.props.placeholder}

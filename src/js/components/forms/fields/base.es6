@@ -61,7 +61,7 @@ class FieldBase extends React.Component {
   contextualHelp() {
     if (this.props.contextualHelp) {
       return (
-        <ContextualHelp extraClasses=["pointer", "mxn1"]>
+        <ContextualHelp extraClasses={["pointer", "mxn1"]}>
           <p className="white m0">{this.props.contextualHelp}</p>
         </ContextualHelp>
       );
@@ -96,7 +96,7 @@ class FieldBase extends React.Component {
   label() {
     if (this.props.label) {
       return (
-        <label className="px2 mb1 relative" >
+        <label htmlFor={this.props.name} className="px2 mb1 relative" >
           {this.props.required ? (<span className="orange">* </span>) : null}
           {this.props.label}
         </label>

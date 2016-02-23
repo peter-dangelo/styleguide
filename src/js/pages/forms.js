@@ -99,7 +99,7 @@ export default React.createClass({
           <form className="clearfix">
             <hr />
             <p>Default fields</p>
-            <TextField label="Text" name="firstTextField" placeholder="Placeholder" extraClasses={['py2']} />
+            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} name="firstText" />
             <NumberField label="Number" extraClasses={['py2']} units="Units"  />
             <DateField
               dateFormat='MMM D, YYYY'
@@ -107,6 +107,7 @@ export default React.createClass({
               label='Date'
               required={true}
               contextualHelp="Help??"
+              name="firstPicker"
               ref="firstPicker"
               onChange={this._onPick}
               placeholder="Placeholder" />
