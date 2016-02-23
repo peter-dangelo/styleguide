@@ -17,7 +17,8 @@ var fieldProps = {
   onFocus: Type.func,
   onKeyUp: Type.func,
   placeholder: Type.string,
-  readOnly: Type.bool
+  readOnly: Type.bool,
+  required: Type.bool
 };
 
 class FieldBase extends React.Component {
@@ -32,16 +33,18 @@ class FieldBase extends React.Component {
     };
   }
 
-  componentDidMount() {
-    console.log(this.containerClasses());
-  }
-
   componentWillMount() {
     this.setState({
       disabled: this.props.disabled,
       errors: this.props.errors.concat(this.validate(this.props.initialValue)),
       value: this.props.initialValue
     });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.value !== this.state.value) {
+      this.props.onChange(this.state.value);
+    }
   }
 
   baseContainerClasses() {
@@ -51,15 +54,15 @@ class FieldBase extends React.Component {
   containerClasses() {
     let classes = this.baseContainerClasses() || [];
     if (this.disabled()) classes.push('disabled');
-    classes.push(this.props.extraClasses);
+    classes = classes.concat(this.props.extraClasses);
     return classes.join(' ');
   }
 
   contextualHelp() {
     if (this.props.contextualHelp) {
       return (
-        <ContextualHelp className="px2 mb1" >
-          {this.props.contextualHelp}
+        <ContextualHelp extraClasses={["pointer", "mxn1"]}>
+          <p className="white m0">{this.props.contextualHelp}</p>
         </ContextualHelp>
       );
     }
@@ -74,7 +77,6 @@ class FieldBase extends React.Component {
       errors: this.validate(newValue),
       value: newValue
     });
-    this.props.onChange();
   }
 
   inputClasses() {
@@ -84,17 +86,26 @@ class FieldBase extends React.Component {
   }
 
   validate() {
-    return [];
+    if (!this.state.value && this.props.required) {
+      return ['Required'];
+    } else {
+      return [];
+    }
   }
 
   label() {
     if (this.props.label) {
       return (
-        <label className="px2 mb1 relative" >
+        <label htmlFor={this.props.name} className="px2 mb1 relative" >
+          {this.props.required ? (<span className="orange">* </span>) : null}
           {this.props.label}
         </label>
       );
     }
+  }
+
+  value() {
+    return this.state.value;
   }
 
   contents() {
@@ -121,11 +132,13 @@ FieldBase.propTypes = fieldProps;
 FieldBase.defaultProps = {
   disabled: false,
   errors: [],
+  extraClasses: [],
   onBlur: function() {},
   onChange: function() {},
   onFocus: function() {},
   onKeyUp: function() {},
-  readOnly: false
+  readOnly: false,
+  required: false
 };
 
 export { FieldBase, fieldProps };
