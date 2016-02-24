@@ -10,6 +10,7 @@ export default React.createClass({
     disabled: Type.bool,
     extraClasses: Type.arrayOf(Type.string),
     label: Type.string,
+    name: Type.string,
     placeholder: Type.string
   },
 
@@ -23,7 +24,7 @@ export default React.createClass({
 
   label() {
     if(this.props.label) {
-      return <label htmlFor={this.props.id} className="px2 mb1">{this.props.label}</label>;
+      return <label htmlFor={this.props.name} className="px2 mb1">{this.props.label}</label>;
     }
   },
 
@@ -41,6 +42,8 @@ export default React.createClass({
         {this.label()}
         <input disabled={this.props.disabled}
                type="text"
+               name={this.props.name}
+               id={this.props.name}
                placeholder={this.props.placeholder}
                readOnly={this.props.inactive || this.props.readOnly} />
       </div>

@@ -15,6 +15,16 @@
 ----------------------------------*/
 
 a {
-  color: inherit;
+  color: $blue-70;
   text-decoration: none;
+
+  &:hover {
+    color: $blue-80;
+    cursor: pointer;
+  }
+
+  &:hover,
+  &:active {
+    outline: 0;
+  }
 }
