@@ -95,7 +95,7 @@ export default React.createClass({
           <form className="clearfix">
             <hr />
             <p>Default fields</p>
-            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} />
+            <TextField label="Text" name="firstTextField" placeholder="Placeholder" extraClasses={['py2']} />
             <NumberField label="Number" extraClasses={['py2']} units="Units"  />
             <DateField
               dateFormat='MMM D, YYYY'
@@ -113,7 +113,7 @@ export default React.createClass({
               </select>
             </div>
             <SelectField label="React Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
-            <TextAreaField label="Textarea" extraClasses={['py2']} />
+            <TextAreaField label="Textarea" extraClasses={['py2']} name="firstTextArea" />
             <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} />
             <CheckboxField label="Checkbox" extraClasses={['py2']}/>
             <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
