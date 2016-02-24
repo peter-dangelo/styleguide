@@ -1,27 +1,16 @@
 import React from 'react';
 
 const {
-  createClass,
   Children,
-  PropTypes,
+  PropTypes
 } = React;
 
-export default createClass({
+class SortableTableHeaderCell extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  displayName: "SortableTableHeaderCell",
-
-  propTypes: {
-    order: PropTypes.string,
-    sortKey: PropTypes.string,
-    active: PropTypes.bool,
-  },
-
-  getDefaultProps() {
-    return {
-      active: false,
-      order: "asc",
-    }
-  },
 
   componentWillMount() {
     const {
@@ -41,7 +30,7 @@ export default createClass({
       sort.order = order;
       actions.sort(sort);
     }
-  },
+  }
 
   // sets classes for arrows, utility classes, etc
   setClassName() {
@@ -59,7 +48,7 @@ export default createClass({
     classes.push(this.props.className);
 
     return classes.join(' ')
-  },
+  }
 
   handleClick() {
     const {
@@ -75,7 +64,7 @@ export default createClass({
 
       actions.sort(sort);
     }
-  },
+  }
 
   handleOrder() {
     const {
@@ -89,9 +78,9 @@ export default createClass({
     } else {
       return order
     }
-  },
+  }
 
-  renderArrow(){
+  renderArrow() {
     let icon = "arrow-double";
     const {
       sort,
@@ -107,7 +96,7 @@ export default createClass({
       }
       return <span className={`ml1 blue-50 small pointer icon-${icon}`} ></span>;
     }
-  },
+  }
 
   renderCellContent() {
     const children = [];
@@ -123,7 +112,7 @@ export default createClass({
         {children.slice(1)}
       </span>
     );
-  },
+  }
 
   render() {
     return (
@@ -132,4 +121,20 @@ export default createClass({
       </th>
     );
   }
-});
+};
+
+SortableTableHeaderCell.displayName = "SortableTableHeaderCell";
+
+SortableTableHeaderCell.propTypes = {
+  order: PropTypes.string,
+  sortKey: PropTypes.string,
+  active: PropTypes.bool
+};
+
+
+SortableTableHeaderCell.defaultProps = {
+  active: false,
+  order: "asc"
+};
+
+export default SortableTableHeaderCell;

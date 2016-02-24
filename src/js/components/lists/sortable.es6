@@ -2,7 +2,6 @@
 import React from 'react';
 
 const {
-  createClass,
   Children
 } = React;
 
@@ -10,26 +9,26 @@ const {
 import HeaderCell from './sortable-table-header-cell';
 
 // component
-const Sortable = createClass({
+class Sortable extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.handleSort = this.handleSort.bind(this);
 
-  displayName: "Sortable",
-
-  getInitialState() {
-    return {
+    this.state = {
       loading: true,
       sort: {
         key: null,
         order: null
       }
     };
-  },
+  }
 
   handleSort(sort) {
     this.setState({
       loading: true,
       sort: sort
     });
-  },
+  }
 
   _getHeaderCells(children) {
     return Children.map(children, (child) => {
@@ -47,7 +46,7 @@ const Sortable = createClass({
         );
       }
     });
-  },
+  }
 
   _getHeaderRow(children) {
     return Children.map(children, (child) => {
@@ -59,7 +58,7 @@ const Sortable = createClass({
         );
       }
     });
-  },
+  }
 
   _getHeader(children) {
     return Children.map(children, (child) => {
@@ -71,7 +70,7 @@ const Sortable = createClass({
         );
       }
     });
-  },
+  }
 
   _getValue(children, key) {
     let value = null;
@@ -83,7 +82,7 @@ const Sortable = createClass({
     });
 
     return value;
-  },
+  }
 
   _getBodyRows(children) {
     const {
@@ -112,7 +111,7 @@ const Sortable = createClass({
     } else {
       return children;
     }
-  },
+  }
 
   _getBody(children) {
     return Children.map(children, (child) => {
@@ -124,7 +123,7 @@ const Sortable = createClass({
         );
       }
     });
-  },
+  }
 
   children() {
     let parsedTable;
@@ -141,11 +140,13 @@ const Sortable = createClass({
     });
 
     return parsedTable;
-  },
+  }
 
   render() {
     return this.children();
   }
-});
+}
+
+Sortable.displayName = "Sortable";
 
 export default Sortable;
