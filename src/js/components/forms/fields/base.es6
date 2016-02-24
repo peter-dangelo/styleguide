@@ -73,7 +73,7 @@ class FieldBase extends React.Component {
   }
 
   handleChange(e) {
-    const newValue = typeof e === 'object' ? e.target.value : e;
+    const newValue = (typeof e === 'object' && !Array.isArray(e)) ? e.target.value : e;
 
     this.setState({
       errors: this.validate(newValue),
@@ -98,7 +98,7 @@ class FieldBase extends React.Component {
   label() {
     if (this.props.label) {
       return (
-        <label htmlFor={this.props.name} className="px2 mb1 relative" >
+        <label htmlFor={this.props.name} className="mb1 px2 relative">
           {this.props.required ? (<span className="orange">* </span>) : null}
           {this.props.label}
         </label>

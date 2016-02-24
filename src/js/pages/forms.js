@@ -124,8 +124,20 @@ export default React.createClass({
             <SelectField label="React Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
             <TextAreaField label="Textarea" extraClasses={['py2']} onChange={_onChange} onBlur={_onChange} />
             <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} onChange={_onChange} />
-            <CheckboxField label="Checkbox" extraClasses={['py2']}/>
-            <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+            <CheckboxField 
+              label="Checkbox" 
+              extraClasses={['py2']} 
+              name="firstCheck" 
+              onChange={_onChange} 
+              options={['test1', 'test2']}
+            />
+            <CheckboxField 
+              label="Checked read-only" 
+              readOnly={true}
+              extraClasses={['py2']}
+              options={['test1', 'test2']}
+              initialValue="test1"
+            />
             <RadioField name="radios1" label="Radio 1" extraClasses={['py2']}/>
             <RadioField name="radios1" label="Radio 2" extraClasses={['py2']}/>
 
@@ -145,11 +157,16 @@ export default React.createClass({
             </div>
             <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
             <TextAreaField label="Textarea"  disabled={true} extraClasses={['py2']} />
-            <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
+            <CheckboxField 
+              label="Checkbox" 
+              extraClasses={['py2']} 
+              options={['test1']}
+              disabled={true}
+            />
             <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
 
             <p className="mt4">Fields within fieldset</p>
-            <fieldset>
+            <fieldset className="fieldset bg-grey-10 p3 rounded-3">
               <p>Default fields</p>
               <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']}/>
               <NumberField label="Number" extraClasses={['py2']} units="Units" />
@@ -166,8 +183,20 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextAreaField label="Textarea" extraClasses={['py2']}/>
-              <CheckboxField label="Checkbox" extraClasses={['py2']}/>
-              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+              <CheckboxField 
+                label="Checkbox" 
+                extraClasses={['py2']} 
+                name="firstCheck" 
+                onChange={_onChange} 
+                options={['test1', 'test2']}
+              />
+              <CheckboxField 
+                label="Checked read-only" 
+                readOnly={true}
+                extraClasses={['py2']}
+                options={['test1', 'test2']}
+                initialValue="test1"
+              />
               <RadioField name="radios3" label="Radio 1" extraClasses={['py2']}/>
               <RadioField name="radios3" label="Radio 2" extraClasses={['py2']}/>
               <hr />
@@ -187,8 +216,20 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
-              <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
-              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+              <CheckboxField 
+                label="Checkbox" 
+                extraClasses={['py2']} 
+                name="firstCheck" 
+                onChange={_onChange} 
+                options={['test1', 'test2']}
+              />
+              <CheckboxField 
+                label="Checked read-only" 
+                readOnly={true}
+                extraClasses={['py2']}
+                options={['test1', 'test2']}
+                initialValue="test1"
+              />
               <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
             </fieldset>
 
@@ -210,8 +251,20 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextAreaField label="Textarea" extraClasses={['py2']}/>
-              <CheckboxField label="Checkbox" extraClasses={['py2']}/>
-              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+              <CheckboxField 
+                label="Checkbox" 
+                extraClasses={['py2']} 
+                name="firstCheck" 
+                onChange={_onChange} 
+                options={['test1', 'test2']}
+              />
+              <CheckboxField 
+                label="Checked read-only" 
+                readOnly={true}
+                extraClasses={['py2']}
+                options={['test1', 'test2']}
+                initialValue="test1"
+              />
               <RadioField name="radios3" label="Radio 1" extraClasses={['py2']}/>
               <RadioField name="radios3" label="Radio 2" extraClasses={['py2']}/>
               <hr />
@@ -231,8 +284,20 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
-              <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
-              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
+              <CheckboxField 
+                label="Checkbox" 
+                extraClasses={['py2']} 
+                name="firstCheck" 
+                onChange={_onChange} 
+                options={['test1', 'test2']}
+              />
+              <CheckboxField 
+                label="Checked read-only" 
+                readOnly={true}
+                extraClasses={['py2']}
+                options={['test1', 'test2']}
+                initialValue="test1"
+              />
               <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
             </div>
 
