@@ -10,6 +10,7 @@ export default React.createClass({
     disabled: Type.bool,
     extraClasses: Type.arrayOf(Type.string),
     label: Type.string,
+    name: Type.string,
     placeholder: Type.string,
     readOnly: Type.bool,
     expandable: Type.bool
@@ -24,7 +25,7 @@ export default React.createClass({
 
   label() {
     if(this.props.label) {
-      return <label htmlFor={this.props.id} className="px2 mb1">{this.props.label}</label>;
+      return <label htmlFor={this.props.name} className="px2 mb1">{this.props.label}</label>;
     }
   },
 
@@ -52,6 +53,8 @@ export default React.createClass({
         <textarea disabled={this.props.disabled}
                   readOnly={this.props.readOnly}
                   placeholder={this.props.placeholder}
+                  name={this.props.name}
+                  id={this.props.name}
                   onChange={this.props.expandable ? this.expand : null} />
       </div>
   }
