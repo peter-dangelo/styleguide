@@ -1,5 +1,5 @@
 import React from 'react';
-import { FieldBase, fieldProps } from './base.es6';
+import { fieldProps, FieldBase} from './base.es6';
 
 const Type = React.PropTypes;
 
@@ -17,7 +17,6 @@ class TextField extends FieldBase {
              type="text"
              id={this.props.name}
              placeholder={this.props.placeholder}
-             onChange={this.handleChange}
              readOnly={this.props.inactive || this.props.readOnly} />
   }
 };
@@ -31,5 +30,6 @@ TextField.propTypes = Object.assign({
 TextField.defaultProps = Object.assign({
   inactive: false
 }, FieldBase.defaultProps);
+
 
 export default TextField;

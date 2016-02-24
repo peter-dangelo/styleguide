@@ -73,6 +73,8 @@ class FieldBase extends React.Component {
   }
 
   handleChange(newValue) {
+    // const newValue = typeof e === 'object' ? e.value : e;
+
     this.setState({
       errors: this.validate(newValue),
       value: newValue

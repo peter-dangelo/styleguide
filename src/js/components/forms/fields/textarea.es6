@@ -1,61 +1,41 @@
 import React from 'react';
+import FieldBase from './base.es6';
 
 const Type = React.PropTypes;
 
-export default React.createClass({
-
-  displayName: "TextAreaField",
-
-  propTypes: {
-    disabled: Type.bool,
-    extraClasses: Type.arrayOf(Type.string),
-    label: Type.string,
-    name: Type.string,
-    placeholder: Type.string,
-    readOnly: Type.bool,
-    expandable: Type.bool
-  },
-
-  getDefaultProps() {
-    return {
-      readOnly: false,
-      expandable: false
-    }
-  },
-
-  label() {
-    if(this.props.label) {
-      return <label htmlFor={this.props.name} className="px2 mb1">{this.props.label}</label>;
-    }
-  },
+class TextAreaField extends FieldBase {
+  constructor() {
+    super();
+    this.expand = this.expand.bind(this);
+  }
 
   expand(e) {
     e.target.style.height = "auto";
     e.target.style.height = e.target.scrollHeight + "px";
-  },
 
-  classes() {
-    var classes = ['textarea'];
-    if(this.props.readOnly) {
-      classes.push('read-only');
-    }
-    if(this.props.disabled) {
-      classes.push('disabled');
-    }
-    classes.push(this.props.extraClasses);
-    return classes.join(' ');
-  },
-
-  render() {
-    return  <div className={this.classes()}>
-        {this.label()}
-        <br/>
-        <textarea disabled={this.props.disabled}
-                  readOnly={this.props.readOnly}
-                  placeholder={this.props.placeholder}
-                  name={this.props.name}
-                  id={this.props.name}
-                  onChange={this.props.expandable ? this.expand : null} />
-      </div>
+    // this.handleChange(e);
   }
-});
+
+  baseContainerClasses() {
+    return ['textarea'];
+  }
+
+  contents() {
+    return <textarea disabled={this.props.disabled}
+              readOnly={this.props.readOnly}
+              placeholder={this.props.placeholder}
+              onChange={this.props.expandable ? this.expand : null} />
+  }
+};
+
+TextAreaField.displayName = "TextAreaField";
+
+TextAreaField.propTypes = Object.assign({
+  expandable: Type.bool
+}, fieldProps);
+
+TextAreaField.defaultProps = Object.assign({
+  expandable: false
+}, FieldBase.defaultProps);
+
+export default TextAreaField;
