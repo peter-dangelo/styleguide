@@ -31,7 +31,7 @@ var simpleSelectOptions2 = {
 };
 
 function _onChange(val) {
-  console.log("Selected: " + val);
+  console.log(val);
 }
 
 function _onFocus() {
@@ -99,7 +99,7 @@ export default React.createClass({
           <form className="clearfix">
             <hr />
             <p>Default fields</p>
-            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} name="firstText" />
+            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} name="firstText" onChange={_onChange} onFocus={_onChange} />
             <NumberField label="Number" extraClasses={['py2']} units="Units"  />
             <DateField
               dateFormat='MMM D, YYYY'
@@ -122,8 +122,8 @@ export default React.createClass({
               </select>
             </div>
             <SelectField label="React Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
-            <TextAreaField label="Textarea" extraClasses={['py2']} name="firstTextArea" />
-            <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} />
+            <TextAreaField label="Textarea" extraClasses={['py2']} onChange={_onChange} onBlur={_onChange} />
+            <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} onChange={_onChange} />
             <CheckboxField label="Checkbox" extraClasses={['py2']}/>
             <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
             <RadioField name="radios1" label="Radio 1" extraClasses={['py2']}/>

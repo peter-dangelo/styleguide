@@ -72,8 +72,8 @@ class FieldBase extends React.Component {
     return this.props.disabled;
   }
 
-  handleChange(newValue) {
-    // const newValue = typeof e === 'object' ? e.value : e;
+  handleChange(e) {
+    const newValue = typeof e === 'object' ? e.target.value : e;
 
     this.setState({
       errors: this.validate(newValue),

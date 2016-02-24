@@ -1,5 +1,5 @@
 import React from 'react';
-import FieldBase from './base.es6';
+import { fieldProps, FieldBase} from './base.es6';
 
 const Type = React.PropTypes;
 
@@ -13,7 +13,7 @@ class TextAreaField extends FieldBase {
     e.target.style.height = "auto";
     e.target.style.height = e.target.scrollHeight + "px";
 
-    // this.handleChange(e);
+    this.handleChange(e);
   }
 
   baseContainerClasses() {
@@ -21,10 +21,19 @@ class TextAreaField extends FieldBase {
   }
 
   contents() {
+    const {
+      onBlur,
+      onFocus,
+      onKeyUp
+    } = this.props;
+
     return <textarea disabled={this.props.disabled}
               readOnly={this.props.readOnly}
               placeholder={this.props.placeholder}
-              onChange={this.props.expandable ? this.expand : null} />
+              name={this.props.name}
+              id={this.props.name}
+              {...{onBlur, onFocus, onKeyUp}}
+              onChange={this.props.expandable ? this.expand : this.handleChange} />
   }
 };
 

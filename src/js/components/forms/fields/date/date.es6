@@ -15,6 +15,7 @@ class DateField extends FieldBase {
 
   constructor() {
     super();
+    this.handleDate = this.handleDate.bind(this);
   }
 
   componentWillMount() {
@@ -57,12 +58,17 @@ class DateField extends FieldBase {
     }
   }
 
+  handleDate(moment) {
+    const value = moment.format(this.props.dateFormat);
+    this.handleChange(value);
+  }
+
   datePicker() {
     return (
       <DatePicker date={this.state.value || Moment()}
                   maxDate={this.boundedMaxDate()}
                   minDate={this.boundedMinDate()}
-                  onChangeDate={this.handleChange} />
+                  onChangeDate={this.handleDate} />
     );
   }
 
@@ -135,7 +141,17 @@ class DateField extends FieldBase {
   }
 
   inputValue() {
-    if (this.state.value) return this.state.value.format(this.props.dateFormat);
+    const {
+      value
+    } = this.state;
+
+    if (value) {
+      if (typeof value === 'object') {
+        return value.format(this.props.dateFormat);
+      } else {
+        return value;
+      }
+    }
   }
 
   contents() {
