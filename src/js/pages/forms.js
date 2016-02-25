@@ -138,8 +138,13 @@ export default React.createClass({
               options={['test1', 'test2']}
               initialValue="test1"
             />
-            <RadioField name="radios1" label="Radio 1" extraClasses={['py2']}/>
-            <RadioField name="radios1" label="Radio 2" extraClasses={['py2']}/>
+            <RadioField 
+              name="radios1" 
+              label="Radios" 
+              extraClasses={['py2']}
+              onChange={_onChange}
+              options={['Radio 1', 'Radio 2']}
+            />
 
             <p className="mt4">Disabled fields</p>
             <TextField label="Text" placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
@@ -163,7 +168,13 @@ export default React.createClass({
               options={['test1']}
               disabled={true}
             />
-            <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
+            <RadioField 
+              name="radios2" 
+              label="Radios" 
+              extraClasses={['py2']}
+              options={['Radio 1', 'Radio 2']}
+              disabled={true}
+            />
 
             <p className="mt4">Fields within fieldset</p>
             <fieldset className="fieldset bg-grey-10 p3 rounded-3">
@@ -197,8 +208,12 @@ export default React.createClass({
                 options={['test1', 'test2']}
                 initialValue="test1"
               />
-              <RadioField name="radios3" label="Radio 1" extraClasses={['py2']}/>
-              <RadioField name="radios3" label="Radio 2" extraClasses={['py2']}/>
+              <RadioField 
+                name="radios3" 
+                label="Radios" 
+                extraClasses={['py2']}
+                options={['Radio 1', 'Radio 2']}
+              />
               <hr />
               <p>Disabled fields</p>
               <TextField label="Text" placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
@@ -230,7 +245,13 @@ export default React.createClass({
                 options={['test1', 'test2']}
                 initialValue="test1"
               />
-              <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
+              <RadioField 
+                name="radios2" 
+                label="Radios" 
+                extraClasses={['py2']}
+                options={['Radio 1', 'Radio 2']}
+                disabled={true}
+              />
             </fieldset>
 
             <p className="mt4">Fields within tooltip</p>
@@ -265,8 +286,12 @@ export default React.createClass({
                 options={['test1', 'test2']}
                 initialValue="test1"
               />
-              <RadioField name="radios3" label="Radio 1" extraClasses={['py2']}/>
-              <RadioField name="radios3" label="Radio 2" extraClasses={['py2']}/>
+              <RadioField 
+                name="radios4" 
+                label="Radios" 
+                extraClasses={['py2']}
+                options={['Radio 1', 'Radio 2']}
+              />
               <hr />
               <p className="grey-10">Disabled fields</p>
               <TextField label="Text" placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
@@ -298,7 +323,13 @@ export default React.createClass({
                 options={['test1', 'test2']}
                 initialValue="test1"
               />
-              <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
+              <RadioField 
+                name="radios2" 
+                label="Radios" 
+                extraClasses={['py2']}
+                options={['Radio 1', 'Radio 2']}
+                disabled={true}
+              />
             </div>
 
             <hr />

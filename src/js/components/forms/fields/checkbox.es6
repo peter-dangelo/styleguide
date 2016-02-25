@@ -16,7 +16,7 @@ class CheckboxField extends FieldBase {
     return ['checkbox-field'];
   }
 
-  onChange(e) {
+  onChange() {
     const values = [];
     const {
       elements
@@ -52,6 +52,7 @@ class CheckboxField extends FieldBase {
         <input 
           checked={readOnly ? (initialValue === value) : null}
           defaultChecked={!readOnly && initialValue === value}
+          readOnly={readOnly}
           type="checkbox"
           value={value}
         />
