@@ -93,7 +93,7 @@ export default React.createClass({
 
   renderOptions() {
     if (!this.props.disabled) {
-      let optionClasses = 'simple-select-option bg-white nowrap option pointer py1 px3';
+      let optionClasses = 'simple-select-option hover-row bg-white nowrap option pointer py1 px3';
 
       let emptyOption = (
         <div className={optionClasses+" grey-50"} onClick={this.onClickOptionEmpty}>
