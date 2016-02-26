@@ -466,7 +466,23 @@ export default React.createClass({
 
           <h3 className="mt4">File Input</h3>
           <p className="small">An interactive file component with file name preview.</p>
-          <FileField labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
+          <FileField name="firstFile" buttonText="Upload File" icon="upload" onChange={_onChange} />
+
+          <div className="mt3">
+            <FileField buttonText="Upload File" onChange={_onChange} label="Another File" name="fileRequired" required={true} />
+          </div>
+
+          <div className="mt3">
+            <FileField 
+              accept="image/png, image/jpeg, image/gif"
+              buttonText="Pick An Image" 
+              buttonClasses={["button-link", "pointer"]} 
+              icon="paperclip" 
+              onChange={_onChange} 
+              label="Only Images Allowed" 
+              name="fileOnlyImages" 
+            />
+          </div>
         </div>
 
         <div title="Date Fields">

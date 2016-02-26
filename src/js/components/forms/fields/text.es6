@@ -24,7 +24,7 @@ class TextField extends FieldBase {
              type="text"
              id={this.props.name}
              name={this.props.name}
-             onChange={this.handleChange}
+             onChange={(e) => this.handleChange(e.target.value)}
              {...{onBlur, onFocus, onKeyUp}}
              placeholder={this.props.placeholder}
              readOnly={this.props.inactive || this.props.readOnly} />

@@ -6,14 +6,16 @@ const Type = React.PropTypes;
 class TextAreaField extends FieldBase {
   constructor() {
     super();
-    this.expand = this.expand.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
-  expand(e) {
-    e.target.style.height = "auto";
-    e.target.style.height = e.target.scrollHeight + "px";
+  onChange(e) {
+    if (this.props.expandable) {
+      e.target.style.height = "auto";
+      e.target.style.height = e.target.scrollHeight + "px";
+    }
 
-    this.handleChange(e);
+    this.handleChange(e.target.value);
   }
 
   baseContainerClasses() {
@@ -33,7 +35,7 @@ class TextAreaField extends FieldBase {
               name={this.props.name}
               id={this.props.name}
               {...{onBlur, onFocus, onKeyUp}}
-              onChange={this.props.expandable ? this.expand : this.handleChange} />
+              onChange={this.onChange} />
   }
 };
 

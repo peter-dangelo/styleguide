@@ -49,7 +49,7 @@ class NumberField extends FieldBase {
           readOnly={this.props.readOnly}
           name={this.props.name}
           id={this.props.name}
-          onChange={this.handleChange}
+          onChange={(e) => this.handleChange(e.target.value)}
           {...{onBlur, onFocus, onKeyUp}}
         />
         <span className='icon-arrow-double relative'></span>

@@ -11,7 +11,7 @@ var fieldProps = {
   extraClasses: Type.array,
   initialValue: Type.oneOfType([Type.object, Type.string, Type.number]),
   label: Type.string,
-  name: Type.string,
+  name: Type.string.isRequired,
   onBlur: Type.func,
   onChange: Type.func,
   onFocus: Type.func,
@@ -36,7 +36,6 @@ class FieldBase extends React.Component {
   componentWillMount() {
     this.setState({
       disabled: this.props.disabled,
-      errors: this.props.errors.concat(this.validate(this.props.initialValue)),
       value: this.props.initialValue
     });
   }
@@ -72,9 +71,7 @@ class FieldBase extends React.Component {
     return this.props.disabled;
   }
 
-  handleChange(e) {
-    const newValue = (typeof e === 'object' && !Array.isArray(e)) ? e.target.value : e;
-
+  handleChange(newValue) {
     this.setState({
       errors: this.validate(newValue),
       value: newValue
@@ -87,8 +84,8 @@ class FieldBase extends React.Component {
     return classes.join(' ');
   }
 
-  validate() {
-    if (!this.state.value && this.props.required) {
+  validate(value=null) {
+    if (!value && this.props.required) {
       return ['Required'];
     } else {
       return [];
@@ -121,6 +118,7 @@ class FieldBase extends React.Component {
       <div className={this.containerClasses()}>
         {this.label()}
         {this.contextualHelp()}
+        <br />
         {this.contents()}
         <div className="clearfix"></div>
         <FieldErrors errors={this.state.errors} />
