@@ -57,24 +57,24 @@ export default React.createClass({
     return new Date(d.setDate(d.getDate()+offset));
   },
 
-  onSimpleSelect1Change() {
-    this.setState({simpleSelect1Value: this.refs.simpleSelect1.refs.simpleSelect.state.value})
+  onSimpleSelect1Change(value) {
+    this.setState({simpleSelect1Value: value})
   },
 
-  onSimpleSelect2Change() {
-    this.setState({simpleSelect2Value: this.refs.simpleSelect2.refs.simpleSelect.state.value})
+  onSimpleSelect2Change(value) {
+    this.setState({simpleSelect2Value: value})
   },
 
   onSimpleSelect3Change() {
-    this.setState({simpleSelect3Value: this.refs.simpleSelect3.refs.simpleSelect.state.value})
+    this.setState({simpleSelect3Value: this.refs.simpleSelect3.value()})
   },
 
   onSimpleSelect4Change() {
-    this.setState({simpleSelect4Value: this.refs.simpleSelect4.refs.simpleSelect.state.value})
+    this.setState({simpleSelect4Value: this.refs.simpleSelect4.value()})
   },
 
   onSimpleSelect5Change() {
-    this.setState({simpleSelect5Value: this.refs.simpleSelect5.refs.simpleSelect.state.value})
+    this.setState({simpleSelect5Value: this.refs.simpleSelect5.value()})
   },
 
   _onSave(value) {
@@ -87,6 +87,10 @@ export default React.createClass({
 
   _onPick(val) {
     console.log(val, this.refs.firstPicker.value());
+  },
+
+  _onSelectChange(val) {
+    console.log(val, this.refs.firstSelect.value());
   },
 
   _validate(val) {
@@ -121,7 +125,17 @@ export default React.createClass({
                 <option>4</option>
               </select>
             </div>
-            <SelectField label="React Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
+            <SelectField 
+              label="React Select" 
+              options={simpleSelectOptions1} 
+              placeholder="- Select -" 
+              includeBlank={true}
+              extraClasses={['py2']} 
+              onChange={this._onSelectChange}  
+              ref="firstSelect" 
+              name="firstSelect" 
+              required={true}
+            />
             <TextAreaField label="Textarea" extraClasses={['py2']} onChange={_onChange} onBlur={_onChange} />
             <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} onChange={_onChange} />
             <CheckboxField 
@@ -408,7 +422,7 @@ export default React.createClass({
             <p>New York is selected</p>
             <SelectField
               onChange={this.onSimpleSelect3Change}
-              value={this.state.simpleSelect3Value}
+              initialValue={this.state.simpleSelect3Value}
               name='city'
               ref='simpleSelect3'
               options={simpleSelectOptions2}
@@ -425,7 +439,7 @@ export default React.createClass({
               options={simpleSelectOptions2}
               placeholder="- Select -"
               ref='simpleSelect4'
-              value={this.state.simpleSelect4Value}/>
+              initialValue={this.state.simpleSelect4Value}/>
             <p className='py2'>selected value: {this.state.simpleSelect4Value}</p>
           </div>
           <div className="mb3">
@@ -433,8 +447,6 @@ export default React.createClass({
             <SelectField
               includeBlank={true}
               onChange={this.onSimpleSelect5Change}
-              value={this.state.simpleSelect5Value}
-              borderColorClass={this.state.simpleSelect5Value == 25 ? 'bc-orange' : void 0}
               name='city'
               ref='simpleSelect5'
               options={simpleSelectOptions2}
@@ -504,6 +516,7 @@ export default React.createClass({
           <DateField dateFormat='MMM D, YYYY'
                      errors={['You broke it!', 'Time is irrelevant']}
                      extraClasses={['py2']}
+                     name="dateErrors"
                      label="With errors" />
           <div className='clearfix'></div>
         </div>

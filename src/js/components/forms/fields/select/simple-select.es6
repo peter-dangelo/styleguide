@@ -42,7 +42,7 @@ export default React.createClass({
   },
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.value != prevState.value) this.props.onChange();
+    if (this.state.value != prevState.value) this.props.onChange(this.state.value);
   },
 
   arrowClasses() {

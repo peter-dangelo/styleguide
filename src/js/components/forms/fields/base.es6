@@ -28,7 +28,6 @@ class FieldBase extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       disabled: false,
-      errors: [],
       value: null
     };
   }
@@ -36,6 +35,7 @@ class FieldBase extends React.Component {
   componentWillMount() {
     this.setState({
       disabled: this.props.disabled,
+      errors: this.props.errors,
       value: this.props.initialValue
     });
   }

@@ -18,22 +18,6 @@ class DateField extends FieldBase {
     this.handleDate = this.handleDate.bind(this);
   }
 
-  componentWillMount() {
-    let disabled = this.props.disabled;
-    let errors = this.props.errors;
-
-    if (!this.isFormatValid()) {
-      errors.push('Invalid date format');
-      disabled = true;
-    }
-
-    this.setState({
-      disabled: disabled,
-      errors: this.props.errors.concat[this.validate(this.props.initialValue)],
-      value: this.props.initialValue
-    });
-  }
-
   baseContainerClasses() {
     return ['date-field', 'col-3'];
   }
@@ -65,7 +49,7 @@ class DateField extends FieldBase {
 
   datePicker() {
     return (
-      <DatePicker date={this.state.value || Moment()}
+      <DatePicker date={this.state.value ? Moment(Date.parse(this.state.value)) : Moment()}
                   maxDate={this.boundedMaxDate()}
                   minDate={this.boundedMinDate()}
                   onChangeDate={this.handleDate} />
@@ -85,7 +69,7 @@ class DateField extends FieldBase {
   }
 
   validate(value=null) {
-    if ((!!value && !this.momentDate(value).isValid()) || (!!this.state.value && !this.state.value.isValid())) {
+    if ((!!value && !this.momentDate(value).isValid()) || (!!this.state.value && !this.momentDate(this.state.value).isValid())) {
       return ['Invalid date'];
     } else {
       return [];
