@@ -21,13 +21,13 @@ class SortableTableHeaderCell extends React.Component {
       sortKey
     } = this.props;
 
-    if (!sort.key && active && sortKey) {
-      sort.key = sortKey;
-      actions.sort(sort);
-    }
+    if (active) {
+      // assigns values to "sort" if they don't exist yet
+      Object.assign(sort, {
+        key: sort.key || sortKey,
+        order: sort.order || order
+      });
 
-    if (!sort.order && active) {
-      sort.order = order;
       actions.sort(sort);
     }
   }

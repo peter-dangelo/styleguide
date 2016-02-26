@@ -75,11 +75,14 @@ class Sortable extends React.Component {
   _getValue(children, key) {
     let value = null;
 
-    Children.forEach(children, (child) => {
+    for (let i = 0, len = Children.count(children); i < len; i++) {
+      let child = children[i];
+
       if (child.props[key]) {
         value = child.props[key];
+        break;
       }
-    });
+    }
 
     return value;
   }
