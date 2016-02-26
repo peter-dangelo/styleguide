@@ -100,7 +100,7 @@ export default React.createClass({
             <hr />
             <p>Default fields</p>
             <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} name="firstText" onChange={_onChange} onFocus={_onChange} />
-            <NumberField label="Number" extraClasses={['py2']} units="Units"  />
+            <NumberField label="Number" extraClasses={['py2']} units="Units" onChange={_onChange} name="firstNumber"  />
             <DateField
               dateFormat='MMM D, YYYY'
               extraClasses={['py2']}
