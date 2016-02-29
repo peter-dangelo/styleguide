@@ -67,7 +67,7 @@ class RadioField extends FieldBase {
         disabled={this.props.disabled}
         id={this.props.name} 
         name={this.props.name} 
-        onChange={this.handleChange}
+        onChange={(e) => this.handleChange(e.target.value)}
         ref="fieldset"
         {...{onBlur, onFocus, onKeyUp}}
       >
