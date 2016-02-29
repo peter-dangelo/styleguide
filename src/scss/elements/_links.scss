@@ -28,3 +28,18 @@ a {
     outline: 0;
   }
 }
+
+.popover.dark a, // TODO - NUI-debt - just this line
+.tooltip a {
+  color: $blue-25;
+
+  &:hover {
+    color: $white;
+    cursor: pointer;
+  }
+
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}
