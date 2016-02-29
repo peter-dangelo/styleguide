@@ -44,6 +44,18 @@ class FieldBase extends React.Component {
     if (prevState.value !== this.state.value) {
       this.props.onChange(this.state.value);
     }
+
+    if (prevProps.initialValue !== this.props.initialValue) {
+      this.setState({
+        value: this.props.initialValue
+      });
+    }
+
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({
+        errors: this.props.errors
+      });
+    }
   }
 
   baseContainerClasses() {
