@@ -98,20 +98,20 @@ class DateField extends FieldBase {
   }
 
   momentDate(date) {
-    if (!!date) {
-      switch (date.constructor.name) {
-        case "Date":
-        case "Number":
-          return Moment(date);
-        case "Moment":
-          return date;
-        case "String":
-          return Moment(date, this.props.dateFormat);
-        default:
-          return null;
-      }
-    } else {
+    if (!date) {
       return null;
+    }
+
+    switch (date.constructor.name) {
+      case "Date":
+      case "Number":
+        return Moment(date);
+      case "Moment":
+        return date;
+      case "String":
+        return Moment(date, this.props.dateFormat);
+      default:
+        return null;
     }
   }
 

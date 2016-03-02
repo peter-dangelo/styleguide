@@ -507,6 +507,7 @@ export default React.createClass({
                      label="With Min/Max Dates"
                      maxDate={this.pushPullToday(35)}
                      minDate={this.pushPullToday(-5)}
+                     onChange={_onChange}
                      value={new Date} />
           <div className='clearfix'></div>
           <DateField dateFormat='MMM D, YYY'
