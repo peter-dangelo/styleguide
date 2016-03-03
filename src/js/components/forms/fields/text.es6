@@ -24,21 +24,14 @@ class TextField extends FieldBase {
              type="text"
              id={this.props.name}
              name={this.props.name}
+             defaultValue={this.state.value}
              onChange={(e) => this.handleChange(e.target.value)}
              {...{onBlur, onFocus, onKeyUp}}
              placeholder={this.props.placeholder}
-             readOnly={this.props.inactive || this.props.readOnly} />
+             readOnly={this.props.readOnly} />
   }
 };
 
 TextField.displayName = 'TextField';
-
-TextField.propTypes = Object.assign({
-  inactive: Type.bool
-}, fieldProps);
-
-TextField.defaultProps = Object.assign({
-  inactive: false
-}, FieldBase.defaultProps);
 
 export default TextField;

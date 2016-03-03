@@ -103,7 +103,7 @@ export default React.createClass({
           <form className="clearfix">
             <hr />
             <p>Default fields</p>
-            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} name="firstText" onChange={_onChange} onFocus={_onChange} />
+            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} name="firstText" onChange={_onChange} onFocus={_onChange} initialValue="Test" readOnly={true} />
             <NumberField label="Number" extraClasses={['py2']} units="Units" onChange={_onChange} name="firstNumber"  />
             <DateField
               dateFormat='MMM D, YYYY'
@@ -144,13 +144,25 @@ export default React.createClass({
               name="firstCheck" 
               onChange={_onChange} 
               options={['test1', 'test2']}
+              initialValue={['test1']}
+            />
+            <CheckboxField 
+              label="Checkbox With Object of Options" 
+              extraClasses={['py2']} 
+              name="firstCheckOptionsObject" 
+              onChange={_onChange} 
+              options={{
+                'test1': 'Testing', 
+                'test2': 'Testing Again'
+              }}
+              initialValue={['test1']}
             />
             <CheckboxField 
               label="Checked read-only" 
               readOnly={true}
               extraClasses={['py2']}
               options={['test1', 'test2']}
-              initialValue="test1"
+              initialValue={["test1"]}
             />
             <RadioField 
               name="radios1" 
@@ -220,7 +232,7 @@ export default React.createClass({
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
-                initialValue="test1"
+                initialValue={["test1"]}
               />
               <RadioField 
                 name="radios3" 
@@ -257,7 +269,7 @@ export default React.createClass({
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
-                initialValue="test1"
+                initialValue={["test1"]}
               />
               <RadioField 
                 name="radios2" 
@@ -298,7 +310,7 @@ export default React.createClass({
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
-                initialValue="test1"
+                initialValue={["test1"]}
               />
               <RadioField 
                 name="radios4" 
@@ -335,7 +347,7 @@ export default React.createClass({
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
-                initialValue="test1"
+                initialValue={["test1"]}
               />
               <RadioField 
                 name="radios2" 

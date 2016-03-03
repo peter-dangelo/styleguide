@@ -9,7 +9,7 @@ var fieldProps = {
   disabled: Type.bool,
   errors: Type.array,
   extraClasses: Type.array,
-  initialValue: Type.oneOfType([Type.object, Type.string, Type.number]),
+  initialValue: Type.oneOfType([Type.object, Type.string, Type.number, Type.array]),
   label: Type.string,
   name: Type.string.isRequired,
   onBlur: Type.func,
@@ -65,7 +65,7 @@ class FieldBase extends React.Component {
   containerClasses() {
     let classes = this.baseContainerClasses() || [];
     if (this.disabled()) classes.push('disabled');
-    classes.push(this.props.extraClasses);
+    classes.concat(this.props.extraClasses);
     return classes.join(' ');
   }
 

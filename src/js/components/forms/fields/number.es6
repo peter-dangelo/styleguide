@@ -47,6 +47,7 @@ class NumberField extends FieldBase {
           disabled={this.props.disabled}
           type="number"
           readOnly={this.props.readOnly}
+          defaultValue={this.props.initialValue}
           name={this.props.name}
           id={this.props.name}
           onChange={(e) => this.handleChange(e.target.value)}

@@ -50,8 +50,8 @@ class CheckboxField extends FieldBase {
     return (
       <label key={`${value}-${index}`} className="block py1">
         <input 
-          checked={readOnly ? (initialValue === value) : null}
-          defaultChecked={!readOnly && initialValue === value}
+          checked={readOnly ? initialValue.includes(value) : null}
+          defaultChecked={!readOnly && initialValue.includes(value)}
           readOnly={readOnly}
           type="checkbox"
           value={value}
@@ -102,5 +102,9 @@ CheckboxField.displayName = 'CheckboxField';
 CheckboxField.propTypes = Object.assign({
   options: Type.oneOfType([Type.object, Type.array]).isRequired,
 }, fieldProps);
+
+CheckboxField.defaultProps = Object.assign({
+  initialValue: []
+}, FieldBase.defaultProps);
 
 export default CheckboxField;

@@ -33,6 +33,7 @@ class TextAreaField extends FieldBase {
               readOnly={this.props.readOnly}
               placeholder={this.props.placeholder}
               name={this.props.name}
+              defaultValue={this.state.value}
               id={this.props.name}
               {...{onBlur, onFocus, onKeyUp}}
               onChange={this.onChange} />
