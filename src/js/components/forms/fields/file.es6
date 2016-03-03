@@ -1,5 +1,6 @@
 import React from 'react/addons';
 import { fieldProps, FieldBase} from './base.es6';
+import omit from '../../utils/omit';
 
 const {
   Children,
@@ -44,11 +45,7 @@ class FileField extends FieldBase {
   }
 
   contents() {
-    const {
-      onBlur,
-      onFocus,
-      onKeyUp
-    } = this.props;
+    const spreadProps = omit(this.props, 'onChange');
 
     if (this.state.previewing) {
       return (
@@ -67,12 +64,11 @@ class FileField extends FieldBase {
             {this.props.buttonText}
           </label>
           <input 
-            {...this.props} 
             type="file" 
             onChange={this.onChange} 
             id={this.props.name} 
             style={{height: 0, opacity: 0, width:0}} 
-            {...{onBlur, onFocus, onKeyUp}} />
+            {...spreadProps} />
         </div>
       );
     }

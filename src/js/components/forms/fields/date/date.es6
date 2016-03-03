@@ -4,6 +4,7 @@ import { fieldProps, FieldBase } from '../base.es6';
 import Moment from 'moment';
 import Tooltip from '../../../overlays/tooltip';
 import Overlay from '../../../overlays/overlay-click';
+import omit from '../../../utils/omit';
 
 const Type = React.PropTypes;
 
@@ -81,16 +82,15 @@ class DateField extends FieldBase {
   }
 
   triggerContent() {
+    const spreadProps = omit(this.props, 'onChange', 'defaultValue');
+
     return (
       <div className='relative rounded-2 no-select' >
         <input className={this.inputClasses()}
-               disabled={this.disabled()}
-               name={this.props.name}
                id={this.props.name}
-               readOnly
                type="text"
-               placeholder={this.props.placeholder}
-               value={this.inputValue()} />
+               value={this.inputValue()} 
+               {...spreadProps} />
         <span className='icon-calendar ml1 absolute'
               style={this.iconStyle()}></span>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { fieldProps, FieldBase} from './base.es6';
+import omit from '../../utils/omit';
 
 const Type = React.PropTypes;
 
@@ -17,7 +18,7 @@ class RadioField extends FieldBase {
 
   renderOption(value, index, label) {
     const {
-      initialValue,
+      defaultValue,
       readOnly,
       name
     } = this.props;
@@ -30,8 +31,8 @@ class RadioField extends FieldBase {
     return (
       <label key={`${value}-${index}`} className="block py1">
         <input 
-          checked={readOnly ? (initialValue === value) : null}
-          defaultChecked={!readOnly && initialValue === value}
+          checked={readOnly ? (defaultValue === value) : null}
+          defaultChecked={!readOnly && defaultValue === value}
           type="radio"
           value={value}
           name={name}
@@ -56,20 +57,14 @@ class RadioField extends FieldBase {
   }
 
   contents() {
-    const {
-      onBlur,
-      onFocus,
-      onKeyUp
-    } = this.props;
+    const spreadProps = omit(this.props, 'onChange');
 
     return (
       <fieldset 
-        disabled={this.props.disabled}
         id={this.props.name} 
-        name={this.props.name} 
         onChange={(e) => this.handleChange(e.target.value)}
         ref="fieldset"
-        {...{onBlur, onFocus, onKeyUp}}
+        {...spreadProps}
       >
         {this.getOptions()}
       </fieldset>

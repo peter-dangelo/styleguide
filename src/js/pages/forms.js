@@ -103,7 +103,7 @@ export default React.createClass({
           <form className="clearfix">
             <hr />
             <p>Default fields</p>
-            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} name="firstText" onChange={_onChange} onFocus={_onChange} initialValue="Test" readOnly={true} />
+            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} name="firstText" onChange={_onChange} onFocus={_onChange} defaultValue="Test" readOnly={true} />
             <NumberField label="Number" extraClasses={['py2']} units="Units" onChange={_onChange} name="firstNumber"  />
             <DateField
               dateFormat='MMM D, YYYY'
@@ -136,7 +136,7 @@ export default React.createClass({
               name="firstSelect" 
               required={true}
             />
-            <TextAreaField label="Textarea" extraClasses={['py2']} onChange={_onChange} onBlur={_onChange} />
+            <TextAreaField label="Textarea" extraClasses={['py2']} onChange={_onChange} onBlur={_onChange} placeholder="Some placeholder text" />
             <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} onChange={_onChange} />
             <CheckboxField 
               label="Checkbox" 
@@ -144,7 +144,7 @@ export default React.createClass({
               name="firstCheck" 
               onChange={_onChange} 
               options={['test1', 'test2']}
-              initialValue={['test1']}
+              defaultValue={['test1']}
             />
             <CheckboxField 
               label="Checkbox With Object of Options" 
@@ -155,14 +155,14 @@ export default React.createClass({
                 'test1': 'Testing', 
                 'test2': 'Testing Again'
               }}
-              initialValue={['test1']}
+              defaultValue={['test1']}
             />
             <CheckboxField 
               label="Checked read-only" 
               readOnly={true}
               extraClasses={['py2']}
               options={['test1', 'test2']}
-              initialValue={["test1"]}
+              defaultValue={["test1"]}
             />
             <RadioField 
               name="radios1" 
@@ -232,7 +232,7 @@ export default React.createClass({
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
-                initialValue={["test1"]}
+                defaultValue={["test1"]}
               />
               <RadioField 
                 name="radios3" 
@@ -269,7 +269,7 @@ export default React.createClass({
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
-                initialValue={["test1"]}
+                defaultValue={["test1"]}
               />
               <RadioField 
                 name="radios2" 
@@ -310,7 +310,7 @@ export default React.createClass({
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
-                initialValue={["test1"]}
+                defaultValue={["test1"]}
               />
               <RadioField 
                 name="radios4" 
@@ -347,7 +347,7 @@ export default React.createClass({
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
-                initialValue={["test1"]}
+                defaultValue={["test1"]}
               />
               <RadioField 
                 name="radios2" 
@@ -434,7 +434,7 @@ export default React.createClass({
             <p>New York is selected</p>
             <SelectField
               onChange={this.onSimpleSelect3Change}
-              initialValue={this.state.simpleSelect3Value}
+              defaultValue={this.state.simpleSelect3Value}
               name='city'
               ref='simpleSelect3'
               options={simpleSelectOptions2}
@@ -451,7 +451,7 @@ export default React.createClass({
               options={simpleSelectOptions2}
               placeholder="- Select -"
               ref='simpleSelect4'
-              initialValue={this.state.simpleSelect4Value}/>
+              defaultValue={this.state.simpleSelect4Value}/>
             <p className='py2'>selected value: {this.state.simpleSelect4Value}</p>
           </div>
           <div className="mb3">

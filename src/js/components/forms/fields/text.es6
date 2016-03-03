@@ -1,5 +1,6 @@
 import React from 'react';
 import { fieldProps, FieldBase} from './base.es6';
+import omit from '../../utils/omit';
 
 const Type = React.PropTypes;
 
@@ -14,21 +15,13 @@ class TextField extends FieldBase {
   }
 
   contents() {
-    const {
-      onBlur,
-      onFocus,
-      onKeyUp
-    } = this.props;
+    const spreadProps = omit(this.props, 'onChange');
 
-    return <input disabled={this.props.disabled}
+    return <input
              type="text"
              id={this.props.name}
-             name={this.props.name}
-             defaultValue={this.state.value}
              onChange={(e) => this.handleChange(e.target.value)}
-             {...{onBlur, onFocus, onKeyUp}}
-             placeholder={this.props.placeholder}
-             readOnly={this.props.readOnly} />
+             {...spreadProps} />
   }
 };
 

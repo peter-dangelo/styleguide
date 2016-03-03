@@ -1,5 +1,6 @@
 import React from 'react';
 import { fieldProps, FieldBase} from './base.es6';
+import omit from '../../utils/omit';
 
 const Type = React.PropTypes;
 
@@ -38,7 +39,7 @@ class CheckboxField extends FieldBase {
 
   renderOption(value, index, label) {
     const {
-      initialValue,
+      defaultValue,
       readOnly
     } = this.props;
 
@@ -50,8 +51,8 @@ class CheckboxField extends FieldBase {
     return (
       <label key={`${value}-${index}`} className="block py1">
         <input 
-          checked={readOnly ? initialValue.includes(value) : null}
-          defaultChecked={!readOnly && initialValue.includes(value)}
+          checked={readOnly ? defaultValue.includes(value) : null}
+          defaultChecked={!readOnly && defaultValue.includes(value)}
           readOnly={readOnly}
           type="checkbox"
           value={value}
@@ -76,20 +77,14 @@ class CheckboxField extends FieldBase {
   }
 
   contents() {
-    const {
-      onBlur,
-      onFocus,
-      onKeyUp
-    } = this.props;
+    const spreadProps = omit(this.props, 'onChange');
 
     return (
       <fieldset 
-        disabled={this.props.disabled}
         id={this.props.name} 
-        name={this.props.name} 
         onChange={this.onChange}
         ref="fieldset"
-        {...{onBlur, onFocus, onKeyUp}}
+        {...spreadProps}
       >
         {this.getOptions()}
       </fieldset>
@@ -104,7 +99,7 @@ CheckboxField.propTypes = Object.assign({
 }, fieldProps);
 
 CheckboxField.defaultProps = Object.assign({
-  initialValue: []
+  defaultValue: []
 }, FieldBase.defaultProps);
 
 export default CheckboxField;

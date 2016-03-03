@@ -1,5 +1,6 @@
 import React from 'react';
 import { fieldProps, FieldBase} from './base.es6';
+import omit from '../../utils/omit';
 
 const Type = React.PropTypes;
 
@@ -23,20 +24,12 @@ class TextAreaField extends FieldBase {
   }
 
   contents() {
-    const {
-      onBlur,
-      onFocus,
-      onKeyUp
-    } = this.props;
+    const spreadProps = omit(this.props, 'onChange');
 
-    return <textarea disabled={this.props.disabled}
-              readOnly={this.props.readOnly}
-              placeholder={this.props.placeholder}
-              name={this.props.name}
-              defaultValue={this.state.value}
+    return <textarea
               id={this.props.name}
-              {...{onBlur, onFocus, onKeyUp}}
-              onChange={this.onChange} />
+              onChange={this.onChange}
+              {...spreadProps} />
   }
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { fieldProps, FieldBase} from './base.es6';
+import omit from '../../utils/omit';
 
 const Type = React.PropTypes;
 
@@ -35,23 +36,16 @@ class NumberField extends FieldBase {
   }
 
   contents() {
-    const {
-      onBlur,
-      onFocus,
-      onKeyUp
-    } = this.props;
+    // get all props except for onChange
+    const propsSpread = omit(this.props, 'onChange');
 
     return  (
       <div>
         <input 
-          disabled={this.props.disabled}
           type="number"
-          readOnly={this.props.readOnly}
-          defaultValue={this.props.initialValue}
-          name={this.props.name}
           id={this.props.name}
           onChange={(e) => this.handleChange(e.target.value)}
-          {...{onBlur, onFocus, onKeyUp}}
+          {...propsSpread}
         />
         <span className='icon-arrow-double relative'></span>
         {this.units()}

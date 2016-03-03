@@ -1,6 +1,7 @@
 import React from 'react';
 import SimpleSelect from './simple-select';
 import { fieldProps, FieldBase} from '../base.es6';
+import omit from '../../../utils/omit';
 
 const Type = React.PropTypes;
 
@@ -15,24 +16,15 @@ class SelectField extends FieldBase {
   }
 
   contents() {
-    const {
-      onBlur,
-      onFocus,
-      onKeyUp
-    } = this.props;
+    const spreadProps = omit(this.props, 'onChange');
 
     return (
         <SimpleSelect ref='simpleSelect'
-                      disabled={this.props.disabled}
                       hasError={this.state.errors.length > 0}
                       id={this.props.name}
-                      includeBlank={this.props.includeBlank}
-                      name={this.props.name}
                       onChange={this.handleChange}
-                      {...{onBlur, onFocus, onKeyUp}}
-                      options={this.props.options}
-                      placeholder={this.props.placeholder}
-                      value={this.props.initialValue} />
+                      value={this.props.initialValue}
+                      {...spreadProps} />
     );
   }
 };

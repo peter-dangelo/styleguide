@@ -9,7 +9,7 @@ var fieldProps = {
   disabled: Type.bool,
   errors: Type.array,
   extraClasses: Type.array,
-  initialValue: Type.oneOfType([Type.object, Type.string, Type.number, Type.array]),
+  defaultValue: Type.oneOfType([Type.object, Type.string, Type.number, Type.array]),
   label: Type.string,
   name: Type.string.isRequired,
   onBlur: Type.func,
@@ -36,7 +36,7 @@ class FieldBase extends React.Component {
     this.setState({
       disabled: this.props.disabled,
       errors: this.props.errors,
-      value: this.props.initialValue
+      value: this.props.defaultValue
     });
   }
 
@@ -45,9 +45,9 @@ class FieldBase extends React.Component {
       this.props.onChange(this.state.value);
     }
 
-    if (prevProps.initialValue !== this.props.initialValue) {
+    if (prevProps.defaultValue !== this.props.defaultValue) {
       this.setState({
-        value: this.props.initialValue
+        value: this.props.defaultValue
       });
     }
 
@@ -130,7 +130,7 @@ class FieldBase extends React.Component {
       <div className={this.containerClasses()}>
         {this.label()}
         {this.contextualHelp()}
-        <br />
+        {(this.label() || this.contextualHelp()) ? <br /> : null}
         {this.contents()}
         <div className="clearfix"></div>
         <FieldErrors errors={this.state.errors} />
