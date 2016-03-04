@@ -65,7 +65,7 @@ class FieldBase extends React.Component {
   containerClasses() {
     let classes = this.baseContainerClasses() || [];
     if (this.disabled()) classes.push('disabled');
-    classes.concat(this.props.extraClasses);
+    classes = classes.concat(this.props.extraClasses);
     return classes.join(' ');
   }
 
