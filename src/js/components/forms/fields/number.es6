@@ -1,62 +1,63 @@
 import React from 'react';
+import { fieldProps, FieldBase} from './base.es6';
+import omit from '../../utils/omit';
 
 const Type = React.PropTypes;
 
-export default React.createClass({
+class NumberField extends FieldBase {
 
-  displayName: "NumberField",
-
-  propTypes: {
-    disabled: Type.bool,
-    extraClasses: Type.arrayOf(Type.string),
-    label: Type.string,
-    readOnly: Type.bool,
-    units: Type.string
-  },
-
-  getDefaultProps() {
-    return {
-      readOnly: false,
-      inactive: false
-    }
-  },
-
-  label() {
-    if(this.props.label) {
-      return <label className="px2 mb1">{this.props.label}</label>;
-    }
-  },
+  constructor() {
+    super();
+    this.units = this.units.bind(this);
+  }
 
   units(){
     if(this.props.units) {
       return <span className={this.unitsClasses()}>{this.props.units}</span>
     }
-  },
+  }
 
   unitsClasses() {
     var classes = ['units'];
     classes.push('grey-50');
     return classes.join(' ');
-  },
+  }
 
-  classes() {
-    var classes = ['number-field'];
-    if(this.props.disabled) {
-      classes.push('disabled');
+  baseContainerClasses() {
+    return ['number-field'];
+  }
+
+  validate(value=null) {
+    if (!!value && Number.isNaN(+value)) {
+      return ['Invalid number'];
+    } else {
+      return [];
     }
-    classes.push(this.props.extraClasses)
-    return classes.join(' ');
-  },
+  }
 
-  render() {
-    return  <div className={this.classes()}>
-        {this.label()}
-        <br/>
-        <input disabled={this.props.disabled}
-               type="number"
-               readOnly={this.props.readOnly}/>
+  contents() {
+    // get all props except for onChange
+    const propsSpread = omit(this.props, 'onChange');
+
+    return  (
+      <div>
+        <input 
+          type="number"
+          id={this.props.name}
+          onChange={(e) => this.handleChange(e.target.value)}
+          {...propsSpread}
+        />
         <span className='icon-arrow-double relative'></span>
         {this.units()}
       </div>
+    );
   }
-});
+};
+
+NumberField.displayName = "NumberField";
+
+NumberField.propTypes = Object.assign({
+  units: Type.string
+}, fieldProps);
+
+export default NumberField;

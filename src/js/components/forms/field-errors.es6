@@ -29,7 +29,7 @@ export default createClass({
   },
 
   render() {
-    if (this.props.errors.length > 0) {
+    if (this.props.errors && this.props.errors.length > 0) {
       return <div className={this.classes()}>
         {this.list()}
       </div>;

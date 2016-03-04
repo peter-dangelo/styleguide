@@ -317,10 +317,10 @@ select {
 }
 
 fieldset {
-  background-color: $grey-10;
   border: 0;
-  border-radius: 6px;
-  padding: $space-3;
+}
+
+.fieldset {
 
   [type=text],
   [type=datetime],

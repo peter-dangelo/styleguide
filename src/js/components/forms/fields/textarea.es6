@@ -1,61 +1,46 @@
 import React from 'react';
+import { fieldProps, FieldBase} from './base.es6';
+import omit from '../../utils/omit';
 
 const Type = React.PropTypes;
 
-export default React.createClass({
-
-  displayName: "TextAreaField",
-
-  propTypes: {
-    disabled: Type.bool,
-    extraClasses: Type.arrayOf(Type.string),
-    label: Type.string,
-    name: Type.string,
-    placeholder: Type.string,
-    readOnly: Type.bool,
-    expandable: Type.bool
-  },
-
-  getDefaultProps() {
-    return {
-      readOnly: false,
-      expandable: false
-    }
-  },
-
-  label() {
-    if(this.props.label) {
-      return <label htmlFor={this.props.name} className="px2 mb1">{this.props.label}</label>;
-    }
-  },
-
-  expand(e) {
-    e.target.style.height = "auto";
-    e.target.style.height = e.target.scrollHeight + "px";
-  },
-
-  classes() {
-    var classes = ['textarea'];
-    if(this.props.readOnly) {
-      classes.push('read-only');
-    }
-    if(this.props.disabled) {
-      classes.push('disabled');
-    }
-    classes.push(this.props.extraClasses);
-    return classes.join(' ');
-  },
-
-  render() {
-    return  <div className={this.classes()}>
-        {this.label()}
-        <br/>
-        <textarea disabled={this.props.disabled}
-                  readOnly={this.props.readOnly}
-                  placeholder={this.props.placeholder}
-                  name={this.props.name}
-                  id={this.props.name}
-                  onChange={this.props.expandable ? this.expand : null} />
-      </div>
+class TextAreaField extends FieldBase {
+  constructor() {
+    super();
+    this.onChange = this.onChange.bind(this);
   }
-});
+
+  onChange(e) {
+    if (this.props.expandable) {
+      e.target.style.height = "auto";
+      e.target.style.height = e.target.scrollHeight + "px";
+    }
+
+    this.handleChange(e.target.value);
+  }
+
+  baseContainerClasses() {
+    return ['textarea'];
+  }
+
+  contents() {
+    const spreadProps = omit(this.props, 'onChange');
+
+    return <textarea
+              id={this.props.name}
+              onChange={this.onChange}
+              {...spreadProps} />
+  }
+};
+
+TextAreaField.displayName = "TextAreaField";
+
+TextAreaField.propTypes = Object.assign({
+  expandable: Type.bool
+}, fieldProps);
+
+TextAreaField.defaultProps = Object.assign({
+  expandable: false
+}, FieldBase.defaultProps);
+
+export default TextAreaField;
