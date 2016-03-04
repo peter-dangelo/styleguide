@@ -23,7 +23,7 @@ class SelectField extends FieldBase {
                       hasError={this.state.errors.length > 0}
                       id={this.props.name}
                       onChange={this.handleChange}
-                      value={this.props.initialValue}
+                      value={this.props.defaultValue}
                       {...spreadProps} />
     );
   }
