@@ -31,7 +31,7 @@ var simpleSelectOptions2 = {
 };
 
 function _onChange(val) {
-  console.log("Selected: " + val);
+  console.log(val);
 }
 
 function _onFocus() {
@@ -57,24 +57,24 @@ export default React.createClass({
     return new Date(d.setDate(d.getDate()+offset));
   },
 
-  onSimpleSelect1Change() {
-    this.setState({simpleSelect1Value: this.refs.simpleSelect1.refs.simpleSelect.state.value})
+  onSimpleSelect1Change(value) {
+    this.setState({simpleSelect1Value: value})
   },
 
-  onSimpleSelect2Change() {
-    this.setState({simpleSelect2Value: this.refs.simpleSelect2.refs.simpleSelect.state.value})
+  onSimpleSelect2Change(value) {
+    this.setState({simpleSelect2Value: value})
   },
 
   onSimpleSelect3Change() {
-    this.setState({simpleSelect3Value: this.refs.simpleSelect3.refs.simpleSelect.state.value})
+    this.setState({simpleSelect3Value: this.refs.simpleSelect3.value()})
   },
 
   onSimpleSelect4Change() {
-    this.setState({simpleSelect4Value: this.refs.simpleSelect4.refs.simpleSelect.state.value})
+    this.setState({simpleSelect4Value: this.refs.simpleSelect4.value()})
   },
 
   onSimpleSelect5Change() {
-    this.setState({simpleSelect5Value: this.refs.simpleSelect5.refs.simpleSelect.state.value})
+    this.setState({simpleSelect5Value: this.refs.simpleSelect5.value()})
   },
 
   _onSave(value) {
@@ -83,6 +83,14 @@ export default React.createClass({
 
   _onDelete() {
     console.log("Not able to delete right now.");
+  },
+
+  _onPick(val) {
+    console.log(val, this.refs.firstPicker.value());
+  },
+
+  _onSelectChange(val) {
+    console.log(val, this.refs.firstSelect.value());
   },
 
   _validate(val) {
@@ -95,12 +103,17 @@ export default React.createClass({
           <form className="clearfix">
             <hr />
             <p>Default fields</p>
-            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} />
-            <NumberField label="Number" extraClasses={['py2']} units="Units"  />
+            <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']} name="firstText" onChange={_onChange} onFocus={_onChange} defaultValue="Test" readOnly={true} />
+            <NumberField label="Number" extraClasses={['py2']} units="Units" onChange={_onChange} name="firstNumber"  />
             <DateField
               dateFormat='MMM D, YYYY'
               extraClasses={['py2']}
               label='Date'
+              required={true}
+              contextualHelp="Help??"
+              name="firstPicker"
+              ref="firstPicker"
+              onChange={this._onPick}
               placeholder="Placeholder" />
             <div className='clearfix'></div>
             <div className="py2">
@@ -112,13 +125,52 @@ export default React.createClass({
                 <option>4</option>
               </select>
             </div>
-            <SelectField label="React Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
-            <TextAreaField label="Textarea" extraClasses={['py2']} />
-            <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} />
-            <CheckboxField label="Checkbox" extraClasses={['py2']}/>
-            <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-            <RadioField name="radios1" label="Radio 1" extraClasses={['py2']}/>
-            <RadioField name="radios1" label="Radio 2" extraClasses={['py2']}/>
+            <SelectField 
+              label="React Select" 
+              options={simpleSelectOptions1} 
+              placeholder="- Select -" 
+              includeBlank={true}
+              extraClasses={['py2']} 
+              onChange={this._onSelectChange}  
+              ref="firstSelect" 
+              name="firstSelect" 
+              required={true}
+            />
+            <TextAreaField label="Textarea" extraClasses={['py2']} onChange={_onChange} onBlur={_onChange} placeholder="Some placeholder text" />
+            <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} onChange={_onChange} />
+            <CheckboxField 
+              label="Checkbox" 
+              extraClasses={['py2']} 
+              name="firstCheck" 
+              onChange={_onChange} 
+              options={['test1', 'test2']}
+              defaultValue={['test1']}
+            />
+            <CheckboxField 
+              label="Checkbox With Object of Options" 
+              extraClasses={['py2']} 
+              name="firstCheckOptionsObject" 
+              onChange={_onChange} 
+              options={{
+                'test1': 'Testing', 
+                'test2': 'Testing Again'
+              }}
+              defaultValue={['test1']}
+            />
+            <CheckboxField 
+              label="Checked read-only" 
+              readOnly={true}
+              extraClasses={['py2']}
+              options={['test1', 'test2']}
+              defaultValue={["test1"]}
+            />
+            <RadioField 
+              name="radios1" 
+              label="Radios" 
+              extraClasses={['py2']}
+              onChange={_onChange}
+              options={['Radio 1', 'Radio 2']}
+            />
 
             <p className="mt4">Disabled fields</p>
             <TextField label="Text" placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
@@ -136,11 +188,22 @@ export default React.createClass({
             </div>
             <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
             <TextAreaField label="Textarea"  disabled={true} extraClasses={['py2']} />
-            <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
-            <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
+            <CheckboxField 
+              label="Checkbox" 
+              extraClasses={['py2']} 
+              options={['test1']}
+              disabled={true}
+            />
+            <RadioField 
+              name="radios2" 
+              label="Radios" 
+              extraClasses={['py2']}
+              options={['Radio 1', 'Radio 2']}
+              disabled={true}
+            />
 
             <p className="mt4">Fields within fieldset</p>
-            <fieldset>
+            <fieldset className="fieldset bg-grey-10 p3 rounded-3">
               <p>Default fields</p>
               <TextField label="Text" placeholder="Placeholder" extraClasses={['py2']}/>
               <NumberField label="Number" extraClasses={['py2']} units="Units" />
@@ -157,10 +220,26 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextAreaField label="Textarea" extraClasses={['py2']}/>
-              <CheckboxField label="Checkbox" extraClasses={['py2']}/>
-              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-              <RadioField name="radios3" label="Radio 1" extraClasses={['py2']}/>
-              <RadioField name="radios3" label="Radio 2" extraClasses={['py2']}/>
+              <CheckboxField 
+                label="Checkbox" 
+                extraClasses={['py2']} 
+                name="firstCheck" 
+                onChange={_onChange} 
+                options={['test1', 'test2']}
+              />
+              <CheckboxField 
+                label="Checked read-only" 
+                readOnly={true}
+                extraClasses={['py2']}
+                options={['test1', 'test2']}
+                defaultValue={["test1"]}
+              />
+              <RadioField 
+                name="radios3" 
+                label="Radios" 
+                extraClasses={['py2']}
+                options={['Radio 1', 'Radio 2']}
+              />
               <hr />
               <p>Disabled fields</p>
               <TextField label="Text" placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
@@ -178,9 +257,27 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
-              <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
-              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-              <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
+              <CheckboxField 
+                label="Checkbox" 
+                extraClasses={['py2']} 
+                name="firstCheck" 
+                onChange={_onChange} 
+                options={['test1', 'test2']}
+              />
+              <CheckboxField 
+                label="Checked read-only" 
+                readOnly={true}
+                extraClasses={['py2']}
+                options={['test1', 'test2']}
+                defaultValue={["test1"]}
+              />
+              <RadioField 
+                name="radios2" 
+                label="Radios" 
+                extraClasses={['py2']}
+                options={['Radio 1', 'Radio 2']}
+                disabled={true}
+              />
             </fieldset>
 
             <p className="mt4">Fields within tooltip</p>
@@ -201,10 +298,26 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextAreaField label="Textarea" extraClasses={['py2']}/>
-              <CheckboxField label="Checkbox" extraClasses={['py2']}/>
-              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-              <RadioField name="radios3" label="Radio 1" extraClasses={['py2']}/>
-              <RadioField name="radios3" label="Radio 2" extraClasses={['py2']}/>
+              <CheckboxField 
+                label="Checkbox" 
+                extraClasses={['py2']} 
+                name="firstCheck" 
+                onChange={_onChange} 
+                options={['test1', 'test2']}
+              />
+              <CheckboxField 
+                label="Checked read-only" 
+                readOnly={true}
+                extraClasses={['py2']}
+                options={['test1', 'test2']}
+                defaultValue={["test1"]}
+              />
+              <RadioField 
+                name="radios4" 
+                label="Radios" 
+                extraClasses={['py2']}
+                options={['Radio 1', 'Radio 2']}
+              />
               <hr />
               <p className="grey-10">Disabled fields</p>
               <TextField label="Text" placeholder="Placeholder" disabled={true} extraClasses={['py2']} />
@@ -222,9 +335,27 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
-              <CheckboxField label="Checkbox" disabled={true} extraClasses={['py2']}/>
-              <CheckboxField label="Checked read-only" readOnly={true} checked={true} extraClasses={['py2']}/>
-              <RadioField name="radios2" label="Radio" disabled={true} extraClasses={['py2']} />
+              <CheckboxField 
+                label="Checkbox" 
+                extraClasses={['py2']} 
+                name="firstCheck" 
+                onChange={_onChange} 
+                options={['test1', 'test2']}
+              />
+              <CheckboxField 
+                label="Checked read-only" 
+                readOnly={true}
+                extraClasses={['py2']}
+                options={['test1', 'test2']}
+                defaultValue={["test1"]}
+              />
+              <RadioField 
+                name="radios2" 
+                label="Radios" 
+                extraClasses={['py2']}
+                options={['Radio 1', 'Radio 2']}
+                disabled={true}
+              />
             </div>
 
             <hr />
@@ -303,7 +434,7 @@ export default React.createClass({
             <p>New York is selected</p>
             <SelectField
               onChange={this.onSimpleSelect3Change}
-              value={this.state.simpleSelect3Value}
+              defaultValue={this.state.simpleSelect3Value}
               name='city'
               ref='simpleSelect3'
               options={simpleSelectOptions2}
@@ -320,7 +451,7 @@ export default React.createClass({
               options={simpleSelectOptions2}
               placeholder="- Select -"
               ref='simpleSelect4'
-              value={this.state.simpleSelect4Value}/>
+              defaultValue={this.state.simpleSelect4Value}/>
             <p className='py2'>selected value: {this.state.simpleSelect4Value}</p>
           </div>
           <div className="mb3">
@@ -328,8 +459,6 @@ export default React.createClass({
             <SelectField
               includeBlank={true}
               onChange={this.onSimpleSelect5Change}
-              value={this.state.simpleSelect5Value}
-              borderColorClass={this.state.simpleSelect5Value == 25 ? 'bc-orange' : void 0}
               name='city'
               ref='simpleSelect5'
               options={simpleSelectOptions2}
@@ -361,7 +490,23 @@ export default React.createClass({
 
           <h3 className="mt4">File Input</h3>
           <p className="small">An interactive file component with file name preview.</p>
-          <FileField labelTitle="Upload File" labelStyles={["button-secondary", "white", "rounded-2", "p1"]} icon="upload" />
+          <FileField name="firstFile" buttonText="Upload File" icon="upload" onChange={_onChange} />
+
+          <div className="mt3">
+            <FileField buttonText="Upload File" onChange={_onChange} label="Another File" name="fileRequired" required={true} />
+          </div>
+
+          <div className="mt3">
+            <FileField 
+              accept="image/png, image/jpeg, image/gif"
+              buttonText="Pick An Image" 
+              buttonClasses={["button-link", "pointer"]} 
+              icon="paperclip" 
+              onChange={_onChange} 
+              label="Only Images Allowed" 
+              name="fileOnlyImages" 
+            />
+          </div>
         </div>
 
         <div title="Date Fields">
@@ -374,6 +519,7 @@ export default React.createClass({
                      label="With Min/Max Dates"
                      maxDate={this.pushPullToday(35)}
                      minDate={this.pushPullToday(-5)}
+                     onChange={_onChange}
                      value={new Date} />
           <div className='clearfix'></div>
           <DateField dateFormat='MMM D, YYY'
@@ -383,6 +529,7 @@ export default React.createClass({
           <DateField dateFormat='MMM D, YYYY'
                      errors={['You broke it!', 'Time is irrelevant']}
                      extraClasses={['py2']}
+                     name="dateErrors"
                      label="With errors" />
           <div className='clearfix'></div>
         </div>

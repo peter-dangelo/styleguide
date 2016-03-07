@@ -182,7 +182,7 @@ select {
 
   &:-moz-focusring {
     color: transparent;
-    text-shadow: 0 0 0 #000;
+    text-shadow: 0 0 0 $white;
   }
 
   @-moz-document url-prefix() {
@@ -317,10 +317,10 @@ select {
 }
 
 fieldset {
-  background-color: $grey-10;
   border: 0;
-  border-radius: 6px;
-  padding: $space-3;
+}
+
+.fieldset {
 
   [type=text],
   [type=datetime],
