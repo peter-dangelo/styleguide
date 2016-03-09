@@ -65,14 +65,23 @@ export default React.createClass({
     });
   },
 
+  findParent(givenNode) {
+    let parent = givenNode.parentElement;
+    if (parent) {
+      return this.findParent(parent);
+    } else {
+      return givenNode;
+    }
+  },
+
   attachListener(e) {
-    document.addEventListener('click', this.onDocumentClick);
+    this.findParent(React.findDOMNode(this)).addEventListener('click', this.onDocumentClick);
     this.setState({show_options: true});
   },
 
   onDocumentClick(e) {
     if (!this.getDOMNode().contains(e.target)) {
-      document.removeEventListener('click', this.onDocumentClick);
+      this.findParent(React.findDOMNode(this)).removeEventListener('click', this.onDocumentClick);
       this.setState({show_options: false})
     }
   },
