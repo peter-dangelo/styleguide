@@ -33,14 +33,6 @@ export default React.createClass({
     };
   },
 
-  componentDidMount() {
-    document.addEventListener('click', this.onDocumentClick);
-  },
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.onDocumentClick);
-  },
-
   componentDidUpdate(prevProps, prevState) {
     if (this.state.value != prevState.value) {
       this.props.onChange(this.state.value);
@@ -73,8 +65,14 @@ export default React.createClass({
     });
   },
 
+  attachListener(e) {
+    document.addEventListener('click', this.onDocumentClick);
+    this.setState({show_options: true});
+  },
+
   onDocumentClick(e) {
     if (!this.getDOMNode().contains(e.target)) {
+      document.removeEventListener('click', this.onDocumentClick);
       this.setState({show_options: false})
     }
   },
@@ -188,7 +186,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="relative">
+      <div className="relative" onClick={this.state.show_options ? null : this.attachListener}>
         <input type="hidden"
                name={this.props.name}
                value={this.state.value}
