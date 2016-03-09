@@ -141,7 +141,7 @@ class DateField extends FieldBase {
   contents() {
     if (!this.disabled()) {
       return (
-        <Overlay content={this.tooltip()}>
+        <Overlay content={this.tooltip()} ref="overlay">
           {this.triggerContent()}
         </Overlay>
       );

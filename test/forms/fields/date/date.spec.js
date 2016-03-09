@@ -43,19 +43,19 @@ describe('DateField', () => {
       }
 
       let component = TestUtils.renderIntoDocument(<Example />);
-      let input = React.findDOMNode(component).getElementsByTagName('input')[0];
-      // send raw DOM click event to the date field input
-      input.dispatchEvent(
-         new MouseEvent('click', {'view': window, 'bubbles': true, 'cancelable': true})
-      );
+
+      let overlay = React.findDOMNode(component.refs.startDate.refs.overlay);
+      TestUtils.Simulate.click(overlay);
+
       let firstDay = TestUtils.scryRenderedDOMComponentsWithClass(
         component, 'day'
       )[0];
       setTimeout(() => {
         try {
           // click the first day of this month
+          const dayNode = TestUtils.scryRenderedDOMComponentsWithTag(firstDay, 'div')[1];
           TestUtils.Simulate.click(
-            TestUtils.scryRenderedDOMComponentsWithTag(firstDay, 'div')[1]
+            dayNode
           );
           // desired value is set
           expect(component.refs.startDate.value()).to.eql(
