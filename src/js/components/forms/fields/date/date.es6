@@ -20,11 +20,10 @@ class DateField extends FieldBase {
   }
 
   componentWillMount() {
-    let date = this.momentDate(this.props.defaultValue);
     this.setState({
       disabled: this.props.disabled,
       errors: this.props.errors,
-      value: date ? date.format(this.props.dateFormat) : this.props.defaultValue
+      value: this.momentDate(this.props.defaultValue)
     });
   }
 
@@ -52,14 +51,13 @@ class DateField extends FieldBase {
     }
   }
 
-  handleDate(moment) {
-    const value = moment.format(this.props.dateFormat);
-    this.handleChange(value);
+  handleDate(momentDate) {
+    this.handleChange(momentDate);
   }
 
   datePicker() {
     return (
-      <DatePicker date={this.state.value ? Moment(Date.parse(this.state.value)) : Moment()}
+      <DatePicker date={this.state.value ? this.momentDate(this.state.value) : Moment()}
                   maxDate={this.boundedMaxDate()}
                   minDate={this.boundedMinDate()}
                   onChangeDate={this.handleDate} />
@@ -139,11 +137,7 @@ class DateField extends FieldBase {
     } = this.state;
 
     if (value) {
-      if (typeof value === 'object') {
-        return value.format(this.props.dateFormat);
-      } else {
-        return this.momentDate(value).format(this.props.dateFormat);
-      }
+      return this.momentDate(value).format(this.props.dateFormat);
     }
   }
 

@@ -9,7 +9,6 @@ import {
   TextAreaField
 } from '../components/forms/fields/index';
 import EditLabel from '../components/forms/edit-label';
-import Moment from 'moment';
 import React from 'react';
 import Select from 'react-select';
 import Styleguide from '../styleguide';
@@ -58,23 +57,31 @@ export default React.createClass({
   },
 
   onSimpleSelect1Change(value) {
-    this.setState({simpleSelect1Value: value})
+    this.setState({simpleSelect1Value: value});
   },
 
   onSimpleSelect2Change(value) {
-    this.setState({simpleSelect2Value: value})
+    this.setState({simpleSelect2Value: value});
   },
 
   onSimpleSelect3Change() {
-    this.setState({simpleSelect3Value: this.refs.simpleSelect3.value()})
+    this.setState({simpleSelect3Value: this.refs.simpleSelect3.value()});
   },
 
   onSimpleSelect4Change() {
-    this.setState({simpleSelect4Value: this.refs.simpleSelect4.value()})
+    this.setState({simpleSelect4Value: this.refs.simpleSelect4.value()});
   },
 
   onSimpleSelect5Change() {
-    this.setState({simpleSelect5Value: this.refs.simpleSelect5.value()})
+    this.setState({simpleSelect5Value: this.refs.simpleSelect5.value()});
+  },
+
+  setDateMax(momentDate) {
+    this.setState({dateMax: momentDate.clone().subtract(1, 'days')});
+  },
+
+  setDateMin(momentDate) {
+    this.setState({dateMin: momentDate.clone().add(1, 'days')});
   },
 
   _onSave(value) {
@@ -512,7 +519,18 @@ export default React.createClass({
         <div title="Date Fields">
           <DateField dateFormat='MMM D, YYYY'
                      extraClasses={['py2']}
-                     value={new Date} />
+                     defaultValue={Date.now()} />
+          <div className='clearfix'></div>
+          <DateField dateFormat='MMM D, YYYY'
+                     label='Has max from other'
+                     onChange={this.setDateMin}
+                     maxDate={this.state.dateMax}
+                     extraClasses={['py2', 'mr2']} />
+          <DateField dateFormat='MMM D, YYYY'
+                     label='Has min from other'
+                     onChange={this.setDateMax}
+                     minDate={this.state.dateMin}
+                     extraClasses={['py2']} />
           <div className='clearfix'></div>
           <DateField dateFormat='MMM D, YYYY'
                      extraClasses={['py2']}
@@ -520,7 +538,7 @@ export default React.createClass({
                      maxDate={this.pushPullToday(35)}
                      minDate={this.pushPullToday(-5)}
                      onChange={_onChange}
-                     value={new Date} />
+                     defaultValue={Date.now()} />
           <div className='clearfix'></div>
           <DateField dateFormat='MMM D, YYY'
                      extraClasses={['py2']}
@@ -533,6 +551,6 @@ export default React.createClass({
                      label="With errors" />
           <div className='clearfix'></div>
         </div>
-      </Styleguide>
+      </Styleguide>;
   }
 });
