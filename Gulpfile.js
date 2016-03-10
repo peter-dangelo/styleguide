@@ -109,7 +109,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('server', ['build'], function(){
+gulp.task('server', ['build'], function() {
   connect.server({
     root: ['public'],
     port: gutil.env.port || 8081,

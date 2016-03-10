@@ -20,6 +20,7 @@ import ViewActions from './components/view/actions/view-actions';
 let appContainer = document.getElementById('app');
 
 export default Router.extend({
+
   renderPage(Page) {
     ViewActions.flush();
     const main = React.createElement(NavContainer, {}, React.createElement(Page));
@@ -29,75 +30,74 @@ export default Router.extend({
 
   routes: {
     '': 'home',
-    'layout': 'layout',
-    'base': 'base',
-    'nav': 'nav',
-    'tables': 'tables',
-    'forms': 'forms',
-    'buttons': 'buttons',
-    'popovers': 'popovers',
-    'modals': 'modals',
-    'view': 'view',
-    'cards': 'cards',
-    'icons': 'icons',
-    'animations': 'animations',
     'accordions': 'accordions'
+    'animations': 'animations',
+    'base': 'base',
+    'buttons': 'buttons',
+    'cards': 'cards',
+    'forms': 'forms',
+    'icons': 'icons',
+    'layout': 'layout',
+    'modals': 'modals',
+    'nav': 'nav',
+    'popovers': 'popovers',
+    'tables': 'tables',
+    'view': 'view'
   },
 
   home() {
     this.renderPage(HomePage);
   },
 
-  layout() {
-    this.renderPage(LayoutPage);
+  accordions() {
+    this.renderPage(AccordionsPage);
+  },
+
+  animations() {
+    this.renderPage(AnimationsPage);
   },
 
   base() {
     this.renderPage(BasePage);
   },
 
-  nav() {
-    this.renderPage(NavPage);
-  },
-
-  tables() {
-    this.renderPage(TablesPage);
-  },
-
-  forms() {
-    this.renderPage(FormsPage);
-  },
-
   buttons() {
     this.renderPage(ButtonsPage);
-  },
-
-  popovers() {
-    this.renderPage(PopoversPage);
-  },
-
-  modals() {
-    this.renderPage(ModalsPage);
-  },
-
-  view() {
-    this.renderPage(ViewPage);
   },
 
   cards() {
     this.renderPage(CardsPage);
   },
 
+  forms() {
+    this.renderPage(FormsPage);
+  },
+
   icons() {
     this.renderPage(IconsPage);
   },
 
-  animations() {
-    this.renderPage(AnimationsPage);
+  layout() {
+    this.renderPage(LayoutPage);
   },
-  accordions() {
-    this.renderPage(AccordionsPage);
+
+  modals() {
+    this.renderPage(ModalsPage);
+  },
+
+  nav() {
+    this.renderPage(NavPage);
+  },
+
+  popovers() {
+    this.renderPage(PopoversPage);
+  },
+
+  tables() {
+    this.renderPage(TablesPage);
+  },
+
+  view() {
+    this.renderPage(ViewPage);
   }
-
-
 });
