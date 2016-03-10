@@ -93,7 +93,7 @@ gulp.task('scss-lint', function() {
 });
 
 gulp.task('styles', function() {
-  gulp.src('./src/scss/app.scss')
+  gulp.src('./src/scss/namely-ui.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({errLogToConsole: true}))
     .pipe(cssnano({processImport: false}))

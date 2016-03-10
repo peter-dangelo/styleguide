@@ -30,7 +30,7 @@ export default Router.extend({
 
   routes: {
     '': 'home',
-    'accordions': 'accordions'
+    'accordions': 'accordions',
     'animations': 'animations',
     'base': 'base',
     'buttons': 'buttons',

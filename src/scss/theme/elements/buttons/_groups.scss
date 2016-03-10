@@ -2,7 +2,8 @@
   padding: $space-3;
   text-align: left;
 
-  button:not(.button-previous), .button:not(.button-previous) {
+  button:not(.button-previous),
+  .button:not(.button-previous) {
     margin-left: $space-2;
 
     &:first-child {
@@ -28,11 +29,13 @@
       margin-left: 0;
     }
 
-    button:not(.button-next), .button:not(.button-next) {
+    button:not(.button-next),
+    .button:not(.button-next) {
       margin-right: $space-2;
     }
 
-    button:not(.button-next):last-child, .button:not(.button-next):last-child {
+    button:not(.button-next):last-child,
+    .button:not(.button-next):last-child {
       margin-right: 0;
     }
   }

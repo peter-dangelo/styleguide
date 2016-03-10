@@ -63,7 +63,7 @@ linters:
     enabled: true
 
   NameFormat:
-    enabled: true
+    enabled: false
 
   NestingDepth:
     enabled: true

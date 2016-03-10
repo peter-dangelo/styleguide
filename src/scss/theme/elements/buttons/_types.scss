@@ -44,7 +44,8 @@
   font-weight: bold;
   padding: 0;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background: none;
     color: $blue-80;
   }
@@ -89,7 +90,8 @@
     padding: 0;
   }
 
-  &:disabled, &.button-disabled {
+  &:disabled,
+  &.button-disabled {
     color: $grey-25;
   }
 }

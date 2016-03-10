@@ -48,7 +48,7 @@ export default React.createClass({
       <div className="main flex tall">
         <View />
         <nav className="nav nav-primary col-2 tall bg-grey-95 white" role="navigation" onClick={this.handleClick}>
-          <ul className="nav-list" ref="navList">
+          <ul className="nav-list p0" ref="navList">
             <li className="nav-item py2 px3"><a className="nav-link" href="/">Home</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/layout">Layout</a></li>
             <li className="nav-item py2 px3"><a className="nav-link" href="/base">Base Styles</a></li>

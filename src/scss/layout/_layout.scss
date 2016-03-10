@@ -7,24 +7,10 @@
 
 ---------------------------*/
 
-// Grid
-//
-@import 'grid';
-
-// Flexbox
-@import 'flexbox';
-
-// Display
 @import 'display';
-
-// Floats
+@import 'flexbox';
 @import 'floats';
-
-// Overflow
+@import 'grid';
 @import 'overflow';
-
-// Positioning
 @import 'positions';
-
-// Spacing
 @import 'spacing';
