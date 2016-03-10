@@ -34,15 +34,13 @@ describe('SimpleSelect', () => {
 
   describe('#onClickValue()', () => {
     let simple_select;
-    it('toggels state.show_options', () => {
-
+    it('toggles state.show_options', () => {
       simple_select = TestUtils.renderIntoDocument(<SimpleSelect />);
-      TestUtils.Simulate.click(simple_select.refs.simpleSelectValue);
+
+      TestUtils.Simulate.click(React.findDOMNode(simple_select.refs.container));
       expect(simple_select.state.show_options).to.be.true;
 
-      simple_select = TestUtils.renderIntoDocument(<SimpleSelect />);
-      simple_select.setState({show_options: true});
-      TestUtils.Simulate.click(simple_select.refs.simpleSelectValue);
+      TestUtils.Simulate.click(React.findDOMNode(simple_select.refs.simpleSelectValue));
       expect(simple_select.state.show_options).to.be.false;
     });
   });
@@ -211,6 +209,7 @@ describe('SimpleSelect', () => {
   describe('when clicked on', () => {
     it('opens the dropdown', () => {
       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect />);
+      TestUtils.Simulate.click(simple_select.refs.simpleSelectValue);
       TestUtils.Simulate.click(simple_select.refs.container);
       expect(simple_select.state.show_options).to.be.true;
     });
@@ -222,6 +221,7 @@ describe('SimpleSelect', () => {
 
       expect(simple_select.state.show_options).to.be.false;
 
+      TestUtils.Simulate.click(simple_select.refs.simpleSelectValue);
       TestUtils.Simulate.click(simple_select.refs.container);
       expect(simple_select.state.show_options).to.be.true;
 

@@ -21,7 +21,7 @@ describe('DateField', () => {
   });
 
   describe('refs.*.value()', () => {
-    it('is set the a date string in the given dateFormat when clicked through the UI', (done) => {
+    it('is set the date string in the given dateFormat when clicked through the UI', (done) => {
       class Example extends React.Component {
         constructor(props) {
           super(props);

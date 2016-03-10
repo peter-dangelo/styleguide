@@ -182,7 +182,11 @@ export default React.createClass({
       )
     } else {
       return (
-        <Overlay content={this.renderOptions()} ref="container">
+        <Overlay 
+          content={this.renderOptions()} 
+          onClose={() => this.setState({show_options: false})}
+          onOpen={() => this.setState({show_options: true})}
+          ref="container">
         {children}
         </Overlay>
       );
