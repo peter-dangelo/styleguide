@@ -56,6 +56,7 @@ export default React.createClass({
       value: option,
       show_options: false
     });
+    this.refs.container.hide();
   },
 
   onClickOptionEmpty() {
@@ -63,31 +64,14 @@ export default React.createClass({
       value: null,
       show_options: false
     });
-  },
-
-  findParent(givenNode) {
-    let parent = givenNode.parentElement;
-    if (parent) {
-      return this.findParent(parent);
-    } else {
-      return givenNode;
-    }
-  },
-
-  attachListener(e) {
-    this.findParent(React.findDOMNode(this)).addEventListener('click', this.onDocumentClick);
-    this.setState({show_options: true});
-  },
-
-  onDocumentClick(e) {
-    if (!this.getDOMNode().contains(e.target)) {
-      this.findParent(React.findDOMNode(this)).removeEventListener('click', this.onDocumentClick);
-      this.setState({show_options: false})
-    }
+    this.refs.container.hide();
   },
 
   onClickValue() {
-    if (!this.props.disabled) this.setState({show_options: !this.state.show_options});
+    if (!this.props.disabled) {
+      this.setState({show_options: !this.state.show_options});
+      this.refs.container.hide();
+    }
   },
 
   optionsArray() {
@@ -122,14 +106,12 @@ export default React.createClass({
         var options = this.renderOptionsFromArray(optionClasses)
       }
 
-      if (this.state.show_options) {
-        return (
-          <div className={this.optionsClasses()} style={{zIndex: 1000}}>
-            {this.props.includeBlank ? emptyOption : false}
-            {options}
-          </div>
-        );
-      }
+      return (
+        <div className={this.optionsClasses()} style={{zIndex: 1000}}>
+          {this.props.includeBlank ? emptyOption : false}
+          {options}
+        </div>
+      );
     } else {
       return false;
     }
@@ -193,16 +175,27 @@ export default React.createClass({
     return classes.join(' ');
   },
 
+  renderContainer(...children) {
+    if (this.props.disabled) {
+      return (
+        <div className="relative" ref="container">{children}</div>
+      )
+    } else {
+      return (
+        <Overlay content={this.renderOptions()} ref="container">
+        {children}
+        </Overlay>
+      );
+    }
+  },
+
   render() {
-    return (
-      <div className="relative" onClick={this.state.show_options ? null : this.attachListener}>
-        <input type="hidden"
-               name={this.props.name}
-               value={this.state.value}
-               disabled={this.props.disabled} />
-        {this.renderValue()}
-        {this.renderOptions()}
-      </div>
+    return this.renderContainer(
+          <input type="hidden"
+                 name={this.props.name}
+                 value={this.state.value}
+                 disabled={this.props.disabled} />,
+          this.renderValue()
     );
   }
 });
