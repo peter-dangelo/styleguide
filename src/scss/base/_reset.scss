@@ -3,20 +3,11 @@
   reset
 --------------------------------
 
-  This reset institutes block and margin/padding resets.
+  This reset institutes block resets.
 
   Based off of Normalize
 
 ------------------------------*/
-
-* {
-  &,
-  &::before,
-  &::after {
-    margin: 0;
-    padding: 0;
-  }
-}
 
 article,
 aside,
