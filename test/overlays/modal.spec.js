@@ -27,10 +27,6 @@ describe('Modal', () => {
     TestUtils.isElement(component);
   });
 
-  it('defaults to closed if no isOpen prop is passed', () => {
-    expect(component.state.isOpen).to.be.false;
-  });
-
   it('renders child content passed in through props', () => {
     expect(modal.innerHTML).to.contain(props.children);
   });
@@ -48,10 +44,6 @@ describe('Modal', () => {
       componentOpen = TestUtils.renderIntoDocument(
         <Modal {...props} isOpen={true} disableClickBackground={true}/>
       )
-    });
-
-    it('sets the isOpen state to true if the isOpen prop is true', () => {
-      expect(componentOpen.state.isOpen).to.be.true;
     });
 
     it('adds the correct column class', () => {
