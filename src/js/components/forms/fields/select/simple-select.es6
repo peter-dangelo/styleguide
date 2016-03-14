@@ -1,5 +1,6 @@
 import React from 'react';
 import Overlay from '../../../overlays/overlay-click';
+import fuzzysearch from 'fuzzysearch';
 
 const Type = React.PropTypes;
 
@@ -8,6 +9,7 @@ export default React.createClass({
   displayName: "SimpleSelect",
 
   propTypes: {
+    canSearch: Type.bool,
     disabled: Type.bool,
     hasError: Type.bool,
     includeBlank: Type.bool,
@@ -20,6 +22,7 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
+      canSeach: false,
       hasError: false,
       onChange: function() {},
       options: []
@@ -28,6 +31,7 @@ export default React.createClass({
 
   getInitialState() {
     return {
+      searchValue: '',
       show_options: false,
       value: this.props.value || null
     };
@@ -108,7 +112,7 @@ export default React.createClass({
 
       return (
         <div className={this.optionsClasses()} style={{zIndex: 1000}}>
-          {this.props.includeBlank ? emptyOption : false}
+          {(this.props.includeBlank && this.state.searchValue.length === 0) ? emptyOption : false}
           {options}
         </div>
       );
@@ -118,14 +122,16 @@ export default React.createClass({
   },
 
   renderOptionsFromArray(classes) {
-    return this.props.options.map((option, index) => {
-      return (
-        <div className={classes + ' grey-75'}
-             key={index}
-             onClick={this.onClickOption.bind(this, option)}>
-          {option}
-        </div>
-      );
+    return this.props.options
+      .filter((option) => fuzzysearch(this.state.searchValue.toLowerCase(), option.toLowerCase()))
+      .map((option, index) => {
+        return (
+          <div className={classes + ' grey-75'}
+               key={index}
+               onClick={this.onClickOption.bind(this, option)}>
+            {option}
+          </div>
+        );
     });
   },
 
@@ -148,11 +154,51 @@ export default React.createClass({
     return (
       <div ref='simpleSelectValue' className={this.valueClasses()} onClick={this.onClickValue}>
         <div className='nowrap mr1'>
-          {value ? value : this.props.placeholder}
+          { this.props.canSearch ? <input type="text" 
+              className="p0"
+              onChange={this.handleChange}
+              onKeyDown={this.handleKey}
+              ref="searchbox"
+              style={{
+                background: "white",
+                border: "none",
+                width: "3px"
+              }}
+              value={this.state.searchValue}
+            /> : null 
+          }
+          {this.showValue(value)}
         </div>
         <div className={this.arrowClasses()} style={arrowStyle} />
       </div>
     );
+  },
+
+  showValue(value) {
+    if (this.state.searchValue.length) {
+      return false;
+    } else {
+      return value || this.props.placeholder;
+    }
+  },
+
+  handleChange(e) {
+    e.target.style.width= "auto";
+    e.target.style.width = (e.target.value.length * 10) + "px";
+
+    this.setState({
+      searchValue: e.target.value
+    });
+  },
+
+  handleKey(e) {
+    switch(e.keyCode) {
+      case 27:
+        this.onClickValue();
+        break;
+      default:
+        return true;
+    }
   },
 
   valueBorderClass() {
@@ -175,6 +221,29 @@ export default React.createClass({
     return classes.join(' ');
   },
 
+  handleOpen() {
+    this.setState({
+      show_options: true
+    });
+
+    if (this.props.canSearch) {
+      React.findDOMNode(this.refs.searchbox).focus();
+    }
+  },
+
+  handleClose() {
+    if (this.props.canSearch) {
+      const searchbox = React.findDOMNode(this.refs.searchbox);
+      searchbox.style.width = "3px";
+      searchbox.blur();
+    }
+
+    this.setState({
+      searchValue: '',
+      show_options: false
+    });
+  },
+
   renderContainer(...children) {
     if (this.props.disabled) {
       return (
@@ -184,8 +253,8 @@ export default React.createClass({
       return (
         <Overlay 
           content={this.renderOptions()} 
-          onClose={() => this.setState({show_options: false})}
-          onOpen={() => this.setState({show_options: true})}
+          onClose={this.handleClose}
+          onOpen={this.handleOpen}
           ref="container">
         {children}
         </Overlay>

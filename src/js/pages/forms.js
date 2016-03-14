@@ -126,6 +126,7 @@ export default React.createClass({
               </select>
             </div>
             <SelectField 
+              canSearch={true}
               label="React Select" 
               options={simpleSelectOptions1} 
               placeholder="- Select -" 

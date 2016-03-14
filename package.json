@@ -68,6 +68,7 @@
     "chai": "^3.4.1",
     "connect-history-api-fallback": "^1.1.0",
     "del": "^2.2.0",
+    "fuzzysearch": "^1.0.3",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.2.0",
     "gulp-connect": "^2.2.0",
