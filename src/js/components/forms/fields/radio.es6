@@ -1,3 +1,4 @@
+import assign from 'lodash.assign';
 import React from 'react';
 import { fieldProps, FieldBase} from './base.es6';
 import omit from '../../utils/omit';
@@ -74,7 +75,7 @@ class RadioField extends FieldBase {
 
 RadioField.displayName = 'RadioField';
 
-RadioField.propTypes = Object.assign({
+RadioField.propTypes = assign({
   options: Type.oneOfType([Type.object, Type.array]).isRequired,
 }, fieldProps);
 

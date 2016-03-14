@@ -1,3 +1,4 @@
+import assign from 'lodash.assign';
 import React from 'react';
 import { fieldProps, FieldBase} from './base.es6';
 import omit from '../../utils/omit';
@@ -56,7 +57,7 @@ class NumberField extends FieldBase {
 
 NumberField.displayName = "NumberField";
 
-NumberField.propTypes = Object.assign({
+NumberField.propTypes = assign({
   units: Type.string
 }, fieldProps);
 

@@ -1,3 +1,4 @@
+import assign from 'lodash.assign';
 import React from 'react';
 import DatePicker from './date-picker';
 import { fieldProps, FieldBase } from '../base.es6';
@@ -153,7 +154,7 @@ class DateField extends FieldBase {
 
 DateField.displayName = "DateField";
 
-DateField.propTypes = Object.assign({
+DateField.propTypes = assign({
   dateFormat: Type.oneOf(validDateFormats).isRequired,
   includeMaxMinBounds: Type.bool,
   maxDate: Type.oneOfType([Type.object, Type.string, Type.number]),

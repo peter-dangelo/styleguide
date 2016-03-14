@@ -1,3 +1,4 @@
+import assign from 'lodash.assign';
 import React from 'react/addons';
 import { fieldProps, FieldBase} from './base.es6';
 import omit from '../../utils/omit';
@@ -77,13 +78,13 @@ class FileField extends FieldBase {
 
 FileField.displayName = "FileField";
 
-FileField.propTypes = Object.assign({
+FileField.propTypes = assign({
   buttonClasses: Type.array,
   buttonText: Type.string,
   icon: Type.string
 }, fieldProps);
 
-FileField.defaultProps = Object.assign({
+FileField.defaultProps = assign({
   buttonClasses: ["button-secondary", "white", "rounded-2", "p1", "pointer"],
   buttonText: "Upload File"
 }, FieldBase.defaultProps);
