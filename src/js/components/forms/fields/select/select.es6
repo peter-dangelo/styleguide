@@ -16,6 +16,10 @@ class SelectField extends FieldBase {
     return ['select-field', 'relative'];
   }
 
+  value() {
+    return this.refs.simpleSelect.state.value;
+  }
+
   contents() {
     const spreadProps = omit(this.props, 'onChange');
 
@@ -28,7 +32,7 @@ class SelectField extends FieldBase {
                       {...spreadProps} />
     );
   }
-};
+}
 
 SelectField.displayName = "SelectField";
 

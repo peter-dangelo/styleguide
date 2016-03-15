@@ -196,6 +196,32 @@ describe('SimpleSelect', () => {
     expect(simple_select.state.value).to.be.null;
   });
 
+  it('sets the value to null when given value does not match any options', () => {
+    expect(
+      TestUtils.renderIntoDocument(
+        <SimpleSelect options={['foo','bar']} value={'bar'}/>
+      ).state.value
+    ).to.eql('bar');
+
+    expect(
+      TestUtils.renderIntoDocument(
+        <SimpleSelect options={{foo: 1, bar: 2}} value={'bar'}/>
+      ).state.value
+    ).to.eql('bar');
+
+    expect(
+      TestUtils.renderIntoDocument(
+        <SimpleSelect options={['foo','bar']} value={'baz'}/>
+      ).state.value
+    ).to.be.null;
+
+    expect(
+      TestUtils.renderIntoDocument(
+        <SimpleSelect options={{foo: 1, bar: 2}} value={'baz'}/>
+      ).state.value
+    ).to.be.null;
+  });
+
   describe('when clicked on', () => {
     it('opens the dropdown', () => {
       let simple_select = TestUtils.renderIntoDocument(<SimpleSelect />);
