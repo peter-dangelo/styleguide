@@ -51,7 +51,7 @@ class DateField extends FieldBase {
 
   datePicker() {
     return (
-      <DatePicker date={this.state.value ? Moment(Date.parse(this.state.value)) : Moment()}
+      <DatePicker date={this.state.value ? this.momentDate(this.state.value) : Moment()}
                   maxDate={this.boundedMaxDate()}
                   minDate={this.boundedMinDate()}
                   onChangeDate={this.handleDate} />

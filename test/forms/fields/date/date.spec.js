@@ -20,6 +20,52 @@ describe('DateField', () => {
     TestUtils.findRenderedDOMComponentWithClass(component, 'date-field');
   });
 
+  describe('Date formats', () => {
+    let renderComponent = (givenDateFormat, givenDefaultValue) => TestUtils.renderIntoDocument(
+      <DateField
+        name='startDate'
+        dateFormat={givenDateFormat}
+        defaultValue={givenDefaultValue}
+      />
+    );
+
+    let openDatePicker = (givenComponent) => givenComponent.refs.overlay.setState({isOpen: true});
+    let getMonthPicker = (givenComponent) => TestUtils.findRenderedDOMComponentWithClass(givenComponent, 'monthpicker');
+
+    it('renders successfully with US date format', () => {
+      let component = renderComponent('MM/DD/YYYY', '04/15/2014');
+      openDatePicker(component);
+      expect(
+        React.findDOMNode(getMonthPicker(component)).textContent
+      ).to.not.have.string('NaN');
+    });
+
+    it('renders successfully with international date format', () => {
+      let component = renderComponent('DD/MM/YYYY', '15/04/2014');
+      openDatePicker(component);
+      expect(
+        React.findDOMNode(getMonthPicker(component)).textContent
+      ).to.not.have.string('NaN');
+    });
+
+    it('renders successfully with ISO date format', () => {
+      let component = renderComponent('YYYY/MM/DD', '2014/04/15');
+      openDatePicker(component);
+      expect(
+        React.findDOMNode(getMonthPicker(component)).textContent
+      ).to.not.have.string('NaN');
+    });
+
+    it('renders successfully with long date format', () => {
+      let component = renderComponent('MMM D, YYYY', 'Apr 15, 2014');
+      openDatePicker(component);
+      expect(
+        React.findDOMNode(getMonthPicker(component)).textContent
+      ).to.not.have.string('NaN');
+    });
+
+  });
+
   describe('refs.*.value()', () => {
     it('is set the date string in the given dateFormat when clicked through the UI', (done) => {
       class Example extends React.Component {
