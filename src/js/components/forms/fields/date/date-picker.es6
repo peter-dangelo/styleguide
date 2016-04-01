@@ -29,6 +29,10 @@ export default React.createClass({
     };
   },
 
+  componentWillReceiveProps(nextProps) {
+    this.changeMonth(nextProps.date.month(), nextProps.date.year());
+  },
+
   changeMonth(month, year) {
     this.setState({
       visibleMonth: month,

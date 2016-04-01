@@ -18,6 +18,7 @@ class DateField extends FieldBase {
   constructor() {
     super();
     this.handleDate = this.handleDate.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   baseContainerClasses() {
@@ -51,7 +52,7 @@ class DateField extends FieldBase {
 
   datePicker() {
     return (
-      <DatePicker date={this.state.value ? Moment(Date.parse(this.state.value)) : Moment()}
+      <DatePicker date={this.state.value ? this.momentDate(this.state.value) : Moment()}
                   maxDate={this.boundedMaxDate()}
                   minDate={this.boundedMinDate()}
                   onChangeDate={this.handleDate} />
@@ -91,11 +92,16 @@ class DateField extends FieldBase {
                id={this.props.name}
                type="text"
                value={this.inputValue()} 
+               onChange={this.handleInput}
                {...spreadProps} />
         <span className='icon-calendar ml1 absolute'
               style={this.iconStyle()}></span>
       </div>
     );
+  }
+
+  handleInput(e) {
+    this.handleChange(e.target.value);
   }
 
   momentDate(date) {

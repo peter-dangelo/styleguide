@@ -114,8 +114,18 @@ export default React.createClass({
               name="firstPicker"
               ref="firstPicker"
               onChange={this._onPick}
-              placeholder="Placeholder" />
+              placeholder="MMM D, YYYY" />
             <div className='clearfix'></div>
+
+            <DateField
+              dateFormat='DD/MM/YYYY'
+              extraClasses={['py2']}
+              label='Date'
+              required={true}
+              name="firstPicker"
+              ref="firstPicker"
+              onChange={this._onPick}
+              placeholder="DD/MM/YYYY" />
             <div className="py2">
               <label className="px2 mb1">Native Select</label>
               <select>
