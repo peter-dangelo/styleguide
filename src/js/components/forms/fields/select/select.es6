@@ -1,3 +1,4 @@
+import assign from 'lodash.assign';
 import React from 'react';
 import SimpleSelect from './simple-select';
 import { fieldProps, FieldBase} from '../base.es6';
@@ -31,7 +32,7 @@ class SelectField extends FieldBase {
 
 SelectField.displayName = "SelectField";
 
-SelectField.propTypes = Object.assign({
+SelectField.propTypes = assign({
   includeBlank: Type.oneOfType([Type.bool, Type.string]),
   options: Type.oneOfType([Type.object, Type.array]).isRequired
 }, fieldProps);

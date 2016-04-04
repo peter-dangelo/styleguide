@@ -15,12 +15,15 @@ export default React.createClass({
   displayName: "Tooltip",
 
   propTypes: {
+    bottom: Type.number,
     caretPosition: Type.oneOf(caretPositions),
     closeOverlay: Type.func,
     content: Type.node.isRequired,
     extraClasses: Type.array,
-    handleClose: Type.func,
     height: Type.oneOf(['auto', Type.number]),
+    left: Type.number,
+    right: Type.number,
+    top: Type.number,
     width: Type.oneOf(['auto', Type.number]),
     zIndex: Type.number
   },
@@ -30,7 +33,6 @@ export default React.createClass({
       bottom: null,
       caretPosition: 'top-right',
       closeOverlay: function() {},
-      handleClose: function() {},
       height: 'auto',
       left: null,
       right: null,
@@ -50,7 +52,9 @@ export default React.createClass({
   classes() {
     let classes = ['absolute', 'tooltip'];
     classes.push(this.props.caretPosition);
-    if (!!this.props.extraClasses) classes.push(this.props.extraClasses);
+    if (!!this.props.extraClasses) {
+      classes = classes.concat(this.props.extraClasses);
+    }
     return classes.join(' ');
   },
 
