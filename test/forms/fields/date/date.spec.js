@@ -74,4 +74,159 @@ describe('DateField', () => {
       }, 0);
     });
   });
+
+  describe('typing input', () => {
+    it('works with "MMM D, YYYY" format' , () => {
+      let date = 'May 5, 2016';
+      let dateField = renderComponent(props);
+
+      let dateInput = TestUtils.findRenderedDOMComponentWithTag(dateField, 'input');
+      let inputNode = React.findDOMNode(dateInput);
+
+      let icon = TestUtils.findRenderedDOMComponentWithClass(dateField, 'icon-calendar');
+      let iconNode = React.findDOMNode(icon);
+      TestUtils.Simulate.click(iconNode);  
+
+      let picker = TestUtils.findRenderedDOMComponentWithClass(dateField, 'datepicker');
+
+      inputNode.value = date;
+      TestUtils.Simulate.change(inputNode);
+
+      let pickedDay = TestUtils.findRenderedDOMComponentWithClass(picker, 'bc-blue-50');
+      let pickedMonthYear = TestUtils.findRenderedDOMComponentWithClass(picker, 'monthpicker');
+
+      expect(
+        React.findDOMNode(pickedDay).children.item(0).textContent
+      ).to.equal('5');
+
+      expect(
+        React.findDOMNode(pickedMonthYear).children.item(1).textContent
+      ).to.equal('May 2016');
+
+      expect(
+        dateField.value()
+      ).to.equal(date);
+    });
+
+    it('works with "MM/DD/YYYY" format' , () => {
+      let date = '05/05/2016';
+
+      props.dateFormat = 'MM/DD/YYYY';
+      let dateField = renderComponent(props);
+
+      let dateInput = TestUtils.findRenderedDOMComponentWithTag(dateField, 'input');
+      let inputNode = React.findDOMNode(dateInput);
+
+      let icon = TestUtils.findRenderedDOMComponentWithClass(dateField, 'icon-calendar');
+      let iconNode = React.findDOMNode(icon);
+      TestUtils.Simulate.click(iconNode);  
+
+      let picker = TestUtils.findRenderedDOMComponentWithClass(dateField, 'datepicker');
+
+      inputNode.value = date;
+      TestUtils.Simulate.change(inputNode);
+
+      let pickedDay = TestUtils.findRenderedDOMComponentWithClass(picker, 'bc-blue-50');
+      let pickedMonthYear = TestUtils.findRenderedDOMComponentWithClass(picker, 'monthpicker');
+
+      expect(
+        React.findDOMNode(pickedDay).children.item(0).textContent
+      ).to.equal('5');
+
+      expect(
+        React.findDOMNode(pickedMonthYear).children.item(1).textContent
+      ).to.equal('May 2016');
+
+      expect(
+        dateField.value()
+      ).to.equal(date);
+    });
+
+    it('works with "DD/MM/YYYY" format' , () => {
+      let date = '05/05/2016';
+
+      props.dateFormat = 'DD/MM/YYYY';
+      let dateField = renderComponent(props);
+
+      let dateInput = TestUtils.findRenderedDOMComponentWithTag(dateField, 'input');
+      let inputNode = React.findDOMNode(dateInput);
+
+      let icon = TestUtils.findRenderedDOMComponentWithClass(dateField, 'icon-calendar');
+      let iconNode = React.findDOMNode(icon);
+      TestUtils.Simulate.click(iconNode);  
+
+      let picker = TestUtils.findRenderedDOMComponentWithClass(dateField, 'datepicker');
+
+      inputNode.value = date;
+      TestUtils.Simulate.change(inputNode);
+
+      let pickedDay = TestUtils.findRenderedDOMComponentWithClass(picker, 'bc-blue-50');
+      let pickedMonthYear = TestUtils.findRenderedDOMComponentWithClass(picker, 'monthpicker');
+
+      expect(
+        React.findDOMNode(pickedDay).children.item(0).textContent
+      ).to.equal('5');
+
+      expect(
+        React.findDOMNode(pickedMonthYear).children.item(1).textContent
+      ).to.equal('May 2016');
+
+      expect(
+        dateField.value()
+      ).to.equal(date);
+    });
+
+    it('works with "YYYY/MM/DD" format' , () => {
+      let date = '2016/05/05';
+
+      props.dateFormat = 'YYYY/MM/DD';
+      let dateField = renderComponent(props);
+
+      let dateInput = TestUtils.findRenderedDOMComponentWithTag(dateField, 'input');
+      let inputNode = React.findDOMNode(dateInput);
+
+      let icon = TestUtils.findRenderedDOMComponentWithClass(dateField, 'icon-calendar');
+      let iconNode = React.findDOMNode(icon);
+      TestUtils.Simulate.click(iconNode);  
+
+      let picker = TestUtils.findRenderedDOMComponentWithClass(dateField, 'datepicker');
+
+      inputNode.value = date;
+      TestUtils.Simulate.change(inputNode);
+
+      let pickedDay = TestUtils.findRenderedDOMComponentWithClass(picker, 'bc-blue-50');
+      let pickedMonthYear = TestUtils.findRenderedDOMComponentWithClass(picker, 'monthpicker');
+
+      expect(
+        React.findDOMNode(pickedDay).children.item(0).textContent
+      ).to.equal('5');
+
+      expect(
+        React.findDOMNode(pickedMonthYear).children.item(1).textContent
+      ).to.equal('May 2016');
+
+      expect(
+        dateField.value()
+      ).to.equal(date);
+    });
+  });
+
+  describe('date can be removed', () => {
+    it('returns an empty string', () => {
+      let date = 'May 5, 2016';
+
+      props.defaultValue = date;
+      let dateField = renderComponent(props);
+
+      let dateInput = TestUtils.findRenderedDOMComponentWithTag(dateField, 'input');
+      let inputNode = React.findDOMNode(dateInput);
+
+      inputNode.value = '';
+      TestUtils.Simulate.change(inputNode);
+
+      expect(
+        dateField.value()
+      ).to.equal('');
+    });
+  });
 });

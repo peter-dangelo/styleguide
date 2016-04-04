@@ -121,7 +121,6 @@ export default React.createClass({
               dateFormat='DD/MM/YYYY'
               extraClasses={['py2']}
               label='Date'
-              required={true}
               name="firstPicker"
               ref="firstPicker"
               onChange={this._onPick}
