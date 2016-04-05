@@ -29,7 +29,7 @@ export default React.createClass({
   getInitialState() {
     return {
       show_options: false,
-      value: this.props.value || null
+      value: this._parseValueFromProps() || null
     };
   },
 
@@ -40,8 +40,20 @@ export default React.createClass({
 
     if (this.props.value != prevProps.value) {
       this.setState({
-        value: this.props.value
+        value: this._parseValueFromProps()
       });
+    }
+  },
+
+  _parseValueFromProps() {
+    let {
+      options,
+      value
+    } = this.props;
+    if (this.optionsArray()) {
+      return options.filter((o) => o === value)[0];
+    } else {
+      if (value in options) return value;
     }
   },
 
@@ -100,10 +112,11 @@ export default React.createClass({
         </div>
       );
 
+      let options;
       if (this.optionsObject()) {
-        var options = this.renderOptionsFromObject(optionClasses);
+        options = this.renderOptionsFromObject(optionClasses);
       } else {
-        var options = this.renderOptionsFromArray(optionClasses)
+        options = this.renderOptionsFromArray(optionClasses);
       }
 
       return (
@@ -179,7 +192,7 @@ export default React.createClass({
     if (this.props.disabled) {
       return (
         <div className="relative" ref="container">{children}</div>
-      )
+      );
     } else {
       return (
         <Overlay 
