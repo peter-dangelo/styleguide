@@ -1,3 +1,4 @@
+import assign from 'lodash.assign';
 import React from 'react';
 import { fieldProps, FieldBase} from './base.es6';
 import omit from '../../utils/omit';
@@ -94,11 +95,11 @@ class CheckboxField extends FieldBase {
 
 CheckboxField.displayName = 'CheckboxField';
 
-CheckboxField.propTypes = Object.assign({
+CheckboxField.propTypes = assign({
   options: Type.oneOfType([Type.object, Type.array]).isRequired,
 }, fieldProps);
 
-CheckboxField.defaultProps = Object.assign({
+CheckboxField.defaultProps = assign({
   defaultValue: []
 }, FieldBase.defaultProps);
 

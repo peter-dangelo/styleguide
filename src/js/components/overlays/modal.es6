@@ -12,21 +12,15 @@ export default React.createClass({
     contentHeight: Type.number,
     contentMinHeight: Type.number,
     disableClickBackground: Type.bool,
-    closeModal: Type.func,
-    isOpen: Type.bool
-  },
-
-  getInitialState() {
-    return {
-      isOpen: this.props.isOpen || false
-    }
+    closeModal: Type.func
   },
 
   getDefaultProps() {
     return {
       zIndex: 1000,
       contentColumns: 9,
-      disableClickBackground: false
+      disableClickBackground: false,
+      closeModal: function() {}
     }
   },
 
