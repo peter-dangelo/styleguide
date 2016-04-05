@@ -1,60 +1,106 @@
+import assign from 'lodash.assign';
 import React from 'react';
+import { fieldProps, FieldBase} from './base.es6';
+import omit from '../../utils/omit';
 
 const Type = React.PropTypes;
 
-export default React.createClass({
+class CheckboxField extends FieldBase {
 
-  displayName: "CheckboxField",
+  constructor() {
+    super();
+    this.onChange = this.onChange.bind(this);
+    this.getOptions = this.getOptions.bind(this);
+    this.renderOption = this.renderOption.bind(this);
+  }
 
-  propTypes: {
-    disabled: Type.bool,
-    extraClasses: Type.arrayOf(Type.string),
-    label: Type.string.isRequired,
-    placeholder: Type.string,
-    readOnly: Type.bool,
-    checked: Type.bool
-  },
-
-  getDefaultProps() {
-    return {
-      checked: false,
-      disabled: false,
-      readonly: false
-    }
-  },
-
-  getInitialState() {
-    return { isChecked: this.props.checked };
-  },
+  baseContainerClasses() {
+    return ['checkbox-field'];
+  }
 
   onChange() {
-    if(!this.props.readOnly) {
-      this.setState({isChecked: !this.state.isChecked})
-    }
-  },
+    const values = [];
+    const {
+      elements
+    } = React.findDOMNode(this.refs.fieldset);
 
-  classes() {
-    var classes = ['checkbox-field'];
-    if(this.props.readOnly) {
-      classes.push('read-only');
-    }
-    if(this.props.disabled) {
-      classes.push('disabled');
-    }
-    classes.push(this.props.extraClasses);
-    return classes.join(' ');
-  },
+    for (let i = 0, len = elements.length; i < len; i++) {
+      let {
+        checked,
+        value
+      } = elements.item(i);
 
-  render() {
-    return <div className={this.classes()}>
-        <label>
-          <input checked={this.state.isChecked}
-                 disabled={this.props.disabled}
-                 onChange={this.onChange}
-                 readOnly={this.props.readOnly}
-                 type="checkbox" />
-          <span className="label-right">{this.props.label}</span>
-        </label>
-      </div>
+      if (checked) {
+        values.push(value);
+      }
+    }
+
+    this.handleChange(values);
   }
-});
+
+  renderOption(value, index, label) {
+    const {
+      defaultValue,
+      readOnly
+    } = this.props;
+
+    // if options is an Array, the third argument in .map is that Array
+    if (Array.isArray(label)) {
+      label = null;
+    }
+
+    return (
+      <label key={`${value}-${index}`} className="block py1">
+        <input 
+          checked={readOnly ? defaultValue.includes(value) : null}
+          defaultChecked={!readOnly && defaultValue.includes(value)}
+          readOnly={readOnly}
+          type="checkbox"
+          value={value}
+        />
+        <span className="label-right">{label || value}</span>
+      </label>
+    );
+  }
+
+  getOptions() {
+    const {
+      options
+    } = this.props;
+
+    if (Array.isArray(options)) {
+      return options.map(this.renderOption);
+    } else {
+      return Object.keys(options).map((value, index) => {
+        return this.renderOption(value, index, options[value]);
+      });
+    }
+  }
+
+  contents() {
+    const spreadProps = omit(this.props, 'onChange');
+
+    return (
+      <fieldset 
+        id={this.props.name} 
+        onChange={this.onChange}
+        ref="fieldset"
+        {...spreadProps}
+      >
+        {this.getOptions()}
+      </fieldset>
+    );
+  }
+};
+
+CheckboxField.displayName = 'CheckboxField';
+
+CheckboxField.propTypes = assign({
+  options: Type.oneOfType([Type.object, Type.array]).isRequired,
+}, fieldProps);
+
+CheckboxField.defaultProps = assign({
+  defaultValue: []
+}, FieldBase.defaultProps);
+
+export default CheckboxField;

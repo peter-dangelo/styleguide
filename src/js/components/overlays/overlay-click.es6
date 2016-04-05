@@ -30,12 +30,18 @@ export default React.createClass({
     return classes.join(' ');
   },
 
-  componentDidMount() {
-    document.addEventListener('click', this.handleDocumentClick);
+  findParent(givenNode) {
+    let parent = givenNode.parentElement;
+    if (parent) {
+      return this.findParent(parent);
+    } else {
+      return givenNode;
+    }
   },
 
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleDocumentClick);
+  attachParentListener(e) {
+    this.findParent(React.findDOMNode(this)).addEventListener('click', this.handleDocumentClick);
+    this.show();
   },
 
   content() {
@@ -47,15 +53,14 @@ export default React.createClass({
   hide() {
     this.props.onClose();
     this.setState({isOpen: false});
+    this.findParent(React.findDOMNode(this)).removeEventListener('click', this.handleDocumentClick);
   },
 
   handleDocumentClick(e) {
-    if (this.getDOMNode().contains(e.target)) {
-      if (!this.state.isOpen) {
-        this.show();
-      } else {
-        this.props.onClick();
-      }
+    let node = React.findDOMNode(this);
+
+    if (node && node.contains(e.target)) {
+      this.props.onClick();
     } else {
       this.hide();
     }
@@ -68,7 +73,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div className={this.classes()} >
+      <div className={this.classes()} onClick={this.state.isOpen ? null : this.attachParentListener}>
         {this.props.children}
         {this.content()}
       </div>

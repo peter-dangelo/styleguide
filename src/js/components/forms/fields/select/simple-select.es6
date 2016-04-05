@@ -29,20 +29,32 @@ export default React.createClass({
   getInitialState() {
     return {
       show_options: false,
-      value: this.props.value || null
+      value: this._parseValueFromProps() || null
     };
   },
 
-  componentDidMount() {
-    document.addEventListener('click', this.onDocumentClick);
-  },
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.onDocumentClick);
-  },
-
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.value != prevState.value) this.props.onChange();
+    if (this.state.value != prevState.value) {
+      this.props.onChange(this.state.value);
+    }
+
+    if (this.props.value != prevProps.value) {
+      this.setState({
+        value: this._parseValueFromProps()
+      });
+    }
+  },
+
+  _parseValueFromProps() {
+    let {
+      options,
+      value
+    } = this.props;
+    if (this.optionsArray()) {
+      return options.filter((o) => o === value)[0];
+    } else {
+      if (value in options) return value;
+    }
   },
 
   arrowClasses() {
@@ -56,6 +68,7 @@ export default React.createClass({
       value: option,
       show_options: false
     });
+    this.refs.container.hide();
   },
 
   onClickOptionEmpty() {
@@ -63,16 +76,14 @@ export default React.createClass({
       value: null,
       show_options: false
     });
-  },
-
-  onDocumentClick(e) {
-    if (!this.getDOMNode().contains(e.target)) {
-      this.setState({show_options: false})
-    }
+    this.refs.container.hide();
   },
 
   onClickValue() {
-    if (!this.props.disabled) this.setState({show_options: !this.state.show_options});
+    if (!this.props.disabled) {
+      this.setState({show_options: !this.state.show_options});
+      this.refs.container.hide();
+    }
   },
 
   optionsArray() {
@@ -93,7 +104,7 @@ export default React.createClass({
 
   renderOptions() {
     if (!this.props.disabled) {
-      let optionClasses = 'simple-select-option bg-white nowrap option pointer py1 px3';
+      let optionClasses = 'simple-select-option hover-row bg-white nowrap option pointer py1 px3';
 
       let emptyOption = (
         <div className={optionClasses+" grey-50"} onClick={this.onClickOptionEmpty}>
@@ -101,20 +112,19 @@ export default React.createClass({
         </div>
       );
 
+      let options;
       if (this.optionsObject()) {
-        var options = this.renderOptionsFromObject(optionClasses);
+        options = this.renderOptionsFromObject(optionClasses);
       } else {
-        var options = this.renderOptionsFromArray(optionClasses)
+        options = this.renderOptionsFromArray(optionClasses);
       }
 
-      if (this.state.show_options) {
-        return (
-          <div className={this.optionsClasses()} style={{zIndex: 1000}}>
-            {this.props.includeBlank ? emptyOption : false}
-            {options}
-          </div>
-        );
-      }
+      return (
+        <div className={this.optionsClasses()} style={{zIndex: 1000}}>
+          {this.props.includeBlank ? emptyOption : false}
+          {options}
+        </div>
+      );
     } else {
       return false;
     }
@@ -178,16 +188,31 @@ export default React.createClass({
     return classes.join(' ');
   },
 
+  renderContainer(...children) {
+    if (this.props.disabled) {
+      return (
+        <div className="relative" ref="container">{children}</div>
+      );
+    } else {
+      return (
+        <Overlay 
+          content={this.renderOptions()} 
+          onClose={() => this.setState({show_options: false})}
+          onOpen={() => this.setState({show_options: true})}
+          ref="container">
+        {children}
+        </Overlay>
+      );
+    }
+  },
+
   render() {
-    return (
-      <div className="relative">
-        <input type="hidden"
-               name={this.props.name}
-               value={this.state.value}
-               disabled={this.props.disabled} />
-        {this.renderValue()}
-        {this.renderOptions()}
-      </div>
+    return this.renderContainer(
+          <input type="hidden"
+                 name={this.props.name}
+                 value={this.state.value}
+                 disabled={this.props.disabled} />,
+          this.renderValue()
     );
   }
 });

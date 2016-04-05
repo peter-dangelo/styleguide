@@ -53,6 +53,7 @@
     "alt": "^0.17.1",
     "core-js": "^0.9.6",
     "lodash": "^4.0.1",
+    "lodash.assign": "^3.2.0",
     "moment": "2.10.3",
     "react": "0.13.3",
     "react-select": "^0.4.9"
