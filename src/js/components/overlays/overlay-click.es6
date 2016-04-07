@@ -53,14 +53,16 @@ export default React.createClass({
   hide() {
     this.props.onClose();
     this.setState({isOpen: false});
+    this.findParent(React.findDOMNode(this)).removeEventListener('click', this.handleDocumentClick);
   },
 
   handleDocumentClick(e) {
-    if (React.findDOMNode(this).contains(e.target)) {
+    let node = React.findDOMNode(this);
+
+    if (node && node.contains(e.target)) {
       this.props.onClick();
     } else {
       this.hide();
-      this.findParent(React.findDOMNode(this)).removeEventListener('click', this.handleDocumentClick);
     }
   },
 
