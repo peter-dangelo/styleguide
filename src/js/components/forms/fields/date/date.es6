@@ -83,7 +83,27 @@ class DateField extends FieldBase {
     return validDateFormats.indexOf(this.props.dateFormat) != -1;
   }
 
-  triggerContent() {
+  renderIcon() {
+    const icon = <span className='icon-calendar ml1'></span>;
+
+    if (!this.disabled()) {
+      return (
+        <div className='absolute' style={this.iconStyle()}>
+          <Overlay content={this.tooltip()} ref="overlay">
+            {icon}
+          </Overlay>
+        </div>
+      );
+    } else {
+      return (
+        <div className='absolute' style={this.iconStyle()}>
+          {icon}
+        </div>
+      )
+    }
+  }
+
+  renderInput() {
     const spreadProps = omit(this.props, 'onChange', 'defaultValue');
 
     return (
@@ -94,8 +114,7 @@ class DateField extends FieldBase {
                value={this.inputValue()} 
                onChange={this.handleInput}
                {...spreadProps} />
-        <span className='icon-calendar ml1 absolute'
-              style={this.iconStyle()}></span>
+        {this.renderIcon()}       
       </div>
     );
   }
@@ -146,15 +165,7 @@ class DateField extends FieldBase {
   }
 
   contents() {
-    if (!this.disabled()) {
-      return (
-        <Overlay content={this.tooltip()} ref="overlay">
-          {this.triggerContent()}
-        </Overlay>
-      );
-    } else {
-      return this.triggerContent();
-    }
+    return this.renderInput();
   }
 };
 
