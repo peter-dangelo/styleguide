@@ -207,6 +207,7 @@ select {
     background-color: $white;
     border: 1px solid $grey-15;
     border-radius: 3px;
+    box-sizing: border-box;
     color: $grey-50;
     content: '';
     cursor: pointer;
@@ -249,9 +250,9 @@ select {
     &::before {
       color: $grey-50;
       font-size: $h6;
-      left: 3px;
+      left: 2px;
       position: absolute;
-      top: 4px;
+      top: 3px;
       z-index: 2;
     }
   }
@@ -294,7 +295,7 @@ select {
   }
 
   &:disabled:hover::after {
-    border-color: $grey-15;
+    border-color: $grey-10;
   }
 
   &:hover::after {

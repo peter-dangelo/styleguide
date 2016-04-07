@@ -1,8 +1,9 @@
 .DS_Store
 dump.rdb
+namely-ui.sublime-workspace
 node_modules/
 npm-debug.log*
-public/app.css
-public/app.css.map
+public/namely-ui.css
+public/namely-ui.css.map
 public/app.js
 public/fonts/

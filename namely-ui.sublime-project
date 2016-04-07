@@ -3,7 +3,7 @@
     [
       {
         "path": ".",
-        "folder_exclude_patterns": ["dist", "node_modules", "public/fonts"],
+        "folder_exclude_patterns": ["dist", "node_modules", "public"],
         "file_exclude_patterns": ["app.css, app.css.map"]
       }
     ],

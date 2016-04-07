@@ -6,4 +6,6 @@
 // Theme styles, wrapped in a namespace to help reduce side effects
 .namely-ui {
   @import './src/scss/theme/theme';
+
+  font-family: $sans-family;
 }
