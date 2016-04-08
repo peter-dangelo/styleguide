@@ -7,5 +7,5 @@ The main ```namely-ui.scss``` file acts as an collection of ```@import```s from 
 - base
 - elements
 - layout
-- components
+- modules
 
