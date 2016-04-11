@@ -145,8 +145,8 @@ class DateField extends FieldBase {
     return (
       <Tooltip content={this.datePicker()}
                position='top-right'
-               right='-24px'
-               top='37px' />
+               right={-32}
+               top={32} />
     );
   }
 
