@@ -1,0 +1,80 @@
+.sidenav {
+  font-size: 1rem;
+  padding-right: $space-3;
+}
+
+.sidenav-section {
+  margin-bottom: $space-3;
+}
+
+.sidenav-head {
+  border-bottom: 3px solid $grey-10;
+  color: $grey-90;
+  display: block;
+  font-weight: bold;
+  padding: $space-1 $space-2;
+}
+
+.sidenav-link {
+  // @include transition(color $default-duration $default-ease-function);
+  border-bottom: 1px solid $grey-10;
+  box-sizing: border-box;
+  display: block;
+  padding: $space-2;
+  position: relative;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.sidenav-state-link {
+  @extend .sidenav-link;
+
+  &.on {
+    background: $grey-10;
+    color: $blue-80;
+  }
+
+  &.on::after {
+    @include icon($icon_chevron_right);
+    color: $grey-25;
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top: 14px;
+  }
+}
+
+.sidenav-icon-row {
+  @extend .sidenav-row;
+  padding: $space-3 $space-3 $space-3 $space-5;
+
+  .ic {
+    // @include transition(color $default-duration $default-ease-function);
+    color: $blue-50;
+    font-size: 17px;
+    height: 25px;
+    left: 0px;
+    position: absolute;
+    text-align: center;
+    top: 12px;
+    width: 40px;
+  }
+
+  .tip:hover .ic {
+    color: $blue-80;
+  }
+}
+
+.sidenav-title {
+  color: $blue-70;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 115px;
+
+  &:hover {
+    color: $blue-80;
+  }
+}
