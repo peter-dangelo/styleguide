@@ -44,10 +44,8 @@ a {
   }
 }
 
-a.back {
+.back {
   @include icon(arrow-left);
-
-  color: $blue-70;
   font-size: $h6;
   font-weight: bold;
   text-transform: uppercase;
@@ -57,7 +55,6 @@ a.back {
   }
 
   &::before {
-
     font-size: 8px;
     margin-right: $space-1;
   }

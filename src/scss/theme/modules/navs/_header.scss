@@ -8,10 +8,10 @@ header {
   span {
     box-sizing: border-box;
     color: $grey-25;
-    font-size: $h4;
+    font-size: 18px;
     font-weight: bold;
-    margin-right: $space-2;
-    padding: $space-2 $space-2 $space-1;
+    margin-right: 10px;
+    padding: 12px 10px 6px;
   }
 
   a {
@@ -35,9 +35,12 @@ header {
 }
 
 .header-icon {
-  background-size: $space-5 $space-5;
-  background: rgba($white, 0) url(../images/logo.svg) no-repeat;
+  background: rgba($white, 0) url('../images/logo.svg') no-repeat;
+  background-size: 40px 37px;
+  box-sizing: content-box;
   fill: $blue-70;
-  height: $space-5;
-  width: $space-5;
+  height: 40px;
+  margin: 5px 15px 2px 0px;
+  padding: 0;
+  width: 37px;
 }
