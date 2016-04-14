@@ -1,3 +1,14 @@
+/**
+
+  sidenav
+--------------------------------
+
+  Duplicated from HCM
+
+  TODO: animations
+
+------------------------------*/
+
 .sidenav {
   font-size: 1rem;
   padding-right: $space-3;
@@ -15,7 +26,7 @@
   padding: $space-1 $space-2;
 }
 
-.sidenav-link {
+%sidenav-link {
   // @include transition(color $default-duration $default-ease-function);
   border-bottom: 1px solid $grey-10;
   box-sizing: border-box;
@@ -28,8 +39,12 @@
   }
 }
 
+.sidenav-link {
+  @extend %sidenav-link;
+}
+
 .sidenav-state-link {
-  @extend .sidenav-link;
+  @extend %sidenav-link;
 
   &.on {
     background: $grey-10;
@@ -47,7 +62,7 @@
 }
 
 .sidenav-icon-row {
-  @extend .sidenav-row;
+  @extend %sidenav-row;
   padding: $space-3 $space-3 $space-3 $space-5;
 
   .ic {

@@ -1,21 +1,44 @@
+/**
+
+  flash messaging
+--------------------------------
+
+  #message-bar, .message, .alert, .notice are used by HCM
+
+  #flash, .flash, .warning, .fatal, .info
+  are used by the sinatra-flash gem in multiple services
+
+  TODO: Add a neutral messaging grade to HCM and
+        standardize classes
+
+------------------------------*/
+
+#flash,
 #message-bar {
-  width: 100%;
   padding-bottom: $space-2;
+  width: 100%;
 }
 
+.flash,
 .message {
   background: $grey-90;
   color: $white;
   cursor: pointer;
   font-size: 16px;
-  line-height: 20px;
+  line-height: $space-2;
   margin: 0 auto;
   text-align: center;
   width: 100%;
 
-  &.alert {
+  &.alert,
+  &.fatal,
+  &.warning {
     background: $orange;
     color: $white;
+  }
+
+  &.info {
+    color: $grey-15;
   }
 
   &.notice {
