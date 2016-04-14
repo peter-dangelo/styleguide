@@ -11,7 +11,6 @@ import {
 import EditLabel from '../components/forms/edit-label';
 import Moment from 'moment';
 import React from 'react';
-import Select from 'react-select';
 import Styleguide from '../styleguide';
 
 var options = [
@@ -125,48 +124,48 @@ export default React.createClass({
                 <option>4</option>
               </select>
             </div>
-            <SelectField 
-              label="React Select" 
-              options={simpleSelectOptions1} 
-              placeholder="- Select -" 
+            <SelectField
+              label="React Select"
+              options={simpleSelectOptions1}
+              placeholder="- Select -"
               includeBlank={true}
-              extraClasses={['py2']} 
-              onChange={this._onSelectChange}  
-              ref="firstSelect" 
-              name="firstSelect" 
+              extraClasses={['py2']}
+              onChange={this._onSelectChange}
+              ref="firstSelect"
+              name="firstSelect"
               required={true}
             />
             <TextAreaField label="Textarea" extraClasses={['py2']} onChange={_onChange} onBlur={_onChange} placeholder="Some placeholder text" />
             <TextAreaField label="Textarea Expandable" expandable={true} extraClasses={['py2']} onChange={_onChange} />
-            <CheckboxField 
-              label="Checkbox" 
-              extraClasses={['py2']} 
-              name="firstCheck" 
-              onChange={_onChange} 
+            <CheckboxField
+              label="Checkbox"
+              extraClasses={['py2']}
+              name="firstCheck"
+              onChange={_onChange}
               options={['test1', 'test2']}
               defaultValue={['test1']}
             />
-            <CheckboxField 
-              label="Checkbox With Object of Options" 
-              extraClasses={['py2']} 
-              name="firstCheckOptionsObject" 
-              onChange={_onChange} 
+            <CheckboxField
+              label="Checkbox With Object of Options"
+              extraClasses={['py2']}
+              name="firstCheckOptionsObject"
+              onChange={_onChange}
               options={{
-                'test1': 'Testing', 
+                'test1': 'Testing',
                 'test2': 'Testing Again'
               }}
               defaultValue={['test1']}
             />
-            <CheckboxField 
-              label="Checked read-only" 
+            <CheckboxField
+              label="Checked read-only"
               readOnly={true}
               extraClasses={['py2']}
               options={['test1', 'test2']}
               defaultValue={["test1"]}
             />
-            <RadioField 
-              name="radios1" 
-              label="Radios" 
+            <RadioField
+              name="radios1"
+              label="Radios"
               extraClasses={['py2']}
               onChange={_onChange}
               options={['Radio 1', 'Radio 2']}
@@ -188,15 +187,15 @@ export default React.createClass({
             </div>
             <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
             <TextAreaField label="Textarea"  disabled={true} extraClasses={['py2']} />
-            <CheckboxField 
-              label="Checkbox" 
-              extraClasses={['py2']} 
+            <CheckboxField
+              label="Checkbox"
+              extraClasses={['py2']}
               options={['test1']}
               disabled={true}
             />
-            <RadioField 
-              name="radios2" 
-              label="Radios" 
+            <RadioField
+              name="radios2"
+              label="Radios"
               extraClasses={['py2']}
               options={['Radio 1', 'Radio 2']}
               disabled={true}
@@ -220,23 +219,23 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextAreaField label="Textarea" extraClasses={['py2']}/>
-              <CheckboxField 
-                label="Checkbox" 
-                extraClasses={['py2']} 
-                name="firstCheck" 
-                onChange={_onChange} 
+              <CheckboxField
+                label="Checkbox"
+                extraClasses={['py2']}
+                name="firstCheck"
+                onChange={_onChange}
                 options={['test1', 'test2']}
               />
-              <CheckboxField 
-                label="Checked read-only" 
+              <CheckboxField
+                label="Checked read-only"
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
                 defaultValue={["test1"]}
               />
-              <RadioField 
-                name="radios3" 
-                label="Radios" 
+              <RadioField
+                name="radios3"
+                label="Radios"
                 extraClasses={['py2']}
                 options={['Radio 1', 'Radio 2']}
               />
@@ -257,23 +256,23 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
-              <CheckboxField 
-                label="Checkbox" 
-                extraClasses={['py2']} 
-                name="firstCheck" 
-                onChange={_onChange} 
+              <CheckboxField
+                label="Checkbox"
+                extraClasses={['py2']}
+                name="firstCheck"
+                onChange={_onChange}
                 options={['test1', 'test2']}
               />
-              <CheckboxField 
-                label="Checked read-only" 
+              <CheckboxField
+                label="Checked read-only"
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
                 defaultValue={["test1"]}
               />
-              <RadioField 
-                name="radios2" 
-                label="Radios" 
+              <RadioField
+                name="radios2"
+                label="Radios"
                 extraClasses={['py2']}
                 options={['Radio 1', 'Radio 2']}
                 disabled={true}
@@ -298,23 +297,23 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} promptText="- Select -" extraClasses={['py2']}/>
               <TextAreaField label="Textarea" extraClasses={['py2']}/>
-              <CheckboxField 
-                label="Checkbox" 
-                extraClasses={['py2']} 
-                name="firstCheck" 
-                onChange={_onChange} 
+              <CheckboxField
+                label="Checkbox"
+                extraClasses={['py2']}
+                name="firstCheck"
+                onChange={_onChange}
                 options={['test1', 'test2']}
               />
-              <CheckboxField 
-                label="Checked read-only" 
+              <CheckboxField
+                label="Checked read-only"
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
                 defaultValue={["test1"]}
               />
-              <RadioField 
-                name="radios4" 
-                label="Radios" 
+              <RadioField
+                name="radios4"
+                label="Radios"
                 extraClasses={['py2']}
                 options={['Radio 1', 'Radio 2']}
               />
@@ -335,23 +334,23 @@ export default React.createClass({
               </div>
               <SelectField label="Simple Select" options={simpleSelectOptions1} disabled={true} extraClasses={['py2']}/>
               <TextAreaField label="Textarea" disabled={true} extraClasses={['py2']} />
-              <CheckboxField 
-                label="Checkbox" 
-                extraClasses={['py2']} 
-                name="firstCheck" 
-                onChange={_onChange} 
+              <CheckboxField
+                label="Checkbox"
+                extraClasses={['py2']}
+                name="firstCheck"
+                onChange={_onChange}
                 options={['test1', 'test2']}
               />
-              <CheckboxField 
-                label="Checked read-only" 
+              <CheckboxField
+                label="Checked read-only"
                 readOnly={true}
                 extraClasses={['py2']}
                 options={['test1', 'test2']}
                 defaultValue={["test1"]}
               />
-              <RadioField 
-                name="radios2" 
-                label="Radios" 
+              <RadioField
+                name="radios2"
+                label="Radios"
                 extraClasses={['py2']}
                 options={['Radio 1', 'Radio 2']}
                 disabled={true}
@@ -360,39 +359,6 @@ export default React.createClass({
 
             <hr />
 
-            <h3>React Select</h3>
-            <p><a href="https://github.com/JedWatson/react-select">https://github.com/JedWatson/react-select</a></p>
-            <div className="col-3 left mr2">
-              <label className="px2 mb1">Default</label>
-              <Select
-                searchable={false}
-                name="form-field-nameczXCzx"
-                options={options}
-                onChange={_onChange}
-                placeholder="- Select Office -"
-              />
-            </div>
-            <div className="col-3 left mr2">
-              <label className="px2 mb1">Multi</label>
-              <Select
-                searchable={false}
-                multi={true}
-                name="form-field-nameczXCzx"
-                options={options}
-                onChange={_onChange}
-                placeholder="- Select Office -"
-              />
-            </div>
-            <div className="col-3 left mr2">
-              <label className="px2 mb1">Searchable (like Chosen)</label>
-              <Select
-                name="form-field-nameczXCzx"
-                options={options}
-                onChange={_onChange}
-                placeholder="- Select Office -"
-                onFocus={_onFocus}
-              />
-            </div>
           </form>
           <hr />
         </div>
@@ -497,14 +463,14 @@ export default React.createClass({
           </div>
 
           <div className="mt3">
-            <FileField 
+            <FileField
               accept="image/png, image/jpeg, image/gif"
-              buttonText="Pick An Image" 
-              buttonClasses={["button-link", "pointer"]} 
-              icon="paperclip" 
-              onChange={_onChange} 
-              label="Only Images Allowed" 
-              name="fileOnlyImages" 
+              buttonText="Pick An Image"
+              buttonClasses={["button-link", "pointer"]}
+              icon="paperclip"
+              onChange={_onChange}
+              label="Only Images Allowed"
+              name="fileOnlyImages"
             />
           </div>
         </div>
