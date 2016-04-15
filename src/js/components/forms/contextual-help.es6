@@ -20,8 +20,8 @@ class ContextualHelp extends React.Component {
     return (
       <Tooltip
         content={this.props.children}
-        top='30px'
-        left='-15px'
+        top='28px'
+        left='-13px'
       />
     );
   }

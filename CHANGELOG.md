@@ -1,8 +1,14 @@
 **v0.3.1**:
 
-- separates css theme from utility classes
-- removes unused react-select
-- slightly improves appearance of checkboxes, contextual help icons
+- separating css theme from utility classes
+- removing unused react-select
+- correcting hover border-color bug for inputs
+- correcting border-box for inputs for matching sizing units
+- adjusting check size to center
+- adding back link style module
+- adding nav style modules
+- adding flash messaging style module
+- supporting button styles for input[type="submit"] and input[type="button"]
 
 **v0.3.0**:
 

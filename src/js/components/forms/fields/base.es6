@@ -73,7 +73,7 @@ class FieldBase extends React.Component {
     if (this.props.contextualHelp) {
       return (
         <ContextualHelp extraClasses={["pointer", "mxn1"]}>
-          <div>{this.props.contextualHelp}</div>
+          <p className="white m0">{this.props.contextualHelp}</p>
         </ContextualHelp>
       );
     }
