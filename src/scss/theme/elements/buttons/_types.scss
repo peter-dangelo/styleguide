@@ -1,6 +1,7 @@
 // Secondary Button
 .button-secondary {
   background: $blue-50;
+  color: $white;
 
   &:hover {
     background: $blue-70;
@@ -13,6 +14,7 @@
 
 .button-baby {
   background: $blue-25;
+  color: $white;
 
   &:hover {
     background: $blue-70;
@@ -26,6 +28,7 @@
 // Danger Button
 .button-danger {
   background: $orange;
+  color: $white;
 
   &:hover {
     background: $orange-shade;

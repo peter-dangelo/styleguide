@@ -41,7 +41,7 @@ class FileField extends FieldBase {
       fileName: null,
       previewing: false
     });
-    
+
     this.handleChange(null);
   }
 
@@ -64,11 +64,11 @@ class FileField extends FieldBase {
             {this.props.icon ? <span className={`icon-${this.props.icon} mr1`}></span> : null}
             {this.props.buttonText}
           </label>
-          <input 
-            type="file" 
-            onChange={this.onChange} 
-            id={this.props.name} 
-            style={{height: 0, opacity: 0, width:0}} 
+          <input
+            type="file"
+            onChange={this.onChange}
+            id={this.props.name}
+            style={{height: 0, opacity: 0, width:0}}
             {...spreadProps} />
         </div>
       );
