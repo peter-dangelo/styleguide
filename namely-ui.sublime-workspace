@@ -1,0 +1,1905 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"hand",
+				"handleAddType"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"bro",
+				"browserify"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"contextual",
+				"contextualHelp"
+			],
+			[
+				"prop",
+				"propTypes"
+			],
+			[
+				"read",
+				"readOnly"
+			],
+			[
+				"_hand",
+				"_handleKeyUp"
+			],
+			[
+				"_handle",
+				"_handleChange"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"radio",
+				"radio-field"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"contextualH",
+				"ContextualHelp"
+			],
+			[
+				"handl",
+				"handleClick"
+			],
+			[
+				"onc",
+				"onChangeDate"
+			],
+			[
+				"overl",
+				"overlayContent"
+			],
+			[
+				"position",
+				"positionTooltip"
+			],
+			[
+				"company",
+				"company_can_view_reports"
+			],
+			[
+				"accesS",
+				"access_role"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/scss/theme/elements/_links.scss",
+			"settings":
+			{
+				"buffer_size": 820,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/scss/theme/modules/navs/_header.scss",
+			"settings":
+			{
+				"buffer_size": 678,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 150,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/scss/base/_sizing.scss",
+			"settings":
+			{
+				"buffer_size": 920,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/scss/base/_icons.scss",
+			"settings":
+			{
+				"buffer_size": 10226,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/scss/theme/modules/navs/_sidenav.scss",
+			"settings":
+			{
+				"buffer_size": 1330,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 224 files for \"secondary-nav\"\n\n/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules/navs/_secondary_nav.scss:\n    1: .secondary-nav {\n    2    border-bottom: 1px solid $grey-15;\n    3    margin-bottom: $space-3;\n\n1 match in 1 file\n\n\nSearching 224 files for \"include icon\"\n\n/Users/jasonfellows/Repos/styleguide/src/lib/scss/_icons-template.scss:\n   41  \n   42  <% _.each(glyphs, function(glyph) { %>.icon-<%= glyph.fileName %> {\n   43:   @include icon(<%= glyph.fileName %>);\n   44  }\n   45  \n\n/Users/jasonfellows/Repos/styleguide/src/scss/base/_icons.scss:\n  333  \n  334  .icon-alert {\n  335:   @include icon(alert);\n  336  }\n  337  \n  338  .icon-api {\n  339:   @include icon(api);\n  340  }\n  341  \n  342  .icon-arrow-double {\n  343:   @include icon(arrow-double);\n  344  }\n  345  \n  346  .icon-arrow-down {\n  347:   @include icon(arrow-down);\n  348  }\n  349  \n  350  .icon-arrow-left {\n  351:   @include icon(arrow-left);\n  352  }\n  353  \n  354  .icon-arrow-right {\n  355:   @include icon(arrow-right);\n  356  }\n  357  \n  358  .icon-arrow-up {\n  359:   @include icon(arrow-up);\n  360  }\n  361  \n  362  .icon-asterisk {\n  363:   @include icon(asterisk);\n  364  }\n  365  \n  366  .icon-bell {\n  367:   @include icon(bell);\n  368  }\n  369  \n  370  .icon-cake {\n  371:   @include icon(cake);\n  372  }\n  373  \n  374  .icon-calendar {\n  375:   @include icon(calendar);\n  376  }\n  377  \n  378  .icon-check {\n  379:   @include icon(check);\n  380  }\n  381  \n  382  .icon-chevron-left {\n  383:   @include icon(chevron-left);\n  384  }\n  385  \n  386  .icon-chevron-right {\n  387:   @include icon(chevron-right);\n  388  }\n  389  \n  390  .icon-clipboard-check {\n  391:   @include icon(clipboard-check);\n  392  }\n  393  \n  394  .icon-clipboard-paste {\n  395:   @include icon(clipboard-paste);\n  396  }\n  397  \n  398  .icon-clipboard {\n  399:   @include icon(clipboard);\n  400  }\n  401  \n  402  .icon-clock {\n  403:   @include icon(clock);\n  404  }\n  405  \n  406  .icon-collapse {\n  407:   @include icon(collapse);\n  408  }\n  409  \n  410  .icon-copy {\n  411:   @include icon(copy);\n  412  }\n  413  \n  414  .icon-delete-inverted {\n  415:   @include icon(delete-inverted);\n  416  }\n  417  \n  418  .icon-delete {\n  419:   @include icon(delete);\n  420  }\n  421  \n  422  .icon-denied {\n  423:   @include icon(denied);\n  424  }\n  425  \n  426  .icon-disabled {\n  427:   @include icon(disabled);\n  428  }\n  429  \n  430  .icon-document-blank {\n  431:   @include icon(document-blank);\n  432  }\n  433  \n  434  .icon-document {\n  435:   @include icon(document);\n  436  }\n  437  \n  438  .icon-download {\n  439:   @include icon(download);\n  440  }\n  441  \n  442  .icon-drag {\n  443:   @include icon(drag);\n  444  }\n  445  \n  446  .icon-email {\n  447:   @include icon(email);\n  448  }\n  449  \n  450  .icon-exit {\n  451:   @include icon(exit);\n  452  }\n  453  \n  454  .icon-expand {\n  455:   @include icon(expand);\n  456  }\n  457  \n  458  .icon-export {\n  459:   @include icon(export);\n  460  }\n  461  \n  462  .icon-feed {\n  463:   @include icon(feed);\n  464  }\n  465  \n  466  .icon-flag {\n  467:   @include icon(flag);\n  468  }\n  469  \n  470  .icon-flagpole {\n  471:   @include icon(flagpole);\n  472  }\n  473  \n  474  .icon-folder-open {\n  475:   @include icon(folder-open);\n  476  }\n  477  \n  478  .icon-folder {\n  479:   @include icon(folder);\n  480  }\n  481  \n  482  .icon-graph {\n  483:   @include icon(graph);\n  484  }\n  485  \n  486  .icon-heart-outline {\n  487:   @include icon(heart-outline);\n  488  }\n  489  \n  490  .icon-heart {\n  491:   @include icon(heart);\n  492  }\n  493  \n  494  .icon-help {\n  495:   @include icon(help);\n  496  }\n  497  \n  498  .icon-home {\n  499:   @include icon(home);\n  500  }\n  501  \n  502  .icon-key {\n  503:   @include icon(key);\n  504  }\n  505  \n  506  .icon-link {\n  507:   @include icon(link);\n  508  }\n  509  \n  510  .icon-list {\n  511:   @include icon(list);\n  512  }\n  513  \n  514  .icon-location {\n  515:   @include icon(location);\n  516  }\n  517  \n  518  .icon-lock {\n  519:   @include icon(lock);\n  520  }\n  521  \n  522  .icon-mobile {\n  523:   @include icon(mobile);\n  524  }\n  525  \n  526  .icon-namely-inverted {\n  527:   @include icon(namely-inverted);\n  528  }\n  529  \n  530  .icon-namely {\n  531:   @include icon(namely);\n  532  }\n  533  \n  534  .icon-paperclip {\n  535:   @include icon(paperclip);\n  536  }\n  537  \n  538  .icon-pencil {\n  539:   @include icon(pencil);\n  540  }\n  541  \n  542  .icon-people {\n  543:   @include icon(people);\n  544  }\n  545  \n  546  .icon-person-add {\n  547:   @include icon(person-add);\n  548  }\n  549  \n  550  .icon-person {\n  551:   @include icon(person);\n  552  }\n  553  \n  554  .icon-phone {\n  555:   @include icon(phone);\n  556  }\n  557  \n  558  .icon-pin {\n  559:   @include icon(pin);\n  560  }\n  561  \n  562  .icon-plane {\n  563:   @include icon(plane);\n  564  }\n  565  \n  566  .icon-print {\n  567:   @include icon(print);\n  568  }\n  569  \n  570  .icon-search {\n  571:   @include icon(search);\n  572  }\n  573  \n  574  .icon-settings {\n  575:   @include icon(settings);\n  576  }\n  577  \n  578  .icon-social-fb {\n  579:   @include icon(social-fb);\n  580  }\n  581  \n  582  .icon-social-google {\n  583:   @include icon(social-google);\n  584  }\n  585  \n  586  .icon-social-googleplus {\n  587:   @include icon(social-googleplus);\n  588  }\n  589  \n  590  .icon-social-linkedin {\n  591:   @include icon(social-linkedin);\n  592  }\n  593  \n  594  .icon-social-tumblr {\n  595:   @include icon(social-tumblr);\n  596  }\n  597  \n  598  .icon-social-twitter {\n  599:   @include icon(social-twitter);\n  600  }\n  601  \n  602  .icon-star {\n  603:   @include icon(star);\n  604  }\n  605  \n  606  .icon-tag {\n  607:   @include icon(tag);\n  608  }\n  609  \n  610  .icon-tags {\n  611:   @include icon(tags);\n  612  }\n  613  \n  614  .icon-team {\n  615:   @include icon(team);\n  616  }\n  617  \n  618  .icon-upload {\n  619:   @include icon(upload);\n  620  }\n  621  \n  622  .icon-view-stop {\n  623:   @include icon(view-stop);\n  624  }\n  625  \n  626  .icon-view {\n  627:   @include icon(view);\n  628  }\n  629  \n\n/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_forms.scss:\n  246  \n  247    &:checked {\n  248:     @include icon(check);\n  249  \n  250      &::before {\n\n/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_links.scss:\n   57  \n   58  a.back::before {\n   59:   @include icon($icon_arrow_left);\n   60    font-size: 8px;\n   61    margin-right: $space-1;\n\n/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_select.scss:\n  120  \n  121  .Select-arrow {\n  122:   @include icon(arrow-double);\n  123    color: $blue-70;\n  124    position: absolute;\n\n/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules/navs/_sidenav.scss:\n   38  \n   39    &.on::after {\n   40:     @include icon($icon_chevron_right);\n   41      color: $grey-25;\n   42      font-size: 12px;\n\n79 matches across 6 files\n\n\nSearching 224 files for \"label-right\"\n\n/Users/jasonfellows/Repos/styleguide/src/js/components/forms/fields/checkbox.es6:\n   59            value={value}\n   60          />\n   61:         <span className=\"label-right\">{label || value}</span>\n   62        </label>\n   63      );\n\n/Users/jasonfellows/Repos/styleguide/src/js/components/forms/fields/radio.es6:\n   39            name={name}\n   40          />\n   41:         <span className=\"label-right\">{label || value}</span>\n   42        </label>\n   43      );\n\n/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_forms.scss:\n  623    margin-right: $space-4;\n  624  \n  625:   .label-right {\n  626      margin-left: $space-2;\n  627      position: relative;\n\n3 matches across 3 files\n\n\nSearching 224 files for \"clear\"\n\n/Users/jasonfellows/Repos/styleguide/src/js/components/forms/field-errors.es6:\n   16  \n   17    classes() {\n   18:     let classes = ['py1', 'px2', 'clearfix'];\n   19      return classes.concat(this.props.extraClasses).join(' ');\n   20    },\n\n/Users/jasonfellows/Repos/styleguide/src/js/components/forms/fields/base.es6:\n  133          {(this.label() || this.contextualHelp()) ? <br /> : null}\n  134          {this.contents()}\n  135:         <div className=\"clearfix\"></div>\n  136          <FieldErrors errors={this.state.errors} />\n  137        </div>\n\n/Users/jasonfellows/Repos/styleguide/src/js/components/forms/fields/date/date-picker.es6:\n   57                       visibleMonth={this.state.visibleMonth}\n   58                       visibleYear={this.state.visibleYear} />\n   59:           <div className=\"clearfix\"></div>\n   60          </div>\n   61        </div>\n\n/Users/jasonfellows/Repos/styleguide/src/js/components/forms/fields/date/day-picker.es6:\n   77            {this.mappedMonth()}\n   78          </div>\n   79:         <div className=\"clearfix\"></div>\n   80        </div>\n   81      );\n\n/Users/jasonfellows/Repos/styleguide/src/js/components/overlays/tooltip.es6:\n  105            <div className={this.triangleClasses() + ' absolute bc-blue-95 blue-95'}></div>\n  106            {React.cloneElement(this.props.content, {closeTooltip: this.props.closeOverlay})}\n  107:           <div className=\"clearfix\"></div>\n  108          </div>\n  109        </ReactCSSTransitionGroup>\n\n/Users/jasonfellows/Repos/styleguide/src/js/pages/forms.js:\n  101      return <Styleguide title=\"Forms Styles\">\n  102          <div title=\"Forms\">\n  103:           <form className=\"clearfix\">\n  104              <hr />\n  105              <p>Default fields</p>\n  ...\n  116                onChange={this._onPick}\n  117                placeholder=\"Placeholder\" />\n  118:             <div className='clearfix'></div>\n  119              <div className=\"py2\">\n  120                <label className=\"px2 mb1\">Native Select</label>\n  ...\n  177              <NumberField label=\"Number\" disabled={true} extraClasses={['py2']} />\n  178              <DateField date=\"2015/1/1\" label=\"ReactDate\" disabled={true} extraClasses={['py2']} dateFormat='YYYY/MM/DD'/>\n  179:             <div className='clearfix'></div>\n  180              <div className=\"py2\">\n  181                <label className=\"px2 mb1\">Native Select</label>\n  ...\n  209                <NumberField label=\"Number\" extraClasses={['py2']} units=\"Units\" />\n  210                <DateField label=\"Date\" extraClasses={['py2']} dateFormat='MMM D, YYYY'/>\n  211:               <div className='clearfix'></div>\n  212                <div className=\"py2\">\n  213                  <label className=\"px2 mb1\">Native Select</label>\n  ...\n  246                <NumberField label=\"Number\" disabled={true} extraClasses={['py2']} />\n  247                <DateField label=\"ReactDate\" disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />\n  248:               <div className='clearfix'></div>\n  249                <div className=\"py2\">\n  250                  <label className=\"px2 mb1\">Native Select</label>\n  ...\n  287                <NumberField label=\"Number\" extraClasses={['py2']} units=\"Units\" />\n  288                <DateField label=\"Date\" extraClasses={['py2']} dateFormat='MMM D, YYYY'/>\n  289:               <div className='clearfix'></div>\n  290                <div className=\"py2\">\n  291                  <label className=\"px2 mb1\">Native Select</label>\n  ...\n  324                <NumberField label=\"Number\" disabled={true} extraClasses={['py2']} />\n  325                <DateField label=\"ReactDate\" disabled={true} extraClasses={['py2']} dateFormat='MMM D, YYYY' />\n  326:               <div className='clearfix'></div>\n  327                <div className=\"py2\">\n  328                  <label className=\"px2 mb1\">Native Select</label>\n  ...\n  480              errorMessage=\"Folder Name Already In Use\"\n  481            >\n  482:             <p className=\"clearfix small\">Do you want to delete \"{this.state.editLabel}\"?</p>\n  483            </EditLabel>\n  484  \n  485            <pre><code className=\"language-javascript overflow-scroll mt3\">\n  486            {'<EditLabel label={this.state.editLabel} placeholder=\"Folder Name\" onSave={this._onSave} onDelete={this._onDelete} isValid={this._validate} errorMessage=\"Folder Name Already In Use\" >\\n'}\n  487:           {'\\t<p className=\"clearfix small\">Do you want to delete \"{this.state.editLabel}\"?</p>\\n'}\n  488            {'</EditLabel>'}\n  489            </code></pre>\n  ...\n  514                       extraClasses={['py2']}\n  515                       value={new Date} />\n  516:           <div className='clearfix'></div>\n  517            <DateField dateFormat='MMM D, YYYY'\n  518                       extraClasses={['py2']}\n  ...\n  522                       onChange={_onChange}\n  523                       value={new Date} />\n  524:           <div className='clearfix'></div>\n  525            <DateField dateFormat='MMM D, YYY'\n  526                       extraClasses={['py2']}\n  527                       label=\"With bad format string\" />\n  528:           <div className='clearfix'></div>\n  529            <DateField dateFormat='MMM D, YYYY'\n  530                       errors={['You broke it!', 'Time is irrelevant']}\n  ...\n  532                       name=\"dateErrors\"\n  533                       label=\"With errors\" />\n  534:           <div className='clearfix'></div>\n  535          </div>\n  536        </Styleguide>\n\n/Users/jasonfellows/Repos/styleguide/src/js/pages/layout.js:\n   17        <Styleguide title=\"Layout System\" codeClassName=\"language-css\">\n   18          <div className=\"grid\" title=\"Grid\" description=\"The main grid class system for Namely\" >\n   19:           <div className=\"clearfix\" >\n   20              <GridBlock colClass=\"col-1\" />\n   21              <GridBlock colClass=\"col-1\" />\n   ..\n   31              <GridBlock colClass=\"col-1\" />\n   32            </div>\n   33:           <div className=\"clearfix\" >\n   34              <GridBlock colClass=\"col-2\" />\n   35              <GridBlock colClass=\"col-2\" />\n   ..\n   39              <GridBlock colClass=\"col-2\" />\n   40            </div>\n   41:           <div className=\"clearfix\" >\n   42              <GridBlock colClass=\"col-3\" />\n   43              <GridBlock colClass=\"col-3\" />\n   ..\n   45              <GridBlock colClass=\"col-3\" />\n   46            </div>\n   47:           <div className=\"clearfix\" >\n   48              <GridBlock colClass=\"col-4\" />\n   49              <GridBlock colClass=\"col-4\" />\n   50              <GridBlock colClass=\"col-4\" />\n   51            </div>\n   52:           <div className=\"clearfix\" >\n   53              <GridBlock colClass=\"col-5\" />\n   54              <GridBlock colClass=\"col-7\" />\n   55            </div>\n   56:           <div className=\"clearfix\" >\n   57              <GridBlock colClass=\"col-6\" />\n   58              <GridBlock colClass=\"col-6\" />\n   59            </div>\n   60:           <div className=\"clearfix\" >\n   61              <GridBlock colClass=\"col-7\" />\n   62              <GridBlock colClass=\"col-5\" />\n   63            </div>\n   64:           <div className=\"clearfix\" >\n   65              <GridBlock colClass=\"col-8\" />\n   66              <GridBlock colClass=\"col-4\" />\n   67            </div>\n   68:           <div className=\"clearfix\" >\n   69              <GridBlock colClass=\"col-9\" />\n   70              <GridBlock colClass=\"col-3\" />\n   71            </div>\n   72:           <div className=\"clearfix\" >\n   73              <GridBlock colClass=\"col-10\" />\n   74              <GridBlock colClass=\"col-2\" />\n   75            </div>\n   76:           <div className=\"clearfix\" >\n   77              <GridBlock colClass=\"col-11\" />\n   78              <GridBlock colClass=\"col-1\" />\n   79            </div>\n   80:           <div className=\"clearfix\" >\n   81              <GridBlock colClass=\"col-12\" />\n   82            </div>\n   83            <article className=\"mt5\">\n   84              <h3>Example: Basic Layout</h3>\n   85:             <div className=\"clearfix\">\n   86                <GridBlock colClass=\"col-12\" colContent=\"col-12 (Header)\" />\n   87              </div>\n   88:             <div className=\"clearfix\">\n   89                <GridBlock colClass=\"col-3\" colContent=\"col-3 (Sidebar)\" />\n   90                <GridBlock colClass=\"col-9\" colContent=\"col-9 (Content)\" />\n\n/Users/jasonfellows/Repos/styleguide/src/scss/layout/_floats.scss:\n    8  ------------------------*/\n    9  \n   10: .clearfix {\n   11  \n   12    &::before,\n   ..\n   17  \n   18    &::after {\n   19:     clear: both;\n   20    }\n   21  }\n\n/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_select.scss:\n  102  }\n  103  \n  104: .Select-clear {\n  105    color: $grey-25;\n  106    cursor: pointer;\n  ...\n  117  }\n  118  \n  119: // .Select-clear:hover {}\n  120  \n  121  .Select-arrow {\n\n36 matches across 9 files\n\n\nSearching 224 files for \"goal-alignment\"\n\n0 matches",
+			"settings":
+			{
+				"buffer_size": 16648,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "src/scss/theme/elements/_forms.scss",
+			"settings":
+			{
+				"buffer_size": 10688,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"packain",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pacl",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 475.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jasonfellows/Repos/styleguide",
+		"/Users/jasonfellows/Repos/styleguide/src",
+		"/Users/jasonfellows/Repos/styleguide/src/js",
+		"/Users/jasonfellows/Repos/styleguide/src/js/pages",
+		"/Users/jasonfellows/Repos/styleguide/src/js/pages/base",
+		"/Users/jasonfellows/Repos/styleguide/src/lib",
+		"/Users/jasonfellows/Repos/styleguide/src/lib/icons",
+		"/Users/jasonfellows/Repos/styleguide/src/scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/base",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/layout",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules/navs"
+	],
+	"file_history":
+	[
+		"/Users/jasonfellows/Repos/styleguide/.gitignore",
+		"/Users/jasonfellows/Repos/styleguide/namely-ui.sublime-project",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules/navs/_secondary_nav.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules/navs/_sidenav.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_tables.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules/navs/_header.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/layout/_layout.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/layout/_grid.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/base/_icons.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_typography.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/base/_sizing.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/js/pages/base/typography.js",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules/_headers.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules/navs/_navs.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/modules/_modules.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_forms.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/_theme.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/README.md",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_body.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/base/_fonts.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/namely-ui.scss",
+		"/Users/jasonfellows/Repos/namely/.git/MERGE_MSG",
+		"/Users/jasonfellows/Repos/styleguide/.git/MERGE_MSG",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/base/_base.scss",
+		"/Users/jasonfellows/Repos/styleguide/Gulpfile.js",
+		"/Users/jasonfellows/Repos/cortana/.git/MERGE_MSG",
+		"/Users/jasonfellows/Repos/styleguide/package.json",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/_elements.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/js/components/forms/fields/select/select.es6",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/base/_tables.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/index.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/components/index.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/theme/elements/index.scss",
+		"/Users/jasonfellows/Repos/styleguide/src/js/index.js",
+		"/Users/jasonfellows/Repos/styleguide/src/scss/app.scss",
+		"/Users/jasonfellows/Repos/styleguide/public/elements.html",
+		"/Users/jasonfellows/Repos/styleguide/src/js/router.js",
+		"/Users/jasonfellows/Repos/namely/app/views/company/company_goals/index.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/goals/directory/teams/index.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/base.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/views/teams/index.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/review-templates.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/headers.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/review-groups.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/views/components/tooltip.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/tables.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/common/delete_confirmation_link.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/review_groups/review_group.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/review_groups/app.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/home.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/common/action_link.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/export.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/routers/review_groups.coffee",
+		"/Users/jasonfellows/Repos/namely/app/views/performance/review_groups/index.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/autologout/autologout.es6",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/events.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/company/settings/access_roles.scss",
+		"/Users/jasonfellows/Repos/namely/package.json",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/events/event.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/comments/comments.es6",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/comments/comment_list.es6",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/comments/comment.es6",
+		"/Users/jasonfellows/Repos/namely/Gulpfile.js",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/stores/autologout.es6",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/events/event_date.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/events/events.coffee",
+		"/Users/jasonfellows/Repos/namely/app/views/teams/show.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/graph.js",
+		"/Users/jasonfellows/Repos/namely/db/seeds.rb",
+		"/Users/jasonfellows/Repos/namely/app/views/teams/_team.js.erb",
+		"/Users/jasonfellows/Repos/namely/app/models/concerns/company_reports_methods.rb",
+		"/Users/jasonfellows/Repos/namely/app/controllers/teams_controller.rb",
+		"/Users/jasonfellows/Repos/namely/Gemfile",
+		"/Users/jasonfellows/Repos/namely/app/models/team_statistics/open_positions.rb",
+		"/Users/jasonfellows/Repos/namely/app/controllers/team_statistics_controller.rb",
+		"/Users/jasonfellows/Repos/namely/config/routes.rb",
+		"/Users/jasonfellows/Repos/namely/app/controllers/company/company_controller.rb",
+		"/Users/jasonfellows/Repos/namely/app/models/team.rb",
+		"/Users/jasonfellows/Repos/namely/app/views/company/settings/access_field_group_bundles/index.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/company/settings/access_field_group_bundles/show.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/company/settings/access_field_group_bundles/_form.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/company/settings/access_field_group_bundles.scss",
+		"/Users/jasonfellows/Repos/namely/app/views/imports/columns.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/forms.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/company/settings/job_titles.scss",
+		"/Users/jasonfellows/Repos/namely/app/views/company/settings/saml/edit.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/teams.scss",
+		"/Users/jasonfellows/Repos/namely/app/views/company/settings/job_titles/index.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/company/settings/job_titles/_form.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/settings/team.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/company.scss",
+		"/Users/jasonfellows/Repos/namely/app/views/company/settings/notification_settings.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/templates/fields/field_form.jade",
+		"/Users/jasonfellows/Repos/namely/app/assets/templates/teams/form.jade",
+		"/Users/jasonfellows/Repos/namely/app/views/access_tokens/index.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/api/access/main.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/api/api_clients/edit.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/api/api_clients/new.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/company/company/export.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/nav-tree.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/company/settings/companies.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/org_chart.scss",
+		"/Users/jasonfellows/Repos/namely/app/views/company/settings/access_roles/show.html.slim",
+		"/Users/jasonfellows/Repos/namely/script/broadway-update.sh",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/common/nav_tree.coffee",
+		"/Users/jasonfellows/Repos/namely/app/views/styleguide/show.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/reports/new.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/people/_shownav.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/company/shared/_settings_sidenav.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/views/performance/_sidenav.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/sidenav.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/util/fonts.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/goals/goal_weight.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/styleguide/buttons/button-containers/_overlay.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/goals/list_view.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/common/profile-lockup.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/user-icon.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/goals.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/common/profile-icon.coffee",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/application.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/reviews.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/stylesheets/styleguide/buttons/button-types/_with-icon.scss",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/settings/payroll_jobs/payroll_jobs.es6",
+		"/Users/jasonfellows/Repos/namely/circle.yml",
+		"/Users/jasonfellows/Repos/namely/app/models/fields/date.rb",
+		"/Users/jasonfellows/Repos/namely/app/views/settings/shared/_side_nav.html.slim",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/settings/pay_groups/pay_groups.es6",
+		"/Users/jasonfellows/Repos/namely/app/assets/javascripts/ui/people/timeline/components/TimelineFieldTable.es6"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 106.0,
+		"where_history":
+		[
+			"",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/**, -/Users/jasonfellows/Repos/styleguide/public/*, -/Users/jasonfellows/Repos/styleguide/src/lib/*, -/Users/jasonfellows/Repos/styleguide/lib/*.*, -/Users/jasonfellows/Repos/styleguide/dist/*.*, -/Users/jasonfellows/Repos/styleguide/node_modules/*/**",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/*, -/Users/jasonfellows/Repos/styleguide/public/*, -/Users/jasonfellows/Repos/styleguide/src/lib/*, -/Users/jasonfellows/Repos/styleguide/lib/*.*, -/Users/jasonfellows/Repos/styleguide/dist/*.*, -/Users/jasonfellows/Repos/styleguide/node_modules/*/**",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/*, -/Users/jasonfellows/Repos/styleguide/public/*, -/Users/jasonfellows/Repos/styleguide/src/lib/*, -/Users/jasonfellows/Repos/styleguide/lib/*.*, -/Users/jasonfellows/Repos/styleguide/dist/*.*",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/*, -/Users/jasonfellows/Repos/styleguide/public/*, -/Users/jasonfellows/Repos/styleguide/src/lib/*, -/Users/jasonfellows/Repos/styleguide/lib/*.*",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/*, -/Users/jasonfellows/Repos/styleguide/public/*, -/Users/jasonfellows/Repos/styleguide/src/lib/*",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/*, -/Users/jasonfellows/Repos/styleguide/public, -/Users/jasonfellows/Repos/styleguide/src/lib",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules, -/Users/jasonfellows/Repos/styleguide/public, -/Users/jasonfellows/Repos/styleguide/src/lib",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/, -/Users/jasonfellows/Repos/styleguide/public/, -/Users/jasonfellows/Repos/styleguide/src/lib/",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/*.*, -/Users/jasonfellows/Repos/styleguide/public/*.*, -/Users/jasonfellows/Repos/styleguide/src/lib/*.*",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/*.*, -/Users/jasonfellows/Repos/styleguide/public/*.*",
+			"-/Users/jasonfellows/Repos/styleguide/node_modules/*.*",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"goal-alignment",
+			"clear",
+			"label-right",
+			"include icon",
+			"secondary-nav",
+			"clear",
+			"line-",
+			"border",
+			"include",
+			"components",
+			"font-family",
+			"public",
+			"app",
+			"checkbox",
+			"label-right",
+			"height",
+			"checkbox",
+			"1.25",
+			"sans-family",
+			"fonts",
+			"buttons",
+			"small",
+			"popove",
+			"delete-folder",
+			"review-templates",
+			"is-closed",
+			"is-open",
+			"shadow",
+			"align-middle",
+			"zoom",
+			"anim-fade-top-appear",
+			"c-fade",
+			"anim-fade",
+			"anim-fase",
+			"ease-in-out",
+			"ease-out",
+			"ease-in",
+			"linear",
+			"anim-drop",
+			"select",
+			"scss",
+			"ul",
+			"ul {",
+			"tables",
+			"duration-2",
+			"app.scss",
+			"src/scss/app",
+			"datepicker",
+			"elements",
+			"alt",
+			"goals-wrap",
+			"layout-2s",
+			"layout",
+			"goals-wrap",
+			"namely-ui",
+			"list_view",
+			"goals",
+			"goal-meta",
+			".namely-ui",
+			"toolti",
+			"division-list-con",
+			"delete-template",
+			"remo",
+			"remove-change-reason",
+			"vitals-button",
+			"vitals-buttoin",
+			"delete",
+			"add review label",
+			"popup-",
+			"review-grou",
+			"#review-groups",
+			"review labels",
+			"save-review-group",
+			"delete-approval-confirmati",
+			"delete-approval-confirmatino",
+			"exports-table",
+			"edit_access_role",
+			"delete-comment",
+			"delete",
+			"delete-confirmation-link",
+			"delete-comment",
+			"date",
+			"commen",
+			"eventdate",
+			"datetime",
+			"eventdate",
+			".events",
+			"celebrate",
+			"datetime",
+			"libsass",
+			"sass",
+			"redis",
+			"open-positions",
+			"performancelevel",
+			"performance-leve",
+			"position",
+			"font",
+			"google",
+			"reports",
+			"open-posi",
+			"make_Table_data",
+			"positions",
+			"open positions",
+			"currency_type_id",
+			"total_comp",
+			"open positions",
+			"selectbox-disabled",
+			"edit_job_title",
+			"job-title-list",
+			"#bundles",
+			"add field group bundle",
+			"notification_settings_row",
+			"notification_settings",
+			"departures-wrap",
+			"long",
+			"access-role-form",
+			"long",
+			"edit-form",
+			"form-row",
+			".long",
+			"label.long",
+			"org-chart-container",
+			"org-chart-controls",
+			"org-chart-con",
+			".namely-ui",
+			".namely-ui hr",
+			".namely-ui",
+			"saml-settings"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"namely-ui",
+			"&::",
+			"NumberField",
+			"RadioField",
+			"CheckboxField",
+			"DateField",
+			"SelectField",
+			"TextField",
+			"TextAreaField",
+			"<Field.Select",
+			"<Field.Radio",
+			"<Field.TextArea",
+			"<Field.Date",
+			"<Field.Number",
+			"<Field.Text",
+			"<Field.Checkbox",
+			"Type",
+			"React.PropTypes",
+			"",
+			"props.on",
+			"5px"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/scss/theme/elements/_links.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 820,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								602,
+								602
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/scss/theme/modules/navs/_header.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 678,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								378,
+								378
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								150,
+								150
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/scss/base/_sizing.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 920,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								393,
+								385
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/scss/base/_icons.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10226,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6769,
+								6774
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/scss/theme/modules/navs/_sidenav.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								161,
+								161
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16648,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										135,
+										148
+									],
+									[
+										455,
+										467
+									],
+									[
+										613,
+										625
+									],
+									[
+										680,
+										692
+									],
+									[
+										754,
+										766
+									],
+									[
+										835,
+										847
+									],
+									[
+										914,
+										926
+									],
+									[
+										994,
+										1006
+									],
+									[
+										1072,
+										1084
+									],
+									[
+										1147,
+										1159
+									],
+									[
+										1218,
+										1230
+									],
+									[
+										1285,
+										1297
+									],
+									[
+										1356,
+										1368
+									],
+									[
+										1428,
+										1440
+									],
+									[
+										1504,
+										1516
+									],
+									[
+										1588,
+										1600
+									],
+									[
+										1675,
+										1687
+									],
+									[
+										1764,
+										1776
+									],
+									[
+										1847,
+										1859
+									],
+									[
+										1920,
+										1932
+									],
+									[
+										1992,
+										2004
+									],
+									[
+										2063,
+										2075
+									],
+									[
+										2141,
+										2153
+									],
+									[
+										2221,
+										2233
+									],
+									[
+										2292,
+										2304
+									],
+									[
+										2365,
+										2377
+									],
+									[
+										2446,
+										2458
+									],
+									[
+										2527,
+										2539
+									],
+									[
+										2602,
+										2614
+									],
+									[
+										2673,
+										2685
+									],
+									[
+										2741,
+										2753
+									],
+									[
+										2809,
+										2821
+									],
+									[
+										2878,
+										2890
+									],
+									[
+										2949,
+										2961
+									],
+									[
+										3018,
+										3030
+									],
+									[
+										3085,
+										3097
+									],
+									[
+										3156,
+										3168
+									],
+									[
+										3234,
+										3246
+									],
+									[
+										3310,
+										3322
+									],
+									[
+										3380,
+										3392
+									],
+									[
+										3457,
+										3469
+									],
+									[
+										3534,
+										3546
+									],
+									[
+										3602,
+										3614
+									],
+									[
+										3669,
+										3681
+									],
+									[
+										3735,
+										3747
+									],
+									[
+										3801,
+										3813
+									],
+									[
+										3868,
+										3880
+									],
+									[
+										3939,
+										3951
+									],
+									[
+										4010,
+										4022
+									],
+									[
+										4079,
+										4091
+									],
+									[
+										4159,
+										4171
+									],
+									[
+										4239,
+										4251
+									],
+									[
+										4313,
+										4325
+									],
+									[
+										4387,
+										4399
+									],
+									[
+										4458,
+										4470
+									],
+									[
+										4533,
+										4545
+									],
+									[
+										4608,
+										4620
+									],
+									[
+										4678,
+										4690
+									],
+									[
+										4745,
+										4757
+									],
+									[
+										4812,
+										4824
+									],
+									[
+										4881,
+										4893
+									],
+									[
+										4951,
+										4963
+									],
+									[
+										5024,
+										5036
+									],
+									[
+										5100,
+										5112
+									],
+									[
+										5181,
+										5193
+									],
+									[
+										5270,
+										5282
+									],
+									[
+										5361,
+										5373
+									],
+									[
+										5448,
+										5460
+									],
+									[
+										5534,
+										5546
+									],
+									[
+										5611,
+										5623
+									],
+									[
+										5677,
+										5689
+									],
+									[
+										5743,
+										5755
+									],
+									[
+										5810,
+										5822
+									],
+									[
+										5879,
+										5891
+									],
+									[
+										5953,
+										5965
+									],
+									[
+										6025,
+										6037
+									],
+									[
+										6178,
+										6190
+									],
+									[
+										6347,
+										6359
+									],
+									[
+										6554,
+										6566
+									],
+									[
+										6761,
+										6773
+									],
+									[
+										7083,
+										7094
+									],
+									[
+										7315,
+										7326
+									],
+									[
+										7514,
+										7525
+									],
+									[
+										7803,
+										7808
+									],
+									[
+										8112,
+										8117
+									],
+									[
+										8466,
+										8471
+									],
+									[
+										8706,
+										8711
+									],
+									[
+										9064,
+										9069
+									],
+									[
+										9325,
+										9330
+									],
+									[
+										9539,
+										9544
+									],
+									[
+										9926,
+										9931
+									],
+									[
+										10281,
+										10286
+									],
+									[
+										10664,
+										10669
+									],
+									[
+										11023,
+										11028
+									],
+									[
+										11406,
+										11411
+									],
+									[
+										11657,
+										11662
+									],
+									[
+										12085,
+										12090
+									],
+									[
+										12360,
+										12365
+									],
+									[
+										12617,
+										12622
+									],
+									[
+										12832,
+										12837
+									],
+									[
+										13115,
+										13120
+									],
+									[
+										13457,
+										13462
+									],
+									[
+										13682,
+										13687
+									],
+									[
+										13907,
+										13912
+									],
+									[
+										14132,
+										14137
+									],
+									[
+										14351,
+										14356
+									],
+									[
+										14520,
+										14525
+									],
+									[
+										14689,
+										14694
+									],
+									[
+										14858,
+										14863
+									],
+									[
+										15027,
+										15032
+									],
+									[
+										15196,
+										15201
+									],
+									[
+										15366,
+										15371
+									],
+									[
+										15536,
+										15541
+									],
+									[
+										15751,
+										15756
+									],
+									[
+										15905,
+										15910
+									],
+									[
+										16196,
+										16201
+									],
+									[
+										16280,
+										16285
+									],
+									[
+										16421,
+										16426
+									],
+									[
+										16522,
+										16527
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								16648,
+								16648
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/Users/jasonfellows/Repos/styleguide",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 5,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7579.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/scss/theme/elements/_forms.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10688,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10476,
+								10476
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7608.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "namely-ui.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"gitig",
+				".gitignore"
+			],
+			[
+				"namel",
+				"namely-ui.sublime-project"
+			],
+			[
+				"sizing",
+				"src/scss/base/_sizing.scss"
+			],
+			[
+				"header",
+				"src/scss/theme/modules/navs/_header.scss"
+			],
+			[
+				"sidenav",
+				"src/scss/theme/modules/navs/_sidenav.scss"
+			],
+			[
+				"icons",
+				"src/scss/base/_icons.scss"
+			],
+			[
+				"typogra",
+				"src/scss/theme/elements/_typography.scss"
+			],
+			[
+				"link",
+				"src/scss/theme/elements/_links.scss"
+			],
+			[
+				"sec",
+				"src/scss/theme/modules/navs/_secondary_nav.scss"
+			],
+			[
+				"tables",
+				"src/scss/theme/elements/_tables.scss"
+			],
+			[
+				"grid",
+				"src/scss/layout/_grid.scss"
+			],
+			[
+				"lat",
+				"src/scss/layout/_layout.scss"
+			],
+			[
+				"icon",
+				"src/scss/base/_icons.scss"
+			],
+			[
+				"typo",
+				"src/scss/theme/elements/_typography.scss"
+			],
+			[
+				"typ",
+				"src/js/pages/base/typography.js"
+			],
+			[
+				"navs",
+				"src/scss/theme/modules/navs/_navs.scss"
+			],
+			[
+				"gitigno",
+				".gitignore"
+			],
+			[
+				"layout",
+				"src/scss/layout/_layout.scss"
+			],
+			[
+				"namelyui",
+				"src/scss/namely-ui.scss"
+			],
+			[
+				"gulp",
+				"Gulpfile.js"
+			],
+			[
+				"forms",
+				"src/scss/theme/elements/_forms.scss"
+			],
+			[
+				"elementssc",
+				"src/scss/theme/elements/_elements.scss"
+			],
+			[
+				"componensscs",
+				"src/scss/theme/components/_components.scss"
+			],
+			[
+				"namely",
+				"src/scss/namely-ui.scss"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"seeds",
+				"db/seeds.rb"
+			],
+			[
+				"package.",
+				"package.json"
+			],
+			[
+				"base",
+				"app/assets/stylesheets/base.scss"
+			],
+			[
+				"sidena",
+				"app/assets/stylesheets/sidenav.scss"
+			],
+			[
+				"cssl",
+				"scss-lint.yml"
+			],
+			[
+				"select.scs",
+				"src/scss/theme/elements/_select.scss"
+			],
+			[
+				"selec",
+				"src/js/components/forms/fields/select/select.es6"
+			],
+			[
+				"reset",
+				"src/scss/base/_reset.scss"
+			],
+			[
+				"index.",
+				"public/index.html"
+			],
+			[
+				"router",
+				"src/js/router.js"
+			],
+			[
+				"animations",
+				"src/scss/animations/_animations.scss"
+			],
+			[
+				"elements",
+				"src/scss/theme/elements/_elements.scss"
+			],
+			[
+				"index",
+				"src/js/index.js"
+			],
+			[
+				"compindscs",
+				"src/scss/theme/components/index.scss"
+			],
+			[
+				"appsc",
+				"src/scss/app.scss"
+			],
+			[
+				"tooltip",
+				"app/assets/javascripts/views/components/tooltip.coffee"
+			],
+			[
+				"editable",
+				"app/assets/stylesheets/editable-list.scss"
+			],
+			[
+				"reviewgroupsscs",
+				"app/assets/stylesheets/review-groups.scss"
+			],
+			[
+				"changereason",
+				"app/assets/stylesheets/change-reasons.scss"
+			],
+			[
+				"reviewgroups",
+				"app/assets/javascripts/ui/review_groups/review_group.coffee"
+			],
+			[
+				"reviewgroupsa",
+				"app/assets/javascripts/ui/review_groups/app.coffee"
+			],
+			[
+				"actionli",
+				"app/assets/javascripts/ui/common/action_link.coffee"
+			],
+			[
+				"deletecon",
+				"app/assets/javascripts/ui/common/delete_confirmation_link.coffee"
+			],
+			[
+				"expor",
+				"app/assets/stylesheets/export.scss"
+			],
+			[
+				"autolog",
+				"app/assets/javascripts/ui/autologout/autologout.es6"
+			],
+			[
+				"gul",
+				"Gulpfile.js"
+			],
+			[
+				"home",
+				"app/assets/stylesheets/home.scss"
+			],
+			[
+				"comment",
+				"app/assets/javascripts/ui/comments/comment.es6"
+			],
+			[
+				"commentli",
+				"app/assets/javascripts/ui/comments/comment_list.es6"
+			],
+			[
+				"comments",
+				"app/assets/javascripts/ui/comments/comments.es6"
+			],
+			[
+				"eventda",
+				"app/assets/javascripts/ui/events/event_date.coffee"
+			],
+			[
+				"circl",
+				"circle.yml"
+			],
+			[
+				"proc",
+				"Procfile"
+			],
+			[
+				"graph",
+				"app/assets/javascripts/graph.js"
+			],
+			[
+				"teamscon",
+				"app/controllers/teams_controller.rb"
+			],
+			[
+				"open",
+				"app/models/team_statistics/open_positions.rb"
+			],
+			[
+				"rout",
+				"config/routes.rb"
+			],
+			[
+				"gemfil",
+				"Gemfile"
+			],
+			[
+				"companycontr",
+				"app/controllers/company/company_controller.rb"
+			],
+			[
+				"openpo",
+				"app/models/team_statistics/open_positions.rb"
+			],
+			[
+				"teams",
+				"app/assets/stylesheets/teams.scss"
+			],
+			[
+				"broadway",
+				"script/broadway-update.sh"
+			],
+			[
+				"settingsscs",
+				"app/assets/stylesheets/company/settings/companies.scss"
+			],
+			[
+				"hnavtree",
+				"app/assets/stylesheets/nav-tree.scss"
+			],
+			[
+				"goalweight",
+				"app/assets/javascripts/ui/goals/goal_weight.coffee"
+			],
+			[
+				"navtree",
+				"app/assets/stylesheets/nav-tree.scss"
+			],
+			[
+				"package",
+				"package.json"
+			],
+			[
+				"fonts",
+				"app/assets/stylesheets/util/fonts.scss"
+			],
+			[
+				"date",
+				"app/models/fields/date.rb"
+			],
+			[
+				"payrolljob",
+				"app/assets/javascripts/ui/settings/payroll_jobs/payroll_jobs.es6"
+			],
+			[
+				"paygroups",
+				"app/assets/javascripts/ui/settings/pay_groups/pay_groups.es6"
+			],
+			[
+				"floatingi",
+				"app/views/shared/_floating_inner_nav.html.slim"
+			],
+			[
+				"side",
+				"app/views/settings/shared/_side_nav.html.slim"
+			],
+			[
+				"env.",
+				"features/support/env.rb"
+			],
+			[
+				"column",
+				"app/lib/reporting/columns/column.rb"
+			],
+			[
+				"schem",
+				"db/schema.rb"
+			],
+			[
+				"routerssett",
+				"app/assets/javascripts/routers/company_settings.coffee"
+			],
+			[
+				"timeoffscss",
+				"app/assets/stylesheets/time_off.scss"
+			],
+			[
+				"stotimeoff",
+				"app/assets/javascripts/stores/settings/time_off.es6"
+			],
+			[
+				"actionstime",
+				"app/assets/javascripts/actions/settings/time_off.es6"
+			],
+			[
+				"settingsap",
+				"app/assets/javascripts/ui/settings/time_off/time_off_settings_app.es6"
+			],
+			[
+				"naked",
+				"app/assets/stylesheets/styleguide/buttons/button-types/_naked.scss"
+			],
+			[
+				"buttons",
+				"app/assets/stylesheets/buttons.scss"
+			],
+			[
+				"checkbox-",
+				"app/assets/stylesheets/styleguide/forms/form-fields/checkbox/checkbox-fields.scss"
+			],
+			[
+				"timeofftype",
+				"app/assets/javascripts/ui/settings/time_off/time_off_type_form.es6"
+			],
+			[
+				"settingscompan",
+				"app/views/company/settings/companies/index.html.slim"
+			],
+			[
+				"settingscompanies",
+				"app/controllers/company/settings/companies_controller.rb"
+			],
+			[
+				"gulpfile",
+				"Gulpfile.js"
+			],
+			[
+				"storetimeoff",
+				"app/assets/javascripts/stores/settings/time_off.es6"
+			],
+			[
+				"timeoffsett",
+				"app/assets/javascripts/ui/settings/time_off/time_off_settings_app.es6"
+			],
+			[
+				"plansindex",
+				"app/views/company/settings/time_off/plans/index.html.slim"
+			],
+			[
+				"routertimeoff",
+				"app/assets/javascripts/routers/time_off_request.coffee"
+			],
+			[
+				"settingsapp",
+				"app/assets/javascripts/ui/settings/time_off/time_off_settings_app.es6"
+			],
+			[
+				"package.j",
+				"package.json"
+			],
+			[
+				"apitype",
+				"app/controllers/api/time_off/types_controller.rb"
+			],
+			[
+				"typeja",
+				"app/assets/templates/time_off/type_form.jade"
+			],
+			[
+				"general",
+				"app/views/people/talent_card/_general.html.slim"
+			],
+			[
+				"checkboxscss",
+				"app/assets/stylesheets/styleguide/forms/form-fields/checkbox/_checkbox.scss"
+			],
+			[
+				"timesettinga",
+				"app/assets/javascripts/ui/settings/time_off/time_off_settings_app.es6"
+			],
+			[
+				"procfile",
+				"Procfile"
+			],
+			[
+				"bulleted",
+				"app/assets/stylesheets/styleguide/bases/lists/_bulleted.scss"
+			],
+			[
+				"listscs",
+				"app/assets/stylesheets/styleguide/bases/lists/lists.scss"
+			],
+			[
+				"gulpf",
+				"Gulpfile.js"
+			],
+			[
+				"changereson",
+				"app/assets/javascripts/ui/settings/change_reasons/change_reason.coffee"
+			],
+			[
+				"routersett",
+				"app/assets/javascripts/routers/company_settings.coffee"
+			],
+			[
+				"timeofsetting",
+				"app/assets/javascripts/ui/settings/time_off/time_off_settings_app.es6"
+			],
+			[
+				"formhead",
+				"app/views/people/_form_header.slim"
+			],
+			[
+				"procfi",
+				"Procfile.server"
+			],
+			[
+				"storesettim",
+				"app/assets/javascripts/stores/settings/time_off.es6"
+			],
+			[
+				"actionstimeof",
+				"app/assets/javascripts/actions/settings/time_off.es6"
+			],
+			[
+				"fieldset",
+				"app/assets/javascripts/ui/forms/field_set.coffee"
+			],
+			[
+				"routersetting",
+				"app/assets/javascripts/routers/company_settings.coffee"
+			],
+			[
+				"controtime",
+				"app/controllers/api/time_off/types_controller.rb"
+			],
+			[
+				"actionpayrol",
+				"app/assets/javascripts/actions/settings/payroll_clients.es6"
+			],
+			[
+				"storepay",
+				"app/assets/javascripts/stores/settings/payroll_clients.es6"
+			],
+			[
+				"actionchangere",
+				"app/assets/javascripts/actions/change_reasons.coffee"
+			],
+			[
+				"actionschange",
+				"app/assets/javascripts/actions/change_reasons.coffee"
+			],
+			[
+				"changere",
+				"app/assets/javascripts/stores/change_reasons.coffee"
+			],
+			[
+				"storetimeof",
+				"app/assets/javascripts/stores/settings/time_off.es6"
+			],
+			[
+				"actionssettings",
+				"app/assets/javascripts/actions/settings/time_off.es6"
+			],
+			[
+				"timeoffsetting",
+				"app/assets/javascripts/ui/settings/time_off/time_off_settings_app.es6"
+			],
+			[
+				"paygroup",
+				"app/controllers/company/settings/pay_groups_controller.rb"
+			],
+			[
+				"esignindex",
+				"app/views/company/settings/esignature_documents/index.html.slim"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 217.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
