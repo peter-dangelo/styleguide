@@ -101,7 +101,7 @@ gulp.task('styles', function() {
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./public'))
     .pipe(connect.reload());
-  gulp.src('src/scss/app.scss')
+  gulp.src('src/scss/namely-ui.scss')
     .pipe(sass())
     .pipe(autoprefix())
     .pipe(cssnano())

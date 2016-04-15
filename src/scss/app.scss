@@ -1,12 +1,7 @@
-.namely-ui {
+// Utility classes
+@import './animations/animations';
+@import './base/base';
+@import './layout/layout';
 
-  // Utility classes
-  @import './animations/animations';
-  @import './base/base';
-  @import './layout/layout';
-
-  // Theme styles
-  @import './src/scss/theme/theme';
-
-  font-family: $sans-family;
-}
+// Theme styles
+@import './src/scss/theme/theme';
