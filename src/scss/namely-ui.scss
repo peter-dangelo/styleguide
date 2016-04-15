@@ -1,10 +1,11 @@
-// Utility classes
-@import './animations/animations';
-@import './base/base';
-@import './layout/layout';
-
-// Theme styles, wrapped in a namespace to help reduce side effects
 .namely-ui {
+
+  // Utility classes
+  @import './animations/animations';
+  @import './base/base';
+  @import './layout/layout';
+
+  // Theme styles
   @import './src/scss/theme/theme';
 
   font-family: $sans-family;
