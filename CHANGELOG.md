@@ -1,3 +1,9 @@
+**v0.3.1**:
+
+- separates css theme from utility classes
+- removes unused react-select
+- slightly improves appearance of checkboxes, contextual help icons
+
 **v0.3.0**:
 
 - adds working sortable table w/ example
