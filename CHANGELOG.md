@@ -9,6 +9,7 @@
 - adding nav style modules
 - adding flash messaging style module
 - supporting button styles for input[type="submit"] and input[type="button"]
+- sorting funtions in router alphabetically
 
 **v0.3.0**:
 
