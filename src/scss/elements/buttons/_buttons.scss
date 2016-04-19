@@ -10,7 +10,9 @@
 $base-button-font-size: $h4;
 
 button,
-.button {
+.button,
+[type=button],
+[type=submit] {
   appearance: none;
   background: $blue-70;
   border: 0;
