@@ -1,3 +1,10 @@
+**v0.3.1**:
+
+adding back link style module
+adding nav style modules
+adding flash messaging style module
+supporting button styles for input[type="submit"] and input[type="button"]
+
 **v0.3.0**:
 
 - adds working sortable table w/ example
