@@ -43,3 +43,19 @@ a {
     outline: 0;
   }
 }
+
+.back {
+  @include icon(arrow-left);
+  font-size: $h6;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::before {
+    font-size: 8px;
+    margin-right: $space-1;
+  }
+}
