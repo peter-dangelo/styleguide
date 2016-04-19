@@ -1,0 +1,27 @@
+/**
+
+  secondary nav
+--------------------------------
+
+  Duplicated from HCM
+
+------------------------------*/
+
+.secondary-nav {
+  border-bottom: 1px solid $grey-15;
+  margin-bottom: $space-3;
+  padding-left: $space-2;
+
+  a {
+    color: $grey-90;
+    display: inline-block;
+    font-weight: bold;
+    padding-bottom: 2px;
+
+    &.on {
+      border-bottom: 5px solid $blue-25;
+      margin-bottom: -3px;
+      padding-bottom: 0;
+    }
+  }
+}

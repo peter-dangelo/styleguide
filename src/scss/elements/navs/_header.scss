@@ -1,0 +1,55 @@
+/**
+
+  header
+--------------------------------
+
+  Duplicated from HCM
+
+------------------------------*/
+
+header {
+  background: $grey-95;
+  border-bottom: 5px solid $blue-70;
+  color: $white;
+  width: 100%;
+
+  a,
+  span {
+    box-sizing: border-box;
+    color: $grey-25;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+    padding: 12px 10px 6px;
+  }
+
+  a {
+
+    &.on {
+      border-bottom: 5px solid $blue-70;
+    }
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  nav {
+
+    a,
+    .header-icon {
+      float: left;
+    }
+  }
+}
+
+.header-icon {
+  background: rgba($white, 0) url('../images/logo.svg') no-repeat;
+  background-size: 40px 37px;
+  box-sizing: content-box;
+  fill: $blue-70;
+  height: 40px;
+  margin: 5px 15px 2px 0px;
+  padding: 0;
+  width: 37px;
+}
