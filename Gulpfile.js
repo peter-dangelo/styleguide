@@ -29,6 +29,11 @@ function string_src(filename, string) {
   return src
 }
 
+function onError(err) {
+  gutil.log(err.toString());
+  this.emit('end');
+}
+
 gulp.task('build', ['icons', 'colors', 'styles', 'scripts']);
 
 gulp.task('clean', function() {
@@ -78,7 +83,7 @@ gulp.task('scripts', function() {
   })
     .transform(babelify)
     .bundle()
-    .on('error', gutil.log)
+    .on('error', onError)
     .pipe(source('app.js'))
     .pipe(gulp.dest('./public'))
     .pipe(connect.reload());
@@ -95,7 +100,8 @@ gulp.task('scss-lint', function() {
 gulp.task('styles', function() {
   gulp.src('./src/scss/app.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({errLogToConsole: true}))
+    .pipe(sass())
+    .on('error', function() {return true})
     .pipe(cssnano({processImport: false}))
     .pipe(autoprefix())
     .pipe(sourcemaps.write('.'))
@@ -103,6 +109,7 @@ gulp.task('styles', function() {
     .pipe(connect.reload());
   gulp.src('src/scss/namely-ui.scss')
     .pipe(sass())
+    .on('error', onError)
     .pipe(autoprefix())
     .pipe(cssnano())
     .pipe(size({title: 'minified css'}))
