@@ -1,4 +1,4 @@
-**v0.3.1**:
+**v0.3.2**:
 
 adding back link style module
 adding nav style modules
