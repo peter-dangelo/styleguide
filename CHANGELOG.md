@@ -1,3 +1,19 @@
+**v0.3.1**:
+
+- switches font to Proxima uncondensed
+
+**v0.3.0**:
+
+- adds working sortable table w/ example
+- adds `fields` extending `FieldBase`
+- refactors `OverlayClick`
+- refactor simple-select: use OverlayClick internally
+- refactors (modal/tooltip): removes unused props, set used PropTypes
+- Use lodash.assign instead of Object.assign
+- simple-select: Explicitly null out value if value does not match any options
+- Fix date picker to correctly parse int'l date format
+- fix(overlay-click): removes root node listener on hide()
+
 **v0.2.3**:
 
 * Correct link color inside tooltips
