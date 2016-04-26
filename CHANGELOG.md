@@ -1,3 +1,7 @@
+**v0.3.1**:
+
+- switches font to Proxima uncondensed
+
 **v0.3.0**:
 
 - adds working sortable table w/ example
