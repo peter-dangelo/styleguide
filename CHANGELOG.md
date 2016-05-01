@@ -1,9 +1,13 @@
 **v0.3.2**:
 
-adding back link style module
-adding nav style modules
-adding flash messaging style module
-supporting button styles for input[type="submit"] and input[type="button"]
+- adding back link style module
+- adding nav style modules
+- adding flash messaging style module
+- supporting button styles for input[type="submit"] and input[type="button"]
+
+**v0.3.1**:
+
+- switches font to Proxima uncondensed
 
 **v0.3.0**:
 
