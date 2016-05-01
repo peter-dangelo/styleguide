@@ -1,15 +1,21 @@
-**v0.3.1**:
+**v0.4.0**:
 
 - separating css theme from utility classes
 - removing unused react-select
 - correcting hover border-color bug for inputs
 - correcting border-box for inputs for matching sizing units
-- adjusting check size to center
+- sorting funtions in router alphabetically
+
+**v0.3.2**:
+
 - adding back link style module
 - adding nav style modules
 - adding flash messaging style module
 - supporting button styles for input[type="submit"] and input[type="button"]
-- sorting funtions in router alphabetically
+
+**v0.3.1**:
+
+- switches font to Proxima uncondensed
 
 **v0.3.0**:
 
