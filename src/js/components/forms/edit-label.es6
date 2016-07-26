@@ -37,7 +37,7 @@ export default createClass({
   },
 
   _handleSave() {
-    const val = this.refs.labelInput.getDOMNode().value;
+    const val = React.findDOMNOde(this.refs.labelInput).value;
 
     if ( this.props.isValid ) {
 

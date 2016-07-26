@@ -17,7 +17,7 @@ export default React.createClass({
   makeActiveLink() {
     let self = this;
     let pathname = window.location.pathname;
-    let navItems = self.refs.navList.getDOMNode().querySelectorAll('.nav-item');
+    let navItems = React.findDOMNode(self.refs.navList).querySelectorAll('.nav-item');
 
     for(let i = 0; i < navItems.length; i++) {
       let link = navItems.item(i).children.item(0);

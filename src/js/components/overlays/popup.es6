@@ -32,7 +32,7 @@ export default createClass({
 
   _showPop() {
     const { posX, posY } = this.state;
-    const baseNode = this.refs.child0.getDOMNode().getBoundingClientRect();
+    const baseNode = React.findDOMNode(this.refs.child0).getBoundingClientRect();
     const baseWidth = baseNode.width;
     const posXLen = (baseWidth / 2) + 5;
 
@@ -60,7 +60,7 @@ export default createClass({
     if (open) {
       this.setState({ open: false });
     } else {
-      const node = this.refs.popContainer.getDOMNode().getBoundingClientRect();
+      const node = React.findDOMNode(this.refs.popContainer).getBoundingClientRect();
       const nodeBottom = node.bottom;
       const nodeRight = node.right;
       const windowHeight = window.innerHeight;
