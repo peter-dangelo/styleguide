@@ -1,5 +1,6 @@
 import Router from 'ampersand-router';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import NavContainer from './nav-container';
 import HomePage from './pages/home';
 import LayoutPage from './pages/layout';
@@ -24,7 +25,7 @@ export default Router.extend({
     ViewActions.flush();
     const main = React.createElement(NavContainer, {}, React.createElement(Page));
 
-    React.render(main, appContainer);
+    ReactDOM.render(main, appContainer);
   },
 
   routes: {
