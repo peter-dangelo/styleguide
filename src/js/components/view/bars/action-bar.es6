@@ -1,13 +1,10 @@
 import React from 'react/addons';
+import cloneWithProps from 'react-addons-clone-with-props';
 
 const {
   createClass,
   PropTypes,
 } = React;
-
-const {
-  cloneWithProps,
-} = React.addons;
 
 const ActionBar = createClass({
 

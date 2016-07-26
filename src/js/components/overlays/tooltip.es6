@@ -1,7 +1,7 @@
-import React from 'react/addons';
+import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Type = React.PropTypes;
-const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 const caretPositions = [
   "top-left", "top-center", "top-right",

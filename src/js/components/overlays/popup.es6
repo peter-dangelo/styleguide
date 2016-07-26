@@ -1,12 +1,12 @@
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import cloneWithProps from 'react-addons-clone-with-props';
 
 const {
   createClass,
   PropTypes : Type,
   Children
 } = React;
-
-const { cloneWithProps } = React.addons;
 
 export default createClass({
 
@@ -32,7 +32,7 @@ export default createClass({
 
   _showPop() {
     const { posX, posY } = this.state;
-    const baseNode = React.findDOMNode(this.refs.child0).getBoundingClientRect();
+    const baseNode = ReactDOM.findDOMNode(this.refs.child0).getBoundingClientRect();
     const baseWidth = baseNode.width;
     const posXLen = (baseWidth / 2) + 5;
 
@@ -60,7 +60,7 @@ export default createClass({
     if (open) {
       this.setState({ open: false });
     } else {
-      const node = React.findDOMNode(this.refs.popContainer).getBoundingClientRect();
+      const node = ReactDOM.findDOMNode(this.refs.popContainer).getBoundingClientRect();
       const nodeBottom = node.bottom;
       const nodeRight = node.right;
       const windowHeight = window.innerHeight;

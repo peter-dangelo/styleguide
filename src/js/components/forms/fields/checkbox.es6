@@ -1,5 +1,6 @@
 import assign from 'lodash.assign';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { fieldProps, FieldBase} from './base.es6';
 import omit from '../../utils/omit';
 
@@ -22,7 +23,7 @@ class CheckboxField extends FieldBase {
     const values = [];
     const {
       elements
-    } = React.findDOMNode(this.refs.fieldset);
+    } = ReactDOM.findDOMNode(this.refs.fieldset);
 
     for (let i = 0, len = elements.length; i < len; i++) {
       let {
@@ -51,7 +52,7 @@ class CheckboxField extends FieldBase {
 
     return (
       <label key={`${value}-${index}`} className="block py1">
-        <input 
+        <input
           checked={readOnly ? defaultValue.includes(value) : null}
           defaultChecked={!readOnly && defaultValue.includes(value)}
           readOnly={readOnly}
@@ -81,8 +82,8 @@ class CheckboxField extends FieldBase {
     const spreadProps = omit(this.props, 'onChange');
 
     return (
-      <fieldset 
-        id={this.props.name} 
+      <fieldset
+        id={this.props.name}
         onChange={this.onChange}
         ref="fieldset"
         {...spreadProps}
