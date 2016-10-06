@@ -1,6 +1,6 @@
 {
   "name": "namely-ui",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Namely UI: A SCSS and React component library for internal use at Namely",
   "private": true,
   "main": "namely-ui.js",

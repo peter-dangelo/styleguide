@@ -1,3 +1,7 @@
+**v0.3.2**:
+
+- fixes CheckboxField error in IE
+
 **v0.3.1**:
 
 - switches font to Proxima uncondensed
