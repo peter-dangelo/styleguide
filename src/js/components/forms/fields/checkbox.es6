@@ -20,9 +20,8 @@ class CheckboxField extends FieldBase {
 
   onChange() {
     const values = [];
-    const {
-      elements
-    } = React.findDOMNode(this.refs.fieldset);
+    const fieldset = React.findDOMNode(this.refs.fieldset);
+    const elements = this.getElements(fieldset);
 
     for (let i = 0, len = elements.length; i < len; i++) {
       let {
@@ -36,6 +35,17 @@ class CheckboxField extends FieldBase {
     }
 
     this.handleChange(values);
+  }
+
+  getElements(fieldset) {
+    let { elements } = fieldset;
+
+    // the elements property is unsupported in IE
+    if (elements == undefined) {
+      elements = fieldset.getElementsByTagName('input');
+    }
+
+    return elements;
   }
 
   renderOption(value, index, label) {
